@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>   
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Dewhurst Security Blog - </title>
+    <meta name="description" content="Dewhurst Security Blog" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+    <!-- This is for syntax highlight -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
+    <!-- Customisation  -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+
+</head>
+<body class="home-template">
+
+    
+    <main class="content" role="main">
+
+    <article class="post">
+        <header class="post-header">
+            <a id="blog-logo" href="">
+                
+                    <span class="blog-title">Dewhurst Security Blog</span>
+                 
+            </a>
+        </header>
+        
+        <span class="post-meta">
+        	<time datetime="2011-10-04">04 Oct 2011</time>
+        	
+        		on
+	        	
+	        
+       	</span>
+
+        <h1 class="post-title">Concrete5 <= 5.4.2.1 SQL Injection and XSS Vulnerabilities</h1>
+
+        <section class="post-content">
+            <p># Exploit Title: Concrete5 < = 5.4.2.1 SQL Injection and XSS Vulnerabilities<br />
+# Date: 2011-10-04<br />
+# Author: Ryan Dewhurst (ryandewhurst at gmail) (@ethicalhack3r)(www.ethicalhack3r.co.uk)<br />
+# Software Link: http://sourceforge.net/projects/concretecms/files/concrete5/5.4.2.1/<br />
+# Version: 5.4.2.1 (tested)</p>
+
+<p>1.Vulnerability Description</p>
+
+<p>Multiple SQL Injection, Cross-Site Scripting (XSS) and Information Disclosure vulnerabilities were identified within Concrete5 version 5.4.2.1</p>
+
+<p>Please note: Only a select few vulnerabilities are outlined in this disclosure, many other vulnerabilities were discovered. Due to time restraints only a small sample of the vulnerabilities are outlined below. The vendor was contacted and replied promptly. Further assistance was asked for but not delivered due to my time constraints.</p>
+
+<p>2.Software Description</p>
+
+<p>CMS made for Marketing but built for Geeks, concrete5 [0] is a content management system that is free and open source.</p>
+
+<p><a id="more"></a><a id="more-16555"></a></p>
+
+<p>3.SQLi PoC [1] (authenticated user)</p>
+
+<p>http://concrete5.4.2/index.php/dashboard/reports/surveys/?ccm_order_by=numberOfResponses&ccm_order_dir=,(SELECT BENCHMARK(1000000,MD5(1)) FROM btSurveyResults where CURRENT_USER() like 'root@localhost' limit 1) -- </p>
+
+<p>4.Vulnerable code</p>
+
+<p>File: concrete/controllers/dashboard/reports/surveys.php</p>
+
+<p>[php]<br />
+class SurveyList extends DatabaseItemList {<br />
+       protected $itemsPerPage = 10;<br />
+       protected $autoSortColumns = array('cvName', 'question',<br />
+'numberOfResponses', 'lastResponse');</p>
+
+<p>       function __construct() {<br />
+               $this->setQuery(<br />
+                          'select distinct btSurvey.bID,<br />
+CollectionVersions.cID, btSurvey.question, CollectionVersions.cvName,<br />
+(select max(timestamp) from btSurveyResults where btSurveyResults.bID<br />
+= btSurvey.bID and btSurveyResults.cID = CollectionVersions.cID) as<br />
+lastResponse, (select count(timestamp) from btSurveyResults where<br />
+btSurveyResults.bID = btSurvey.bID and btSurveyResults.cID =<br />
+CollectionVersions.cID) as numberOfResponses ' .<br />
+                               'from btSurvey, CollectionVersions,<br />
+CollectionVersionBlocks');<br />
+               $this->filter(false, 'btSurvey.bID =<br />
+CollectionVersionBlocks.bID');<br />
+               $this->filter(false, 'CollectionVersions.cID =<br />
+CollectionVersionBlocks.cID');<br />
+               $this->filter(false, 'CollectionVersionBlocks.cvID =<br />
+CollectionVersionBlocks.cvID');<br />
+               $this->filter(false, 'CollectionVersions.cvIsApproved = 1');<br />
+               $this->userPostQuery .= 'group by btSurvey.bID,<br />
+CollectionVersions.cID';<br />
+       }<br />
+}<br />
+[/php]</p>
+
+<p>5.Cross-Site Scripting (XSS)</p>
+
+<p>Page: http://192.168.1.105/concrete5.4.2/index.php/login/forgot_password/<br />
+Parameter: rcID<br />
+Method: POST<br />
+PoC: Any JavaScript</p>
+
+<p>6.Vulnerable Code</p>
+
+<p>File: concrete/single_pages/login.php:</p>
+
+<p>[html]<input type="hidden" name="rcID" value="< ?php echo $rcID?/>">[/html]</p>
+
+<p>7.Full Path Disclosure (FPD)</p>
+
+<p>http://concrete5.4.2/index.php/tools/blocks/page_list/blog_rss?bID=30&cID='&arHandle=Main</p>
+
+<p>8.Vulnerability Timeline</p>
+
+<p>2011-09-06 - Reported to vendor<br />
+2011-09-06 - Vendor Reply<br />
+2011-09-07 - Vendor Acknowledge Vulnerabilities and asked for assistance patching. No assistance given apart from the initial report due to time constraints.<br />
+2011-10-04 - Vulnerability Disclosed</p>
+
+<p>9.References</p>
+
+<p>[0] <a href="http://www.concrete5.org/" target="_blank">http://www.concrete5.org/</a><br />
+[1] <a href="http://www.bonsai-sec.com/blog/index.php/not-the-average-sql-injection/" target="_blank">http://www.bonsai-sec.com/blog/index.php/not-the-average-sql-injection/</a></p>
+
+        </section>
+
+        
+
+        <footer class="post-footer">
+        	<!-- If we want to display author's name and bio -->
+            
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=Concrete5 <= 5.4.2.1 SQL Injection and XSS Vulnerabilities&amp;url=/2011/10/04/concrete5.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=/2011/10/04/concrete5.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=/2011/10/04/concrete5.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+        	
+        </footer>
+
+    </article>
+
+</main>
+
+
+    <footer class="site-footer">
+        <div class="inner">
+            <section class="copyright">All content copyright <a href="">Dewhurst Security Blog</a> &copy;  &bull; All rights reserved.</section>
+        </div>
+    </footer>
+
+    
+    <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+</body>
+</html>

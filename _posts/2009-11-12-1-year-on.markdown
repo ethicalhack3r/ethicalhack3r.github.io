@@ -1,0 +1,30 @@
+---
+layout: post
+status: publish
+published: true
+title: 1 year on
+author:
+  display_name: ethicalhack3r
+  login: ethicalhack3r
+  email: ryandewhurst@gmail.com
+  url: ''
+author_login: ethicalhack3r
+author_email: ryandewhurst@gmail.com
+wordpress_id: 426
+wordpress_url: http://www.ethicalhack3r.co.uk/?p=426
+date: '2009-11-12 01:33:10 +0000'
+date_gmt: '2009-11-12 01:33:10 +0000'
+---
+<p>Today is exactly one year on after posting my first <a title="first post" href="http://www.ethicalhack3r.co.uk/2008/11/12/project-camelot-interviews-gary-mckinnon/" target="_blank">post</a> on the blog. I had a premature celebration (couldn't hold the excitement) by changing the design as you have all probably noticed. I am still working on he re-design so there may still be some glitches here and there, bear with me.</p>
+<p><strong><span style="text-decoration: underline;"></span><br />
+</strong></p>
+<p>I have come a long way since that first post and learnt a great deal. In 12 months I have created and managed DVWA to the success it is now with lots of help from the community. I have done talks, written articles and been a guest on some great podcasts. I completed my first year at university with the grade I set out to achieve and I am now half way through my second year still going strong.</p>
+<p><strong><span style="text-decoration: underline;"></span><br />
+</strong></p>
+<p>All this I could not have achieved with out my friends, family and the online security community. The infosec community is always there to lend a hand and has opened up great opportunity's for me. If you are an Ethical Hacking student or security professional and your not involved in the community, I cant stress enough how beneficial it is to contribute and learn from the amazing people that our out there. I would like to name names however there's so many of you that have helped me I'm afraid I might miss some one out.</p>
+<p><strong><span style="text-decoration: underline;"></span><br />
+</strong></p>
+<p>With out you the reader there would be no point in me keeping the blog updated with new posts, so please comment, give feedback and let me know what you would like to see more of. Also, don't forget to subscribe! Blue box on the right. ;) --&gt;</p>
+<p><strong><span style="text-decoration: underline;"></span><br />
+</strong></p>
+<p>Again a big thank you to you all.</p>

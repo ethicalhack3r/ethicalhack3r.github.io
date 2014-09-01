@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>   
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Dewhurst Security Blog - </title>
+    <meta name="description" content="Dewhurst Security Blog" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+    <!-- This is for syntax highlight -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
+    <!-- Customisation  -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+
+</head>
+<body class="home-template">
+
+    
+    <main class="content" role="main">
+
+    <article class="post">
+        <header class="post-header">
+            <a id="blog-logo" href="">
+                
+                    <span class="blog-title">Dewhurst Security Blog</span>
+                 
+            </a>
+        </header>
+        
+        <span class="post-meta">
+        	<time datetime="2012-01-03">03 Jan 2012</time>
+        	
+        		on
+	        	
+	        
+       	</span>
+
+        <h1 class="post-title">WordPress 3.3 Cross-Site Scripting (XSS)</h1>
+
+        <section class="post-content">
+            <p>Yesterday two Indian security researchers, Aditya Modha & Samir Shah, released an <a href="http://oldmanlab.blogspot.com/2012/01/wordpress-33-xss-vulnerability.html" target="_blank">advisory</a> outlining a Cross-Site Scripting (XSS) vulnerability within the latest version (at the time of writing) of WordPress 3.3. Many people started re-tweeting the news (including myself) and <a href="http://thehackernews.com/2012/01/zero-day-reflected-cross-site-scripting.html" target="_blank">blogging</a> about it. The problem came when I tried to reproduce the vulnerability, I couldn't.</p>
+
+<p>I started to think that the vulnerability was a miss-understanding or publicity stunt and was getting annoyed at the many people who were spreading miss-information. I contacted the researchers over <a href="http://www.twitter.com/oldmanlab" target="_blank">Twitter</a> and told them that I was unable to reproduce the vulnerability in any browser or on any WordPress installation including vanilla installs.</p>
+
+<p>The researchers got back in touch with a link to a WordPress installation on which the vulnerability worked. The URL they gave me was an IP address. Within their environment the XSS worked.</p>
+
+<p>At this point I think even the researchers were puzzled. They sent me this code that they believed was the function causing the XSS within wp-includes/functions.php <a href="http://pastebin.com/iBnpN8Zm" target="_blank">http://pastebin.com/iBnpN8Zm</a>.</p>
+
+<p><a id="more"></a><a id="more-16709"></a></p>
+
+<p>[php]<br />
+function wp_guess_url() {<br />
+    if ( defined('WP_SITEURL') && '' != WP_SITEURL ) {<br />
+        $url = WP_SITEURL;<br />
+    } else {<br />
+        $schema = is_ssl() ? 'https://' : 'http://';<br />
+        $url = preg_replace('|/wp-admin/.*|i', '', $schema . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);<br />
+    }<br />
+    return rtrim($url, '/');<br />
+}<br />
+[/php]</p>
+
+<p>The XSS occurs because $_SERVER['REQUEST_URI'] (the URI which was given in order to access the page) was used within output before first being sanitized. Or better yet, it shouldn't have been used at all.</p>
+
+<p>The reason I couldn't reproduce it or why the researchers couldn't reproduce outside of their environment? The reason is the 'else' never gets triggered when WordPress was installed via a domain.</p>
+
+<p>If you installed WordPress by accessing http://192.168.100.110/, for example, you are vulnerable. If however, like most people, but not all, installed WordPress via the domain name, http://www.ethicalhack3r.co.uk you are not vulnerable.</p>
+
+<p>Quick and easy fix until WordPress release a patch? Put $_SERVER['REQUEST_URI'] through esc_html() first, esc_html($_SERVER['REQUEST_URI']).</p>
+
+<p>Example (tested):</p>
+
+<p>wp-includes/functions.php:3756<br />
+[php]<br />
+$url = preg_replace('|/wp-admin/.*|i', '', $schema . $_SERVER['HTTP_HOST'] . esc_html($_SERVER['REQUEST_URI']));<br />
+[/php]</p>
+
+<p><strong>UPDATE --</strong></p>
+
+<p>WordPress 3.3.1 has been released that seems to fix the issue.</p>
+
+        </section>
+
+        
+
+        <footer class="post-footer">
+        	<!-- If we want to display author's name and bio -->
+            
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=WordPress 3.3 Cross-Site Scripting (XSS)&amp;url=/2012/01/03/wordpress-3-3-cross-site-scripting-xss.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=/2012/01/03/wordpress-3-3-cross-site-scripting-xss.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=/2012/01/03/wordpress-3-3-cross-site-scripting-xss.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+        	
+        </footer>
+
+    </article>
+
+</main>
+
+
+    <footer class="site-footer">
+        <div class="inner">
+            <section class="copyright">All content copyright <a href="">Dewhurst Security Blog</a> &copy;  &bull; All rights reserved.</section>
+        </div>
+    </footer>
+
+    
+    <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>   
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Dewhurst Security Blog - </title>
+    <meta name="description" content="Dewhurst Security Blog" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+    <!-- This is for syntax highlight -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
+    <!-- Customisation  -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+
+</head>
+<body class="home-template">
+
+    
+    <main class="content" role="main">
+
+    <article class="post">
+        <header class="post-header">
+            <a id="blog-logo" href="">
+                
+                    <span class="blog-title">Dewhurst Security Blog</span>
+                 
+            </a>
+        </header>
+        
+        <span class="post-meta">
+        	<time datetime="2011-11-23">23 Nov 2011</time>
+        	
+        		on
+	        	
+	        
+       	</span>
+
+        <h1 class="post-title">WordPress 'In the Wild' and WPScan Update</h1>
+
+        <section class="post-content">
+            <p>As part of my on-going interest in WordPress security I wanted to find out for myself what the state of security was like on installations in the wild.</p>
+
+<p>A list of servers running WordPress was acquired from <a href="http://www.shodanhq.com/" target="_blank">Shodan</a> by searching for a particular HTTP response header and its value. The list contained 10,000 entries, I don't know for sure, but I assume the list contained servers from around the world and was fairly random.</p>
+
+<p>An Open Source project I have been working on, <a href="http://code.google.com/p/wpscan/" target="_blank">WPScan</a>, a WordPress security scanner, was used to passively scan 100 of those WordPress installations. This was done partly to test the scanner for any defects and also to gather data about the security of WordPress installations in the wild.</p>
+
+<p><a id="more"></a><a id="more-16592"></a></p>
+
+<p>Below are the results:</p>
+
+<p>The readme.html file was present: 85/100<br />
+An error_log file was present: 2/100<br />
+Was effected by Full Path Disclosure (FPD): 59/100<br />
+Were running the latest version (3.2.1): 44/100<br />
+The oldest version found running was 2.0.3.<br />
+Had the version in the 'generator' meta tag: 95/100<br />
+The version was detected through 'advanced' fingerprinting: 4/100<br />
+The version was not detected: 1/100<br />
+Timthumb file detected: 10/100</p>
+
+<p>Metasploit integration has been put on hold due to the deprecation of the MSF XML-RPC server and implementation of the new MessagePack RPC. There are plans to possibly integrate other tools such as fimap, sqlmap and others, see issue <a href="http://code.google.com/p/wpscan/issues/detail?id=56" target="_blank">56</a>. We hope to release a new version of WPScan before the end of the year. I'd like to thank all of WPScan's contributors for making this possible.</p>
+
+<p>To contribute or report a bug, you can do so here; <a href="http://code.google.com/p/wpscan/issues/list" target="_blank">http://code.google.com/p/wpscan/issues/list </a></p>
+
+<p>The latest code base is available from our subversion repository, which should always be stable enough to run and will contain the latest vulnerability data. The following command can be issued to checkout the code; "svn checkout http://wpscan.googlecode.com/svn/trunk/ ./wpscan"</p>
+
+<p>Some other good news is that WPScan was implemented into <a href="http://www.backtrack-linux.org/" target="_blank">Backtack</a> and will be a part of the next version of <a href="http://samurai.inguardians.com/" target="_blank">SamuraiWTF</a>.</p>
+
+        </section>
+
+        
+
+        <footer class="post-footer">
+        	<!-- If we want to display author's name and bio -->
+            
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=WordPress 'In the Wild' and WPScan Update&amp;url=/2011/11/23/wordpress-in-the-wild-and-wpscan-update.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=/2011/11/23/wordpress-in-the-wild-and-wpscan-update.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=/2011/11/23/wordpress-in-the-wild-and-wpscan-update.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+        	
+        </footer>
+
+    </article>
+
+</main>
+
+
+    <footer class="site-footer">
+        <div class="inner">
+            <section class="copyright">All content copyright <a href="">Dewhurst Security Blog</a> &copy;  &bull; All rights reserved.</section>
+        </div>
+    </footer>
+
+    
+    <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>   
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Dewhurst Security Blog - </title>
+    <meta name="description" content="Dewhurst Security Blog" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+    <!-- This is for syntax highlight -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
+    <!-- Customisation  -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+
+</head>
+<body class="home-template">
+
+    
+    <main class="content" role="main">
+
+    <article class="post">
+        <header class="post-header">
+            <a id="blog-logo" href="">
+                
+                    <span class="blog-title">Dewhurst Security Blog</span>
+                 
+            </a>
+        </header>
+        
+        <span class="post-meta">
+        	<time datetime="2012-08-25">25 Aug 2012</time>
+        	
+        		on
+	        	
+	        
+       	</span>
+
+        <h1 class="post-title">Concrete5 5.5.2.1 Multiple Authenticated Cross-Site Scripting (XSS)</h1>
+
+        <section class="post-content">
+            <p># Exploit Title: Concrete5 5.5.2.1 Multiple Authenticated Cross-Site Scripting (XSS)<br />
+# Date: 2012-08-25<br />
+# Author: Ryan 'ethicalhack3r' Dewhurst (www.ethicalhack3r.co.uk)<br />
+# Software Link: http://sourceforge.net/projects/concretecms/files/concrete5/5.5.2.1/<br />
+# Version: 5.5.2.1</p>
+
+<p>1.Vulnerability Description</p>
+
+<p>Multiple authenticated Cross-Site Scripting (XSS) vulnerabilities were identified within Concrete5 version 5.5.2.1. Also reported were some cookie security improvements. The first Concrete5 advisory can be found here [1].</p>
+
+<p>2.Software Description</p>
+
+<p>CMS made for Marketing but built for Geeks, concrete5 [0] is a content management system that is free and open source.</p>
+
+<p>3. Vulnerability Information</p>
+
+<p><a id="more"></a><a id="more-16847"></a></p>
+
+<p>3.1 Cross-Site Scripting (XSS)</p>
+
+<p>Page: index.php/tools/required/files/customize_search_columns<br />
+Parameters: searchInstance<br />
+Method: GET</p>
+
+<p>Page: index.php/tools/required/files/save_search<br />
+Parameters: ccm-submit-button, searchInstance<br />
+Method: POST</p>
+
+<p>Page: index.php/tools/required/files/search_results<br />
+Parameters: numResults, searchInstance & searchType<br />
+Method: GET</p>
+
+<p>Page: index.php/tools/required/sitemap_search_selector.php<br />
+Parameters: cID, sitemap_select_mode<br />
+Method: GET</p>
+
+<p>Page: index.php/tools/required/users/search_dialog<br />
+Parameters: mode<br />
+Method: GET</p>
+
+<p>Page: index.php/tools/required/users/search_results<br />
+Parameters: mode, numResults & searchType<br />
+Method: GET</p>
+
+<p>3.2 Cookie Security</p>
+
+<p>Current cookie name/value: CONCRETE5=6amek9tk8549gisbhsqcpi0ku6;<br />
+path=/concrete5.5.2.1/</p>
+
+<p>The 'httpOnly' and 'secure' flags should be set as well as an expiry time/date.</p>
+
+<p>4.Vulnerability Timeline</p>
+
+<p>2012-07-24 – Reported to vendor<br />
+2012-07-24 – Vendor acknowledged<br />
+2012-08-25 – Vulnerability Disclosed</p>
+
+<p>5.References</p>
+
+<p>[0] http://www.concrete5.org/<br />
+[1] http://www.ethicalhack3r.co.uk/security/concrete5/</p>
+
+        </section>
+
+        
+
+        <footer class="post-footer">
+        	<!-- If we want to display author's name and bio -->
+            
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=Concrete5 5.5.2.1 Multiple Authenticated Cross-Site Scripting (XSS)&amp;url=/2012/08/25/concrete5-5-5-2-1-multiple-authenticated-cross-site-scripting-xss.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=/2012/08/25/concrete5-5-5-2-1-multiple-authenticated-cross-site-scripting-xss.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=/2012/08/25/concrete5-5-5-2-1-multiple-authenticated-cross-site-scripting-xss.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+        	
+        </footer>
+
+    </article>
+
+</main>
+
+
+    <footer class="site-footer">
+        <div class="inner">
+            <section class="copyright">All content copyright <a href="">Dewhurst Security Blog</a> &copy;  &bull; All rights reserved.</section>
+        </div>
+    </footer>
+
+    
+    <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+</body>
+</html>

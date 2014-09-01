@@ -1,0 +1,36 @@
+---
+layout: post
+status: publish
+published: true
+title: w3af
+author:
+  display_name: ethicalhack3r
+  login: ethicalhack3r
+  email: ryandewhurst@gmail.com
+  url: ''
+author_login: ethicalhack3r
+author_email: ryandewhurst@gmail.com
+wordpress_id: 229
+wordpress_url: http://www.ethicalhack3r.co.uk/?p=229
+date: '2009-06-08 15:48:13 +0100'
+date_gmt: '2009-06-08 15:48:13 +0100'
+---
+<p>Ive just finished coding a wordpress version fingerprinting plugin for w3af so I thought id let you all know what w3af is and how you can contribute too.</p>
+<p><strong><span style="text-decoration: underline;"></span><br />
+</strong></p>
+<blockquote><p>w3af is a Web Application Attack and Audit Framework. The project's goal is to create a framework to find and exploit web application vulnerabilities that is easy to use and extend.</p></blockquote>
+<p><strong><span style="text-decoration: underline;"></span><br />
+</strong><br />
+Any serious security professional should have w3af in their tool kit, w3af can discover, evade, audit and exploit web application vulnerabilities.</p>
+<p><strong><span style="text-decoration: underline;"></span><br />
+</strong></p>
+<p>The plugin I developed (wordpress_fingerprint) scans wordpress installations for their version. It does this by first checking that wordpress is installed, if it is it will check to see if the version is in the index header source code and will then go through a list of fingerprinting data. The plugin will find the version even if there is a security plugin installed.</p>
+<p><strong><span style="text-decoration: underline;"></span><br />
+</strong></p>
+<p>To contribute to w3af:</p>
+<p>Mailing list: <a href="http://sourceforge.net/mail/?group_id=170274" target="_blank">http://sourceforge.net/mail/?group_id=170274</a></p>
+<p>IRC channel: <a href="irc://irc.freenode.net:8001/w3af" target="_blank">irc://irc.freenode.net:8001/w3af</a></p>
+<p>Download: <a href="http://sourceforge.net/projects/w3af/" target="_blank">http://sourceforge.net/projects/w3af/</a></p>
+<p><strong><span style="text-decoration: underline;"></span><br />
+</strong></p>
+<p>A big thanks to Andres Riancho for a great tool and for helping me develop the plugin.</p>

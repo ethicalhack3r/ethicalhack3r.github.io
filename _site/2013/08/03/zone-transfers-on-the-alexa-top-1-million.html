@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>   
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Dewhurst Security Blog - </title>
+    <meta name="description" content="Dewhurst Security Blog" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+    <!-- This is for syntax highlight -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
+    <!-- Customisation  -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+
+</head>
+<body class="home-template">
+
+    
+    <main class="content" role="main">
+
+    <article class="post">
+        <header class="post-header">
+            <a id="blog-logo" href="">
+                
+                    <span class="blog-title">Dewhurst Security Blog</span>
+                 
+            </a>
+        </header>
+        
+        <span class="post-meta">
+        	<time datetime="2013-08-03">03 Aug 2013</time>
+        	
+        		on
+	        	
+	        
+       	</span>
+
+        <h1 class="post-title">Zone Transfers on The Alexa Top 1 Million</h1>
+
+        <section class="post-content">
+            <p>At work as part of every assessment we do a some reconnaissance which includes attempting a <a href="https://en.wikipedia.org/wiki/DNS_zone_transfer">DNS Zone Transfer (axfr)</a> and conducting a subdomain brute force on the target domain/s. The subdomain brute force is only as good as your wordlist, the Zone Transfer is a matter of luck.</p>
+
+<p>Alexa release a list of the <a href="http://s3.amazonaws.com/alexa-static/top-1m.csv.zip">top 1 million sites</a> which is updated on a daily basis. To create a better subdomain wordlist to conduct subdomain brute forcing I attempted a DNS Zone Transfer against the first 2000 sites in the Alexa Top 1 Million list. With every successful Zone Transfer the DNS A records were stored in a CSV file.</p>
+
+<p>This was all done using Carlos Perez's <a href="https://github.com/darkoperator/dnsrecon">dnsrecon</a> DNS enumeration tool. Dnsrecon was ever so slightly modified to only save A records, apart from that I just used a <a href="https://gist.github.com/ethicalhack3r/6145925">bash script</a> to iterate over the Top 1 Million list and ran dnsrecon's axfr option for each site with CSV output enabled.</p>
+
+<p><a id="more"></a><a id="more-17108"></a></p>
+
+<p><strong>The Results</strong></p>
+
+<p>A nice side effect to creating the subdomain wordlist is knowing how many DNS Name Servers have Zone Transfers enabled and which sites. Out of the top 2000 sites, 98 had at least one Name Server with Zone Transfer enabled (4.9%). This included sites we all know and/or use such as <a href="https://www.pingdom.com/">Pingdom</a>, <a href="https://mega.co.nz/">Mega Upload</a>, <a href="https://www.spotify.com/">Spotify</a>, <a href="https://gravatar.com/">Gravatar</a>, <a href="https://www.americanexpress.com/">American Express</a> and 93 other sites in the top 2000. Some of these sites may have Zone Transfers enabled on purpose, the majority probably don't know it is enabled. The full list of domains with Zone Transfers enabled and their Alexa Ranking can be found here - <a href="http://ethicalhack3r.co.uk/files/misc/axfr_domains.txt">http://ethicalhack3r.co.uk/files/misc/axfr_domains.txt</a></p>
+
+<p>Top 10 Alexa domains with Zone Transfers enabled:</p>
+
+<p>[code]<br />
+Rank,Domain<br />
+7,wikipedia.org<br />
+87,about.com<br />
+119,livedoor.com<br />
+120,weather.com<br />
+147,kickass.to<br />
+156,wikimedia.org<br />
+173,liveinternet.ru<br />
+194,goo.ne.jp<br />
+216,ehow.com<br />
+233,hardsextube.com<br />
+[/code]</p>
+
+<p>In total there were 55,450 A records gathered from the 98 sites. After sorting the list of subdomains by the number of sites each subdomain was found on, removing any duplicates (some sites listed more than one of the same subdomain) and removing subdomains that were only found on one site, the final subdomain list consists of 859 lines. The final list including the number of instances each subdomain was seen across the 98 sites can be found here - <a href="http://ethicalhack3r.co.uk/files/misc/subdomain_count.txt">http://ethicalhack3r.co.uk/files/misc/subdomain_count.txt</a></p>
+
+<p>The top 10 subdomains were:<br />
+[code]<br />
+54 mail<br />
+47 www<br />
+35 ns2<br />
+34 ns1<br />
+28 blog<br />
+26 localhost<br />
+25 m<br />
+23 ftp<br />
+19 mobile<br />
+16 ns3<br />
+[/code]</p>
+
+<p>The ns2 subdomain is apparently more popular than the ns1 subdomain which is unexpected. The localhost subdomain seemed to always point to the localhost (127.0.0.1). The mail subdomain was the most popular subdomain overall.</p>
+
+<p>And finally, the subdomain wordlist itself sorted by popularity can be found here - <a href="http://ethicalhack3r.co.uk/files/fuzzing/subdomains.txt">http://ethicalhack3r.co.uk/files/fuzzing/subdomains.txt</a> (859 lines). I would recommend combining this list with the list you're already using for the best results.</p>
+
+<p>And this is the code used to sort the dnsrecon CSV output files:<br />
+[code]<br />
+#!/usr/bin/env ruby</p>
+
+<p>require 'public_suffix'<br />
+require 'uri'</p>
+
+<p>results = `cat axfr_results/*.csv`<br />
+output = Hash.new(0)<br />
+already_seen = []</p>
+
+<p>results.split(&quot;\n&quot;).each do |line|<br />
+  domain    = line.split(',')[1]<br />
+  if ! already_seen.include?(domain)<br />
+    already_seen &lt;&lt; domain<br />
+    subdomain = PublicSuffix.parse( domain ).trd if PublicSuffix.valid?( domain )<br />
+    output[subdomain] += 1<br />
+  end<br />
+end</p>
+
+<p>Hash[output.sort_by{|k, v| v}.reverse].each_pair do |key, value|<br />
+ next if key == '@' || key == '*'<br />
+ puts &quot;#{value} #{key}&quot; if value != 1<br />
+end<br />
+[/code]</p>
+
+<p>The next step if anyone has the time and resources is to conduct the test against the full top 1 million list. The top 2000 took about 12 hours or so.</p>
+
+        </section>
+
+        
+
+        <footer class="post-footer">
+        	<!-- If we want to display author's name and bio -->
+            
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=Zone Transfers on The Alexa Top 1 Million&amp;url=/2013/08/03/zone-transfers-on-the-alexa-top-1-million.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=/2013/08/03/zone-transfers-on-the-alexa-top-1-million.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=/2013/08/03/zone-transfers-on-the-alexa-top-1-million.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+        	
+        </footer>
+
+    </article>
+
+</main>
+
+
+    <footer class="site-footer">
+        <div class="inner">
+            <section class="copyright">All content copyright <a href="">Dewhurst Security Blog</a> &copy;  &bull; All rights reserved.</section>
+        </div>
+    </footer>
+
+    
+    <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+</body>
+</html>

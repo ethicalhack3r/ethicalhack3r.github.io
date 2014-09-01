@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>   
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Dewhurst Security Blog - </title>
+    <meta name="description" content="Dewhurst Security Blog" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+    <!-- This is for syntax highlight -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
+    <!-- Customisation  -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+
+</head>
+<body class="home-template">
+
+    
+    <header class="site-head" >
+    <div class="vertical">
+        <div class="site-head-content" class="inner">
+           <h1 class="blog-title">Dewhurst Security Blog</h1>
+        </div>
+    </div>
+</header>
+
+<main class="content" role="main">
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2010-04-28">28 Apr 2010</time> </span>
+            <h2 class="post-title"><a href="/2010/04/28/month-of-php-security.html">Month of PHP Security</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            In 2007 the <a href="http://www.hardened-php.net/">Hardened-PHP Project</a> setup by three German Security Researchers organised the Month of PHP Bugs (MOPB). The 'Month of Bugs' concept was started by non other than HD Moore back in 2006 with his Month of Browser Bugs (MoBB) which found security holes within most of the popular browsers. Since then there have been many 'Month's of Bugs' including <a href="http://projects.info-pull.com/mokb/">Month of Kernel Bugs (MoKB)</a>, <a href="http://projects.info-pull.com/moab/">Month of Apple Bugs</a>, <a href="http://twitpwn.com/">Month of Twitter Bugs</a> and the <a href="http://theharmonyguy.com/2009/09/15/the-month-of-facebook-bugs-halfway-report/">Month of Facebook Bugs</a>.
+
+<strong>So why a Month of Bugs?</strong>
+"The intention of the Month of PHP Security is to gather the best research and articles about PHP security topics from the security community and share them with the rest of the world. This time the goal is not only to improve the security of PHP itself and applications directly by fixing security bugs, but also to help PHP developers around the world to write better and more secure PHP applications."
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2010-03-21">21 Mar 2010</time> </span>
+            <h2 class="post-title"><a href="/2010/03/21/skipfish-automated-web-security-scanner.html">Skipfish - Automated web security scanner</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            A couple of days ago (March 19th) Michal Zalewski famous for tools such as p0f and his excellent book 'Silence on the wire' announced the release of an open source automated web security scanner called Skipfish from the <a href="http://googleonlinesecurity.blogspot.com/">Google Online Security Blog</a>.
+
+<strong>
+</strong>
+
+<img src="http://www.ethicalhack3r.co.uk/wp-content/uploads/2010/03/sf_name.png" alt="" title="sf_name" width="203" height="93" class="alignnone size-full wp-image-638" />
+
+<strong>
+</strong>
+
+<blockquote>Key features:
+
+<strong>High speed:</strong> pure C code, highly optimized HTTP handling, minimal CPU footprint - easily achieving 2000 requests per second with responsive targets. 
+
+<strong>Ease of use:</strong> heuristics to support a variety of quirky web frameworks and mixed-technology sites, with automatic learning capabilities, on-the-fly wordlist creation, and form autocompletion. 
+
+<strong>Cutting-edge security logic:</strong> high quality, low false positive, differential security checks, capable of spotting a range of subtle flaws, including blind injection vectors. </blockquote>
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2010-03-08">08 Mar 2010</time> </span>
+            <h2 class="post-title"><a href="/2010/03/08/owasp-testing-methodology.html">OWASP Testing Methodology</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            It is very easy for some one to find an XSS vulnerability within a web application and write a report about it. According to <a href="http://www.whitehatsec.com/home/assets/WPStatsreport_100107.pdf">WhiteHat Security</a> (2007) there is a 73% chance that you will find an XSS vulnerability within a web application. Does finding one of these mean you have assessed the security of the web application? Let's take a web application vulnerability that is 'seen' to be more critical. Again, according to <a href="http://www.whitehatsec.com/home/assets/WPStatsreport_100107.pdf">WhiteHat Security</a> you have a 18% likelihood to find an SQL Injection vulnerability within a web application. So during the web application security assessment you have found an SQL injection vulnerability, the back end DBMS is a version of Microsoft SQL Server which has '<a href="http://msdn.microsoft.com/en-us/library/ms175046.aspx">xp_cmdshell</a>' enabled by default. You manage to get a reverse shell and acquire a copy of the database. Great! By gaining shell access to the server does that mean you have properly assessed the security of the web application? No!
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2010-02-13">13 Feb 2010</time> </span>
+            <h2 class="post-title"><a href="/2010/02/13/wordpress-2-9-failure-to-restrict-url-access.html">WordPress >= 2.9 Failure to Restrict URL Access</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            1. *Advisory Information*
+
+Title: WordPress &gt;= 2.9 Failure to Restrict URL Access
+Date published: 13/02/2010
+
+2. *Vulnerability Information*
+
+Class: Failure to Restrict URL Access
+Remotely Exploitable: Yes
+Locally Exploitable: Yes
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2010-01-30">30 Jan 2010</time> </span>
+            <h2 class="post-title"><a href="/2010/01/30/writing-reports-oh-noes.html">Writing reports - Oh noes!</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            Report writing has a bad reputation, every one seems to hate writing them and believe it to be the anticlimax of the assessment process. I haven't been writing reports for very long, the reports that I have written I have enjoyed, no doubt in time the novelty will wear off and I will grow to hate them too. There are however lessons that I have learnt in my short report writing experience which I believe could have made my report writing that little bit easier and less time consuming. Those lessons I am going to share with you and if your just starting out in your report writing duties hopefully these can help you too. Or if your a report writing guru share your tips with me! The reports I have written are mainly web application assessments so I will concentrate on those.
+
+<img src="http://www.ethicalhack3r.co.uk/wp-content/uploads/2010/01/524568722_609668d9a0-300x225.jpg" alt="" title="524568722_609668d9a0" width="300" height="225" class="alignnone size-medium wp-image-555" />
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2010-01-25">25 Jan 2010</time> </span>
+            <h2 class="post-title"><a href="/2010/01/25/ethical-hacking-security-university-degrees-uk.html">Ethical Hacking / Security University Degrees UK</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            One of the most popular posts on my blog is the <a href="http://www.ethicalhack3r.co.uk/2009/04/29/guest-post-current-available-uk-degrees/">Guest post: Current Available UK Degrees</a> by 1337speak in April last year. I have decided to update the list as to keep the information up to date.
+
+You who know me will know that I my self am enrolled on one of these University courses. I believe that if you're starting out in security and want to make a career out of it this may be the best place to start. For me the course has done wonders, not only in what I have learnt however the people I've met and the drive it has given me to succeed in my chosen career.
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2010-01-19">19 Jan 2010</time> </span>
+            <h2 class="post-title"><a href="/2010/01/19/securitypodcasts-boxee-app.html">SecurityPodcasts Boxee App</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            <strong>What is Boxee?</strong>
+<blockquote>Boxee is the best way to enjoy entertainment from the Internet and computer on your TV</blockquote>
+<a href="http://www.boxee.tv/" target="_blank">http://www.boxee.tv/</a>
+
+Boxee allows you to develop 'Apps' which are basically XML files which grab RSS feeds. These Apps can be installed through remote repositorys. To truncate and combine all the security podcasts I used <a href="http://pipes.yahoo.com/" target="_blank">Yahoo! Pipes</a>.
+
+<img src="http://www.ethicalhack3r.co.uk/wp-content/uploads/2010/01/securitypodcast_thumb.png" alt="" title="securitypodcast_thumb" width="200" height="200" class="alignnone size-full wp-image-532" />
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2010-01-17">17 Jan 2010</time> </span>
+            <h2 class="post-title"><a href="/2010/01/17/dionaea-low-interaction-honeypot.html">Dionaea - Low interaction honeypot</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            After running Glastopf (<a href="http://www.ethicalhack3r.co.uk/2010/01/10/glastopf-web-application-honeypot/">Glastopf – Web Application Honeypot</a>) for a few days and not getting any hits, I was a bit disappointed. I speculate that maybe you need to give web application honeypots more time to propagate across the Internet and get picked up by search engines to receive any significant hits, or even give the honeypot its own domain name. From my earlier post you will notice that I had tried to get Dionaea to run first.
+
+Markus the lead developer of Dionaea got in contact after he read my post and saw that I was having trouble getting it running. It turned out to be a complete fail on my part, after following the instructions on the Dionaea <a href="http://dionaea.carnivore.it/">homepage</a>, Dionaea installed perfectly fine, it was just a case of me not knowing how to run it properly.
+
+<strong>What is Dionaea?</strong>
+<blockquote>Dionaea is meant to be a nepenthes successor, embedding python as scripting language, using libemu to detect shellcodes, supporting ipv6 and tls</blockquote>
+
+<blockquote>Dionaea intention is to trap malware exploiting vulnerabilities exposed by services offerd to a network, the ultimate goal is gaining a copy of the malware.</blockquote>
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2010-01-10">10 Jan 2010</time> </span>
+            <h2 class="post-title"><a href="/2010/01/10/glastopf-web-application-honeypot.html">Glastopf - Web Application Honeypot</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            <img src="http://www.ethicalhack3r.co.uk/wp-content/uploads/2010/01/glastopf.png" alt="" title="glastopf" width="204" height="83" class="alignnone size-full wp-image-497" />
+
+<strong>
+</strong>
+
+I bought an old battered PC over the weekend with the goal of installing a honeypot. I had never installed a honeypot before so wasn't quite sure what to expect. At first I decided on <a href="http://dionaea.carnivore.it/" target="_blank">Dionaea</a> the succsesor to Nepenthes, I had heard great things about Nepenthes from a friend of mine (<a href="http://infosanity.wordpress.com/" target="_blank">Infosanity</a>). After going through the installation process, I couldn't get Dionaea to 'make' with the right Python version detected (> 3.0), after about an hour of playing around I decided to give <a href="http://glastopf.org/" target="_blank">Glastopf</a> a try.
+
+<strong>
+</strong>
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2010-01-02">02 Jan 2010</time> </span>
+            <h2 class="post-title"><a href="/2010/01/02/i-got-ha-ha-hacked.html">I got ha ha hacked</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            I had a security breach on the blog over the Christmas period. To cut a long story short two black hats named HcJ and cyb3r-1st compromised another site on the shared hosting server, they decided to deface my blogs for a short period of time while they were at it. After talking to both of them regarding the breach it turns out they are nice guys (a bit misguided), they told me how they breached the server so that I could pass the information on to the hosting provider for them to patch it.
+
+<strong>
+</strong>
+<a href="http://www.ethicalhack3r.co.uk/wp-content/uploads/2010/01/hacked1.png"><img src="http://www.ethicalhack3r.co.uk/wp-content/uploads/2010/01/hacked1-300x298.png" alt="" title="hacked1" width="300" height="298" class="alignnone size-medium wp-image-493" /></a>
+<strong>
+</strong>
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2010-01-01">01 Jan 2010</time> </span>
+            <h2 class="post-title"><a href="/2010/01/01/free-software-in-a-windowed-world.html">Free software in a Windowed world</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            <p>I recently upgraded to Windows 7 from Vista. I had planned to migrate fully to Ubuntu 9.10 Karmic however after nearly £100 investment in wireless equipment and none of the hardware working under Ubuntu I bit the bullet. I will now be running Ubuntu and other Linux distributions as Virtual Machines.</p>
+
+<p><strong><br />
+</strong></p>
+
+<p>Here is a list (in no particular order) of essential (to me) Open Source and Free (as in beer) software (non-security) I installed on my shinny new Windows 7:</p>
+
+<p><strong><br />
+</strong></p>
+
+<p>FileZilla FTP client - <a href="http://filezilla-project.org/">http://filezilla-project.org/</a> (Open Souce)<br />
+Mozilla Thunderbird - <a href="http://www.mozillamessaging.com">http://www.mozillamessaging.com</a> (Open Source)<br />
+Inkscape - <a href="http://www.inkscape.org/">http://www.inkscape.org/</a> (Open Source)<br />
+BitTorrent - <a href="http://www.bittorrent.com/">http://www.bittorrent.com/</a> (Open Source)<br />
+Wireshark - <a href="http://www.wireshark.org/">http://www.wireshark.org/</a> (Open Source)<br />
+7-Zip - <a href="http://www.7-zip.org/">http://www.7-zip.org/</a> (Open Source)<br />
+Notepad++ - <a href="http://notepad-plus.sourceforge.net/">http://notepad-plus.sourceforge.net/</a> (Open Source)<br />
+Mozilla Firefox - <a href="http://www.mozilla.com/firefox/">http://www.mozilla.com/firefox/</a> (Open Source)<br />
+OpenOffice - <a href="http://www.openoffice.org/">http://www.openoffice.org/</a> (Open Source)<br />
+Sun VirtualBox - <a href="http://www.virtualbox.org/">http://www.virtualbox.org/</a> (Open Source)<br />
+Tortoise SVN - <a href="http://tortoisesvn.tigris.org/">http://tortoisesvn.tigris.org/</a> (Open Source)<br />
+VLC - <a href="http://www.videolan.org/vlc/">http://www.videolan.org/vlc/</a> (Open Source)<br />
+TrueCrypt - <a href="http://www.truecrypt.org/">http://www.truecrypt.org/</a> (Open Source)<br />
+XAMPP - <a href="http://www.apachefriends.org/en/xampp.html">http://www.apachefriends.org/en/xampp.html</a> (Open Source)<br />
+Zattoo - <a href="http://zattoo.com/">http://zattoo.com/</a> (Free)<br />
+Spotify - <a href="http://www.spotify.com/">http://www.spotify.com/</a> (Free)<br />
+Skype - <a href="http://www.skype.com/">http://www.skype.com/</a> (Free)</p>
+
+<p><strong><br />
+</strong></p>
+
+<p>It should now be easier than ever to pwn my box now that you all know what software and OS I'm running. ;) What Open Source/Free software can you not live without?</p>
+
+<p><strong><br />
+</strong></p>
+
+<p>P.S. HAPPY NEW YEEAARRR!!!</p>
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2009-12-14">14 Dec 2009</time> </span>
+            <h2 class="post-title"><a href="/2009/12/14/randomstorm-acquire-dvwa.html">RandomStorm acquire DVWA</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            <a href="http://www.randomstorm.com/">RandomStorm</a> have acquired Damn Vulnerable Web App (DVWA) :)
+
+<strong>
+</strong>
+
+RandomStorm showed their interest in DVWA and wanted to help the project grow. After some weeks of talks we have settled on an agreement which I believe will benefit the DVWA project immensely. 
+
+<strong>
+</strong>
+
+What do RandomStorm do?
+
+<blockquote>RandomStorm was formed in 2007 to provide a proactive vulnerability management service for companies and organisations that take network security seriously and need to demonstrate maximum due diligence in protecting personal and corporate information.</blockquote>
+
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2009-12-07">07 Dec 2009</time> </span>
+            <h2 class="post-title"><a href="/2009/12/07/open-source-web-application-scanner-poll-results.html">Open Source Web Application Scanner Poll Results</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            I started a poll last week on the 1st of December tittled 'Open Source Web Application Vulnerability Scanners'. The aim of this poll was to gain feedback from as many people in the security community as possible to find out which was their preferred open source web application vulnerability scanner, what they preferred about it and what they would improve about their favorite scanner. The poll has run for almost 7 days. The poll link was posted on Twitter (via my Twitter account), on this blog and on <a href="http://www.ethicalhacker.net/" target="_blank">www.ethicalhacker.net</a>.
+
+<strong>
+</strong>
+
+The total number of submissions was 32 however there were some anomalies in the data mainly due to my own fault. I had originally included Burp Suite, I had confused their free version with it being open source, it turns out this is not the case. I also had submissions from application developers, I did not state that I wouldn't be counting their votes however I believe it fairer if we didn't. After taking out the votes for Burp Suite (3 before removing the option), the submissions from application developers (2) and submissions for other commercial scanners (2), it left us with a total of 25 submissions.
+
+<strong>
+</strong>
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2009-12-02">02 Dec 2009</time> </span>
+            <h2 class="post-title"><a href="/2009/12/02/open-source-web-application-scanner-poll.html">Open Source Web Application Scanner Poll</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            <p>I am trying to find out from the community which open source web application scanners they use and why. Please take the poll, once, and answer honestly. Thank you! ;)</p>
+
+<p><strong><br />
+</strong></p>
+
+<p><a href="http://spreadsheets.google.com/viewform?formkey=dFNpQmNfUWx4UEFicW0wQXlZTFQyV0E6MA">http://spreadsheets.google.com/viewform?formkey=dFNpQmNfUWx4UEFicW0wQXlZTFQyV0E6MA</a></p>
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2009-11-22">22 Nov 2009</time> </span>
+            <h2 class="post-title"><a href="/2009/11/22/rfc-in-your-pocket.html">rfc in your pocket</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            I wanted to start reading the <a href="http://www.ietf.org/rfc/rfc2616.txt" target="_blank">RFC 2616 HTTP/1.1</a>, because who knows more about how HTTP works than the inventors right?! The only problem was, is that I hate reading large documents from screens, I lose concentration after very little time and end up on Twitter or some other social networking site.
+
+<strong>
+</strong>
+
+So I started looking for printed RFCs, someone must have put these in a book?! Well, it turns out that I couldn't find any. I thought about printing the entire RFC from my university library (£0.10 a page) however RFC 2616 contains 176 pages (£17.60 total). I remembered that OWASP use lulu.com for printing their awesome books, so I decided to print my own RFC and make it into a book. After many hours of trying to fit the A4 RFC into a pocket-size (4.25" x 6.88") book, getting the font size right, aligning the page numbers and getting the formatting just right on all 176 pages, 'rfc in your pocket' was ready to upload! After lots of trial and error with reformatting and trying to get the whole thing to fit I decided to order one for myself.
+
+<strong>
+</strong>
+
+<a href="http://www.ethicalhack3r.co.uk/wp-content/uploads/2009/11/DSC04535.JPG"><img class="alignnone size-medium wp-image-458" title="DSC04535" src="http://www.ethicalhack3r.co.uk/wp-content/uploads/2009/11/DSC04535-188x300.jpg" alt="DSC04535" width="188" height="300" /></a>
+
+<strong>
+</strong>
+
+
+        </section>
+    </article>
+
+    
+
+    <nav class="pagination" role="pagination">
+
+        
+          
+          <a class="newer-posts" href="/page4/" title="Previous Page">&laquo; Newer Posts</a>
+          
+        
+
+        <span class="page-number"> Page 5 of 8 </span>
+        
+         
+        <a class="older-posts" href="/page6/" title="Next Page">Older Posts &raquo;</a>
+         
+    </nav>
+    
+
+</main>
+
+
+    <footer class="site-footer">
+        <div class="inner">
+            <section class="copyright">All content copyright <a href="">Dewhurst Security Blog</a> &copy;  &bull; All rights reserved.</section>
+        </div>
+    </footer>
+
+    
+    <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+</body>
+</html>

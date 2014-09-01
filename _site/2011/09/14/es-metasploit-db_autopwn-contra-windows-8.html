@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>   
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Dewhurst Security Blog - </title>
+    <meta name="description" content="Dewhurst Security Blog" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+    <!-- This is for syntax highlight -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
+    <!-- Customisation  -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+
+</head>
+<body class="home-template">
+
+    
+    <main class="content" role="main">
+
+    <article class="post">
+        <header class="post-header">
+            <a id="blog-logo" href="">
+                
+                    <span class="blog-title">Dewhurst Security Blog</span>
+                 
+            </a>
+        </header>
+        
+        <span class="post-meta">
+        	<time datetime="2011-09-14">14 Sep 2011</time>
+        	
+        		on
+	        	
+	        
+       	</span>
+
+        <h1 class="post-title">[ES] Metasploit db_autopwn contra Windows 8</h1>
+
+        <section class="post-content">
+            <p>Mi primer blog post en Español! <em>(lo siento si mi Español escrito no es perfecto)</em></p>
+
+<p>Ayer (o el anterior) Microsoft hizo disponible "Windows 8 Developer Preview" para cualquier persona poder descargar. Yo hize la instalación en <a href="http://www.virtualbox.org/" target="_blank">VirtualBox</a> siguiendo este <a href="http://geekswithblogs.net/RollingIT/archive/2011/09/14/getting-hands-on-with-virtual-machine-of-windows-8.aspx" target="_blank">guía</a> (en Ingles).</p>
+
+<p>Quería ver si Microsoft posiblemente han usado algunas librerías/programas de versiones de Windows antiguos que posiblemente tengan vulnerabilidades remotos y que el <a href="http://metasploit.com/" target="_blank">Metesploit</a> tenga un exploit para el.</p>
+
+<p>Para esto quería usar el db_autopwn para que Metasploit use todos los exploits que tenga para los puertos que Windows 8 Developer tenga abierto. Al mismo ves será un test rápido y sencillo.</p>
+
+<p><em>(Configuración para BT5 R1, usando Metasploit revision 13728)</em></p>
+
+<p><a id="more"></a><a id="more-16508"></a></p>
+
+<p><strong>Preparando MySQL</strong></p>
+
+<p>Instalar el Ruby gem 'mysql':</p>
+
+<blockquote><p>gem install --user-install mysql</p></blockquote>
+
+<p>Iniciar el MySQL servidor:</p>
+
+<blockquote><p>service mysql start</p></blockquote>
+
+<p>Connectar a el MySQL servidor (contraseña 'toor'):</p>
+
+<blockquote><p>mysql -u root -p</p></blockquote>
+
+<p>Crear un base de datos para Metasploit:</p>
+
+<blockquote><p>create database msf;</p></blockquote>
+
+<p>Ahora puedes salir de el cliente MySQL:</p>
+
+<blockquote><p>exit</p></blockquote>
+
+<p><strong>Preparar Metasploit</strong></p>
+
+<p>Inicia a el Metasploit Consola (msfconsole):</p>
+
+<blockquote><p>/pentest/exploits/framework/msfconsole</p></blockquote>
+
+<p>Configuramos a Metaploit para usar el driver MySQL:</p>
+
+<blockquote><p>db_driver mysql</p></blockquote>
+
+<p>Connecta al base de datos 'msf':</p>
+
+<blockquote><p>db_connect root:toor@localhost/msf</p></blockquote>
+
+<p>Averigua si estamos connectado:</p>
+
+<blockquote><p>db_status</p></blockquote>
+
+<p>Hacer un scan de nmap contra el sistema Windows 8. Los resultados se guardan automáticamente en el base de datos msf:<br />
+<em>(puertos abiertos 135,139,445,554,2869,5357,10243)</em></p>
+
+<blockquote><p>db_nmap -Pn 192.168.1.115</p></blockquote>
+
+<p>Finalmente, ejecutar db_autopwn!</p>
+
+<blockquote><p>db_autopwn -p -t -e</p></blockquote>
+
+<p>Los resultados?!</p>
+
+<blockquote><p>[*] The autopwn command has completed with 0 sessions</p></blockquote>
+
+<p>Pero bueno, pensé que valía la pena hacer el intento. :)</p>
+
+        </section>
+
+        
+
+        <footer class="post-footer">
+        	<!-- If we want to display author's name and bio -->
+            
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=[ES] Metasploit db_autopwn contra Windows 8&amp;url=/2011/09/14/es-metasploit-db_autopwn-contra-windows-8.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=/2011/09/14/es-metasploit-db_autopwn-contra-windows-8.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=/2011/09/14/es-metasploit-db_autopwn-contra-windows-8.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+        	
+        </footer>
+
+    </article>
+
+</main>
+
+
+    <footer class="site-footer">
+        <div class="inner">
+            <section class="copyright">All content copyright <a href="">Dewhurst Security Blog</a> &copy;  &bull; All rights reserved.</section>
+        </div>
+    </footer>
+
+    
+    <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+</body>
+</html>

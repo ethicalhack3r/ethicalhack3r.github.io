@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>   
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Dewhurst Security Blog - </title>
+    <meta name="description" content="Dewhurst Security Blog" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+    <!-- This is for syntax highlight -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
+    <!-- Customisation  -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+
+</head>
+<body class="home-template">
+
+    
+    <main class="content" role="main">
+
+    <article class="post">
+        <header class="post-header">
+            <a id="blog-logo" href="">
+                
+                    <span class="blog-title">Dewhurst Security Blog</span>
+                 
+            </a>
+        </header>
+        
+        <span class="post-meta">
+        	<time datetime="2010-07-03">03 Jul 2010</time>
+        	
+        		on
+	        	
+	        
+       	</span>
+
+        <h1 class="post-title">Why Johnny Can’t Pentest</h1>
+
+        <section class="post-content">
+            <p>A white paper released recently (not dated) by the University of California titled ‘Why Johnny Can’t Pentest: An Analysis of Black-box Web Vulnerability Scanners’ evaluates eleven commercial and open-source black-box web vulnerability scanners.</p>
+
+<p>The three authors of the paper (Adoupe, Marco, Vigna) test the black-box scanners against their custom vulnerable web application they called WackoPicko. Their custom web application contained a number of different technical and business logic vulnerabilities, both authenticated and un-authenticated. </p>
+
+<p>They tested each scanner against WackoPicko in three different modes. Initial (point-and-click), Config (login credentials/mechanism provided) and Manual (local proxy use). The eleven scanners tested were Acunetix, Appscan, Burp, Grendel-Scan, Hailstorm, Milescan, N-Stalker, NTOSpider, Paros, w3af and Webinspect.</p>
+
+<p><a id="more"></a><a id="more-738"></a></p>
+
+<p>There were some worrying results within the report. Burp did quite well in the ‘final ranking’ coming in at third place. However according to the paper it failed to parse the 'textarea' HTML form input tag along with N-Stalker. This is obviously a huge oversight and must miss a lot of vulnerable parameters. This is a very easy fix and  no doubt after reading the paper both Burp and N-Stalker will patch their scanners.</p>
+
+<p>The logic in the paper seemed pretty sound to me however one comment was pretty confusing, ‘We used evaluation versions of each software, however they were fully functional.’. They obviously tested the full version of Acunetix judging from the results. Whether they used the evaluation version of Burp and the other scanners, I am unsure. If they did use the evaluation versions of some scanners and not others, the resulting data is going to be drastically incorrect. Most evaluation versions of scanners offer significantly less functionality than their fully paid versions.</p>
+
+<p>One conclusion of the paper was that price had absolutely nothing to do with the performance of the scanners. The prices ranged from free to over $30,000. This is something I agree with from past experience and papers.</p>
+
+<p>Acunetix took first place in the final results with Webinspect coming in second. Most scanners more or less took around the same time to complete their scans. Exceptions to this were Burp which took 74 seconds and N-Stalker which took 6 hours to complete their scans.</p>
+
+<p>According to the paper Grendel-Scan was the only scanner to be caught into an infinite loop in the WackoPicko calendar functionality. Only five out of the eleven scanners were able to register a user account under the ‘Initial’ mode of testing. None of the scanners were able to upload a picture during the Initial and Config modes. Webinspect was the only scanner to pass all of the dynamic Javascript tests that were evaluated by the spidering benchmark tool WIVET.</p>
+
+<p>The paper shows that black-box web application security scanners are still along way from being perfect. Some perform better than others at certain tasks. The paper concludes that more research is needed in order for the scanners to be able to perform better. </p>
+
+<p>The full paper can be found here; <a href="http://www.cs.ucsb.edu/~adoupe/static/black-box-scanners-dimva2010.pdf" target="_blank">http://www.cs.ucsb.edu/~adoupe/static/black-box-scanners-dimva2010.pdf</a></p>
+
+<p>UPDATE 16/7/2010:</p>
+
+<p>After contacting the authors of the paper they have released the WackoPicko vulnerable web application!<br />
+<a href="http://github.com/adamdoupe/WackoPicko" target="_blank">http://github.com/adamdoupe/WackoPicko</a></p>
+
+        </section>
+
+        
+
+        <footer class="post-footer">
+        	<!-- If we want to display author's name and bio -->
+            
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=Why Johnny Can’t Pentest&amp;url=/2010/07/03/738.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=/2010/07/03/738.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=/2010/07/03/738.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+        	
+        </footer>
+
+    </article>
+
+</main>
+
+
+    <footer class="site-footer">
+        <div class="inner">
+            <section class="copyright">All content copyright <a href="">Dewhurst Security Blog</a> &copy;  &bull; All rights reserved.</section>
+        </div>
+    </footer>
+
+    
+    <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+</body>
+</html>

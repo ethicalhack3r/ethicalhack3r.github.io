@@ -1,0 +1,6 @@
+name: Dewhurst Security Blog
+meta_description: "Dewhurst Security Blog"
+
+markdown: redcarpet
+highlighter: pygments
+paginate: 15

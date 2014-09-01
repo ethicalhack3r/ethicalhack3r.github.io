@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>   
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Dewhurst Security Blog - </title>
+    <meta name="description" content="Dewhurst Security Blog" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+    <!-- This is for syntax highlight -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
+    <!-- Customisation  -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+
+</head>
+<body class="home-template">
+
+    
+    <main class="content" role="main">
+
+    <article class="post">
+        <header class="post-header">
+            <a id="blog-logo" href="">
+                
+                    <span class="blog-title">Dewhurst Security Blog</span>
+                 
+            </a>
+        </header>
+        
+        <span class="post-meta">
+        	<time datetime="2011-07-13">13 Jul 2011</time>
+        	
+        		on
+	        	
+	        
+       	</span>
+
+        <h1 class="post-title">WordPress CD</h1>
+
+        <section class="post-content">
+            <p>I needed a research environment to help develop <a href="http://www.randomstorm.com/wpscan-security-tool.php" target="_blank">WPScan</a> so I put together a <a href="http://www.virtualbox.org/" target="_blank">VirtualBox</a> virtual machine with every <a href="http://wordpress.org/download/release-archive/" target="_blank">WordPress release</a> installed (not including MU or BETA/Candidates). The download, untar and database creation was all automated. The manual bit was installing them all.</p>
+
+<p><strong>Installed are the following versions of Wordpress:</strong><br />
+wordpress-0.71-gold<br />
+wordpress-1.0-platinum<br />
+wordpress-1.0.1-miles<br />
+wordpress-1.0.2-blakey<br />
+wordpress-1.2-delta<br />
+wordpress-1.2-mingus<br />
+wordpress-1.2.1<br />
+wordpress-1.2.2<br />
+wordpress-1.5-strayhorn<br />
+wordpress-1.5.1.1<br />
+wordpress-1.5.1.2<br />
+wordpress-1.5.1.3<br />
+wordpress-1.5.1<br />
+wordpress-1.5.2<br />
+wordpress-2.0.1<br />
+wordpress-2.0.10<br />
+<a id="more"></a><a id="more-16472"></a><br />
+wordpress-2.0.11<br />
+wordpress-2.0.4<br />
+wordpress-2.0.5<br />
+wordpress-2.0.6<br />
+wordpress-2.0.7<br />
+wordpress-2.0.8<br />
+wordpress-2.0.9<br />
+wordpress-2.0<br />
+wordpress-2.1.1<br />
+wordpress-2.1.2<br />
+wordpress-2.1.3<br />
+wordpress-2.1<br />
+wordpress-2.2.1<br />
+wordpress-2.2.2<br />
+wordpress-2.2.3<br />
+wordpress-2.2<br />
+wordpress-2.3.1<br />
+wordpress-2.3.2<br />
+wordpress-2.3.3<br />
+wordpress-2.3<br />
+wordpress-2.5.1<br />
+wordpress-2.5<br />
+wordpress-2.6.1<br />
+wordpress-2.6.2<br />
+wordpress-2.6.3<br />
+wordpress-2.6.5<br />
+wordpress-2.6<br />
+wordpress-2.7.1<br />
+wordpress-2.7<br />
+wordpress-2.8.1<br />
+wordpress-2.8.2<br />
+wordpress-2.8.3<br />
+wordpress-2.8.4<br />
+wordpress-2.8.5<br />
+wordpress-2.8.6<br />
+wordpress-2.8<br />
+wordpress-2.9.1<br />
+wordpress-2.9.2<br />
+wordpress-2.9<br />
+wordpress-3.0.1<br />
+wordpress-3.0.2<br />
+wordpress-3.0.3<br />
+wordpress-3.0.4<br />
+wordpress-3.0.5<br />
+wordpress-3.0.6<br />
+wordpress-3.0<br />
+wordpress-3.1.1<br />
+wordpress-3.1.2<br />
+wordpress-3.1.3<br />
+wordpress-3.1.4<br />
+wordpress-3.1<br />
+wordpress-3.2.1<br />
+wordpress-3.2</p>
+
+<blockquote><p>
+Install:<br />
+1. To install, simply download the OVA file (link below).<br />
+2. Open VirtualBox and import the appliance.<br />
+3. Add a static DNS entry to your firewall or edit your local hosts file. Add the VM hostname "lamp" and its IP address.<br />
+4. Browse to the DHCP assigned IP address in your browser.
+</p></blockquote>
+
+<p>This virtual machine makes an excellent vulnerable box for a lab, WordPress development, etc..</p>
+
+<p><a href="http://www.ethicalhack3r.co.uk/wp-content/uploads/2011/07/Screen-shot-2011-07-13-at-13.57.54.png"><img src="http://www.ethicalhack3r.co.uk/wp-content/uploads/2011/07/Screen-shot-2011-07-13-at-13.57.54-300x217.png" alt="" title="Screen shot 2011-07-13 at 13.57.54" width="300" height="217" class="alignnone size-medium wp-image-16475" /></a></p>
+
+<p><strong>Download:</strong></p>
+
+<p>MD5: 8b8dbead74f6ba9f7935625ff2d24392</p>
+
+<p><a href="http://www.ethicalhack3r.co.uk/wpcd/WPCD.ova">http://www.ethicalhack3r.co.uk/wpcd/WPCD.ova</a></p>
+
+<p><strong>UPDATE:</strong></p>
+
+<p>The download link has been changed and installation instructions updated.</p>
+
+<p>The WordPress installs wouldn't work as they were configured to my local IP of "192.168.1.103". Thanks to <a href="http://www.twitter.com/biosshadow" target="_blank">@biosshadow</a>, he has gone through every install and changed the configured IP to the hostname of the virtual machine "lamp".</p>
+
+<p>To get it up and running, you will need to add a static DNS entry to your firewall or edit your local hosts file to point the "lamp" hosthame to the vitual machines IP.</p>
+
+<p>Thanks to <a href="http://www.twitter.com/biosshadow" target="_blank">@biosshadow</a> for changing all of the installs to the hostname.</p>
+
+        </section>
+
+        
+
+        <footer class="post-footer">
+        	<!-- If we want to display author's name and bio -->
+            
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=WordPress CD&amp;url=/2011/07/13/wordpress-cd.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=/2011/07/13/wordpress-cd.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=/2011/07/13/wordpress-cd.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+        	
+        </footer>
+
+    </article>
+
+</main>
+
+
+    <footer class="site-footer">
+        <div class="inner">
+            <section class="copyright">All content copyright <a href="">Dewhurst Security Blog</a> &copy;  &bull; All rights reserved.</section>
+        </div>
+    </footer>
+
+    
+    <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+</body>
+</html>

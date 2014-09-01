@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>   
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Dewhurst Security Blog - </title>
+    <meta name="description" content="Dewhurst Security Blog" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+    <!-- This is for syntax highlight -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
+    <!-- Customisation  -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+
+</head>
+<body class="home-template">
+
+    
+    <main class="content" role="main">
+
+    <article class="post">
+        <header class="post-header">
+            <a id="blog-logo" href="">
+                
+                    <span class="blog-title">Dewhurst Security Blog</span>
+                 
+            </a>
+        </header>
+        
+        <span class="post-meta">
+        	<time datetime="2013-08-08">08 Aug 2013</time>
+        	
+        		on
+	        	
+	        
+       	</span>
+
+        <h1 class="post-title">Zone Transfers on The Alexa Top 1 Million Part 2</h1>
+
+        <section class="post-content">
+            <p>In <a href="http://www.ethicalhack3r.co.uk/zone-transfers-on-the-alexa-top-1-million/">part 1</a> of this blog post I conducted a DNS Zone Transfer (axfr) against the top 2000 sites of the Alexa Top 1 Million. I did this to create a better subdomain brute forcing word list. At the time, conducting the Zone Transfer against the top 2000 sites took about 12 hours, this was using a single threaded bash script. I was pretty proud of this achievement at the time and thought that doing the same for the whole top 1 million sites was beyond the time and resources that I had.</p>
+
+<p>After creating a multithreaded and parallelised PoC in Ruby to do the Zone Transfers, it took about 5 minutes to conduct the Zone Transfers against the top 2000 compared to the 12 hours it took me to do the top 2000 using a single thread. I decided it was possible to do a Zone Transfer against the whole top 1 million sites.</p>
+
+<p>There were 60,472 successful Zone Transfers (%6) out of the Alexa Top 1 Million, this equates to 566MB of raw data on disk. This amount of data brings its own challenges when attempting to manipulate it.</p>
+
+<p>The top 10 subdomains in the Alexa Top 1 Million are:<br />
+[code]<br />
+Instances, Subdomain<br />
+54520 www<br />
+41581 mail<br />
+39873 ftp<br />
+38590 localhost<br />
+22771 webmail<br />
+17643 smtp<br />
+17410 webdisk<br />
+15439 pop<br />
+15155 cpanel<br />
+14904 whm<br />
+[/code]</p>
+
+<p>There are some big differences in this top 10 compared to the top 10 against the top 2000. In this one the www subdomain takes the number one spot. The m subdomain is not in this list. The cpanel subdomain is in this list but didn't feature in the top 2000 list.</p>
+
+<p><a id="more"></a><a id="more-17123"></a></p>
+
+<p><strong>The data </strong></p>
+
+<p>In the lists below any subdomain with a '*' or a '@' character were removed, as well as any subdomain that was seen only once.</p>
+
+<p>Subdomains including instances: <a href="http://ethicalhack3r.co.uk/files/fuzzing/top1mil-subdomains/subdomains-top1mil-with-rank.txt">subdomains-top1mil-with-rank.txt</a> (42MB)<br />
+Subdomains not including instances: <a href="http://ethicalhack3r.co.uk/files/fuzzing/top1mil-subdomains/subdomains-top1mil.txt">subdomains-top1mil.txt</a> (1.1MB)<br />
+Subdomains top 20,000: <a href="http://ethicalhack3r.co.uk/files/fuzzing/top1mil-subdomains/subdomains-top1mil-20000.txt">subdomains-top1mil-20000.txt</a> (146KB)<br />
+Subdomains top 5000: <a href="http://ethicalhack3r.co.uk/files/fuzzing/top1mil-subdomains/subdomains-top1mil-5000.txt">subdomains-top1mil-5000.txt</a> (33KB)</p>
+
+<p>On a daily basis I would probably use the subdomains-top1mil-5000.txt list over the others due to the time it takes to complete the subdomain brute force. You may want to use the subdomains-top1mil-20000.txt list to be more thorough, and for the best results but the more time investment I'd use the subdomains-top1mil.txt list.</p>
+
+        </section>
+
+        
+
+        <footer class="post-footer">
+        	<!-- If we want to display author's name and bio -->
+            
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=Zone Transfers on The Alexa Top 1 Million Part 2&amp;url=/2013/08/08/zone-transfers-on-the-alexa-top-1-million-part-2.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=/2013/08/08/zone-transfers-on-the-alexa-top-1-million-part-2.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=/2013/08/08/zone-transfers-on-the-alexa-top-1-million-part-2.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+        	
+        </footer>
+
+    </article>
+
+</main>
+
+
+    <footer class="site-footer">
+        <div class="inner">
+            <section class="copyright">All content copyright <a href="">Dewhurst Security Blog</a> &copy;  &bull; All rights reserved.</section>
+        </div>
+    </footer>
+
+    
+    <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+</body>
+</html>

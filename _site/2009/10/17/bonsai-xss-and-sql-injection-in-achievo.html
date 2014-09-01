@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>   
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Dewhurst Security Blog - </title>
+    <meta name="description" content="Dewhurst Security Blog" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+    <!-- This is for syntax highlight -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
+    <!-- Customisation  -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+
+</head>
+<body class="home-template">
+
+    
+    <main class="content" role="main">
+
+    <article class="post">
+        <header class="post-header">
+            <a id="blog-logo" href="">
+                
+                    <span class="blog-title">Dewhurst Security Blog</span>
+                 
+            </a>
+        </header>
+        
+        <span class="post-meta">
+        	<time datetime="2009-10-17">17 Oct 2009</time>
+        	
+        		on
+	        	
+	        
+       	</span>
+
+        <h1 class="post-title">[BONSAI] XSS and SQL Injection in Achievo <= 1.3.4</h1>
+
+        <section class="post-content">
+            <p>Today Andres Riancho owner of <a title="BONSAI" href="http://www.bonsai-sec.com/" target="_blank">Bonsai Information Security</a> (Argentina) and lead developer of <a title="W3AF" href="http://w3af.sourceforge.net/" target="_blank">w3af</a> has released a couple of advisories on vulnerabilities in <a title="Achievo" href="http://www.achievo.org/" target="_blank">Achievo</a> &lt;= 1.3.4 which we found a few months ago after our vulnerability research into common web applications.</p>
+
+<p>The affected web application is Achievo &lt;= 1.3.4. Achievo suffered from multiple simple persistent XSS vulnerabilities within their scheduler module and an SQL injection vulnerability within their dispatch.php file.</p>
+
+<p>Achievo is a flexible web-based resource management tool for business environments. Achievo's resource management capabilities will enable organisations to support their business processes in a simple, but effective manner.</p>
+
+<p><a id="more"></a><a id="more-345"></a></p>
+
+<p>I and Andres worked on quite an novel (to me) payload for the persistent XSS vulnerability which we found. Essentially the payload we worked on was an AJAX script which sent POST requests to the vulnerable application in order to escalate a users privileges. A write up by Andres on the payload can be found here: <a title="Achievo Payload" href="http://www.bonsai-sec.com/blog/index.php/cross-site-scripting-payloads/" target="_blank">http://www.bonsai-sec.com/blog/index.php/cross-site-scripting-payloads/</a></p>
+
+<p>For the original advisories:</p>
+
+<p><a title="Achievo XSS" href="http://www.bonsai-sec.com/research/vulnerabilities/achievo-multiple-xss-0101.txt" target="_blank">Multiple XSS in Achievo</a></p>
+
+<p><a title="Achievo SQL Injection" href="http://www.bonsai-sec.com/research/vulnerabilities/achievo-sql-injection-0102.txt" target="_blank">SQL injection in Achievo</a></p>
+
+<p><em>All vulnerabilities found were disclosed in an ethical manner. We worked along side the affected application developers in order to fix the vulnerabilities found. The advisories were not published until the developers had fixed and updated their software.</em></p>
+
+        </section>
+
+        
+
+        <footer class="post-footer">
+        	<!-- If we want to display author's name and bio -->
+            
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=[BONSAI] XSS and SQL Injection in Achievo <= 1.3.4&amp;url=/2009/10/17/bonsai-xss-and-sql-injection-in-achievo.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=/2009/10/17/bonsai-xss-and-sql-injection-in-achievo.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=/2009/10/17/bonsai-xss-and-sql-injection-in-achievo.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+        	
+        </footer>
+
+    </article>
+
+</main>
+
+
+    <footer class="site-footer">
+        <div class="inner">
+            <section class="copyright">All content copyright <a href="">Dewhurst Security Blog</a> &copy;  &bull; All rights reserved.</section>
+        </div>
+    </footer>
+
+    
+    <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+</body>
+</html>
