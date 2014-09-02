@@ -53,28 +53,28 @@ Connection: Upgrade
 Date: Fri, 30 Aug 2013 13:33:42 GMT
 {% endhighlight %}</p>
 <p><a id="more"></a><a id="more-17130"></a></p>
-<h1>Capturing WebSockets</h1>
+<h3>Capturing WebSockets</h3>
 <p>For some reason the WebSocket handshake was not captured by Burp's Proxy (even though the WireShark capture shows that the handshake was over HTTP), however, it can be viewed within Google Chrome's Developer Tools and OWASP's <a href="https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project">ZAP Proxy</a>.</p>
 <p>Using <a href="http://www.websocket.org/echo.html">this</a> example WebSocket application (which is vulnerable to '<a href="https://www.facebook.com/photo.php?v=956977232793">Self-XSS</a>' BTW) you can see that Google Chrome's Developer Tools captures the initial WebSocket handshake:</p>
 <p><a href="http://www.ethicalhack3r.co.uk/wp-content/uploads/2013/08/chrome-developer-tools-web-sockets.png"><img src="http://www.ethicalhack3r.co.uk/wp-content/uploads/2013/08/chrome-developer-tools-web-sockets.png" alt="chrome developer tools web sockets" width="775" height="202" class="alignnone size-full wp-image-17139" /></a></p>
 <p>And also the subsequent WebSocket communication (frames) over TCP:</p>
 <p><a href="http://www.ethicalhack3r.co.uk/wp-content/uploads/2013/08/chrome-developer-tools-web-sockets-2.png"><img src="http://www.ethicalhack3r.co.uk/wp-content/uploads/2013/08/chrome-developer-tools-web-sockets-2.png" alt="chrome developer tools web sockets 2" width="739" height="201" class="alignnone size-full wp-image-17143" /></a></p>
 <p>If you want to fuzz and replay WebSocket communications you can use OWASP's <a href="https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project">ZAP Proxy</a> which supports capturing and replaying WebSockets.</p>
-<h1>Encryption (SSL/TLS)</h1>
+<h3>Encryption (SSL/TLS)</h3>
 <p>WebSockets can be used over unencrypted TCP or over encrypted TLS. To use unencrypted WebSockets the <em>ws://</em> URI scheme is used (default port 80), to use encrypted (TLS) WebSockets the <em>wss://</em> URI scheme is used (default port 443).</p>
 <p>Here you probably want to look out for the OWASP Top 10 2013 <a href="https://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure">A6-Sensitive Data Exposure</a> type issues. Is sensitive data being transported over unencrypted channels? Has SSL been implemented securely?</p>
-<h1>Origin</h1>
+<h3>Origin</h3>
 <p>It is the web server's responsibility to verify the <em>Origin</em> header in the initial HTTP WebSocket handshake. If the Origin header is not properly checked, the application may be vulnerable to OWASP Top 10 2013 <a href="https://www.owasp.org/index.php/Top_10_2013-A8-Cross-Site_Request_Forgery_(CSRF)">A8-Cross-Site Request Forgery (CSRF)</a>.</p>
 <p>There's a great blog post <a href="http://www.christian-schneider.net/CrossSiteWebSocketHijacking.html">here</a> describing a 'Cross-Site WebSocket Hijacking' technique which is possible when the application/server does not check the Origin header.</p>
 <p>I also created a WebSocket client which can be used to test origin issues which can be found <a href="https://raw.github.com/RandomStorm/scripts/master/WebSockets.html">here</a>.</p>
-<h1>Authentication</h1>
+<h3>Authentication</h3>
 <p>WebSockets do not handle authentication, instead normal application authentication mechanisms apply, such as cookies, HTTP Authentication or TLS authentication. Here you probably want to check for OWASP Top 10 2013 <a href="https://www.owasp.org/index.php/Top_10_2013-A2-Broken_Authentication_and_Session_Management">A2-Broken Authentication and Session Management</a> type issues.</p>
-<h1>Authorisation</h1>
+<h3>Authorisation</h3>
 <p>WebSockets do not handle authorisation, normal application authorisation mechanisms apply. Here you want to test for OWASP Top 10 2013 <a href="https://www.owasp.org/index.php/Top_10_2013-A4-Insecure_Direct_Object_References">A4-Insecure Direct Object References</a> and OWASP Top 10 2013 <a href="https://www.owasp.org/index.php/Top_10_2013-A7-Missing_Function_Level_Access_Control">A7-Missing Function Level Access Control</a>.</p>
-<h1>Input Sanitisation</h1>
+<h3>Input Sanitisation</h3>
 <p>As with any data originating from untrusted sources the data should not be trusted. The OWASP Top 10 2013 <a href="https://www.owasp.org/index.php/Top_10_2013-A1-Injection">A1-Injection</a> and the OWASP Top 10 2013 <a href="https://www.owasp.org/index.php/Top_10_2013-A3-Cross-Site_Scripting_(XSS)">A3-Cross-Site Scripting (XSS)</a> issues would apply here. </p>
 <p>There's a great post <a href="http://juerkkil.iki.fi/2013/03/17/compromising-html5-websockets-with-an-xss-vulnerability/">here</a> showing how an XSS issue on a page can be used to compromise WebSockets to eavesdrop on the WebSocket communications by modifying the JavaScript WebSocket functions.</p>
-<h1>Conclusion</h1>
+<h3>Conclusion</h3>
 <p>Testing WebSockets can seem daunting when you first come across them during a Web Application Security Assessment. Hopefully you now have some insight of how WebSockets work, what tools you can use and what security issues to look out for.</p>
 <p>I have probably not covered all bases here and I'm sure there is a lot more to be discussed surrounding testing WebSockets during a Web Application Security Assessment. If you think that I have missed anything out, please comment below!</p>
 <h1>Further Reading</h1>
