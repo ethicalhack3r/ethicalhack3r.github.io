@@ -28,7 +28,7 @@ date_gmt: '2013-08-30 17:57:45 +0100'
 ---
 <p>Recently I became faced with my first Web Application Security Assessment which relied heavily on HTML5's <a href="http://www.html5rocks.com/en/tutorials/websockets/basics/">WebSockets</a>.</p>
 <p>The first clue that the application was using WebSockets was when the application kept giving me a timeout error while using my proxy of choice, <a href="http://portswigger.net/burp/">Burp Suite</a>. Looking at the HTTP requests/responses in Burp I noticed that a large JavaScript file was requested and downloaded from the server. Within this file I noticed a URL with the <em>ws://</em> scheme, the WebSocket scheme.</p>
-<h1>TCP/HTTP?</h1>
+<h3>TCP/HTTP?</h3>
 <p>The initial WebSocket handshake is carried out over HTTP using an '<a href="https://en.wikipedia.org/wiki/HTTP/1.1_Upgrade_header">upgrade request</a>'. After the initial exchange over HTTP all future communication is carried out over TCP. On the application I was testing the WebSocket handshake over HTTP within <a href="https://www.wireshark.org/">WireShark</a> looked like this:</p>
 <p>Request:<br />
 {% highlight text %}
