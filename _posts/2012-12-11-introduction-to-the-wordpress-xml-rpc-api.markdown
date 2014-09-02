@@ -33,164 +33,164 @@ date_gmt: '2012-12-11 19:27:10 +0000'
 <p>I've had a play with the API in the past, however, I've always found it hard to get going as the information on how to interact with the API is a bit sparse. Having played with it for an hour or so this evening I thought I'd share some of the information on how to get started (as well as a self reminder ;).</p>
 <p>The latest API calls can be found on WordPress's Codex <a href="http://codex.wordpress.org/XML-RPC_WordPress_API" target="_blank">here</a>. It doesn't list all available calls, to find these let's extract them from the 'wp-includes/class-wp-xmlrpc-server.php' file.</p>
 <p><a id="more"></a><a id="more-16894"></a></p>
-<p>[code]<br />
-wp.getUsersBlogs<br />
-wp.newPost<br />
-wp.editPost<br />
-wp.deletePost<br />
-wp.getPost<br />
-wp.getPosts<br />
-wp.newTerm<br />
-wp.editTerm<br />
-wp.deleteTerm<br />
-wp.getTerm<br />
-wp.getTerms<br />
-wp.getTaxonomy<br />
-wp.getTaxonomies<br />
-wp.getUser<br />
-wp.getUsers<br />
-wp.getProfile<br />
-wp.editProfile<br />
-wp.getPage<br />
-wp.getPages<br />
-wp.newPage<br />
-wp.deletePage<br />
-wp.editPage<br />
-wp.getPageList<br />
-wp.getAuthors<br />
-wp.getCategories<br />
-wp.getTags<br />
-wp.newCategory<br />
-wp.deleteCategory<br />
-wp.suggestCategories<br />
-wp.uploadFile<br />
-wp.getCommentCount<br />
-wp.getPostStatusList<br />
-wp.getPageStatusList<br />
-wp.getPageTemplates<br />
-wp.getOptions<br />
-wp.setOptions<br />
-wp.getComment<br />
-wp.getComments<br />
-wp.deleteComment<br />
-wp.editComment<br />
-wp.newComment<br />
-wp.getCommentStatusList<br />
-wp.getMediaItem<br />
-wp.getMediaLibrary<br />
-wp.getPostFormats<br />
-wp.getPostType<br />
-wp.getPostTypes<br />
-wp.getRevisions<br />
-wp.restoreRevision<br />
-blogger.getUsersBlogs<br />
-blogger.getUserInfo<br />
-blogger.getPost<br />
-blogger.getRecentPosts<br />
-blogger.newPost<br />
-blogger.editPost<br />
-blogger.deletePost<br />
-metaWeblog.newPost<br />
-metaWeblog.editPost<br />
-metaWeblog.getPost<br />
-metaWeblog.getRecentPosts<br />
-metaWeblog.getCategories<br />
-metaWeblog.newMediaObject<br />
-metaWeblog.deletePost<br />
-metaWeblog.getUsersBlogs<br />
-mt.getCategoryList<br />
-mt.getRecentPostTitles<br />
-mt.getPostCategories<br />
-mt.setPostCategories<br />
-mt.supportedMethods<br />
-mt.supportedTextFilters<br />
-mt.getTrackbackPings<br />
-mt.publishPost<br />
-pingback.ping<br />
-pingback.extensions.getPingbacks<br />
-demo.sayHello<br />
-demo.addTwoNumbers<br />
-system.getCapabilities # Incutio XML-RPC Library call - added 17.06.2013<br />
-system.listMethods # Incutio XML-RPC Library call - added 17.06.2013<br />
-system.multicall # Incutio XML-RPC Library call - added 17.06.2013<br />
-[/code]</p>
+<p>{% highlight text %}
+wp.getUsersBlogs
+wp.newPost
+wp.editPost
+wp.deletePost
+wp.getPost
+wp.getPosts
+wp.newTerm
+wp.editTerm
+wp.deleteTerm
+wp.getTerm
+wp.getTerms
+wp.getTaxonomy
+wp.getTaxonomies
+wp.getUser
+wp.getUsers
+wp.getProfile
+wp.editProfile
+wp.getPage
+wp.getPages
+wp.newPage
+wp.deletePage
+wp.editPage
+wp.getPageList
+wp.getAuthors
+wp.getCategories
+wp.getTags
+wp.newCategory
+wp.deleteCategory
+wp.suggestCategories
+wp.uploadFile
+wp.getCommentCount
+wp.getPostStatusList
+wp.getPageStatusList
+wp.getPageTemplates
+wp.getOptions
+wp.setOptions
+wp.getComment
+wp.getComments
+wp.deleteComment
+wp.editComment
+wp.newComment
+wp.getCommentStatusList
+wp.getMediaItem
+wp.getMediaLibrary
+wp.getPostFormats
+wp.getPostType
+wp.getPostTypes
+wp.getRevisions
+wp.restoreRevision
+blogger.getUsersBlogs
+blogger.getUserInfo
+blogger.getPost
+blogger.getRecentPosts
+blogger.newPost
+blogger.editPost
+blogger.deletePost
+metaWeblog.newPost
+metaWeblog.editPost
+metaWeblog.getPost
+metaWeblog.getRecentPosts
+metaWeblog.getCategories
+metaWeblog.newMediaObject
+metaWeblog.deletePost
+metaWeblog.getUsersBlogs
+mt.getCategoryList
+mt.getRecentPostTitles
+mt.getPostCategories
+mt.setPostCategories
+mt.supportedMethods
+mt.supportedTextFilters
+mt.getTrackbackPings
+mt.publishPost
+pingback.ping
+pingback.extensions.getPingbacks
+demo.sayHello
+demo.addTwoNumbers
+system.getCapabilities # Incutio XML-RPC Library call - added 17.06.2013
+system.listMethods # Incutio XML-RPC Library call - added 17.06.2013
+system.multicall # Incutio XML-RPC Library call - added 17.06.2013
+{% endhighlight %}</p>
 <p>As you can see from the above list there are a whole host of different things you can do via the API. Creating blog posts, requesting information about the blog's settings and even uploading media! Most of these require authentication and use the same authorisation mechanisms as the GUI. The three I found not to require authentication were pingback.ping, demo.sayHello and demo.addTwoNumbers (there are probably others).  </p>
 <p>A typical API request body looks like the following:</p>
-<p>[code]<br />
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot;?&gt;<br />
-&lt;methodCall&gt;<br />
-  &lt;methodName&gt;demo.sayHello&lt;/methodName&gt;<br />
-  &lt;params&gt;<br />
-   &lt;param&gt;&lt;/param&gt;<br />
-  &lt;/params&gt;<br />
-&lt;/methodCall&gt;<br />
-[/code]</p>
+<p>{% highlight xml %}
+<?xml version="1.0" encoding="iso-8859-1"?>
+<methodCall>
+  <methodName>demo.sayHello</methodName>
+  <params>
+   <param></param>
+  </params>
+</methodCall>
+{% endhighlight %}</p>
 <p>The xmlrpc.php file needs the valid XML sent to it as a POST request. The easiest way to do this in Linux is to use <a href="http://curl.haxx.se/" target="_blank">cURL</a>. The following command will send the XML contained within the 'demo.sayHello.txt' file as a POST request to the remote WordPress API:</p>
-<p>[code]<br />
-curl --data @demo.sayHello.txt http://www.example.com/xmlrpc.php<br />
-[/code]</p>
+<p>{% highlight text %}
+curl --data @demo.sayHello.txt http://www.example.com/xmlrpc.php
+{% endhighlight %}</p>
 <p>Which should return a response that looks like this:</p>
-<p>[code]<br />
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br />
-&lt;methodResponse&gt;<br />
-  &lt;params&gt;<br />
-    &lt;param&gt;<br />
-      &lt;value&gt;<br />
-      &lt;string&gt;Hello!&lt;/string&gt;<br />
-      &lt;/value&gt;<br />
-    &lt;/param&gt;<br />
-  &lt;/params&gt;<br />
-&lt;/methodResponse&gt;<br />
-[/code]</p>
+<p>{% highlight xml %}
+<?xml version="1.0" encoding="UTF-8"?>
+<methodResponse>
+  <params>
+    <param>
+      <value>
+      <string>Hello!</string>
+      </value>
+    </param>
+  </params>
+</methodResponse>
+{% endhighlight %}</p>
 <p>Simple, eh?</p>
 <p>Here are a few other WordPress API calls:</p>
 <p>demo.addTwoNumbers<br />
-[code]<br />
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot;?&gt;<br />
-&lt;methodCall&gt;<br />
-  &lt;methodName&gt;demo.addTwoNumbers&lt;/methodName&gt;<br />
-  &lt;params&gt;<br />
-   &lt;param&gt;&lt;value&gt;2.0E+72&lt;/value&gt;&lt;/param&gt;<br />
-   &lt;param&gt;&lt;value&gt;2.0E+72&lt;/value&gt;&lt;/param&gt;<br />
-  &lt;/params&gt;<br />
-&lt;/methodCall&gt;<br />
-[/code]</p>
+{% highlight xml %}
+<?xml version="1.0" encoding="iso-8859-1"?>
+<methodCall>
+  <methodName>demo.addTwoNumbers</methodName>
+  <params>
+   <param><value>2.0E+72</value></param>
+   <param><value>2.0E+72</value></param>
+  </params>
+</methodCall>
+{% endhighlight %}</p>
 <p>pingback.ping<br />
-[code]<br />
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot;?&gt;<br />
-&lt;methodCall&gt;<br />
-  &lt;methodName&gt;pingback.ping&lt;/methodName&gt;<br />
-  &lt;params&gt;<br />
-   &lt;param&gt;&lt;value&gt;&lt;string&gt;http://www.example.com/index.php?p=71&lt;/string&gt;&lt;/value&gt;&lt;/param&gt;<br />
-   &lt;param&gt;&lt;value&gt;&lt;string&gt;http://www.example2.com/index.php?p=72&lt;/string&gt;&lt;/value&gt;&lt;/param&gt;<br />
-  &lt;/params&gt;<br />
-&lt;/methodCall&gt;<br />
-[/code]</p>
+{% highlight xml %}
+<?xml version="1.0" encoding="iso-8859-1"?>
+<methodCall>
+  <methodName>pingback.ping</methodName>
+  <params>
+   <param><value><string>http://www.example.com/index.php?p=71</string></value></param>
+   <param><value><string>http://www.example2.com/index.php?p=72</string></value></param>
+  </params>
+</methodCall>
+{% endhighlight %}</p>
 <p>wp.getPost<br />
-[code]<br />
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot;?&gt;<br />
-&lt;methodCall&gt;<br />
-  &lt;methodName&gt;wp.getPost&lt;/methodName&gt;<br />
-  &lt;params&gt;<br />
-   &lt;param&gt;&lt;value&gt;1&lt;/value&gt;&lt;/param&gt;<br />
-   &lt;param&gt;&lt;value&gt;username&lt;/value&gt;&lt;/param&gt;<br />
-   &lt;param&gt;&lt;value&gt;password&lt;/value&gt;&lt;/param&gt;<br />
-   &lt;param&gt;&lt;value&gt;72&lt;/value&gt;&lt;/param&gt;<br />
-  &lt;/params&gt;<br />
-&lt;/methodCall&gt;<br />
-[/code]</p>
+{% highlight xml %}
+<?xml version="1.0" encoding="iso-8859-1"?>
+<methodCall>
+  <methodName>wp.getPost</methodName>
+  <params>
+   <param><value>1</value></param>
+   <param><value>username</value></param>
+   <param><value>password</value></param>
+   <param><value>72</value></param>
+  </params>
+</methodCall>
+{% endhighlight %}</p>
 <p>wp.getUsers<br />
-[code]<br />
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot;?&gt;<br />
-&lt;methodCall&gt;<br />
-  &lt;methodName&gt;wp.getUsers&lt;/methodName&gt;<br />
-  &lt;params&gt;<br />
-   &lt;param&gt;&lt;value&gt;1&lt;/value&gt;&lt;/param&gt;<br />
-   &lt;param&gt;&lt;value&gt;username&lt;/value&gt;&lt;/param&gt;<br />
-   &lt;param&gt;&lt;value&gt;password&lt;/value&gt;&lt;/param&gt;<br />
-  &lt;/params&gt;<br />
-&lt;/methodCall&gt;<br />
-[/code]</p>
+{% highlight xml %}
+<?xml version="1.0" encoding="iso-8859-1"?>
+<methodCall>
+  <methodName>wp.getUsers</methodName>
+  <params>
+   <param><value>1</value></param>
+   <param><value>username</value></param>
+   <param><value>password</value></param>
+  </params>
+</methodCall>
+{% endhighlight %}</p>
 <p>There you are, something to get you started playing around with the WordPress API. If you find out how to turn the damn thing off let me know! :)</p>
 <p>EDIT ---</p>
 <p>After reading this post long time WPScan contributor (<a href="https://twitter.com/_FireFart_" target="_blank">@_FireFart_</a>) wrote a port scanner using a remote WordPress API! - <a href="https://github.com/FireFart/WordpressPingbackPortScanner" target="_blank">https://github.com/FireFart/WordpressPingbackPortScanner</a></p>

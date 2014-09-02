@@ -34,28 +34,38 @@ date_gmt: '2011-06-26 23:45:22 +0100'
 <p>First off, I had to download my Google contacts. To do this simply go to <a href="http://contacts.google.com">http://contacts.google.com</a>.</p>
 <p>I exported all of my contacts in Excel format. Highlighted the email column and pasted them into a file called contacts.txt. (remove the column name from the text file)</p>
 <p>Then simply run my (very rushed, it's 1AM) Ruby script which can be found here; <a href="http://www.pastie.org/2126584" target="_blank">http://www.pastie.org/2126584</a> (you will need to install the Typhoeus gem)</p>
-<p>[ruby]<br />
-#!/usr/bin/env ruby</p>
-<p>require 'rubygems'<br />
-require 'net/http'<br />
-require 'typhoeus'</p>
-<p>found_emails = []<br />
-hydra = Typhoeus::Hydra.new(:max_concurrency => 20, :timeout => 2000)</p>
-<p>file_contents = File.open("contacts.txt","r") {|file| file.readlines.collect{|line| line.chomp}}<br />
-emails = file_contents</p>
-<p>emails.each do |email|</p>
-<p>  request = Typhoeus::Request.new("http://dazzlepod.com/lulzsec/final/?email="+email.to_s)</p>
-<p>  request.on_complete do |response|<br />
-    puts "Trying " + email<br />
-    if response.body =~ %r{<strong>1 account</strong>}<br />
-      found_emails.push(email)<br />
-   end<br />
-  end</p>
-<p>  hydra.queue(request)</p>
-<p>end</p>
-<p>hydra.run</p>
-<p>puts found_emails.size.to_s<br />
-puts found_emails.inspect<br />
-[/ruby]</p>
+<p>{% highlight ruby %}
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'net/http'
+require 'typhoeus'
+
+found_emails = []
+hydra = Typhoeus::Hydra.new(:max_concurrency => 20, :timeout => 2000)
+
+file_contents = File.open("contacts.txt","r") {|file| file.readlines.collect{|line| line.chomp}}
+emails = file_contents
+
+emails.each do |email|
+
+  request = Typhoeus::Request.new("http://dazzlepod.com/lulzsec/final/?email="+email.to_s)
+
+  request.on_complete do |response|
+    puts "Trying " + email
+    if response.body =~ %r{<strong>1 account</strong>}
+      found_emails.push(email)
+   end
+  end
+
+  hydra.queue(request)
+
+end
+
+hydra.run
+
+puts found_emails.size.to_s
+puts found_emails.inspect
+{% endhighlight %}</p>
 <p>Out of my 900 contacts, 4 of them were in the lulzsec data dump. I have informed them.</p>
 <p>Try it out and inform your contacts too!</p>

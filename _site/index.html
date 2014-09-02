@@ -144,30 +144,6 @@ The first clue that the application was using WebSockets was when the applicatio
 
 The initial WebSocket handshake is carried out over HTTP using an '<a href="https://en.wikipedia.org/wiki/HTTP/1.1_Upgrade_header">upgrade request</a>'. After the initial exchange over HTTP all future communication is carried out over TCP. On the application I was testing the WebSocket handshake over HTTP within <a href="https://www.wireshark.org/">WireShark</a> looked like this:
 
-Request:
-[code]
-GET /SocketHandler HTTP/1.1
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:23.0) Gecko/20100101 Firefox/23.0
-Sec-WebSocket-Version: 13
-Origin: http://www.example.com
-Sec-WebSocket-Key: iiral7et1zfQMGu9udIYHA==
-Cookie: Login=1234567
-Connection: keep-alive, Upgrade
-Upgrade: websocket
-Content-length: 0
-Host: www.example.com
-[/code]
-
-Response:
-[code]
-HTTP/1.1 101 Switching Protocols
-Upgrade: Websocket
-Server: Microsoft-IIS/8.0
-Sec-WebSocket-Accept: 9ZPK0lC0SB6dhIJHRt3q/GN88Ng=
-Connection: Upgrade
-Date: Fri, 30 Aug 2013 13:33:42 GMT
-[/code]
-
 
         </section>
     </article>
@@ -186,23 +162,6 @@ Date: Fri, 30 Aug 2013 13:33:42 GMT
 After creating a multithreaded and parallelised PoC in Ruby to do the Zone Transfers, it took about 5 minutes to conduct the Zone Transfers against the top 2000 compared to the 12 hours it took me to do the top 2000 using a single thread. I decided it was possible to do a Zone Transfer against the whole top 1 million sites.
 
 There were 60,472 successful Zone Transfers (%6) out of the Alexa Top 1 Million, this equates to 566MB of raw data on disk. This amount of data brings its own challenges when attempting to manipulate it.
-
-The top 10 subdomains in the Alexa Top 1 Million are:
-[code]
-Instances, Subdomain
-54520 www
-41581 mail
-39873 ftp
-38590 localhost
-22771 webmail
-17643 smtp
-17410 webdisk
-15439 pop
-15155 cpanel
-14904 whm
-[/code]
-
-There are some big differences in this top 10 compared to the top 10 against the top 2000. In this one the www subdomain takes the number one spot. The m subdomain is not in this list. The cpanel subdomain is in this list but didn't feature in the top 2000 list.
 
 
         </section>
@@ -407,15 +366,6 @@ If we were to take this 3 million figure at face value, the ICO fined Sony (£25
             The '<a href="http://1337day.com/" target="_blank">Inj3ct0r Team</a>' compromised an <a href="https://www.exploithub.com/" target="_blank">ExploitHub.com</a> database and released a <a href="http://priv8.1337day.com/exploitHUB.txt" target="_blank">file</a> publicly which contained some of the data about the exploits that ExploitHub buy and sell.
 
 I saw the file yesterday, had a quick skim over it, but didn't think too much of it. That is until WPScan team member <a href="https://www.twitter.com/@gbrindisi" target="_blank">@gbrindisi</a> pointed out that it contained 2 WordPress plugin vulnerabilities.
-
-[code]
-WordPress plugin Asset manager upload.php Arbitrary Code Execution,25.0000,2012-06-27 12:37:03,&quot;491&quot;,Sooraj
-WordPress plugin WP-Property uploadify.php Arbitrary Code Execution,25.0000,2012-06-27 12:44:25,&quot;491&quot;,Sooraj
-[/code]
-
-The vulnerability details and exploits are likely in the hands of the Inj3ct0r Team and god knows who else. We found the latest 'asset-manager' plugin (version 0.3) to be vulnerable and created a simple PoC. The 'wp-property' plugin did not contain the 'uploadify.php' file which is stated to be vulnerable, did they buy/sell vulnerabilities that hadn't been verified? The 'asset-manager' plugin is not as popular as the 'wp-property' plugin and has only been downloaded <a href="http://wordpress.org/extend/plugins/asset-manager/stats/" target="_blank">~700</a> times.
-
-The 'asset-manager' vulnerability title states that the vulnerability lies within the 'upload.php' file. Taking a look at this file it is obvious to see why it is vulnerable.
 
 
         </section>

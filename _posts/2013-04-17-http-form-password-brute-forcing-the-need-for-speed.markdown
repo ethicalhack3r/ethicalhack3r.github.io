@@ -76,13 +76,23 @@ Hydra (http-post-form) Version: 7.4.2</p>
 <p>If you compare this table against the brute force against the Test Form table, you can see the difference the login form itself makes on the time a brute force takes to complete. In Hydra's case, this is significant.</p>
 <p><strong>Hydra Commands Used in Testing</strong></p>
 <p>Local at default tasks:<br />
-[code]$ hydra -l admin -P ~/Tools/wordlists/rockyou-75.txt 127.0.0.1 http-post-form &quot;/login.php:username=^USER^&amp;password=^PASS^&amp;submit=Submit:Incorrect&quot;[/code]</p>
+{% highlight text %}
+$ hydra -l admin -P ~/Tools/wordlists/rockyou-75.txt 127.0.0.1 http-post-form "/login.php:username=^USER^&password=^PASS^&submit=Submit:Incorrect"
+{% endhighlight %}</p>
 <p>Remote at default tasks:<br />
-[code]$ hydra -l admin -P ~/Tools/wordlists/rockyou-75.txt www.ethicalhack3r.co.uk http-post-form &quot;/files/misc/login.php:username=^USER^&amp;password=^PASS^&amp;submit=Submit:Incorrect&quot;[/code]</p>
+{% highlight text %}
+$ hydra -l admin -P ~/Tools/wordlists/rockyou-75.txt www.ethicalhack3r.co.uk http-post-form "/files/misc/login.php:username=^USER^&password=^PASS^&submit=Submit:Incorrect"
+{% endhighlight %}</p>
 <p>Local WordPress (this did not output that it had found the valid pass due to what looks like a WP infinite redirect bug, it did actually authenticate though):<br />
-[code]hydra -l admin -P ~/Tools/wordlists/rockyou-75.txt 127.0.0.1 http-post-form &quot;/wordpress/wordpress-351/wp-login.php:log=^USER^&amp;pwd=^PASS^:login_error&quot;[/code]</p>
+{% highlight text %}
+hydra -l admin -P ~/Tools/wordlists/rockyou-75.txt 127.0.0.1 http-post-form "/wordpress/wordpress-351/wp-login.php:log=^USER^&pwd=^PASS^:login_error"
+{% endhighlight %}</p>
 <p><strong>WPScan Commands Used in Testing</strong></p>
 <p>WPScan command used (local):<br />
-[code]$ ./wpscan.rb -u http://127.0.0.1/wordpress/wordpress-351/ -U admin -w ~/Tools/wordlists/rockyou-75.txt -t 16[/code]</p>
+{% highlight text %}
+$ ./wpscan.rb -u http://127.0.0.1/wordpress/wordpress-351/ -U admin -w ~/Tools/wordlists/rockyou-75.txt -t 16
+{% endhighlight %}</p>
 <p>WPScan command used (remote):<br />
-[code]$ ./wpscan.rb -u www.REDACTED.com -U admin -w ~/Tools/wordlists/rockyou-75.txt -t 16[/code]</p>
+{% highlight text %}
+$ ./wpscan.rb -u www.REDACTED.com -U admin -w ~/Tools/wordlists/rockyou-75.txt -t 16
+{% endhighlight %}</p>

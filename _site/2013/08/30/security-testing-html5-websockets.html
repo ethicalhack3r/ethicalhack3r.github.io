@@ -54,28 +54,28 @@
 <p>The initial WebSocket handshake is carried out over HTTP using an '<a href="https://en.wikipedia.org/wiki/HTTP/1.1_Upgrade_header">upgrade request</a>'. After the initial exchange over HTTP all future communication is carried out over TCP. On the application I was testing the WebSocket handshake over HTTP within <a href="https://www.wireshark.org/">WireShark</a> looked like this:</p>
 
 <p>Request:<br />
-[code]<br />
-GET /SocketHandler HTTP/1.1<br />
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:23.0) Gecko/20100101 Firefox/23.0<br />
-Sec-WebSocket-Version: 13<br />
-Origin: http://www.example.com<br />
-Sec-WebSocket-Key: iiral7et1zfQMGu9udIYHA==<br />
-Cookie: Login=1234567<br />
-Connection: keep-alive, Upgrade<br />
-Upgrade: websocket<br />
-Content-length: 0<br />
-Host: www.example.com<br />
-[/code]</p>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">GET /SocketHandler HTTP/1.1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:23.0) Gecko/20100101 Firefox/23.0
+Sec-WebSocket-Version: 13
+Origin: http://www.example.com
+Sec-WebSocket-Key: iiral7et1zfQMGu9udIYHA==
+Cookie: Login=1234567
+Connection: keep-alive, Upgrade
+Upgrade: websocket
+Content-length: 0
+Host: www.example.com</code></pre></div>
+</p>
 
 <p>Response:<br />
-[code]<br />
-HTTP/1.1 101 Switching Protocols<br />
-Upgrade: Websocket<br />
-Server: Microsoft-IIS/8.0<br />
-Sec-WebSocket-Accept: 9ZPK0lC0SB6dhIJHRt3q/GN88Ng=<br />
-Connection: Upgrade<br />
-Date: Fri, 30 Aug 2013 13:33:42 GMT<br />
-[/code]</p>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">HTTP/1.1 101 Switching Protocols
+Upgrade: Websocket
+Server: Microsoft-IIS/8.0
+Sec-WebSocket-Accept: 9ZPK0lC0SB6dhIJHRt3q/GN88Ng=
+Connection: Upgrade
+Date: Fri, 30 Aug 2013 13:33:42 GMT</code></pre></div>
+</p>
 
 <p><a id="more"></a><a id="more-17130"></a></p>
 

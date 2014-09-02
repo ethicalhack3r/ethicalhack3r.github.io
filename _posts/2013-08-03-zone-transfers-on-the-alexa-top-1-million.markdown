@@ -36,54 +36,58 @@ date_gmt: '2013-08-03 11:37:33 +0100'
 <p><strong>The Results</strong></p>
 <p>A nice side effect to creating the subdomain wordlist is knowing how many DNS Name Servers have Zone Transfers enabled and which sites. Out of the top 2000 sites, 98 had at least one Name Server with Zone Transfer enabled (4.9%). This included sites we all know and/or use such as <a href="https://www.pingdom.com/">Pingdom</a>, <a href="https://mega.co.nz/">Mega Upload</a>, <a href="https://www.spotify.com/">Spotify</a>, <a href="https://gravatar.com/">Gravatar</a>, <a href="https://www.americanexpress.com/">American Express</a> and 93 other sites in the top 2000. Some of these sites may have Zone Transfers enabled on purpose, the majority probably don't know it is enabled. The full list of domains with Zone Transfers enabled and their Alexa Ranking can be found here - <a href="http://ethicalhack3r.co.uk/files/misc/axfr_domains.txt">http://ethicalhack3r.co.uk/files/misc/axfr_domains.txt</a></p>
 <p>Top 10 Alexa domains with Zone Transfers enabled:</p>
-<p>[code]<br />
-Rank,Domain<br />
-7,wikipedia.org<br />
-87,about.com<br />
-119,livedoor.com<br />
-120,weather.com<br />
-147,kickass.to<br />
-156,wikimedia.org<br />
-173,liveinternet.ru<br />
-194,goo.ne.jp<br />
-216,ehow.com<br />
-233,hardsextube.com<br />
-[/code]</p>
+<p>{% highlight text %}
+  Rank,Domain
+7,wikipedia.org
+87,about.com
+119,livedoor.com
+120,weather.com
+147,kickass.to
+156,wikimedia.org
+173,liveinternet.ru
+194,goo.ne.jp
+216,ehow.com
+233,hardsextube.com
+{% endhighlight %}</p>
 <p>In total there were 55,450 A records gathered from the 98 sites. After sorting the list of subdomains by the number of sites each subdomain was found on, removing any duplicates (some sites listed more than one of the same subdomain) and removing subdomains that were only found on one site, the final subdomain list consists of 859 lines. The final list including the number of instances each subdomain was seen across the 98 sites can be found here - <a href="http://ethicalhack3r.co.uk/files/misc/subdomain_count.txt">http://ethicalhack3r.co.uk/files/misc/subdomain_count.txt</a></p>
 <p>The top 10 subdomains were:<br />
-[code]<br />
-54 mail<br />
-47 www<br />
-35 ns2<br />
-34 ns1<br />
-28 blog<br />
-26 localhost<br />
-25 m<br />
-23 ftp<br />
-19 mobile<br />
-16 ns3<br />
-[/code]</p>
+{% highlight text %}
+54 mail
+47 www
+35 ns2
+34 ns1
+28 blog
+26 localhost
+25 m
+23 ftp
+19 mobile
+16 ns3
+{% endhighlight %}</p>
 <p>The ns2 subdomain is apparently more popular than the ns1 subdomain which is unexpected. The localhost subdomain seemed to always point to the localhost (127.0.0.1). The mail subdomain was the most popular subdomain overall.</p>
 <p>And finally, the subdomain wordlist itself sorted by popularity can be found here - <a href="http://ethicalhack3r.co.uk/files/fuzzing/subdomains.txt">http://ethicalhack3r.co.uk/files/fuzzing/subdomains.txt</a> (859 lines). I would recommend combining this list with the list you're already using for the best results.</p>
 <p>And this is the code used to sort the dnsrecon CSV output files:<br />
-[code]<br />
-#!/usr/bin/env ruby</p>
-<p>require 'public_suffix'<br />
-require 'uri'</p>
-<p>results = `cat axfr_results/*.csv`<br />
-output = Hash.new(0)<br />
-already_seen = []</p>
-<p>results.split(&quot;\n&quot;).each do |line|<br />
-  domain    = line.split(',')[1]<br />
-  if ! already_seen.include?(domain)<br />
-    already_seen &lt;&lt; domain<br />
-    subdomain = PublicSuffix.parse( domain ).trd if PublicSuffix.valid?( domain )<br />
-    output[subdomain] += 1<br />
-  end<br />
-end</p>
-<p>Hash[output.sort_by{|k, v| v}.reverse].each_pair do |key, value|<br />
- next if key == '@' || key == '*'<br />
- puts &quot;#{value} #{key}&quot; if value != 1<br />
-end<br />
-[/code]</p>
+{% highlight ruby %}
+#!/usr/bin/env ruby
+
+require 'public_suffix'
+require 'uri'
+
+results = `cat axfr_results/*.csv`
+output = Hash.new(0)
+already_seen = []
+
+results.split("\n").each do |line|
+  domain    = line.split(',')[1]
+  if ! already_seen.include?(domain)
+    already_seen << domain
+    subdomain = PublicSuffix.parse( domain ).trd if PublicSuffix.valid?( domain )
+    output[subdomain] += 1
+  end
+end
+
+Hash[output.sort_by{|k, v| v}.reverse].each_pair do |key, value|
+ next if key == '@' || key == '*'
+ puts "#{value} #{key}" if value != 1
+end
+{% endhighlight %}</p>
 <p>The next step if anyone has the time and resources is to conduct the test against the full top 1 million list. The top 2000 took about 12 hours or so.</p>

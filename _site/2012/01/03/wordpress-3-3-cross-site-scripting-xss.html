@@ -55,17 +55,17 @@
 
 <p><a id="more"></a><a id="more-16709"></a></p>
 
-<p>[php]<br />
-function wp_guess_url() {<br />
-    if ( defined('WP_SITEURL') && '' != WP_SITEURL ) {<br />
-        $url = WP_SITEURL;<br />
-    } else {<br />
-        $schema = is_ssl() ? 'https://' : 'http://';<br />
-        $url = preg_replace('|/wp-admin/.*|i', '', $schema . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);<br />
-    }<br />
-    return rtrim($url, '/');<br />
-}<br />
-[/php]</p>
+<p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">function wp_guess_url() {</span>
+<span class="x">  if ( defined(&#39;WP_SITEURL&#39;) &amp;&amp; &#39;&#39; != WP_SITEURL ) {</span>
+<span class="x">    $url = WP_SITEURL;</span>
+<span class="x">  } else {</span>
+<span class="x">    $schema = is_ssl() ? &#39;https://&#39; : &#39;http://&#39;;</span>
+<span class="x">    $url = preg_replace(&#39;|/wp-admin/.*|i&#39;, &#39;&#39;, $schema . $_SERVER[&#39;HTTP_HOST&#39;] . $_SERVER[&#39;REQUEST_URI&#39;]);</span>
+<span class="x">  }</span>
+<span class="x">  return rtrim($url, &#39;/&#39;);</span>
+<span class="x">}</span></code></pre></div>
+</p>
 
 <p>The XSS occurs because $_SERVER['REQUEST_URI'] (the URI which was given in order to access the page) was used within output before first being sanitized. Or better yet, it shouldn't have been used at all.</p>
 
@@ -78,9 +78,10 @@ function wp_guess_url() {<br />
 <p>Example (tested):</p>
 
 <p>wp-includes/functions.php:3756<br />
-[php]<br />
-$url = preg_replace('|/wp-admin/.*|i', '', $schema . $_SERVER['HTTP_HOST'] . esc_html($_SERVER['REQUEST_URI']));<br />
-[/php]</p>
+
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$url = preg_replace(&#39;|/wp-admin/.*|i&#39;, &#39;&#39;, $schema . $_SERVER[&#39;HTTP_HOST&#39;] . esc_html($_SERVER[&#39;REQUEST_URI&#39;]));</span></code></pre></div>
+
+</p>
 
 <p><strong>UPDATE --</strong></p>
 

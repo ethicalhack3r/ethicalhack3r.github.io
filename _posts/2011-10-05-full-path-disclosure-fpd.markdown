@@ -41,36 +41,40 @@ date_gmt: '2011-10-05 13:19:45 +0100'
 <p>It's just the path of the file from the root directory, what's all the fuss about?</p>
 <p><a id="more"></a><a id="more-16575"></a></p>
 <p>Let's look at a WordPress FPD:<br />
-[code]&lt;b&gt;Fatal error&lt;/b&gt;:  Call to undefined function is_multisite() in &lt;b&gt;/home/bob/public_html/wp/wp-includes/wp-db.php&lt;/b&gt; on line &lt;b&gt;505&lt;/b&gt;&lt;br /&gt;[/code]</p>
+{% highlight text %}
+<b>Fatal error</b>:  Call to undefined function is_multisite() in <b>/home/bob/public_html/wp/wp-includes/wp-db.php</b> on line <b>505</b><br />
+{% endhighlight %}</p>
 <p>From the above error a username is disclosed which can later be used in a brute force attack:<br />
-[code]/bob/[/code]</p>
+{% highlight text %}/bob/{% endhighlight %}</p>
 <p>From the above error we know the web root folder name and location, this can be useful when combined with a Local File Inclusion (LFI) if the web root is not in the default location:<br />
-[code]/home/bob/public_html/[/code]</p>
+{% highlight text %}/home/bob/public_html/{% endhighlight %}</p>
 <p>In reality it's not a massive deal, we can glean some server side information, so what, it's not as serious as SQL Injection or Cross-Site Scripting (XSS). But, when there is no SQL Injection or XSS, bob's weak password maybe our only way in or that LFI vulnerability we found earlier is now more useful.</p>
 <p><strong>Security Misconfiguration or Sloppy Coding?</strong></p>
 <p>Many people believe that FPD is a Security Misconfiguration and I can see why they think that. By simply turning 'display_errors' to 'Off' in your php.ini file the problem goes away. The same applies most other web server technologies. (note: FPD is widely known to effect PHP more than any other technology but it does effect most if not all web server technologies)</p>
 <p>If we do the above the FPDs are gone, right? No. They are still there, all you have done is hide them. If for example a developer turns 'display_errors' to on by accident, the bug returns. We can say the same about a WAF in an extreme example. Just because the WAF stops the SQL Injection from happening, it does not mean that it is not there and that one day that WAF maybe turned off. *cough* barracuda *cough*</p>
 <p>I think it is mostly due to sloppy coding practices because of the following triggers of FPD. (taking some of OWASPs examples)</p>
 <p>Empty array: (input sanitation)<br />
-[code]<br />
-Original: http://site.com/index.php?page=about<br />
-Crafted: http://site.com/index.php?page[]=about<br />
-[/code]</p>
+{% highlight text %}
+Original: http://site.com/index.php?page=about
+Crafted: http://site.com/index.php?page[]=about
+{% endhighlight %}</p>
 <p>Fix: Ensure the parameter is a string not an array.</p>
 <p>Null Session Cookie: (input sanitation)<br />
-[code]<br />
-Original: Cookie: PHPSESSID=ef7f786sd78f6ds78f6;<br />
-Crafted: Cookie: PHPSESSID=;<br />
-[/code]</p>
+{% highlight text %}
+Original: Cookie: PHPSESSID=ef7f786sd78f6ds78f6;
+Crafted: Cookie: PHPSESSID=;
+{% endhighlight %}</p>
 <p>Fix: Deal with unexpected cookie values.</p>
 <p>Direct Object Reference: (error handling)<br />
-[code]http://localhost/wp/wp-includes/wp-db.php[/code]</p>
+{% highlight text %}
+http://localhost/wp/wp-includes/wp-db.php
+{% endhighlight %}</p>
 <p>Fix: Deal with errors gracefully when a file is not located in the location is should be.</p>
 <p>Invalid File Names: (configuration)<br />
-[code]<br />
-Original: http://www.host.com/default.aspx<br />
-Crafted: http://www.host.com/default~.aspx<br />
-[/code]</p>
+{% highlight text %}
+Original: http://www.host.com/default.aspx
+Crafted: http://www.host.com/default~.aspx
+{% endhighlight %}</p>
 <p>Fix: Now this one, I think, the only fix is configuration. You could argue that this could be fixed by the ASP developers, but in reality, that's not going to happen.</p>
 <p><strong>The bigger problem</strong></p>
 <p>The bigger problem for me is not the information disclosure through FPD itself but rather the reluctance of vendors and developers to fix FPD. It's too easy for them to put the blame back onto the user, "not our problem, hide the bug with configuration".</p>

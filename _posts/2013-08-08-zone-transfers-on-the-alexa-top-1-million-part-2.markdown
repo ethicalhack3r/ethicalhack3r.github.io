@@ -23,13 +23,7 @@ excerpt: "In <a href=\"http://www.ethicalhack3r.co.uk/zone-transfers-on-the-alex
   to do a Zone Transfer against the whole top 1 million sites.\r\n\r\nThere were 60,472
   successful Zone Transfers (%6) out of the Alexa Top 1 Million, this equates to 566MB
   of raw data on disk. This amount of data brings its own challenges when attempting
-  to manipulate it.\r\n\r\nThe top 10 subdomains in the Alexa Top 1 Million are:\r\n[code]\r\nInstances,
-  Subdomain\r\n54520 www\r\n41581 mail\r\n39873 ftp\r\n38590 localhost\r\n22771 webmail\r\n17643
-  smtp\r\n17410 webdisk\r\n15439 pop\r\n15155 cpanel\r\n14904 whm\r\n[/code]\r\n\r\nThere
-  are some big differences in this top 10 compared to the top 10 against the top 2000.
-  In this one the www subdomain takes the number one spot. The m subdomain is not
-  in this list. The cpanel subdomain is in this list but didn't feature in the top
-  2000 list.\r\n\r\n"
+  to manipulate it.\r\n\r\n"
 wordpress_id: 17123
 wordpress_url: http://www.ethicalhack3r.co.uk/?p=17123
 date: '2013-08-08 22:06:36 +0100'
@@ -39,19 +33,19 @@ date_gmt: '2013-08-08 21:06:36 +0100'
 <p>After creating a multithreaded and parallelised PoC in Ruby to do the Zone Transfers, it took about 5 minutes to conduct the Zone Transfers against the top 2000 compared to the 12 hours it took me to do the top 2000 using a single thread. I decided it was possible to do a Zone Transfer against the whole top 1 million sites.</p>
 <p>There were 60,472 successful Zone Transfers (%6) out of the Alexa Top 1 Million, this equates to 566MB of raw data on disk. This amount of data brings its own challenges when attempting to manipulate it.</p>
 <p>The top 10 subdomains in the Alexa Top 1 Million are:<br />
-[code]<br />
-Instances, Subdomain<br />
-54520 www<br />
-41581 mail<br />
-39873 ftp<br />
-38590 localhost<br />
-22771 webmail<br />
-17643 smtp<br />
-17410 webdisk<br />
-15439 pop<br />
-15155 cpanel<br />
-14904 whm<br />
-[/code]</p>
+{% highlight text %}
+Instances, Subdomain
+54520 www
+41581 mail
+39873 ftp
+38590 localhost
+22771 webmail
+17643 smtp
+17410 webdisk
+15439 pop
+15155 cpanel
+14904 whm
+{% endhighlight %}</p>
 <p>There are some big differences in this top 10 compared to the top 10 against the top 2000. In this one the www subdomain takes the number one spot. The m subdomain is not in this list. The cpanel subdomain is in this list but didn't feature in the top 2000 list.</p>
 <p><a id="more"></a><a id="more-17123"></a></p>
 <p><strong>The data </strong></p>

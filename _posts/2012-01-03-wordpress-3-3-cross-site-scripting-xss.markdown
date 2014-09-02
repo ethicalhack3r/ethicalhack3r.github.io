@@ -37,25 +37,26 @@ date_gmt: '2012-01-03 18:56:14 +0000'
 <p>The researchers got back in touch with a link to a WordPress installation on which the vulnerability worked. The URL they gave me was an IP address. Within their environment the XSS worked.</p>
 <p>At this point I think even the researchers were puzzled. They sent me this code that they believed was the function causing the XSS within wp-includes/functions.php <a href="http://pastebin.com/iBnpN8Zm" target="_blank">http://pastebin.com/iBnpN8Zm</a>.</p>
 <p><a id="more"></a><a id="more-16709"></a></p>
-<p>[php]<br />
-function wp_guess_url() {<br />
-	if ( defined('WP_SITEURL') && '' != WP_SITEURL ) {<br />
-		$url = WP_SITEURL;<br />
-	} else {<br />
-		$schema = is_ssl() ? 'https://' : 'http://';<br />
-		$url = preg_replace('|/wp-admin/.*|i', '', $schema . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);<br />
-	}<br />
-	return rtrim($url, '/');<br />
-}<br />
-[/php]</p>
+<p>{% highlight php %}
+  function wp_guess_url() {
+  if ( defined('WP_SITEURL') && '' != WP_SITEURL ) {
+    $url = WP_SITEURL;
+  } else {
+    $schema = is_ssl() ? 'https://' : 'http://';
+    $url = preg_replace('|/wp-admin/.*|i', '', $schema . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+  }
+  return rtrim($url, '/');
+}
+{% endhighlight %}</p>
 <p>The XSS occurs because $_SERVER['REQUEST_URI'] (the URI which was given in order to access the page) was used within output before first being sanitized. Or better yet, it shouldn't have been used at all.</p>
 <p>The reason I couldn't reproduce it or why the researchers couldn't reproduce outside of their environment? The reason is the 'else' never gets triggered when WordPress was installed via a domain.</p>
 <p>If you installed WordPress by accessing http://192.168.100.110/, for example, you are vulnerable. If however, like most people, but not all, installed WordPress via the domain name, http://www.ethicalhack3r.co.uk you are not vulnerable.</p>
 <p>Quick and easy fix until WordPress release a patch? Put $_SERVER['REQUEST_URI'] through esc_html() first, esc_html($_SERVER['REQUEST_URI']).</p>
 <p>Example (tested):</p>
 <p>wp-includes/functions.php:3756<br />
-[php]<br />
-$url = preg_replace('|/wp-admin/.*|i', '', $schema . $_SERVER['HTTP_HOST'] . esc_html($_SERVER['REQUEST_URI']));<br />
-[/php]</p>
+{% highlight php %}
+$url = preg_replace('|/wp-admin/.*|i', '', $schema . $_SERVER['HTTP_HOST'] . esc_html($_SERVER['REQUEST_URI']));
+{% endhighlight %}
+</p>
 <p><strong>UPDATE --</strong></p>
 <p>WordPress 3.3.1 has been released that seems to fix the issue.</p>

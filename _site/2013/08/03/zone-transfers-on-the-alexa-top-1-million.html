@@ -59,65 +59,65 @@
 
 <p>Top 10 Alexa domains with Zone Transfers enabled:</p>
 
-<p>[code]<br />
-Rank,Domain<br />
-7,wikipedia.org<br />
-87,about.com<br />
-119,livedoor.com<br />
-120,weather.com<br />
-147,kickass.to<br />
-156,wikimedia.org<br />
-173,liveinternet.ru<br />
-194,goo.ne.jp<br />
-216,ehow.com<br />
-233,hardsextube.com<br />
-[/code]</p>
+<p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Rank,Domain
+7,wikipedia.org
+87,about.com
+119,livedoor.com
+120,weather.com
+147,kickass.to
+156,wikimedia.org
+173,liveinternet.ru
+194,goo.ne.jp
+216,ehow.com
+233,hardsextube.com</code></pre></div>
+</p>
 
 <p>In total there were 55,450 A records gathered from the 98 sites. After sorting the list of subdomains by the number of sites each subdomain was found on, removing any duplicates (some sites listed more than one of the same subdomain) and removing subdomains that were only found on one site, the final subdomain list consists of 859 lines. The final list including the number of instances each subdomain was seen across the 98 sites can be found here - <a href="http://ethicalhack3r.co.uk/files/misc/subdomain_count.txt">http://ethicalhack3r.co.uk/files/misc/subdomain_count.txt</a></p>
 
 <p>The top 10 subdomains were:<br />
-[code]<br />
-54 mail<br />
-47 www<br />
-35 ns2<br />
-34 ns1<br />
-28 blog<br />
-26 localhost<br />
-25 m<br />
-23 ftp<br />
-19 mobile<br />
-16 ns3<br />
-[/code]</p>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">54 mail
+47 www
+35 ns2
+34 ns1
+28 blog
+26 localhost
+25 m
+23 ftp
+19 mobile
+16 ns3</code></pre></div>
+</p>
 
 <p>The ns2 subdomain is apparently more popular than the ns1 subdomain which is unexpected. The localhost subdomain seemed to always point to the localhost (127.0.0.1). The mail subdomain was the most popular subdomain overall.</p>
 
 <p>And finally, the subdomain wordlist itself sorted by popularity can be found here - <a href="http://ethicalhack3r.co.uk/files/fuzzing/subdomains.txt">http://ethicalhack3r.co.uk/files/fuzzing/subdomains.txt</a> (859 lines). I would recommend combining this list with the list you're already using for the best results.</p>
 
 <p>And this is the code used to sort the dnsrecon CSV output files:<br />
-[code]<br />
-#!/usr/bin/env ruby</p>
 
-<p>require 'public_suffix'<br />
-require 'uri'</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#!/usr/bin/env ruby</span>
 
-<p>results = `cat axfr_results/*.csv`<br />
-output = Hash.new(0)<br />
-already_seen = []</p>
+<span class="nb">require</span> <span class="s1">&#39;public_suffix&#39;</span>
+<span class="nb">require</span> <span class="s1">&#39;uri&#39;</span>
 
-<p>results.split(&quot;\n&quot;).each do |line|<br />
-  domain    = line.split(',')[1]<br />
-  if ! already_seen.include?(domain)<br />
-    already_seen &lt;&lt; domain<br />
-    subdomain = PublicSuffix.parse( domain ).trd if PublicSuffix.valid?( domain )<br />
-    output[subdomain] += 1<br />
-  end<br />
-end</p>
+<span class="n">results</span> <span class="o">=</span> <span class="sb">`cat axfr_results/*.csv`</span>
+<span class="n">output</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">already_seen</span> <span class="o">=</span> <span class="o">[]</span>
 
-<p>Hash[output.sort_by{|k, v| v}.reverse].each_pair do |key, value|<br />
- next if key == '@' || key == '*'<br />
- puts &quot;#{value} #{key}&quot; if value != 1<br />
-end<br />
-[/code]</p>
+<span class="n">results</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">line</span><span class="o">|</span>
+  <span class="n">domain</span>    <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+  <span class="k">if</span> <span class="o">!</span> <span class="n">already_seen</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span>
+    <span class="n">already_seen</span> <span class="o">&lt;&lt;</span> <span class="n">domain</span>
+    <span class="n">subdomain</span> <span class="o">=</span> <span class="no">PublicSuffix</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span> <span class="n">domain</span> <span class="p">)</span><span class="o">.</span><span class="n">trd</span> <span class="k">if</span> <span class="no">PublicSuffix</span><span class="o">.</span><span class="n">valid?</span><span class="p">(</span> <span class="n">domain</span> <span class="p">)</span>
+    <span class="n">output</span><span class="o">[</span><span class="n">subdomain</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">Hash</span><span class="o">[</span><span class="n">output</span><span class="o">.</span><span class="n">sort_by</span><span class="p">{</span><span class="o">|</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="o">|</span> <span class="n">v</span><span class="p">}</span><span class="o">.</span><span class="n">reverse</span><span class="o">].</span><span class="n">each_pair</span> <span class="k">do</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span>
+ <span class="k">next</span> <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;@&#39;</span> <span class="o">||</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;*&#39;</span>
+ <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">value</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">value</span> <span class="o">!=</span> <span class="mi">1</span>
+<span class="k">end</span></code></pre></div>
+</p>
 
 <p>The next step if anyone has the time and resources is to conduct the test against the full top 1 million list. The top 2000 took about 12 hours or so.</p>
 

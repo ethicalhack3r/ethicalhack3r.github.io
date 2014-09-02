@@ -20,14 +20,7 @@ excerpt: "Recently I became faced with my first Web Application Security Assessm
   initial WebSocket handshake is carried out over HTTP using an '<a href=\"https://en.wikipedia.org/wiki/HTTP/1.1_Upgrade_header\">upgrade
   request</a>'. After the initial exchange over HTTP all future communication is carried
   out over TCP. On the application I was testing the WebSocket handshake over HTTP
-  within <a href=\"https://www.wireshark.org/\">WireShark</a> looked like this:\r\n\r\nRequest:\r\n[code]\r\nGET
-  /SocketHandler HTTP/1.1\r\nUser-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8;
-  rv:23.0) Gecko/20100101 Firefox/23.0\r\nSec-WebSocket-Version: 13\r\nOrigin: http://www.example.com\r\nSec-WebSocket-Key:
-  iiral7et1zfQMGu9udIYHA==\r\nCookie: Login=1234567\r\nConnection: keep-alive, Upgrade\r\nUpgrade:
-  websocket\r\nContent-length: 0\r\nHost: www.example.com\r\n[/code]\r\n\r\nResponse:\r\n[code]\r\nHTTP/1.1
-  101 Switching Protocols\r\nUpgrade: Websocket\r\nServer: Microsoft-IIS/8.0\r\nSec-WebSocket-Accept:
-  9ZPK0lC0SB6dhIJHRt3q/GN88Ng=\r\nConnection: Upgrade\r\nDate: Fri, 30 Aug 2013 13:33:42
-  GMT\r\n[/code]\r\n\r\n"
+  within <a href=\"https://www.wireshark.org/\">WireShark</a> looked like this:\r\n\r\n"
 wordpress_id: 17130
 wordpress_url: http://www.ethicalhack3r.co.uk/?p=17130
 date: '2013-08-30 18:57:45 +0100'
@@ -38,27 +31,27 @@ date_gmt: '2013-08-30 17:57:45 +0100'
 <h1>TCP/HTTP?</h1>
 <p>The initial WebSocket handshake is carried out over HTTP using an '<a href="https://en.wikipedia.org/wiki/HTTP/1.1_Upgrade_header">upgrade request</a>'. After the initial exchange over HTTP all future communication is carried out over TCP. On the application I was testing the WebSocket handshake over HTTP within <a href="https://www.wireshark.org/">WireShark</a> looked like this:</p>
 <p>Request:<br />
-[code]<br />
-GET /SocketHandler HTTP/1.1<br />
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:23.0) Gecko/20100101 Firefox/23.0<br />
-Sec-WebSocket-Version: 13<br />
-Origin: http://www.example.com<br />
-Sec-WebSocket-Key: iiral7et1zfQMGu9udIYHA==<br />
-Cookie: Login=1234567<br />
-Connection: keep-alive, Upgrade<br />
-Upgrade: websocket<br />
-Content-length: 0<br />
-Host: www.example.com<br />
-[/code]</p>
+{% highlight text %}
+GET /SocketHandler HTTP/1.1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:23.0) Gecko/20100101 Firefox/23.0
+Sec-WebSocket-Version: 13
+Origin: http://www.example.com
+Sec-WebSocket-Key: iiral7et1zfQMGu9udIYHA==
+Cookie: Login=1234567
+Connection: keep-alive, Upgrade
+Upgrade: websocket
+Content-length: 0
+Host: www.example.com
+{% endhighlight %}</p>
 <p>Response:<br />
-[code]<br />
-HTTP/1.1 101 Switching Protocols<br />
-Upgrade: Websocket<br />
-Server: Microsoft-IIS/8.0<br />
-Sec-WebSocket-Accept: 9ZPK0lC0SB6dhIJHRt3q/GN88Ng=<br />
-Connection: Upgrade<br />
-Date: Fri, 30 Aug 2013 13:33:42 GMT<br />
-[/code]</p>
+{% highlight text %}
+HTTP/1.1 101 Switching Protocols
+Upgrade: Websocket
+Server: Microsoft-IIS/8.0
+Sec-WebSocket-Accept: 9ZPK0lC0SB6dhIJHRt3q/GN88Ng=
+Connection: Upgrade
+Date: Fri, 30 Aug 2013 13:33:42 GMT
+{% endhighlight %}</p>
 <p><a id="more"></a><a id="more-17130"></a></p>
 <h1>Capturing WebSockets</h1>
 <p>For some reason the WebSocket handshake was not captured by Burp's Proxy (even though the WireShark capture shows that the handshake was over HTTP), however, it can be viewed within Google Chrome's Developer Tools and OWASP's <a href="https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project">ZAP Proxy</a>.</p>

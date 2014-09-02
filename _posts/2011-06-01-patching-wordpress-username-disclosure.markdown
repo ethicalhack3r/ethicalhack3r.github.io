@@ -39,14 +39,24 @@ date_gmt: '2011-06-01 14:38:30 +0100'
 <p>Here is how to patch the vulnerability highlighted by 'Zerial' yourself:</p>
 <p><strong>wp-includes/user.php:91</strong></p>
 <p>Change:</p>
-<p>[php]return new WP_Error('invalid_username', sprintf(__('ERROR: Invalid username. <a href="%s" title="Password Lost and Found">Lost your password< /a>?'), site_url('wp-login.php?action=lostpassword', 'login')));</a>[/php]</p>
+<p>
+{% highlight php %}
+return new WP_Error('invalid_username', sprintf(__('ERROR: Invalid username. <a href="%s" title="Password Lost and Found">Lost your password< /a>?'), site_url('wp-login.php?action=lostpassword', 'login')));</a>
+{% endhighlight %}
+</p>
 <p>To:</p>
-<p>[php]return new WP_Error( 'invalid_username', sprintf( __( 'ERROR: Invalid username and/or password.')));[/php]</p>
+<p>{% highlight php %}
+return new WP_Error( 'invalid_username', sprintf( __( 'ERROR: Invalid username and/or password.')));
+{% endhighlight %}</p>
 <p><strong>wp-includes/user.php:111</strong></p>
 <p>Change:</p>
-<p>[php]return new WP_Error( 'incorrect_password', sprintf( __( 'ERROR: The password you entered for the username <strong>%1$s</strong> is incorrect.      <a href="%2$s" title="Password Lost and Found">Lost your password</a>?' )[/php]</p>
+<p>{% highlight php %}
+return new WP_Error( 'incorrect_password', sprintf( __( 'ERROR: The password you entered for the username <strong>%1$s</strong> is incorrect.      <a href="%2$s" title="Password Lost and Found">Lost your password</a>?' )
+{% endhighlight %}</p>
 <p>To:</p>
-<p>[php]return new WP_Error( 'incorrect_password', sprintf( __( 'ERROR: Invalid username and/or password.')));[/php]</p>
+<p>{% highlight php %}
+  return new WP_Error( 'incorrect_password', sprintf( __( 'ERROR: Invalid username and/or password.')));
+  {% endhighlight %}</p>
 <p>Let's hope WordPress patch this and the one Veronica disclosed sooner rather than later.</p>
 <p><strong>UPDATE</strong></p>
 <p>After some further searching it seems a bug report was issued in 2007 on WordPress's Trac. <a href="http://core.trac.wordpress.org/ticket/3708" target="_blank">http://core.trac.wordpress.org/ticket/3708</a></p>

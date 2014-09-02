@@ -50,56 +50,45 @@
 # Author: Ryan Dewhurst (ryandewhurst at gmail) (@ethicalhack3r)(www.ethicalhack3r.co.uk)<br />
 # Software Link: http://sourceforge.net/projects/concretecms/files/concrete5/5.4.2.1/<br />
 # Version: 5.4.2.1 (tested)</p>
-
 <p>1.Vulnerability Description</p>
-
 <p>Multiple SQL Injection, Cross-Site Scripting (XSS) and Information Disclosure vulnerabilities were identified within Concrete5 version 5.4.2.1</p>
-
 <p>Please note: Only a select few vulnerabilities are outlined in this disclosure, many other vulnerabilities were discovered. Due to time restraints only a small sample of the vulnerabilities are outlined below. The vendor was contacted and replied promptly. Further assistance was asked for but not delivered due to my time constraints.</p>
-
 <p>2.Software Description</p>
-
 <p>CMS made for Marketing but built for Geeks, concrete5 [0] is a content management system that is free and open source.</p>
-
 <p><a id="more"></a><a id="more-16555"></a></p>
-
 <p>3.SQLi PoC [1] (authenticated user)</p>
-
 <p>http://concrete5.4.2/index.php/dashboard/reports/surveys/?ccm_order_by=numberOfResponses&ccm_order_dir=,(SELECT BENCHMARK(1000000,MD5(1)) FROM btSurveyResults where CURRENT_USER() like 'root@localhost' limit 1) -- </p>
-
 <p>4.Vulnerable code</p>
-
 <p>File: concrete/controllers/dashboard/reports/surveys.php</p>
+<p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">class SurveyList extends DatabaseItemList {</span>
+<span class="x">       protected $itemsPerPage = 10;</span>
+<span class="x">       protected $autoSortColumns = array(&#39;cvName&#39;, &#39;question&#39;,</span>
+<span class="x">&#39;numberOfResponses&#39;, &#39;lastResponse&#39;);</span>
 
-<p>[php]<br />
-class SurveyList extends DatabaseItemList {<br />
-       protected $itemsPerPage = 10;<br />
-       protected $autoSortColumns = array('cvName', 'question',<br />
-'numberOfResponses', 'lastResponse');</p>
-
-<p>       function __construct() {<br />
-               $this->setQuery(<br />
-                          'select distinct btSurvey.bID,<br />
-CollectionVersions.cID, btSurvey.question, CollectionVersions.cvName,<br />
-(select max(timestamp) from btSurveyResults where btSurveyResults.bID<br />
-= btSurvey.bID and btSurveyResults.cID = CollectionVersions.cID) as<br />
-lastResponse, (select count(timestamp) from btSurveyResults where<br />
-btSurveyResults.bID = btSurvey.bID and btSurveyResults.cID =<br />
-CollectionVersions.cID) as numberOfResponses ' .<br />
-                               'from btSurvey, CollectionVersions,<br />
-CollectionVersionBlocks');<br />
-               $this->filter(false, 'btSurvey.bID =<br />
-CollectionVersionBlocks.bID');<br />
-               $this->filter(false, 'CollectionVersions.cID =<br />
-CollectionVersionBlocks.cID');<br />
-               $this->filter(false, 'CollectionVersionBlocks.cvID =<br />
-CollectionVersionBlocks.cvID');<br />
-               $this->filter(false, 'CollectionVersions.cvIsApproved = 1');<br />
-               $this->userPostQuery .= 'group by btSurvey.bID,<br />
-CollectionVersions.cID';<br />
-       }<br />
-}<br />
-[/php]</p>
+<span class="x">       function __construct() {</span>
+<span class="x">               $this-&gt;setQuery(</span>
+<span class="x">                          &#39;select distinct btSurvey.bID,</span>
+<span class="x">CollectionVersions.cID, btSurvey.question, CollectionVersions.cvName,</span>
+<span class="x">(select max(timestamp) from btSurveyResults where btSurveyResults.bID</span>
+<span class="x">= btSurvey.bID and btSurveyResults.cID = CollectionVersions.cID) as</span>
+<span class="x">lastResponse, (select count(timestamp) from btSurveyResults where</span>
+<span class="x">btSurveyResults.bID = btSurvey.bID and btSurveyResults.cID =</span>
+<span class="x">CollectionVersions.cID) as numberOfResponses &#39; .</span>
+<span class="x">                               &#39;from btSurvey, CollectionVersions,</span>
+<span class="x">CollectionVersionBlocks&#39;);</span>
+<span class="x">               $this-&gt;filter(false, &#39;btSurvey.bID =</span>
+<span class="x">CollectionVersionBlocks.bID&#39;);</span>
+<span class="x">               $this-&gt;filter(false, &#39;CollectionVersions.cID =</span>
+<span class="x">CollectionVersionBlocks.cID&#39;);</span>
+<span class="x">               $this-&gt;filter(false, &#39;CollectionVersionBlocks.cvID =</span>
+<span class="x">CollectionVersionBlocks.cvID&#39;);</span>
+<span class="x">               $this-&gt;filter(false, &#39;CollectionVersions.cvIsApproved = 1&#39;);</span>
+<span class="x">               $this-&gt;userPostQuery .= &#39;group by btSurvey.bID,</span>
+<span class="x">CollectionVersions.cID&#39;;</span>
+<span class="x">       }</span>
+<span class="x">}</span></code></pre></div>
+</p>
 
 <p>5.Cross-Site Scripting (XSS)</p>
 
@@ -107,12 +96,11 @@ CollectionVersions.cID';<br />
 Parameter: rcID<br />
 Method: POST<br />
 PoC: Any JavaScript</p>
-
 <p>6.Vulnerable Code</p>
-
 <p>File: concrete/single_pages/login.php:</p>
-
-<p>[html]<input type="hidden" name="rcID" value="< ?php echo $rcID?/>">[/html]</p>
+<p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name=</span><span class="s">&quot;rcID&quot;</span> <span class="na">value=</span><span class="s">&quot;&lt; ?php echo $rcID?/&gt;&quot;</span><span class="nt">&gt;</span></code></pre></div>
+</p>
 
 <p>7.Full Path Disclosure (FPD)</p>
 
