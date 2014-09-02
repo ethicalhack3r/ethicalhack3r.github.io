@@ -16,7 +16,7 @@ excerpt: "Recently I became faced with my first Web Application Security Assessm
   giving me a timeout error while using my proxy of choice, <a href=\"http://portswigger.net/burp/\">Burp
   Suite</a>. Looking at the HTTP requests/responses in Burp I noticed that a large
   JavaScript file was requested and downloaded from the server. Within this file I
-  noticed a URL with the <em>ws://</em> scheme, the WebSocket scheme.\r\n\r\n<h1>TCP/HTTP?</h1>\r\n\r\nThe
+  noticed a URL with the <em>ws://</em> scheme, the WebSocket scheme.\r\n\r\n<h3>TCP/HTTP?</h3>\r\n\r\nThe
   initial WebSocket handshake is carried out over HTTP using an '<a href=\"https://en.wikipedia.org/wiki/HTTP/1.1_Upgrade_header\">upgrade
   request</a>'. After the initial exchange over HTTP all future communication is carried
   out over TCP. On the application I was testing the WebSocket handshake over HTTP
@@ -77,7 +77,7 @@ Date: Fri, 30 Aug 2013 13:33:42 GMT
 <h3>Conclusion</h3>
 <p>Testing WebSockets can seem daunting when you first come across them during a Web Application Security Assessment. Hopefully you now have some insight of how WebSockets work, what tools you can use and what security issues to look out for.</p>
 <p>I have probably not covered all bases here and I'm sure there is a lot more to be discussed surrounding testing WebSockets during a Web Application Security Assessment. If you think that I have missed anything out, please comment below!</p>
-<h1>Further Reading</h1>
+<h3>Further Reading</h3>
 <p><a href="https://tools.ietf.org/html/rfc6455">https://tools.ietf.org/html/rfc6455</a><br />
 <a href="https://www.owasp.org/index.php/HTML5_Security_Cheat_Sheet">https://www.owasp.org/index.php/HTML5_Security_Cheat_Sheet</a><br />
 <a href="http://www.digininja.org/blog/zap_web_sockets.php">http://www.digininja.org/blog/zap_web_sockets.php</a><br />
