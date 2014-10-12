@@ -28,7 +28,7 @@ I quickly learnt that connecting to Memcached does not require authentication. A
 
 > Using SASL authentication here helps, but should not be totally trusted.
 
-https://code.google.com/p/memcached/wiki/NewConfiguringServer#Networking
+[https://code.google.com/p/memcached/wiki/NewConfiguringServer#Networking](https://code.google.com/p/memcached/wiki/NewConfiguringServer#Networking)
 
 ## Give me the data!
 
@@ -122,13 +122,13 @@ To get the key value I just used the [dalli](https://github.com/mperham/dalli) g
 
 ## The Script
 
-To automate the data extraction from a Memcached server I wrote the following script - https://github.com/ethicalhack3r/my-scripts/blob/master/memcached_client.rb - which uses a mixture of the [dalli](https://github.com/mperham/dalli) Gem and Telnet to extract the data.
+To automate the data extraction from a Memcached server I wrote the following script - [https://github.com/ethicalhack3r/my-scripts/blob/master/memcached_client.rb](https://github.com/ethicalhack3r/my-scripts/blob/master/memcached_client.rb) - which uses a mixture of the [dalli](https://github.com/mperham/dalli) Gem and Telnet to extract the data.
 
 Using [massscan](https://github.com/robertdavidgraham/masscan) I scanned some net blocks for TCP port 11211 to see how popular Memcached was and how how frequently it was listening over the Internet despite Memcached's own documentation advising against this.
 
 > So you must not expose memcached directly to the internet, or otherwise any untrusted users.
 
-https://code.google.com/p/memcached/wiki/NewConfiguringServer#Networking
+[https://code.google.com/p/memcached/wiki/NewConfiguringServer#Networking](https://code.google.com/p/memcached/wiki/NewConfiguringServer#Networking)
 
 Memcached were nice enough to tell us who the biggest users of the software are:
 
@@ -144,7 +144,7 @@ Memcached were nice enough to tell us who the biggest users of the software are:
 - Craigslist
 - Mixi
 
-http://memcached.org/
+[http://memcached.org/](http://memcached.org/)
 
 ## Conclusion
 
