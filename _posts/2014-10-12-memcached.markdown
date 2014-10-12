@@ -124,7 +124,7 @@ To automate the data extraction from a Memcached server I wrote the following sc
 
 Using [massscan](https://github.com/robertdavidgraham/masscan) I scanned some net blocks for TCP port 11211 to see how popular Memcached was and how how frequently it was listening over the Internet despite Memcached's own documentation advising against this.
 
->> So you must not expose memcached directly to the internet, or otherwise any untrusted users.
+> So you must not expose memcached directly to the internet, or otherwise any untrusted users.
 
 https://code.google.com/p/memcached/wiki/NewConfiguringServer#Networking
 
@@ -141,7 +141,6 @@ Memcached were nice enough to tell us who the biggest users of the software are:
 - WordPress.com
 - Craigslist
 - Mixi
-- 
 
 http://memcached.org/
 
