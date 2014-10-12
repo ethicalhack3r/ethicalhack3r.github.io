@@ -148,6 +148,6 @@ http://memcached.org/
 
 ## Conclusion
 
-After all this I came across a [blog post](http://www.sensepost.com/blog/4873.html) by SensePost who did all of this back in 2010. They even wrote a tool called ```go-derper``` which I havn't haf the chance to try yet. My Google Fu must have been weak when I first came across the Memcached server on the Internet. Nevertheless I learned a little about Memcached and will be prepared next time I come across it. Hopefully you learned a little about it too.
+After all this I came across a [blog post](http://www.sensepost.com/blog/4873.html) by SensePost who did all of this back in 2010. They even wrote a tool called ```go-derper``` which I havn't had the chance to try yet. My Google Fu must have been weak when I first came across the Memcached server on the Internet. Nevertheless I learned a little about Memcached and will be prepared next time I come across it. Hopefully you learned a little about it too.
 
 There was no Metasploit module to extract data from a Memcached server, maybe this is something I can do in future if I get the time or someone else can do if they're interested. Metaploit did have a [DoS exploit](https://github.com/rapid7/metasploit-framework/blob/master/modules/auxiliary/dos/misc/memcached.rb) (CVE-2011-4971) for Memcached though.
