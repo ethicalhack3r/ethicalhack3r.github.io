@@ -100,7 +100,7 @@ Where ```3``` is the slab id and ```100``` is the maximum number of keys to retu
 
 ### Slabs
 
-So to return the key names we first need the slab ids. Luckily for us some slab ids are retrned when issueing the ```stats items``` command.
+So to return the key names we first need the slab ids. Luckily for us some slab ids are returned when issueing the ```stats items``` command.
 
 The output of this command looks like this (borrowed from the previous [blog post](http://www.darkcoding.net/software/memcached-list-all-keys/)):
 
