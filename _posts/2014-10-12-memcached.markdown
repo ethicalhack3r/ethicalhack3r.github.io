@@ -1,7 +1,7 @@
 ---
 layout: post
 status: publish
-published: false
+published: true
 title: Memcached
 excerpt: "Last week I came across a service on the Internet running on TCP port 11211, Memcached's default port. I had heard of Memcached before but I probably only knew it was some kind of database system, that was the extent of my familiarity with it.
 \r\n\r\n
