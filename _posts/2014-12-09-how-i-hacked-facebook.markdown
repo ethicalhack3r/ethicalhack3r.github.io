@@ -26,7 +26,7 @@ For those of you that do not know, Jenkins is a 'continuous integration server'.
 
 By using Groovy script and the Jenkins Script Console I was able to execute commands on the server under the 'jenkins' user.
 
-Example Grooby script to run the ```whoami``` command:
+Example Groovy script to run the ```whoami``` command:
 
 ```
 def command = """whoami"""
