@@ -3,7 +3,7 @@ layout: post
 status: publish
 published: true
 title: How I hacked Facebook
-excerpt: "Ok, ok. I didn't quite "hack Facebook". What I did was execute OS level commands on one of Facebook's acquisition's servers. This is how I did it."
+excerpt: "Ok, ok. I didn't quite 'hack Facebook'. What I did was execute OS level commands on one of Facebook's acquisition's servers. This is how I did it."
 ---
 
 Ok, ok. I didn't quite "hack Facebook". What I did was execute OS level commands on one of Facebook's acquisition's servers.
