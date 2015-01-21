@@ -22,7 +22,7 @@ When I approach these companies I tell them they are in breach of our software l
 
 Chasing these companies takes time, sometimes a whole day of emails back and forth arguing the intricacies of the GNU GPL while they try and weasel their way out of complying to our license. This takes a lot of my time away from the important stuff, working on WPScan and the WPScan Vulnerability Database. Because of this I decided to add a clause to the license. If you want to sell WPScan you can pay for a commercial license, otherwise you can use it under the GNU GPL.
 
-The current license: https://github.com/wpscanteam/wpscan/blob/master/LICENSE
+The current license: [https://github.com/wpscanteam/wpscan/blob/master/LICENSE](https://github.com/wpscanteam/wpscan/blob/master/LICENSE)
 
 After a few months with this license it was pointed out to me that the GNU GPL does not allow these kind of clauses. What some individuals and companies decided was a 'loophole'. I argue that they should abide by either the commercialization clause or the GNU GPL in this situation. They decline.
 
@@ -32,6 +32,6 @@ I have been working on a new WPScan license for the past few months, a non Open 
 
 In the interest of openness the license is below:
 
-https://gist.github.com/ethicalhack3r/50fa4723cd0ad663bbc6
+[https://gist.github.com/ethicalhack3r/50fa4723cd0ad663bbc6](https://gist.github.com/ethicalhack3r/50fa4723cd0ad663bbc6)
 
 Your feedback and comments would be much appreciated. Via Twitter or email.
