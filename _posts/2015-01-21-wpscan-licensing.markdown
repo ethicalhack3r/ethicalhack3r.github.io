@@ -8,8 +8,6 @@ excerpt: "When you first release software online you don't put too much thought 
 I released WPScan on the 16th of June 2011 along with the GNU GPL license. After a while I built up a team, The WPScan Team, which were people who had the same goals as me, to make an awesome black box WordPress scanning tool. The WPScan Team (3 other awesome people) and I have been working on WPScan in our spare time as volunteers for almost 4 years. Countless hours, days, weeks and months of man hours have been put into WPScan and recently the WPScan Vulnerability Database by us."
 ---
 
-##WPScan Licensing
-
 When you first release software online you don't put too much thought into the software license (I didn't at least). You have no idea if the project will take off. If your intention is for your peers to use it freely your first thought may be Open Source. The most popular Open Source license is the GNU GPL, so why not use that!?
 
 I released WPScan on the 16th of June 2011 along with the GNU GPL license. After a while I built up a team, The WPScan Team, which were people who had the same goals as me, to make an awesome black box WordPress scanning tool. The WPScan Team (3 other awesome people) and I have been working on WPScan in our spare time as volunteers for almost 4 years. Countless hours, days, weeks and months of man hours have been put into WPScan and recently the WPScan Vulnerability Database by us.
