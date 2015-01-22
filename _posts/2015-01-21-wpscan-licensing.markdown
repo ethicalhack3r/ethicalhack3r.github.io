@@ -24,7 +24,7 @@ Chasing these companies takes time, sometimes a whole day of emails back and for
 
 The old license: [https://github.com/wpscanteam/wpscan/blob/c5136fd330231d3b8290545c06451b2ba4d941b9/LICENSE](https://github.com/wpscanteam/wpscan/blob/c5136fd330231d3b8290545c06451b2ba4d941b9/LICENSE)
 
-After a few months with this license it was pointed out to me that the GNU GPL does not allow these kind of clauses. What some individuals and companies decided was a 'loophole'. I argue that they should abide by either the commercialization clause or the GNU GPL in this situation. They decline.
+After a few months with this license it was pointed out to me that the GNU GPL does not allow these kind of clauses. (Correction: although several people told me this, it seems that it is not true, see [here](http://www.gnu.org/copyleft/gpl-faq.html#HeardOtherLicense) and [here](http://www.gnu.org/copyleft/gpl-faq.html#ReleaseUnderGPLAndNF) ) What some individuals and companies decided was a 'loophole'. I argue that they should abide by either the commercialization clause or the GNU GPL in this situation. They decline.
 
 This morning I noticed another company selling WPScan. Usually I don't name these companies because I don't want to give them any publicity. But today, I'm at my wits end with them. The company of today is called Delve Labs from Montreal, Canada. They are selling WPScan as a product called 'Warden'. I have been speaking to a Gabriel Tremblay who works for them but I believe it is owned by Yves Lepage, he works in security at REDACTED. They have refused to pay for a commercial license or obied by the GNU GPL. The only way I could force them is by seeking legal advice. More cost and time which could be put into WPScan.
 
