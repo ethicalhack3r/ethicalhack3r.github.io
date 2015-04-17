@@ -3,7 +3,7 @@ layout: post
 status: publish
 published: true
 title: Scanner Outbound Calls
-excerpt: "Today Burp Suite announced the release of a new feature they call (http://blog.portswigger.net/2015/04/introducing-burp-collaborator.html)[Burp Collaborator] which is enabled by default.
+excerpt: "Today Burp Suite announced the release of a new feature they call Burp Collaborator which is enabled by default.
 \r\n\r\n
 By default this new feature makes use of a third-party server hosted by Burp to detect vulnerabilities which are not easily detectable in the usual 'request<->response' method most vulnerability scanners use.
 \r\n\r\n
