@@ -9,7 +9,7 @@ By default this new feature makes use of a third-party server hosted by Burp to 
 \r\n\r\n
 The legitimate concern of some people online has been that client information may now be leaked to Burp or worse leaked to the Internet if the third-party server Burp uses is ever compromised. "
 ---
-Today Burp Suite announced the release of a new feature they call [http://blog.portswigger.net/2015/04/introducing-burp-collaborator.html](Burp Collaborator) which is enabled by default.
+Today Burp Suite announced the release of a new feature they call [Burp Collaborator](http://blog.portswigger.net/2015/04/introducing-burp-collaborator.html) which is enabled by default.
 
 By default this new feature makes use of a third-party server hosted by Burp to detect vulnerabilities which are not easily detectable in the usual "request<->response" method most vulnerability scanners use.
 
