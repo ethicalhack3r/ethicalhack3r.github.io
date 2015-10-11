@@ -56,7 +56,7 @@ Whereas the following requirement;
 
 > 2.13. Verify that account passwords make use of a sufficient strength encryption routine and that it withstands brute force attack against the encryption routine.
 
-This requirement spans across levels 2 and 3 and would usually require a white box test as it would be difficult to predict how the application encrypts its passwords from an outsider's perspective (unless they're not encrypting their passwords at all!).
+This requirement spans across levels 2 and 3 and would usually require a white box test as it would be difficult to predict how the application encrypts (hashes) its passwords from an outsider's perspective (unless they're storing them in plaintext!).
 
 ##What's new in version 3.0?
 
