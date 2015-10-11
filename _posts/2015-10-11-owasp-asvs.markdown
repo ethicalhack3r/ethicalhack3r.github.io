@@ -3,7 +3,9 @@ layout: post
 status: publish
 published: true
 title: OWASP Application Security Verification Standard (ASVS)
-excerpt: "A few days ago (October, 2015) the OWASP Application Security Verification Standard (ASVS) version 3.0 was released which I had the opportunity to contribute to in a small way by helping review some of the draft documents before the official release. I became aware of the OWASP ASVS as a growing number of my clients started asking if I used it. At the time I didn't use it but I decided to invest some time into finding out what it was. This blog post's intention is to bring some attention to the OWASP ASVS project for those unaware of it."
+excerpt: "A few days ago (October, 2015) the OWASP Application Security Verification Standard (ASVS) version 3.0 was released which I had the opportunity to contribute to in a small way by helping review some of the draft documents before the official release.
+\r\n\r\n
+I became aware of the OWASP ASVS as a growing number of my clients started asking if I used it. At the time I didn't use it but I decided to invest some time into finding out what it was. This blog post's intention is to bring some attention to the OWASP ASVS project for those unaware of it."
 ---
 
 A few days ago (October, 2015) the [OWASP Application Security Verification Standard (ASVS)](https://www.owasp.org/index.php/Category:OWASP_Application_Security_Verification_Standard_Project) version 3.0 was released which I had the opportunity to contribute to in a small way by helping review some of the draft documents before the official release.
