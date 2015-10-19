@@ -3,7 +3,7 @@ layout: post
 status: publish
 published: true
 title: 2014 Achievements
-excerpt: "It's almost the end of the year so I thought I would take the oppertunity to reflect on my achievements during 2014 before the holidays start. It is a good way for me to put the year into perspective and focus on my goals for 2015."
+excerpt: "It's almost the end of the year so I thought I would take the opportunity to reflect on my achievements during 2014 before the holidays start. It is a good way for me to put the year into perspective and focus on my goals for 2015."
 ---
 
 It's almost the end of the year so I thought I would take the oppertunity to reflect on my achievements during 2014 before the holidays start. It is a good way for me to put the year into perspective and focus on my goals for 2015.
