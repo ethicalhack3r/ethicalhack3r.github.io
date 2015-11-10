@@ -14,6 +14,8 @@ Certificate Pinning is an extra layer of security that is used by applications t
 
 By including the remote server’s x509 certificate or public key within the application, it is possible to compare the locally stored certificate or key with the one provided by the remote server.
 
+<p align="center"><img src="https://i.imgur.com/LAwnhfP.png" /></p>
+
 If you have been unable to intercept (Man-in-the-Middle) the application’s HTTPS traffic, after taking the necessary steps, this is probably due to the application using Certificate Pinning.
 
 ## Bypassing Certificate Pinning
@@ -64,6 +66,8 @@ In this case a search for “X509TrustManager” returned a result within the �
 
 The “return-void” opcode was added to the first line of each of these methods. The “return-void” statement is a Dalvik opcode to return ‘void’ or null. For more Dalvik opcodes refer to [http://pallergabor.uw.hu/androidblog/dalvik_opcodes.html ](http://pallergabor.uw.hu/androidblog/dalvik_opcodes.html)
 
+<p align="center"><img src="https://i.imgur.com/JwFikhO.png" /></p>
+
 ### Reassembling the APK
 
 Once the changes are made to the methods the APK will need to be reassembled. To do this the following apktool command was run:
@@ -89,6 +93,8 @@ The modified APK should now be signed for 10,000 days and ready to be installed 
     $ adb install app_modified.apk
 
 After installing the modified APK it is possible to intercept (Man-in-the-Middle) the HTTPS communications.
+
+<p align="center"><img src="https://i.imgur.com/ogARxiA.png" /></p>
 
 ## Conclusions
 
