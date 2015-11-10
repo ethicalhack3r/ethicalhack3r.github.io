@@ -1,7 +1,7 @@
 ---
 layout: post
 status: publish
-published: false
+published: true
 title: Mobile Security Certificate Pinning
 excerpt: "Certificate Pinning is an extra layer of security that is used by applications to ensure that the certificate provided by the remote server is the one which is expected.
 \r\n\r\n
