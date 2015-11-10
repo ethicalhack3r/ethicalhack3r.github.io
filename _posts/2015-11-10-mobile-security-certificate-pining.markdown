@@ -14,7 +14,7 @@ Certificate Pinning is an extra layer of security that is used by applications t
 
 By including the remote server’s x509 certificate or public key within the application, it is possible to compare the locally stored certificate or key with the one provided by the remote server.
 
-<p align="center"><img src="https://i.imgur.com/LAwnhfP.png" /></p>
+<p align="center"><img src="https://i.imgur.com/LAwnhfP.png" alt="Facebook Android Certificate Pinning" /></p>
 
 If you have been unable to intercept (Man-in-the-Middle) the application’s HTTPS traffic, after taking the necessary steps, this is probably due to the application using Certificate Pinning.
 
@@ -66,7 +66,7 @@ In this case a search for “X509TrustManager” returned a result within the �
 
 The “return-void” opcode was added to the first line of each of these methods. The “return-void” statement is a Dalvik opcode to return ‘void’ or null. For more Dalvik opcodes refer to [http://pallergabor.uw.hu/androidblog/dalvik_opcodes.html ](http://pallergabor.uw.hu/androidblog/dalvik_opcodes.html)
 
-<p align="center"><img src="https://i.imgur.com/JwFikhO.png" /></p>
+<p align="center"><img src="https://i.imgur.com/JwFikhO.png" alt="Facebook Android Certificate Pinning" /></p>
 
 ### Reassembling the APK
 
@@ -94,7 +94,7 @@ The modified APK should now be signed for 10,000 days and ready to be installed 
 
 After installing the modified APK it is possible to intercept (Man-in-the-Middle) the HTTPS communications.
 
-<p align="center"><img src="https://i.imgur.com/ogARxiA.png" /></p>
+<p align="center"><img src="https://i.imgur.com/ogARxiA.png" alt="Facebook Android Certificate Pinning" /></p>
 
 ## Conclusions
 
