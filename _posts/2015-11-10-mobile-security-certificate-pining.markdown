@@ -28,17 +28,17 @@ Some tools exist for different mobile platforms which can automatically disable 
 
 Both of the following tools need jailbroken devices as they manipulate the application or device during runtime to disable Certificate Pinning.
 
-- iOS SSL Kill Switch patches low-level SSL functions within the Secure Transport API - https://github.com/iSECPartners/ios-ssl-kill-switch
+- iOS SSL Kill Switch patches low-level SSL functions within the Secure Transport API - (https://github.com/iSECPartners/ios-ssl-kill-switch)[https://github.com/iSECPartners/ios-ssl-kill-switch]
 
-- iOS TrustMe disables SecTrustEvaluate - https://github.com/intrepidusgroup/trustme 
+- iOS TrustMe disables SecTrustEvaluate - (https://github.com/intrepidusgroup/trustme)[https://github.com/intrepidusgroup/trustme]
 
 ### Android Applications
 
 Both of the following tools need rooted devices as they manipulate the application or device during runtime to disable Certificate Pinning.
 
-- Android-SSL-TrustKiller hooks various runtime methods to bypass certificate pinning - https://github.com/iSECPartners/Android-SSL-TrustKiller 
+- Android-SSL-TrustKiller hooks various runtime methods to bypass certificate pinning - (https://github.com/iSECPartners/Android-SSL-TrustKiller)[https://github.com/iSECPartners/Android-SSL-TrustKiller]
 
-- android-ssl-bypass uses a JDWP debugger using the JDI APIs - https://github.com/iSECPartners/android-ssl-bypass
+- android-ssl-bypass uses a JDWP debugger using the JDI APIs - (https://github.com/iSECPartners/android-ssl-bypass)[https://github.com/iSECPartners/android-ssl-bypass]
 
 ## Real World Certificate Pinning Bypass Example
 
@@ -52,7 +52,7 @@ The first step is to download the Facebook APK from the Play Store. Once downloa
 
 ### Disassembling the APK
 
-The [apktool](https://github.com/iBotPeaches/Apktool) tool was used to disassemble the APK with the following command:
+The (apktool)[https://github.com/iBotPeaches/Apktool] tool was used to disassemble the APK with the following command:
 
     $ apktool d com.facebook.katana.apk -o com.facebook.katana_disassembled
 
@@ -94,6 +94,6 @@ After installing the modified APK it is possible to intercept (Man-in-the-Middle
 
 This content was originally written for the up and coming OWASP Mobile Application Security Testing Guide. However, I have decided to share it here so that others can benefit from my research and write up before the OWASP guide is officially released. It should also help improve the final version as it should generate more feedback.
 
-If you have any feedback please leave a comment - https://docs.google.com/document/d/16sMdEmDk3cGR1qAZwFFCPu_M2t3t4g6sYydTzRu7274/edit
+If you have any feedback please leave a comment - (https://docs.google.com/document/d/16sMdEmDk3cGR1qAZwFFCPu_M2t3t4g6sYydTzRu7274/edit)[https://docs.google.com/document/d/16sMdEmDk3cGR1qAZwFFCPu_M2t3t4g6sYydTzRu7274/edit]
 
 This post demonstrates the extra security which Certificate Pinning can offer in mobile applications, as well as how trivially it can be bypassed in some circumstances.
