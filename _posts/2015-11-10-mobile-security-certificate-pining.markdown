@@ -62,7 +62,7 @@ Once the APK has been disassembled we will need to locate where within the smali
 
 In this case a search for “X509TrustManager” returned a result within the ‘smali/com/facebook/acra/util/TrustEveryoneTrustManager.smali’ file. This file contains methods named “checkClientTrusted”, “checkServerTrusted” and “getAcceptedIssuers”.
 
-The “return-void” opcode was added to the first line of each of these methods. The “return-void” statement is a Dalvik opcode to return ‘void’ or null. For more Dalvik opcodes refer to http://pallergabor.uw.hu/androidblog/dalvik_opcodes.html 
+The “return-void” opcode was added to the first line of each of these methods. The “return-void” statement is a Dalvik opcode to return ‘void’ or null. For more Dalvik opcodes refer to [http://pallergabor.uw.hu/androidblog/dalvik_opcodes.html ](http://pallergabor.uw.hu/androidblog/dalvik_opcodes.html)
 
 ### Reassembling the APK
 
