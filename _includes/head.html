@@ -1,9 +1,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{% if post.title %}{{ post.title }}{% else %}{{ site.title }}{% endif %}</title>
+		<title>{{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}</title>
     <meta name="viewport" content="width=device-width">
-		<meta name="description" content="{% if post.description %}{{ post.description }}{% else %}{{ site.description }}{% endif %}">
+		<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
     <!-- Custom CSS -->
