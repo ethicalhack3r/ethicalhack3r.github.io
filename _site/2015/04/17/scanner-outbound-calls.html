@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>   
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Dewhurst Security Blog - </title>
+    <meta name="description" content="Information security blog for Dewhurst Security." />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+    <!-- This is for syntax highlight -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
+    <!-- Customisation  -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+
+</head>
+<body class="home-template">
+
+    
+    <main class="content" role="main">
+
+    <article class="post">
+        <header class="post-header">
+            <a id="blog-logo" href="http://blog.dewhurstsecurity.com">
+                
+                    <span class="blog-title">Dewhurst Security Blog</span>
+                 
+            </a>
+        </header>
+        
+        <span class="post-meta">
+        	<time datetime="2015-04-17">17 Apr 2015</time>
+        	
+        		on
+	        	
+	        
+       	</span>
+
+        <h1 class="post-title">Scanner Outbound Calls</h1>
+
+        <section class="post-content">
+            <p>Today Burp Suite announced the release of a new feature they call <a href="http://blog.portswigger.net/2015/04/introducing-burp-collaborator.html">Burp Collaborator</a> which is enabled by default.</p>
+
+<p>By default this new feature makes use of a third-party server hosted by Burp to detect vulnerabilities which are not easily detectable in the usual &quot;request&lt;-&gt;response&quot; method most vulnerability scanners use.</p>
+
+<p>The legitimate concern of some people online has been that client information may now be leaked to Burp or worse leaked to the Internet if the third-party server Burp uses is ever compromised. </p>
+
+<p>Users are able to setup their own &quot;Burp Collaborator&quot; server if they wish, however, this may be a pain to setup and maintain. I haven&#39;t tried it so I&#39;m not certain how difficult it may or may not be to setup.</p>
+
+<p>Those concerned with Burp logging these potential vulnerabilities from their client&#39;s sites may not realise that Burp and almost every other web application scanner already does this. Not for the intention of logging the data itself, but to check for vulnerabilities that need to call a third-party server, such as a Remote File Inclusion (RFI) vulnerability to be detected.</p>
+
+<p>For example, Burp version 1.6.14, the version prior to this new feature sends this payload:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">http://www.example.com/wordpress-40/?feed=http://portswigger.net/f517a2bc19bdff66d7c64e8a7ad2f043.txt
+</code></pre></div>
+<p>This request gets sent to the application and if vulnerable, the application will forward the request to portswigger.net where it could be logged. The HTTP Referer header containing the application&#39;s domain name, the IP address of the server that made the request, times, dates and more could be logged.</p>
+
+<p>I&#39;m not saying that it is or it is not logged, but it could be. And this is existing functionality, nothing new and definitely not unique to Burp Suite. I&#39;d be surprised if there was a web application vulnerability scanner which didn&#39;t use similar payloads.</p>
+
+<p>OWASP&#39;s ZAP scanner makes this request, probably looking for the &quot;OWASP ZAP&quot; keyword in the response:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">http://www.example.com/wordpress-40/xmlrpc.php?rsd=http://www.google.com:80/search?q=OWASP ZAP
+</code></pre></div>
+<p>Arachni will use this payload:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">http://tests.arachni-scanner.com/rfi.md5.txt
+</code></pre></div>
+<p>My point is if you do not like this new feature for the sole purpose that it may be logging data, well, most scanners already could, including Burp. You could argue that because this new feature attempts to identify a wider variety of vulnerabilities that even more data could potentially be logged. That would be a legitimate argument. However, Burp state &quot;No data of any kind is in recorded in any persistent form: for example, a database or log file.”.</p>
+
+<p>Whether you want to take their word for it or not is up to you. Personally I think they&#39;re a great and trustworthy team and would take their word for it.</p>
+
+<p>I haven&#39;t had the chance to use this new feature. I think that it has great potential. I may have preferred efforts be put into improving existing functionality but I&#39;m sure they have their reasons and own priorities.</p>
+
+        </section>
+
+        
+
+        <footer class="post-footer">
+            <section class="hire-me">
+              <h4><a href="http://dewhurstsecurity.com/">Dewhurst Security</a></h4>
+            </section>                
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=Scanner Outbound Calls&amp;url=http://blog.dewhurstsecurity.com/2015/04/17/scanner-outbound-calls.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.dewhurstsecurity.com/2015/04/17/scanner-outbound-calls.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://blog.dewhurstsecurity.com/2015/04/17/scanner-outbound-calls.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+        	
+        </footer>
+
+    </article>
+
+</main>
+
+
+    <footer class="site-footer">
+        <div class="inner">
+            <section class="copyright">All content copyright <a href="http://blog.dewhurstsecurity.com">Dewhurst Security Blog</a> &copy;  &bull; All rights reserved.</section>
+        </div>
+    </footer>
+
+    
+    <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+    
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3292649-12', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+</body>
+</html>

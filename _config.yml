@@ -1,8 +1,11 @@
 name: Dewhurst Security Blog
-meta_description: "Dewhurst Security Blog"
+meta_description: "Information security blog for Dewhurst Security."
 baseurl: http://blog.dewhurstsecurity.com
 
 markdown: redcarpet
 highlighter: pygments
 paginate: 15
 excerpt_separator: https://github.com/jekyll/jekyll/issues/1401
+
+gems:
+  - jekyll-sitemap

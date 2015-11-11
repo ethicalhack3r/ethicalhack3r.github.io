@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>   
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Dewhurst Security Blog - </title>
+    <meta name="description" content="Information security blog for Dewhurst Security." />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+    <!-- This is for syntax highlight -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
+    <!-- Customisation  -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+
+</head>
+<body class="home-template">
+
+    
+    <main class="content" role="main">
+
+    <article class="post">
+        <header class="post-header">
+            <a id="blog-logo" href="http://blog.dewhurstsecurity.com">
+                
+                    <span class="blog-title">Dewhurst Security Blog</span>
+                 
+            </a>
+        </header>
+        
+        <span class="post-meta">
+        	<time datetime="2014-10-12">12 Oct 2014</time>
+        	
+        		on
+	        	
+	        
+       	</span>
+
+        <h1 class="post-title">Memcached</h1>
+
+        <section class="post-content">
+            <h2>What is Memcached?</h2>
+
+<blockquote>
+<p>Free &amp; open source, high-performance, distributed memory object caching system, generic in nature, but intended for use in speeding up dynamic web applications by alleviating database load.</p>
+
+<p>Memcached is an in-memory key-value store for small chunks of arbitrary data (strings, objects) from results of database calls, API calls, or page rendering.</p>
+
+<p>Memcached is simple yet powerful. Its simple design promotes quick deployment, ease of development, and solves many problems facing large data caches. Its API is available for most popular languages.</p>
+
+<p>At heart it is a simple Key/Value store.</p>
+</blockquote>
+
+<p>http://memcached.org/</p>
+
+<h2>Background</h2>
+
+<p>Last week I came across a service on the Internet running on TCP port 11211, Memcached&#39;s default port. I had heard of Memcached before but I probably only knew it was some kind of database system, that was the extent of my familiarity with it.</p>
+
+<p>I quickly learnt that connecting to Memcached does not require authentication. Authentication can be implmented but even then Memcached&#39;s own documentation says it should not be fully trusted. </p>
+
+<blockquote>
+<p>Using SASL authentication here helps, but should not be totally trusted.</p>
+</blockquote>
+
+<p><a href="https://code.google.com/p/memcached/wiki/NewConfiguringServer#Networking">https://code.google.com/p/memcached/wiki/NewConfiguringServer#Networking</a></p>
+
+<h2>Give me the data!</h2>
+
+<p>I have a database server which I can connect to (you can use Telnet) without any authentication, great! Give me the data!</p>
+
+<p>Now here lies the problem, Memcached is a Key/Value store. To get any data from the key&#39;s values I need to know the key name first and the key name can be any string. I was also told that there was no way to get the key names from a Memcached server.</p>
+
+<h3>Stats</h3>
+
+<p>I found a Ruby Gem called <a href="https://github.com/mperham/dalli">dalli</a> which is a Memchaced client and started to play around with the API, one interesting Memchaced call is the <code>stats</code> one.</p>
+
+<p>Here is some example output when the <code>stats</code> command is executed on a remote Memcached server:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">[*] pid: 1020
+[*] uptime: 14903707
+[*] time: 1413105644
+[*] version: 1.4.4
+[*] pointer_size: 64
+[*] rusage_user: 286.130501
+[*] rusage_system: 319.259465
+[*] curr_connections: 10
+[*] total_connections: 46
+[*] connection_structures: 13
+[*] cmd_get: 38617
+[*] cmd_set: 38630
+[*] cmd_flush: 0
+[*] get_hits: 1
+[*] get_misses: 38616
+[*] delete_misses: 0
+[*] delete_hits: 0
+[*] incr_misses: 0
+[*] incr_hits: 0
+[*] decr_misses: 0
+[*] decr_hits: 0
+[*] cas_misses: 0
+[*] cas_hits: 0
+[*] cas_badval: 0
+[*] auth_cmds: 0
+[*] auth_errors: 0
+[*] bytes_read: 30650122
+[*] bytes_written: 26375254
+[*] limit_maxbytes: 67108864
+[*] accepting_conns: 1
+[*] listen_disabled_num: 0
+[*] threads: 4
+[*] conn_yields: 0
+[*] bytes: 600555
+[*] curr_items: 1541
+[*] total_items: 38617
+[*] evictions: 0
+</code></pre></div>
+<p>I&#39;ve seen this data fluctuate in terms of content, sometimes you get more stat information and others less. There&#39;s some interesting data here but nothing to help get any key names.</p>
+
+<h3>Cachedump</h3>
+
+<p>After some googleing I came across a <a href="http://www.darkcoding.net/software/memcached-list-all-keys/">blog post</a> which outlines a method to extract some of the key names.</p>
+
+<p>The method to extract the key names outlined in the blog post uses the <code>stats cachedump</code> command and passing a &#39;slab id&#39; and a keys limit.</p>
+
+<p>The full command would look something like this:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">stats cachedump 3 100
+</code></pre></div>
+<p>Where <code>3</code> is the slab id and <code>100</code> is the maximum number of keys to return. Slabs are a way Memcached handles its internal memory rather than storing the key/values individually.</p>
+
+<h3>Slabs</h3>
+
+<p>So to return the key names we first need the slab ids. Luckily for us some slab ids are returned when issueing the <code>stats items</code> command.</p>
+
+<p>The output of this command looks like this (borrowed from the previous <a href="http://www.darkcoding.net/software/memcached-list-all-keys/">blog post</a>):</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">STAT items:3:number 1
+STAT items:3:age 498
+STAT items:22:number 1
+STAT items:22:age 498
+END
+</code></pre></div>
+<p>The number after <code>items:</code> is a slab id, we can easily extract the slab ids with the following regex <code>^items:(\d*):</code>.</p>
+
+<p>Now we have some slab ids we can use <code>cachedump</code> do get the key name and once we have the key name we can extract the key value. Unfortunatly the <a href="https://github.com/mperham/dalli">dalli</a> gem doesn&#39;t have an API call for <code>cachedump</code>, however, this can be done easily over Telnet or the like.</p>
+
+<h3>Values (the meat!)</h3>
+
+<p>To get the key value I just used the <a href="https://github.com/mperham/dalli">dalli</a> gem&#39;s <code>get(key_name)</code> API call. I did come across some interesting data but most of the time no data was returned. I guess it depends on how frequently the Memcached server is used.</p>
+
+<h2>The Script</h2>
+
+<p>To automate the data extraction from a Memcached server I wrote the following script - <a href="https://github.com/ethicalhack3r/my-scripts/blob/master/memcached_client.rb">https://github.com/ethicalhack3r/my-scripts/blob/master/memcached_client.rb</a> - which uses a mixture of the <a href="https://github.com/mperham/dalli">dalli</a> Gem and Telnet to extract the data.</p>
+
+<p>Using <a href="https://github.com/robertdavidgraham/masscan">massscan</a> I scanned some net blocks for TCP port 11211 to see how popular Memcached was and how how frequently it was listening over the Internet despite Memcached&#39;s own documentation advising against this.</p>
+
+<blockquote>
+<p>Memcached does not spend much, if any, effort in ensuring its defensibility from random internet connections. So you must not expose memcached directly to the internet, or otherwise any untrusted users.</p>
+</blockquote>
+
+<p><a href="https://code.google.com/p/memcached/wiki/NewConfiguringServer#Networking">https://code.google.com/p/memcached/wiki/NewConfiguringServer#Networking</a></p>
+
+<p>Memcached were nice enough to tell us who the biggest users of the software are:</p>
+
+<ul>
+<li>LiveJournal</li>
+<li>Wikipedia</li>
+<li>Flickr</li>
+<li>Bebo</li>
+<li>Twitter</li>
+<li>Typepad</li>
+<li>Yellowbot</li>
+<li>Youtube</li>
+<li>WordPress.com</li>
+<li>Craigslist</li>
+<li>Mixi</li>
+</ul>
+
+<p><a href="http://memcached.org/">http://memcached.org/</a></p>
+
+<h2>Conclusion</h2>
+
+<p>After all this I came across a <a href="http://www.sensepost.com/blog/4873.html">blog post</a> by SensePost who did all of this back in 2010. They even wrote a tool called <code>go-derper</code> which I havn&#39;t had the chance to try yet. My Google Fu must have been weak when I first came across the Memcached server on the Internet. Nevertheless I learned a little about Memcached and will be prepared next time I come across it. Hopefully you learned a little about it too.</p>
+
+<p>There was no Metasploit module to extract data from a Memcached server, maybe this is something I can do in future if I get the time or someone else can do if they&#39;re interested. Metaploit did have a <a href="https://github.com/rapid7/metasploit-framework/blob/master/modules/auxiliary/dos/misc/memcached.rb">DoS exploit</a> (CVE-2011-4971) for Memcached though.</p>
+
+        </section>
+
+        
+
+        <footer class="post-footer">
+            <section class="hire-me">
+              <h4><a href="http://dewhurstsecurity.com/">Dewhurst Security</a></h4>
+            </section>                
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=Memcached&amp;url=http://blog.dewhurstsecurity.com/2014/10/12/memcached.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.dewhurstsecurity.com/2014/10/12/memcached.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://blog.dewhurstsecurity.com/2014/10/12/memcached.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+        	
+        </footer>
+
+    </article>
+
+</main>
+
+
+    <footer class="site-footer">
+        <div class="inner">
+            <section class="copyright">All content copyright <a href="http://blog.dewhurstsecurity.com">Dewhurst Security Blog</a> &copy;  &bull; All rights reserved.</section>
+        </div>
+    </footer>
+
+    
+    <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+    
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3292649-12', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+</body>
+</html>

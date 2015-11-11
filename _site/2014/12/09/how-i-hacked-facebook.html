@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>   
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Dewhurst Security Blog - </title>
+    <meta name="description" content="Information security blog for Dewhurst Security." />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+    <!-- This is for syntax highlight -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
+    <!-- Customisation  -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+
+</head>
+<body class="home-template">
+
+    
+    <main class="content" role="main">
+
+    <article class="post">
+        <header class="post-header">
+            <a id="blog-logo" href="http://blog.dewhurstsecurity.com">
+                
+                    <span class="blog-title">Dewhurst Security Blog</span>
+                 
+            </a>
+        </header>
+        
+        <span class="post-meta">
+        	<time datetime="2014-12-09">09 Dec 2014</time>
+        	
+        		on
+	        	
+	        
+       	</span>
+
+        <h1 class="post-title">How I hacked Facebook</h1>
+
+        <section class="post-content">
+            <p>Ok, ok. I didn&#39;t quite &quot;hack Facebook&quot;. What I did was execute OS level commands on one of Facebook&#39;s acquisition&#39;s servers.</p>
+
+<p>This is how I did it.</p>
+
+<p>One day last September I was in bed with terrible flu. While I was bedridden I got bored and started to poke around Facebook&#39;s Bug Bounty program. I have participated in Bug Bounties before but never Facebook&#39;s.</p>
+
+<p>This is by no means a complicated hack by the way, but it worked.</p>
+
+<p>I started by port scanning Facebook&#39;s in scope domains with Nmap. Probed a few listening services on IPs that looked interesting.</p>
+
+<p>I also started to look at Facebook&#39;s acquisitions. Doing the same, port scanning common ports, probing services that looked interesting.</p>
+
+<p>On one of Facebook&#39;s acquisition&#39;s IPs they had Jenkins running on a common port. I opened it up in my browser but unfortunately it prompted me with a Basic Authentication login box. I assume this is where most other bounty hunters and Facebook&#39;s own security team stopped testing.</p>
+
+<p>I decided to do a full port scan with nmap. The results showed another Jenkins service running on a less common port. Accessing it over this less common port it did not prompt me for authentication. Bingo!</p>
+
+<p>For those of you that do not know, Jenkins is a &#39;continuous integration server&#39;. Once authenticated it allows you to run &#39;Groovy script&#39; through the &#39;Jenkins Script Console&#39;. </p>
+
+<p>By using Groovy script and the Jenkins Script Console I was able to execute commands on the server under the &#39;jenkins&#39; user.</p>
+
+<p>Example Groovy script to run the <code>whoami</code> command:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">def command = &quot;&quot;&quot;whoami&quot;&quot;&quot;
+def proc = command.execute()
+proc.waitFor()
+
+println &quot;stdout: ${proc.in.text}&quot;
+</code></pre></div>
+<p>I reported this issue to Facebook and they patched it very fast. I was awarded $7,500 through their bug bounty program. The payment took a few months to come through and lots of emails back and forth. But it came through in the end.</p>
+
+<p>What&#39;s the takeaway? Don&#39;t forget the basics. I was able to find a pretty risky bug in one of Facebook&#39;s acquisitions from within my bed by just using Nmap.</p>
+
+<p>I would like to say thank you to Facebook for the payment and I hope I can report more bugs to them in the future.</p>
+
+        </section>
+
+        
+
+        <footer class="post-footer">
+            <section class="hire-me">
+              <h4><a href="http://dewhurstsecurity.com/">Dewhurst Security</a></h4>
+            </section>                
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=How I hacked Facebook&amp;url=http://blog.dewhurstsecurity.com/2014/12/09/how-i-hacked-facebook.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.dewhurstsecurity.com/2014/12/09/how-i-hacked-facebook.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://blog.dewhurstsecurity.com/2014/12/09/how-i-hacked-facebook.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+        	
+        </footer>
+
+    </article>
+
+</main>
+
+
+    <footer class="site-footer">
+        <div class="inner">
+            <section class="copyright">All content copyright <a href="http://blog.dewhurstsecurity.com">Dewhurst Security Blog</a> &copy;  &bull; All rights reserved.</section>
+        </div>
+    </footer>
+
+    
+    <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+    
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3292649-12', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+</body>
+</html>

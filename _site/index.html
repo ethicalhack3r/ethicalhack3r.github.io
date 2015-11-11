@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     <title>Dewhurst Security Blog - </title>
-    <meta name="description" content="Dewhurst Security Blog" />
+    <meta name="description" content="Information security blog for Dewhurst Security." />
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="MobileOptimized" content="320" />
@@ -32,6 +32,124 @@
 </header>
 
 <main class="content" role="main">
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2015-11-10">10 Nov 2015</time> </span>
+            <h2 class="post-title"><a href="/2015/11/10/mobile-security-certificate-pining.html">Mobile Security Certificate Pinning</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            Certificate Pinning is an extra layer of security that is used by applications to ensure that the certificate provided by the remote server is the one which is expected. 
+
+ By including the remote server’s x509 certificate or public key within the application, it is possible to compare the locally stored certificate or key with the one provided by the remote server. 
+
+ If you have been unable to intercept (Man-in-the-Middle) the application’s HTTPS traffic, after taking the necessary steps, this is probably due to the application using Certificate Pinning.
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2015-10-11">11 Oct 2015</time> </span>
+            <h2 class="post-title"><a href="/2015/10/11/owasp-asvs.html">OWASP Application Security Verification Standard (ASVS)</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            A few days ago (October, 2015) the OWASP Application Security Verification Standard (ASVS) version 3.0 was released which I had the opportunity to contribute to in a small way by helping review some of the draft documents before the official release. 
+
+ I became aware of the OWASP ASVS as a growing number of my clients started asking if I used it. At the time I didn't use it but I decided to invest some time into finding out what it was. This blog post's intention is to bring some attention to the OWASP ASVS project for those unaware of it.
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2015-04-17">17 Apr 2015</time> </span>
+            <h2 class="post-title"><a href="/2015/04/17/scanner-outbound-calls.html">Scanner Outbound Calls</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            Today Burp Suite announced the release of a new feature they call Burp Collaborator which is enabled by default. 
+
+ By default this new feature makes use of a third-party server hosted by Burp to detect vulnerabilities which are not easily detectable in the usual 'request<->response' method most vulnerability scanners use. 
+
+ The legitimate concern of some people online has been that client information may now be leaked to Burp or worse leaked to the Internet if the third-party server Burp uses is ever compromised. 
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2015-01-21">21 Jan 2015</time> </span>
+            <h2 class="post-title"><a href="/2015/01/21/wpscan-licensing.html">WPScan Licensing</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            When you first release software online you don't put too much thought into the software license (I didn't at least). You have no idea if the project will take off. If your intention is for your peers to use it freely your first thought may be Open Source. The most popular Open Source license is the GNU GPL, so why not use that!? 
+
+ I released WPScan on the 16th of June 2011 along with the GNU GPL license. After a while I built up a team, The WPScan Team, which were people who had the same goals as me, to make an awesome black box WordPress scanning tool. The WPScan Team (3 other awesome people) and I have been working on WPScan in our spare time as volunteers for almost 4 years. Countless hours, days, weeks and months of man hours have been put into WPScan and recently the WPScan Vulnerability Database by us.
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2014-12-12">12 Dec 2014</time> </span>
+            <h2 class="post-title"><a href="/2014/12/12/2014-achievements.html">2014 Achievements</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            It's almost the end of the year so I thought I would take the opportunity to reflect on my achievements during 2014 before the holidays start. It is a good way for me to put the year into perspective and focus on my goals for 2015.
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2014-12-09">09 Dec 2014</time> </span>
+            <h2 class="post-title"><a href="/2014/12/09/how-i-hacked-facebook.html">How I hacked Facebook</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            Ok, ok. I didn't quite 'hack Facebook'. What I did was execute OS level commands on one of Facebook's acquisition's servers. This is how I did it.
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2014-11-20">20 Nov 2014</time> </span>
+            <h2 class="post-title"><a href="/2014/11/20/wpscan-installation.html">WPScan Installation & Introduction</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            At WPScan we sometimes get users who strugle installing and using WPScan. I have made a video which shows the installation steps and an introduction to using WPScan for these users.
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2014-10-12">12 Oct 2014</time> </span>
+            <h2 class="post-title"><a href="/2014/10/12/memcached.html">Memcached</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            Last week I came across a service on the Internet running on TCP port 11211, Memcached's default port. I had heard of Memcached before but I probably only knew it was some kind of database system, that was the extent of my familiarity with it. 
+
+ I quickly learnt that connecting to Memcached does not require authentication. Authentication can be implmented but even then Memcached's own documentation says it should not be fully trusted.
+        </section>
+    </article>
 
     
 
@@ -140,7 +258,7 @@ Download: <a href="https://simplerisk.googlecode.com/files/simplerisk-20130915-0
 
 The first clue that the application was using WebSockets was when the application kept giving me a timeout error while using my proxy of choice, <a href="http://portswigger.net/burp/">Burp Suite</a>. Looking at the HTTP requests/responses in Burp I noticed that a large JavaScript file was requested and downloaded from the server. Within this file I noticed a URL with the <em>ws://</em> scheme, the WebSocket scheme.
 
-<h1>TCP/HTTP?</h1>
+<h3>TCP/HTTP?</h3>
 
 The initial WebSocket handshake is carried out over HTTP using an '<a href="https://en.wikipedia.org/wiki/HTTP/1.1_Upgrade_header">upgrade request</a>'. After the initial exchange over HTTP all future communication is carried out over TCP. On the application I was testing the WebSocket handshake over HTTP within <a href="https://www.wireshark.org/">WireShark</a> looked like this:
 
@@ -188,196 +306,11 @@ This was all done using Carlos Perez's <a href="https://github.com/darkoperator/
 
     
 
-    <article class="post">
-        <header class="post-header">
-            <span class="post-meta"><time datetime="2013-07-26">26 Jul 2013</time> </span>
-            <h2 class="post-title"><a href="/2013/07/26/cracking-microsoft-excel-97-2004-xls-documents.html">Cracking Microsoft Excel 97-2004 .xls Documents</a></h2>
-
-        </header>
-        <section class="post-excerpt">
-            A client emailed to say they had forgotten a password for their Microsoft Excel .xls document and asked if it was possible to recover it. After searching on Google it was clear that there was plenty of shi...bloatware, which may have worked if you were willing to go through a few of them and pay a few dollars. It wasn't that important of a document according to the client but nevertheless a challenge is a challenge.
-
-The document was encrypted when using 'save as', according to various sources online the encryption algorithm is 40bit RC4. As it is encrypted nothing could be gleaned by opening the document with a hex editor.
-
-As always when Google turns up nothing useful I turn to Twitter. A few people recommended <a href="http://www.elcomsoft.co.uk/">Elcomsoft</a> which do Windows software to both recover and obtain the password of a Microsoft Excel document. This looked like a good bet and they offer free trials! The recover software which seems to do a brute force attack looked like it could have worked (especially now I know how weak the password was) but I was running the software on a Virtual Machine. The recovery tool unfortunately didn't reveal the password, the paid for version may have, I don't know.
-
-
-        </section>
-    </article>
-
-    
-
-    <article class="post">
-        <header class="post-header">
-            <span class="post-meta"><time datetime="2013-06-20">20 Jun 2013</time> </span>
-            <h2 class="post-title"><a href="/2013/06/20/login-cross-site-request-forgery-csrf.html">Login Cross-Site Request Forgery (CSRF)</a></h2>
-
-        </header>
-        <section class="post-excerpt">
-            The new OWASP Top 10 2013 was released not so long ago, while reading over it I noticed this:
-
-"Attackers can trick victims into performing any state changing operation the victim is authorized to perform, e.g., updating account details, making purchases, logout and <strong>even login</strong>." - <a href="https://www.owasp.org/index.php/Top_10_2013-A8-Cross-Site_Request_Forgery_(CSRF)" target="_blank">https://www.owasp.org/index.php/Top_10_2013-A8-Cross-Site_Request_Forgery_(CSRF)</a>
-
-This must be a mistake I thought, why would you ever want to CSRF a user to log them into their own account? If you already had their login credentials this must be utterly pointless.
-
-Today I came across an academic paper which gives three examples of why Login CSRF can be an issue and how wrong I was.
-
-<strong>Google</strong>
-
-"Search History. Many search engines, including Yahoo! and Google, allow their users to opt-in to saving their search history and provide an interface for a user to review his or her personal search history. Search queries contain sensitive details about the user’s interests and activities [41, 4] and could be used by an attacker to embarrass the user, to steal the user’s identity, or to spy on the user. An attacker can spy on a user’s search history by logging the user into the search engine as the attacker; see Figure 1. The user’s search queries are then stored in the attacker’s search history, and the attacker can retrieve the queries by logging into his or her own account."
-
-
-        </section>
-    </article>
-
-    
-
-    <article class="post">
-        <header class="post-header">
-            <span class="post-meta"><time datetime="2013-04-17">17 Apr 2013</time> </span>
-            <h2 class="post-title"><a href="/2013/04/17/http-form-password-brute-forcing-the-need-for-speed.html">HTTP Form Password Brute Forcing - The Need for Speed</a></h2>
-
-        </header>
-        <section class="post-excerpt">
-            HTTP Form password brute forcing is not rocket science, you try multiple username/password combinations until you get a correct answer (or non-negative answer).
-
-Password brute forcing, especially over a network, takes time and while your software is attempting to find a correct username/password combination it is taking up your and the remote system's resources. While the brute force is being carried out you might not want to run an automated scan, for example, as the remote server may not be able to cope with the amount of connections or the rapid succession of connections. At the same time, your network bandwidth and system memory are also limited. It makes sense that when you conduct a weak password brute force it is done as fast as possible so that your time and resources are restored for other tasks.
-
-And of course not forgetting that you're always going to be limited by time on a pentest/web app assessment as the client's budget is never unlimited.
-
-So what is the fastest way to brute force a HTTP form today? I use Burp Suite for my Web Application Security Assessments and I would normally use Burp's Intruder, but is this the fastest tool to do it with?
-
-Of course, there are other limiting factors when brute forcing remotely such as your Internet/Network speed, CPU speed, RAM and the remote system's response times, as well as other factors. For this experiment we'll only be focusing on the software used to carry out the password brute force attack. This is far from being a perfect in-depth study but it should hopefully give an idea which tool out of my small collection (Burp Intruder Spider Vs Hydra http-post-form) is fastest.
-
-<strong>The Setup</strong>
-
-On both tools I set one user to brute force, admin, and used the <a href="http://ethicalhack3r.co.uk/files/fuzzing/rockyou-75.txt" target="_blank">rockyou-75.txt</a> wordlist (19963 lines), which has one addition which is the correct password which was added to the last line of the file. Both the same username and password list was used for Burp's Intruder (Sniper) and Hydra. Each tool was run one after the other, not at the same time.
-
-Burp Suite Professional Intruder (Sniper) Version: 1.5.11
-Hydra (http-post-form) Version: 7.4.2
-
-A "Local" test was carried out on a localhost Apache 2 web server as well as a "Remote" test against the www.ethicalhack3r.co.uk Nginx web server.
-
-The <a href="http://pastebin.com/xV80ZHBj" target="_blank">Test Form</a> that I created to test against (both locally and remotely) does not make a database call which is what would normally be expected on a real HTTP login form. I'd expect my test login form to reply quicker than if it had to make a database call. The 'Local' and 'Remote' columns represent the time it took the tool to find the correct password which was at the end of the wordlist.
-
-
-        </section>
-    </article>
-
-    
-
-    <article class="post">
-        <header class="post-header">
-            <span class="post-meta"><time datetime="2013-04-08">08 Apr 2013</time> </span>
-            <h2 class="post-title"><a href="/2013/04/08/ssh-too-many-open-files-burp.html">SSH "accept : too many open files" on OS X when using Burp</a></h2>
-
-        </header>
-        <section class="post-excerpt">
-            <strong>EDIT 19.04.2013 10:17 ---</strong>
-<strong>WARNING!</strong> This did break the Tor Browser Bundle on my machine. The error was "Couldn't set maximum number of file descriptors: Invalid argument"
-<strong>---</strong>
-
-For as long as I can remember, when <a href="http://ocaoimh.ie/2008/02/13/how-to-use-ssh-as-a-proxy-server/" target="_blank">using SSH as a forward proxy</a> to proxy Burp Suite through an upstream server I have gotten a "accept : too many open files" error in my Mac OS X Terminal after a couple of hours of using Burp's Proxy and/or Scanner.
-
-When searching Google the first solution I came across was to set the 'ulimit' to something higher, as far as I can tell 'ulimit' sets user system limits such as how many open files a user is allowed to have open at once.
-
-On OS X when attempting to set this limit to 'unlimited' I always got an error, "Neither the hard nor soft limit for "maxfiles" can be unlimited. Please use a numeric parameter for both.", or when setting the ulimit to something higher than the default (256) the error (accept : too many open files) would still not go away or at least not for long. The only thing I found that would get rid of the error was to kill my ssh session and spawn a new one.
-
-After further reading, some forums and blogs suggested updating openssh, I did this and the issue persisted. I thought the issue may have been openssl, so I updated that, the issue persisted.
-
-I also <a href="https://twitter.com/ethicalhack3r/status/313982186695036928" target="_blank">tweeted</a> about the issue where the suggestion of adjusting the ulimit resurfaced, but I just couldn't get ulimit to fix the issue.
-
-
-        </section>
-    </article>
-
-    
-
-    <article class="post">
-        <header class="post-header">
-            <span class="post-meta"><time datetime="2013-03-16">16 Mar 2013</time> </span>
-            <h2 class="post-title"><a href="/2013/03/16/weekly-viewing-you-and-your-research-ruby-2-0.html">[Weekly Viewing] You and Your Research & Ruby 2.0</a></h2>
-
-        </header>
-        <section class="post-excerpt">
-            This week we have another two videos lined up for you. The first, by <a href="https://twitter.com/haroonmeer" target="_blank">Haroon Meer</a>, I was luckily enough to see in person at Brucon 2011. It is one of the best talks I have ever had the privilege to see, by anyone. If you're ever going to watch one of these 'Weekly Viewing' videos of mine make it be this one.
-
-The second video is by Matz, the creator of Ruby, where he talks about Ruby's development and the new features of Ruby 2.0. In his talk Matz says that Ruby 1.8 will die soon. So update already! ;)
-
-<h1>#HITB2012KUL D1T2 - Haroon Meer - You and Your Research</h1>
-
-<iframe width="560" height="315" src="http://www.youtube-nocookie.com/embed/JoVx_-bM8Tg?rel=0" frameborder="0" allowfullscreen></iframe>
-
-
-        </section>
-    </article>
-
-    
-
-    <article class="post">
-        <header class="post-header">
-            <span class="post-meta"><time datetime="2013-03-10">10 Mar 2013</time> </span>
-            <h2 class="post-title"><a href="/2013/03/10/weekly-viewing-web-app-security-and-zero-days.html">[Weekly Viewing] Web App Security and Zero Days</a></h2>
-
-        </header>
-        <section class="post-excerpt">
-            This is a first of hopefully many weekly posts in which I will share online security related videos that I've watched during the week and think are worth sharing. This week I've got two great videos lined up for your viewing pleasure.
-
-<h3>[OWASP AppSec USA 2012] Effective Approaches to Web Application Security - Zane Lackey</h3>
-
-In this video Zane Lackey from Etsy talks about how to make a developer's job easier by making things safe by default, how to detect risky functionality and how to automate aspects of web application security monitoring and response.
-
-<iframe src="http://player.vimeo.com/video/54107692" height="275" width="500" allowfullscreen="" frameborder="0"></iframe>
-
-<a href="http://vimeo.com/54107692">Effective Approaches to Web Application Security - Zane Lackey</a> from <a href="http://vimeo.com/appsecusa">OWASP AppSec USA</a> on <a href="http://vimeo.com">Vimeo</a>.
-
-
-        </section>
-    </article>
-
-    
-
-    <article class="post">
-        <header class="post-header">
-            <span class="post-meta"><time datetime="2013-03-07">07 Mar 2013</time> </span>
-            <h2 class="post-title"><a href="/2013/03/07/sony-freedom-of-information-foi-request.html">Sony Freedom Of Information (FOI) Request</a></h2>
-
-        </header>
-        <section class="post-excerpt">
-            On the 14th of January the UK Information Commissioner's Office (ICO) sent Sony Computer Entertainment Europe Limited a <a href="http://www.ico.gov.uk/enforcement/~/media/documents/library/Data_Protection/Notices/sony_monetary_penalty_notice.ashx" target="_blank">monetary penalty notice</a> of £250,000 following 'a serious breach of the Data Protection Act'.
-
-To be able to quantify how much the ICO was fining Sony for individual user's data the exact number of UK PSN users would need to be known. A couple of sources put this number at 3 million but I'm not sure where the original 3 million figure came from nor how accurate it really is [0][1].
-
-If we were to take this 3 million figure at face value, the ICO fined Sony (£250,000 / 3,000,000) £0.000083 per user's data. According to the ICO, £250,000 is 'reasonable and proportionate' in this case. To get a more accurate figure I sent the ICO a FOI request to ask for the redacted figure in the monetary penalty notice document which simply states "The Network Platform was used by an estimated REDACTED million customers in Europe, the Middle East, Africa, Australia and New Zealand with REDACTED million of those customers based in the UK.".
-
-
-        </section>
-    </article>
-
-    
-
-    <article class="post">
-        <header class="post-header">
-            <span class="post-meta"><time datetime="2012-12-12">12 Dec 2012</time> </span>
-            <h2 class="post-title"><a href="/2012/12/12/wordpress-plugin-asset-manager-upload-php-arbitrary-code-execution.html">WordPress plugin Asset manager upload.php Arbitrary Code Execution</a></h2>
-
-        </header>
-        <section class="post-excerpt">
-            The '<a href="http://1337day.com/" target="_blank">Inj3ct0r Team</a>' compromised an <a href="https://www.exploithub.com/" target="_blank">ExploitHub.com</a> database and released a <a href="http://priv8.1337day.com/exploitHUB.txt" target="_blank">file</a> publicly which contained some of the data about the exploits that ExploitHub buy and sell.
-
-I saw the file yesterday, had a quick skim over it, but didn't think too much of it. That is until WPScan team member <a href="https://www.twitter.com/@gbrindisi" target="_blank">@gbrindisi</a> pointed out that it contained 2 WordPress plugin vulnerabilities.
-
-
-        </section>
-    </article>
-
-    
-
     <nav class="pagination" role="pagination">
 
         
 
-        <span class="page-number"> Page 1 of 8 </span>
+        <span class="page-number"> Page 1 of 9 </span>
         
          
         <a class="older-posts" href="/page2/" title="Next Page">Older Posts &raquo;</a>
@@ -390,7 +323,7 @@ I saw the file yesterday, had a quick skim over it, but didn't think too much of
 
     <footer class="site-footer">
         <div class="inner">
-            <section class="copyright">All content copyright <a href="">Dewhurst Security Blog</a> &copy;  &bull; All rights reserved.</section>
+            <section class="copyright">All content copyright <a href="http://blog.dewhurstsecurity.com">Dewhurst Security Blog</a> &copy;  &bull; All rights reserved.</section>
         </div>
     </footer>
 
@@ -398,6 +331,17 @@ I saw the file yesterday, had a quick skim over it, but didn't think too much of
     <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
     <script type="text/javascript" src="/assets/js/index.js"></script>
+    
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3292649-12', 'auto');
+      ga('send', 'pageview');
+    </script>
 
 </body>
 </html>
