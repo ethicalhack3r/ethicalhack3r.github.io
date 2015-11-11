@@ -13,10 +13,10 @@ archive: false
                     <img src="{{site.logo}}" alt="{{ site.name }}" />
                 {% else %}
                     <span class="blog-title">{{ site.name }}</span>
-                {%endif%} 
+                {%endif%}
             </a>
         </header>
-        
+
         <span class="post-meta">
         	<time datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string }}</time>
         	{% if page.categories %}
@@ -39,15 +39,15 @@ archive: false
     		<ul>
     			{% for post in site.posts %}
     				<li><span>{{ post.date | date_to_string }}</span>  <a href="{{ post.url }}">{{ post.title }}</a></li>
-    			{% endfor %}	
+    			{% endfor %}
     		</ul>
         </section>
         {% endif %}
 
         <footer class="post-footer">
             <section class="hire-me">
-              <h4><a href="http://dewhurstsecurity.com/">Dewhurst Security</a></h4>
-            </section>                
+              <h4><a href="https://dewhurstsecurity.com/">Dewhurst Security</a></h4>
+            </section>
 
             <section class="share">
                 <h4>Share this post</h4>
@@ -64,7 +64,7 @@ archive: false
                     <span class="hidden">Google+</span>
                 </a>
             </section>
-        	
+
         </footer>
 
     </article>
