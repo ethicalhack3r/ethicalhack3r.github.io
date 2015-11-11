@@ -1,0 +1,76 @@
+---
+layout: post
+status: publish
+published: true
+title: 2014 Achievements
+excerpt: "It's almost the end of the year so I thought I would take the opportunity to reflect on my achievements during 2014 before the holidays start. It is a good way for me to put the year into perspective and focus on my goals for 2015."
+---
+
+It's almost the end of the year so I thought I would take the oppertunity to reflect on my achievements during 2014 before the holidays start. It is a good way for me to put the year into perspective and focus on my goals for 2015.
+
+## Main Achievements
+
+### Learnt Rails
+I decided to launch [wpvulndb.com](https://wpvulndb.com) in Rails early on as I already knew Ruby and wanted to learn Rails for a while. This was the perfect opportunity.
+
+### Launched wpvulndb.com
+Thanks to BruCON's 5by5 initiative and my fellow WPScan Team members I was able to develop and launch [wpvulndb.com](https://wpvulndb.com).
+
+### Started and stopped selling on markets
+Not many people know this but I started a small side business selling traditional British sweets on local French markets. Unfortunately it was a time sink and wasn't very profitable on most days. I decided to stop pursuing this. Although I had great fun learning the basics of practical business. Buying goods and selling them.
+
+### Started Freelancing
+I left my reasonably well paid and stable job at RandomStorm where I was happy. I made this decision because I've always wanted to work for myself and it just seemed like the right time to do it. My first 6 months of freelancing have been successful and I hope it will become even more successful in 2015.
+
+## Blog Posts
+
+Blog post count = 8
+
+- [BruCON 5by5 - WPScan Online Vulnerability Database](http://blog.dewhurstsecurity.com/2014/02/11/brucon-5by5-wpscan-online-vulnerability-database.html)
+- [WPScan and WordPress Security Interview](http://blog.dewhurstsecurity.com/2014/07/10/wpscan-and-wordpress-security-interview.html)
+- [WPScan Vulnerability Database](http://blog.dewhurstsecurity.com/2014/09/29/wpscan-vulnerability-database.html)
+- [Memcached](http://blog.dewhurstsecurity.com/2014/10/12/memcached.html)
+- [WPScan Installation & Introduction](http://blog.dewhurstsecurity.com/2014/11/20/wpscan-installation.html)
+- [Ruby on Rails Security Basics](https://www.netsparker.com/blog/web-security/ruby-on-rails-security-basics/)
+- [How I hacked Facebook](http://blog.dewhurstsecurity.com/2014/12/09/how-i-hacked-facebook.html)
+- 2014 Achievements (this one!)
+
+I feel my blog post count has been a little low but I can't force myself to write them and I enjoy writing them when I have sudden inspiration. I hope to maybe write more in 2015 but who knows when inspiration will strike.
+
+## Books
+
+Books read count = 4
+
+- [The Year Without Pants](http://www.amazon.co.uk/Year-Without-Pants-WordPress-Com-Future/dp/1118660633/)
+- [Agile Web Development with Rails 4](http://www.amazon.co.uk/Agile-Development-Rails-Pragmatic-Programmers/dp/1937785564/)
+- [The Hacker Playbook: Practical Guide To Penetration Testing](http://www.amazon.co.uk/Hacker-Playbook-Practical-Penetration-Testing/dp/1494932636/)
+- [How to Get Rich](http://www.amazon.co.uk/How-Get-Rich-Felix-Dennis/dp/009192166X/)
+
+### Currently Reading
+
+- [A Short History of Nearly Everything](http://www.amazon.co.uk/Short-History-Nearly-Everything/dp/0552997048/)
+- [Rework](http://www.amazon.co.uk/ReWork-Change-Way-Work-Forever/dp/0091929784)
+
+### Bought but haven't started
+
+- [George and the Unbreakable Code](http://www.amazon.co.uk/George-Unbreakable-Code-4/dp/0857533258/)
+- [Brew Your Own British Real Ale](http://www.amazon.co.uk/Brew-Your-Own-British-Real/dp/1852493194/)
+
+A mix of business, science, security and development. My favorite book was [How to Get Rich](http://www.amazon.co.uk/How-Get-Rich-Felix-Dennis/dp/009192166X/), although the title is very off putting don't let that fool you. Sadly the author, Felix Dennis, passed away this year. I hope to read more books in 2015 on these topics.
+
+## Conferences
+
+Conference count = 2
+
+- [BruCON](http://2014.brucon.org/index.php/Main_Page)
+- [BSidesLonsdon](https://www.securitybsides.org.uk/)
+
+In 2015 I hope to attend more conferences, especially some Ruby/Rails/WordPress ones. Know of any I shouldn't miss?
+
+## Public Speaking
+
+Public Speaking count = 1
+
+- BruCON 5by5 - WPVULNDB Launch
+
+I hope to talk at some smaller conferences/gatherings in 2015. Want me to come and speak at yours? I'd love to talk about WPScan and WordPress Security.
