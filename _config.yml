@@ -1,5 +1,5 @@
 name: Dewhurst Security Blog
-meta_description: "Information security blog for Dewhurst Security."
+description: "Information security blog for Dewhurst Security."
 baseurl: http://blog.dewhurstsecurity.com
 
 markdown: redcarpet
