@@ -88,6 +88,10 @@ Before the modified APK can be installed onto a device it needs to be cryptograp
 
     $ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore app_modified.apk
 
+If you get the ```Please specify alias name``` use the following command instead:
+
+    $ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore app_modified.apk alias_name
+
 The modified APK should now be signed for 10,000 days and ready to be installed onto the Android device. To do this, ensure the device has USB debugging enabled then attach the device to the computer’s USB port and run:
 
     $ adb install app_modified.apk
