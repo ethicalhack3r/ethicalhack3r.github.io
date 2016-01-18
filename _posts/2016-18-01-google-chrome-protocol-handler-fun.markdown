@@ -3,11 +3,9 @@ layout: post
 status: publish
 published: false
 title: Google Chrome Protocol Handler Fun
-excerpt: "Certificate Pinning is an extra layer of security that is used by applications to ensure that the certificate provided by the remote server is the one which is expected.
+excerpt: "You're probably all familiar of the custom protocol handlers browsers use for various things such as ```chrome://settings/``` and ```chrome://credits/```. I was using a Chrome app (extention) the other day that suggested I copy and pasted ```chrome://restart``` in to my browser address bar to restart Chrome. This got me thinking about the ```chrome``` protocol handler, what other ones are there and how they might they be able to be used for a bit of fun.
 \r\n\r\n
-By including the remote server’s x509 certificate or public key within the application, it is possible to compare the locally stored certificate or key with the one provided by the remote server.
-\r\n\r\n
-If you have been unable to intercept (Man-in-the-Middle) the application’s HTTPS traffic, after taking the necessary steps, this is probably due to the application using Certificate Pinning."
+The first obvious bit of fun we could have is if someone clicked on a HTML link to ```chrome://restart``` and have their browser restart, losing all of their open tabs. This is so obvious that Chrome do not allow this to happen by default and you will see the following error in the browser console ```Not allowed to load local resource: chrome://restart/```."
 ---
 
 You're probably all familiar of the custom protocol handlers browsers use for various things such as ```chrome://settings/``` and ```chrome://credits/```. I was using a Chrome app (extention) the other day that suggested I copy and pasted ```chrome://restart``` in to my browser address bar to restart Chrome. This got me thinking about the ```chrome``` protocol handler, what other ones are there and how they might they be able to be used for a bit of fun.
@@ -16,9 +14,9 @@ The first obvious bit of fun we could have is if someone clicked on a HTML link 
 
 So I thought about setting ```chrome://restart``` as the browser's startup page, the idea being that Chrome would just restart itself everytime the browser is opened. This kind of worked, but Chrome only restarted itself once and then continued as usual, not much fun.
 
-Next idea was to set ```chrome://restart``` as the default search engine, this way anytime someone mistypes a URL or searches for something using the address bar the browser will restart, very frustrating! This didn't work initially as Chrome expects all search engine URLs to have the ```%s``` marker to denote the search keyword value position. After some fiddling this was achieved by setting the URL as ```chrome://restart/../%s./../```, and voila, Chrome now restarts everytime the adress bar is used to search for something. That's much more fun!
+Next idea was to set ```chrome://restart``` as the default search engine, this way anytime someone mistypes a URL or searches for something using the address bar the browser will restart, very frustrating! This didn't work initially as Chrome expects all search engine URLs to have the ```%s``` marker to denote the search keyword position. After some fiddling this was achieved by setting the URL as ```chrome://restart/../%s./../```, and voila, Chrome now restarts everytime the adress bar is used to search for something. That's much more fun!
 
-Later it was pointed out to me on Twitter that the browser's startup page could actually be set to ```chrome://quit```. This is much more annoying than using ```chrome://restart``` for the startup page as the browser would just quit straight after opening. I had ```rm -rf``` all of the Chrome directories on my machine that contained saved settings to get Chrome to start again. Don't try this unless you want spend some time recovering Chrome!
+Later it was pointed out to me on [Twitter](https://twitter.com/avlidienbrunn/status/689185744762630144) that the browser's startup page could actually be set to ```chrome://quit```. This is much more annoying than using ```chrome://restart``` for the startup page as the browser would just quit straight after opening. I had to ```rm -rf``` all of the Chrome directories on my machine that contained saved settings to get Chrome to start again. Don't try this unless you want to spend some time recovering Chrome!
 
 So what other Chrome Protocol Handlers are there? I couldn't find a definitive up to date list online so I decided to download the Google Chrome source code and extract them all, resulting in the list below:
 
@@ -249,7 +247,9 @@ chrome://youtube
 
 Not all of these will work as some will have come from unit tests, code comments and other places, but there are some interesting ones there to play about with!  ```chrome://inducebrowsercrashforrealz``` is especially interesting!
 
-Later it was also pointed out to me on Twitter that I had used an outdated version of Google Chrome to extract the protocol handlers from, so the above list is a revised version using the lastest version of Chrome I could find. It was also pointed out to me that you can use ```chrome://chrome-urls``` to list some of the protocol handlers but I did find that there were some missing from that list such as ```chrome://inducebrowsercrashforrealz```.
+Later it was also pointed out to me on [Twitter](https://twitter.com/sleevi_/status/689161977642352640) that I had used an outdated version of Google Chrome to extract the protocol handlers from, so the above list is a revised list using the lastest version of Chrome that I could find. It was also pointed out to me that you can use ```chrome://chrome-urls``` to list some of the protocol handlers but I did find that there were some missing from that list such as ```chrome://inducebrowsercrashforrealz```.
+
+Nothing groundbreaking here but hopefully some one will find it mildly interesting!
 
 
 
