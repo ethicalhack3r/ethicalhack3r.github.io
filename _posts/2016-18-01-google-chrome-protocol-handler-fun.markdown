@@ -14,7 +14,9 @@ You're probably all familiar of the custom protocol handlers browsers use for va
 
 The first obvious bit of fun we could have is if someone clicked on a HTML link to ```chrome://restart``` and have their browser restart, losing all of their open tabs. This is so obvious that Chrome do not allow this to happen by default and you will see the following error in the browser console ```Not allowed to load local resource: chrome://restart/```.
 
-So I thought about setting ```chrome://restart``` as the browser's startup page, the idea being that Chrome would just restart itself everytime the browser is opened. This didn't work either as Chrome prefixes our handler with the http protocol resulting in the following ```http://chrome/restart```.
+So I thought about setting ```chrome://restart``` as the browser's startup page, the idea being that Chrome would just restart itself everytime the browser is opened. This kind of worked, but Chrome only restarted itself the once and then stopped, not much fun.
+
+
 
 
 
