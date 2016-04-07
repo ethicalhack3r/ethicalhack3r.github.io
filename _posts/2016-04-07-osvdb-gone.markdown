@@ -8,7 +8,7 @@ excerpt: ""
 
 <p align="center"><img src="http://i.imgur.com/ffTzX2e.jpg" alt="OSVDB" /></p>
 
-On April 5th the Open Sourced Vulnerability Database (OSVDB) announced that they were [shutting down](https://blog.osvdb.org/2016/04/05/osvdb-fin/) .
+On April 5th the Open Sourced Vulnerability Database (OSVDB) announced that they were [shutting down](https://blog.osvdb.org/2016/04/05/osvdb-fin/).
 
 For me, the writing was on the wall when OSVDB implemented CloudFlare's DDoS protection which makes you wait 5 seconds on a loading screen before you are able to access the site. It was not so much the waiting that alluded to the potential ending of OSVDB, it was that OSVDB's Google PageRank was taking a battering. So much that searching for terms such as "OSVDB $somid" would not result in a osvdb.org hit on Google's front page.
 
