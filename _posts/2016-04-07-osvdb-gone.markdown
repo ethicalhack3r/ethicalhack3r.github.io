@@ -24,9 +24,7 @@ Time is the most valuable resource we have. Time away from paid work to buy that
 
 OSVDB did have a commercial arm, "it was a business!" I hear you cry. There are costs that come with running a vulnerability database.  Running the servers, backups, potential legal issues, accounting and other business costs. Without money the lights go out. Most of us still got immense value from OSVDB for free (gratis). Apart from my menial contribution I never paid anything to read, reference or search OSVDB's public database.
 
-As the shutting down of the service proves, OSVDB did not work well as a business in the way it was operating.
-
-OSVDB did not allow you to take all their data to add value to your own business or your own personal needs for free (gratis)? Just because they give something away for free doesn't mean you are entitled to everything they own.
+As the shutting down of the service proves, OSVDB probably did not work well as a business in the way it was operating.
 
 Here are some examples of other tools currently referencing OSVDB data, adding value to those tools and ultimately the end users:
 
