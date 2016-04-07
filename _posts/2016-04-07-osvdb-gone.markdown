@@ -30,18 +30,18 @@ Here are some examples of other tools currently referencing OSVDB data, adding v
 
 Nessus:
 
-<p align="center"><img src="http://i.imgur.com/ysR4avq.png" alt="Nessus OSVDB" /></p>
+<img src="http://i.imgur.com/ysR4avq.png" alt="Nessus OSVDB" />
 
 ExploitDB:
 
-<p align="center"><img src="http://i.imgur.com/UDpQzqz.png" alt="ExploitDB OSVDB" /></p>
+<img src="http://i.imgur.com/UDpQzqz.png" alt="ExploitDB OSVDB" />
 
 WPVULNDB & WPScan:
 
-<p align="center"><img src="http://i.imgur.com/eXNF5ID.png" alt="WPVULNDB OSVDB" /></p>
+<img src="http://i.imgur.com/eXNF5ID.png" alt="WPVULNDB OSVDB" />
 
 Nikto:
 
-<p align="center"><img src="http://i.imgur.com/KfSiPl8.png" alt="Nikto OSVDB" /></p>
+<img src="http://i.imgur.com/KfSiPl8.png" alt="Nikto OSVDB" />
 
-The OSVDB references from these tools will most likely dissapear over the next weeks and months.
+The OSVDB references from these tools will most likely dissapear over the next weeks and months. We have already started that process on WPVULNDB.
