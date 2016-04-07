@@ -6,6 +6,8 @@ title: OSVDB Gone
 excerpt: ""
 ---
 
+<p align="center"><img src="http://i.imgur.com/ffTzX2e.jpg" alt="OSVDB" /></p>
+
 On April 5th the Open Sourced Vulnerability Database (OSVDB) announced that they were [shutting down](https://blog.osvdb.org/2016/04/05/osvdb-fin/) their vulnerability database. For me, the writing was on the wall when OSVDB permanently implemented CloudFlare's DDoS protection which makes you wait 5 seconds on a loading screen before you are able to access the site. It was not so much the waiting that alluded to the potential ending of OSVDB, it was that OSVDB's Google PageRank was taking a battering, so much so that searching for terms such as "OSVDB $somid" would not result in a osvd.org hit on Google's front page.
 
 On Twitter most people have had good things to say about the legacy of OSVDB, however, there have been some which dimiss its value. This is entirely fine of course, everyone is entitled to their own opinions. But, I wanted to point out the value I believe OSDVB provided to the information security community.
