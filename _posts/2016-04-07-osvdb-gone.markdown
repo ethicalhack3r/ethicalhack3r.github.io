@@ -28,19 +28,19 @@ As the shutting down of the service proves, OSVDB probably did not work well as 
 
 Here are some examples of other tools currently referencing OSVDB data, adding value to those tools and ultimately the end users:
 
-Nessus:
+#### Nessus:
 
 <img src="http://i.imgur.com/ysR4avq.png" alt="Nessus OSVDB" />
 
-ExploitDB:
+#### ExploitDB:
 
 <img src="http://i.imgur.com/UDpQzqz.png" alt="ExploitDB OSVDB" />
 
-WPVULNDB & WPScan:
+#### WPVULNDB & WPScan:
 
 <img src="http://i.imgur.com/eXNF5ID.png" alt="WPVULNDB OSVDB" />
 
-Nikto:
+#### Nikto:
 
 <img src="http://i.imgur.com/KfSiPl8.png" alt="Nikto OSVDB" />
 
