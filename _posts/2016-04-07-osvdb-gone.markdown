@@ -32,7 +32,7 @@ We've all been in the situation at work where a colleague does not pull their we
 
 Time is the most valuable resource we have. Time away from paid work to buy that new family home, time away from your children, time away from your wife, your friends, etc, etc. Time away from your life.
 
-OSVDB did have a commercial arm, "it was a business!" I hear you cry. It made money, maybe as a non-profit? (I'm not sure of the details). 
+OSVDB did have a commercial arm, "it was a business!" I hear you cry.
 
 There are costs that come with running a business.  Running the servers, backups, potential legal issues, accounting and other business costs. Without money the lights go out.
 
