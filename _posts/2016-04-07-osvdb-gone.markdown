@@ -34,7 +34,7 @@ Time is the most valuable resource we have. Time away from paid work to buy that
 
 OSVDB did have a commercial arm, "it was a business!" I hear you cry.
 
-There are costs that come with running a business.  Running the servers, backups, potential legal issues, accounting and other business costs. Without money the lights go out.
+There are costs that come with running a vulnerability database.  Running the servers, backups, potential legal issues, accounting and other business costs. Without money the lights go out.
 
 Most of us still got immense value from OSVDB for free (gratis). Apart from my menial contribution I never paid anything to read, reference or search OSVDB's public database.
 
