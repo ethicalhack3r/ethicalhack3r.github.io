@@ -28,10 +28,16 @@ Some may not realise how much OSVDB influenced and was used within the industry,
 
 Nessus:
 
-<img src="http://i.imgur.com/ysR4avq.png" alt="Nessus OSVDB" />
+<p align="center"><img src="http://i.imgur.com/ysR4avq.png" alt="Nessus OSVDB" /></p>
 
 ExploitDB:
 
+<p align="center"><img src="http://i.imgur.com/UDpQzqz.png" alt="ExploitDB OSVDB" /></p>
+
 WPVULNDB & WPScan:
 
+<p align="center"><img src="http://i.imgur.com/eXNF5ID.png" alt="WPVULNDB OSVDB" /></p>
+
 Nikto:
+
+<p align="center"><img src="http://i.imgur.com/KfSiPl8.png" alt="Nikto OSVDB" /></p>
