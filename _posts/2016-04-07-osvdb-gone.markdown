@@ -16,7 +16,7 @@ On Twitter most people have had good things to say about the legacy of OSVDB. I 
 
 One thing people like to point out is that OSVDB wasn't Open Source. I have used and contributed (ever so slightly) to OSVDB when it was still named the 'Open Source Vulnerability Database'. From memory, the name changed a few years ago, and along with the name change OSVDB stopped taking open contributions, restricted their API and stopped distributing their database dump freely.
 
-OSVDB's initial idea must have been that a lot of the community would chip in with the workload to help sustain and build a community project.It looks like that didn't work out due to the low number of contributors compared with the work needed. This must have left a burden on the lives of those who were involved.
+OSVDB's initial idea must have been that a lot of the community would chip in with the workload to help sustain and build a community project. It looks like that didn't work out due to the low number of contributors compared with the work needed. This must have left a burden on the lives of those who were involved.
 
 The problem when you end up doing all the work while others benefit without doing their share is frustrating, as I'm sure we can all agree. We've all been in the situation at work where a colleague does not pull their weight. Imagine sacrificing hours, weeks, months, years of work for the benefit of others while you receive little reward.
 
