@@ -28,7 +28,7 @@ Some may not realise how much OSVDB influenced and was used within the industry,
 
 Nessus:
 
-http://imgur.com/ysR4avq
+<img src="http://i.imgur.com/ysR4avq.png" alt="Nessus OSVDB" />
 
 ExploitDB:
 
