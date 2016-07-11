@@ -3,7 +3,7 @@ description: "Information security blog for Dewhurst Security."
 baseurl: http://blog.dewhurstsecurity.com
 
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 paginate: 15
 excerpt_separator: https://github.com/jekyll/jekyll/issues/1401
 
