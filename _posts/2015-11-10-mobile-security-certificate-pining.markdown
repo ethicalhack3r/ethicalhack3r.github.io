@@ -10,7 +10,7 @@ By including the remote server’s x509 certificate or public key within the app
 If you have been unable to intercept (Man-in-the-Middle) the application’s HTTPS traffic, after taking the necessary steps, this is probably due to the application using Certificate Pinning."
 ---
 
-#### Please note: This may no longer be reproducible step-by-tep due to Facebook making further changes to their app since this post was written. If you require the version of the app I worked with, please get in touch.
+*Please note: This may no longer be reproducible step-by-step due to Facebook making further changes to their app since this post was written. If you require the version of the app I worked with, please get in touch.*
 
 Certificate Pinning is an extra layer of security that is used by applications to ensure that the certificate provided by the remote server is the one which is expected.
 
