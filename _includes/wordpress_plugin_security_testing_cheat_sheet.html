@@ -1,7 +1,7 @@
 <script>
   <!-- Get README.md from Github API using JSONP. Turn the markdown into HTML. -->
   function content(response) {
-  var data = atob(response.data.content.replace(/\s/g, ''));
+    var data = atob(response.data.content.replace(/\s/g, ''));
     preview.innerHTML = markdown.toHTML(data);
     return data;
   }
@@ -12,6 +12,12 @@
   document.getElementsByTagName('head')[0].appendChild(script);
 </script>
 
-<div id="preview"> </div>
+<div id="preview"></div>
+
+<!-- Remove markdown h1 header as leads to double headers on the blog -->
+<script>
+  var title = document.getElementById('preview').getElementsByTagName('h1')
+  title.style.display='none';
+</script>
 
 <script src="https://wpscan.org/javascripts/markdown-browser-0.6.0-beta1/markdown.min.js"></script>
