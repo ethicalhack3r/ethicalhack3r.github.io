@@ -1,0 +1,17 @@
+<script>
+  <!-- Get README.md from Github API using JSONP. Turn the markdown into HTML. -->
+  function content(response) {
+  var data = atob(response.data.content.replace(/\s/g, ''));
+    preview.innerHTML = markdown.toHTML(data);
+    return data;
+  }
+
+  var script = document.createElement('script');
+  script.src = 'https://api.github.com/repos/ethicalhack3r/wordpress_plugin_security_testing_cheat_sheet/contents/README.md?callback=content';
+
+  document.getElementsByTagName('head')[0].appendChild(script);
+</script>
+
+<div id="preview"> </div>
+
+<script src="https://wpscan.org/javascripts/markdown-browser-0.6.0-beta1/markdown.min.js"></script>
