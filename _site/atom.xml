@@ -3,7 +3,7 @@
   <title>Dewhurst Security Blog</title>
   <link href="http://blog.dewhurstsecurity.com/atom.xml" rel="self" />
   <link href="http://blog.dewhurstsecurity.com/"/>
-  <updated>2016-11-22T11:15:20+01:00</updated>
+  <updated>2016-11-22T11:25:24+01:00</updated>
   <id>http://blog.dewhurstsecurity.com</id>
   <author>
     <name>Dewhurst Security Blog</name>
@@ -11,7 +11,7 @@
   
     <entry>
       <title>YouTube Windows Exploit Suggester</title>
-      <link href="http://blog.dewhurstsecurity.com/2016/11/22/youtube-windows-exploit-suggester.mdown" />
+      <link href="http://blog.dewhurstsecurity.com/2016/11/22/youtube-windows-exploit-suggester.html" />
       <id>http://blog.dewhurstsecurity.com/2016/11/22/youtube-windows-exploit-suggester</id>
 	  
 	  <content type="html">YouTube is fast becoming the number one choice for content on family TVs thanks to 'smart' TVs and gadgets like Google's Chromecast. Recording, editing and uploading videos is also becoming much easier. Almost everyone in the western world owns a powerful smart phone with a built in camera. Generally, people also have computers powerful enough to edit videos in less and less time. And finally, relatively fast Internet speeds to upload the final video (as well as consume videos).</content>
