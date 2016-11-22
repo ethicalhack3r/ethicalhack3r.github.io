@@ -47,8 +47,8 @@
     <header class="site-head" >
     <div class="vertical">
         <div class="site-head-content" class="inner">
-					<img src="assets/images/logo_579x182.png" alt="Dewhurst Security Blog" />
-				</div>
+		  <a href="https://dewhurstsecurity.com/"><img src="assets/images/logo_579x182.png" alt="Dewhurst Security Blog" /></a>
+		</div>
     </div>
 </header>
 
@@ -56,15 +56,271 @@
 
     
 
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2016-08-18">18 Aug 2016</time> </span>
+            <h2 class="post-title"><a href="/2016/08/18/wordpress-plugin-security-cheat-sheet.html">WordPress Plugin Security Testing Cheat Sheet</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            This cheat sheet was compiled by Dewhurst Security to record the knowledge gained when testing WordPress plugins for security issues for our clients. The security documentation provided by WordPress and found online for plugin security is sparse, outdated or unclear. This cheat sheet is intended for Penetration Testers who audit WordPress plugins or developers who wish to audit their own WordPress plugins.
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2016-04-07">07 Apr 2016</time> </span>
+            <h2 class="post-title"><a href="/2016/04/07/osvdb-shut-down.html">OSVDB Shut Down</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            On April 5th the Open Sourced Vulnerability Database (OSVDB) announced that they were shutting down. 
+
+ For me, the writing was on the wall when OSVDB implemented CloudFlare's DDoS protection which makes you wait 5 seconds on a loading screen before you are able to access the site. It was not so much the waiting that alluded to the potential ending of OSVDB, it was that OSVDB's Google PageRank was taking a battering. So much that searching for terms such as 'OSVDB $somid' would not result in a osvdb.org hit on Google's front page.
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2016-04-07">07 Apr 2016</time> </span>
+            <h2 class="post-title"><a href="/2016/04/07/google-chrome-protocol-handler-fun.html">Google Chrome Protocol Handler Fun</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            You're probably all familiar of the custom protocol handlers browsers use for various things such as ```chrome://settings/``` and ```chrome://credits/```. I was using a Chrome app (extension) the other day that suggested I copy and pasted ```chrome://restart``` in to my browser address bar to restart Chrome. This got me thinking about the ```chrome``` protocol handler, what other ones are there and how they might they be able to be used for a bit of fun. 
+
+ The first obvious bit of fun we could have is if someone clicked on a HTML link to ```chrome://restart``` and have their browser restart, losing all of their open tabs. This is so obvious that Chrome do not allow this to happen by default and you will see the following error in the browser console ```Not allowed to load local resource: chrome://restart/```.
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2015-11-10">10 Nov 2015</time> </span>
+            <h2 class="post-title"><a href="/2015/11/10/mobile-security-certificate-pining.html">Mobile Security Certificate Pinning</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            Certificate Pinning is an extra layer of security that is used by applications to ensure that the certificate provided by the remote server is the one which is expected. 
+
+ By including the remote server’s x509 certificate or public key within the application, it is possible to compare the locally stored certificate or key with the one provided by the remote server. 
+
+ If you have been unable to intercept (Man-in-the-Middle) the application’s HTTPS traffic, after taking the necessary steps, this is probably due to the application using Certificate Pinning.
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2015-10-11">11 Oct 2015</time> </span>
+            <h2 class="post-title"><a href="/2015/10/11/owasp-asvs.html">OWASP Application Security Verification Standard (ASVS)</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            A few days ago (October, 2015) the OWASP Application Security Verification Standard (ASVS) version 3.0 was released which I had the opportunity to contribute to in a small way by helping review some of the draft documents before the official release. 
+
+ I became aware of the OWASP ASVS as a growing number of my clients started asking if I used it. At the time I didn't use it but I decided to invest some time into finding out what it was. This blog post's intention is to bring some attention to the OWASP ASVS project for those unaware of it.
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2015-04-17">17 Apr 2015</time> </span>
+            <h2 class="post-title"><a href="/2015/04/17/scanner-outbound-calls.html">Scanner Outbound Calls</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            Today Burp Suite announced the release of a new feature they call Burp Collaborator which is enabled by default. 
+
+ By default this new feature makes use of a third-party server hosted by Burp to detect vulnerabilities which are not easily detectable in the usual 'request<->response' method most vulnerability scanners use. 
+
+ The legitimate concern of some people online has been that client information may now be leaked to Burp or worse leaked to the Internet if the third-party server Burp uses is ever compromised. 
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2015-01-21">21 Jan 2015</time> </span>
+            <h2 class="post-title"><a href="/2015/01/21/wpscan-licensing.html">WPScan Licensing</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            When you first release software online you don't put too much thought into the software license (I didn't at least). You have no idea if the project will take off. If your intention is for your peers to use it freely your first thought may be Open Source. The most popular Open Source license is the GNU GPL, so why not use that!? 
+
+ I released WPScan on the 16th of June 2011 along with the GNU GPL license. After a while I built up a team, The WPScan Team, which were people who had the same goals as me, to make an awesome black box WordPress scanning tool. The WPScan Team (3 other awesome people) and I have been working on WPScan in our spare time as volunteers for almost 4 years. Countless hours, days, weeks and months of man hours have been put into WPScan and recently the WPScan Vulnerability Database by us.
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2014-12-12">12 Dec 2014</time> </span>
+            <h2 class="post-title"><a href="/2014/12/12/2014-achievements.html">2014 Achievements</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            It's almost the end of the year so I thought I would take the opportunity to reflect on my achievements during 2014 before the holidays start. It is a good way for me to put the year into perspective and focus on my goals for 2015.
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2014-12-09">09 Dec 2014</time> </span>
+            <h2 class="post-title"><a href="/2014/12/09/how-i-hacked-facebook.html">How I hacked Facebook</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            Ok, ok. I didn't quite 'hack Facebook'. What I did was execute OS level commands on one of Facebook's acquisition's servers. This is how I did it.
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2014-11-20">20 Nov 2014</time> </span>
+            <h2 class="post-title"><a href="/2014/11/20/wpscan-installation.html">WPScan Installation & Introduction</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            At WPScan we sometimes get users who strugle installing and using WPScan. I have made a video which shows the installation steps and an introduction to using WPScan for these users.
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2014-10-12">12 Oct 2014</time> </span>
+            <h2 class="post-title"><a href="/2014/10/12/memcached.html">Memcached</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            Last week I came across a service on the Internet running on TCP port 11211, Memcached's default port. I had heard of Memcached before but I probably only knew it was some kind of database system, that was the extent of my familiarity with it. 
+
+ I quickly learnt that connecting to Memcached does not require authentication. Authentication can be implmented but even then Memcached's own documentation says it should not be fully trusted.
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2014-07-10">10 Jul 2014</time> </span>
+            <h2 class="post-title"><a href="/2014/07/10/wpscan-and-wordpress-security-interview.html">WPScan and WordPress Security Interview</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            <p>I was asked to do an interview about WPScan and WordPress security in general. Thought I'd share it here too.</p>
+<p><iframe width="560" height="315" src="//www.youtube.com/embed/k0aZGK8sbJI" frameborder="0" allowfullscreen=""></iframe></p>
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2014-02-11">11 Feb 2014</time> </span>
+            <h2 class="post-title"><a href="/2014/02/11/brucon-5by5-wpscan-online-vulnerability-database.html">BruCON 5by5 - WPScan Online Vulnerability Database</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            For those of you who have been living under a rock, <a href="http://2014.brucon.org/index.php/Main_Page">BruCON</a> is a security conference held every year in Belgium (originally Brussels, now Ghent). I have attended every BruCON conference since the second. Last year was the 5th time the conference had been held (correct me if I'm wrong) and so the year before (2012) they setup what they called <a href="http://blog.brucon.org/2012/10/announcing-brucon-5by5.html">5by5</a>. This allowed BruCON, as it's a non-for-profit, to share its extra left over cash by supporting community projects.
+
+Last year, they allocated <a href="http://blog.brucon.org/2013/02/the-5by5-race-is-on.html">up to 5,000 euros to 4 different community projects</a>. These projects were:
+
+1. OWASP OWTF (Abraham Aranguren)
+2. The Cloudbug Project (Carlos Garcia Prado)
+3. A tool a month (Robin Wood)
+4. Eccentric Authentication (Guido Witmond)
+
+As last year was such a success, they're doing it again this year! And this year I put in a proposal!
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2013-11-20">20 Nov 2013</time> </span>
+            <h2 class="post-title"><a href="/2013/11/20/what-passwords-is-github-banning.html">What passwords is GitHub banning?</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            GitHub was recently the target of a large weak password brute force attack which involved <a href="https://github.com/blog/1698-weak-passwords-brute-forced">40k unique IP addresses</a>. One of many of the security measures GitHub has now taken is to ban users to register with 'commonly-used weak passwords'.
+
+To find out what GitHub considers as 'commonly-used weak passwords' I decided to compile a list of GitHub valid passwords from a few password lists found online and one of my own.
+
+GitHub's password policy is reasonable (at least 7 chars, 1 number and 1 letter) so from all of the wordlists used only 331 passwords were found to conform to GitHub's password policy.
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2013-09-30">30 Sep 2013</time> </span>
+            <h2 class="post-title"><a href="/2013/09/30/simplerisk-v-20130915-01-csrf-xss-account-compromise.html">SimpleRisk v.20130915-01 CSRF-XSS Account Compromise</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            1. *Advisory Information*
+
+Title: SimpleRisk v.20130915-01 CSRF-XSS Account Compromise
+Advisory ID: RS-2013-0001
+Date Published: 2013-09-30
+
+2. *Vulnerability Information*
+
+Type: Cross-Site Request Forgery (CSRF) [CWE-352, OWASP-A8], Cross-Site Scripting (XSS) [CWE-79, OWASP-A3]
+Impact: Full Account Compromise
+Remotely Exploitable: Yes
+Locally Exploitable: Yes
+Severity: High
+CVE-ID: CVE-2013-5748 (CSRF) and CVE-2013-5749 (non-httponly cookie)
+
+3. *Software Description*
+
+SimpleRisk a simple and free tool to perform risk management activities. Based entirely on open source technologies and sporting a Mozilla Public License 2.0, a SimpleRisk instance can be stood up in minutes and instantly provides the security professional with the ability to submit risks, plan mitigations, facilitate management reviews, prioritize for project planning, and track regular reviews. It is highly configurable and includes dynamic reporting and the ability to tweak risk formulas on the fly. It is under active development with new features being added all the time. SimpleRisk is truly Enterprise Risk Management simplified. [0]
+
+Homepage: <a href="http://www.simplerisk.org/">http://www.simplerisk.org/</a>
+Download: <a href="https://simplerisk.googlecode.com/files/simplerisk-20130915-001.tgz">https://simplerisk.googlecode.com/files/simplerisk-20130915-001.tgz</a>
+
+
+        </section>
+    </article>
+
+    
+
     <nav class="pagination" role="pagination">
 
         
 
-        <span class="page-number"> Page  of  </span>
+        <span class="page-number"> Page 1 of 9 </span>
+
         
-         
+        <a class="older-posts" href="/page2/" title="Next Page">Older Posts &raquo;</a>
+        
     </nav>
-    
+
 
 </main>
 

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title> Home </title>
+    <meta name="description" content="Information security blog for Dewhurst Security.">
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+    <!-- This is for syntax highlight -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
+    <!-- Customisation  -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://dewhurstsecurity.com/img/favicomatic/apple-touch-icon-57x57.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://dewhurstsecurity.com/img/favicomatic/apple-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://dewhurstsecurity.com/img/favicomatic/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://dewhurstsecurity.com/img/favicomatic/apple-touch-icon-144x144.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="https://dewhurstsecurity.com/img/favicomatic/apple-touch-icon-60x60.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://dewhurstsecurity.com/img/favicomatic/img/favicomatic/apple-touch-icon-120x120.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://dewhurstsecurity.com/img/favicomatic/apple-touch-icon-76x76.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://dewhurstsecurity.com/img/favicomatic/apple-touch-icon-152x152.png" />
+	<link rel="icon" type="image/png" href="https://dewhurstsecurity.com/img/favicomatic/favicon-196x196.png" sizes="196x196" />
+	<link rel="icon" type="image/png" href="https://dewhurstsecurity.com/img/favicomatic/favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/png" href="https://dewhurstsecurity.com/img/favicomatic/favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="https://dewhurstsecurity.com/img/favicomatic/favicon-16x16.png" sizes="16x16" />
+	<link rel="icon" type="image/png" href="https://dewhurstsecurity.com/img/favicomatic/favicon-128.png" sizes="128x128" />
+	<meta name="application-name" content="&nbsp;"/>
+	<meta name="msapplication-TileColor" content="#FFFFFF" />
+	<meta name="msapplication-TileImage" content="https://dewhurstsecurity.com/img/favicomatic/mstile-144x144.png" />
+	<meta name="msapplication-square70x70logo" content="https://dewhurstsecurity.com/img/favicomatic/mstile-70x70.png" />
+	<meta name="msapplication-square150x150logo" content="https://dewhurstsecurity.com/img/favicomatic/mstile-150x150.png" />
+	<meta name="msapplication-wide310x150logo" content="https://dewhurstsecurity.com/img/favicomatic/mstile-310x150.png" />
+	<meta name="msapplication-square310x310logo" content="https://dewhurstsecurity.com/img/favicomatic/mstile-310x310.png" />
+
+</head>
+<body class="home-template">
+
+
+    <header class="site-head" >
+    <div class="vertical">
+        <div class="site-head-content" class="inner">
+		  <a href="https://dewhurstsecurity.com/"><img src="assets/images/logo_579x182.png" alt="Dewhurst Security Blog" /></a>
+		</div>
+    </div>
+</header>
+
+<main class="content" role="main">
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2013-08-30">30 Aug 2013</time> </span>
+            <h2 class="post-title"><a href="/2013/08/30/security-testing-html5-websockets.html">Security Testing HTML5 WebSockets</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            Recently I became faced with my first Web Application Security Assessment which relied heavily on HTML5's <a href="http://www.html5rocks.com/en/tutorials/websockets/basics/">WebSockets</a>.
+
+The first clue that the application was using WebSockets was when the application kept giving me a timeout error while using my proxy of choice, <a href="http://portswigger.net/burp/">Burp Suite</a>. Looking at the HTTP requests/responses in Burp I noticed that a large JavaScript file was requested and downloaded from the server. Within this file I noticed a URL with the <em>ws://</em> scheme, the WebSocket scheme.
+
+<h3>TCP/HTTP?</h3>
+
+The initial WebSocket handshake is carried out over HTTP using an '<a href="https://en.wikipedia.org/wiki/HTTP/1.1_Upgrade_header">upgrade request</a>'. After the initial exchange over HTTP all future communication is carried out over TCP. On the application I was testing the WebSocket handshake over HTTP within <a href="https://www.wireshark.org/">WireShark</a> looked like this:
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2013-08-08">08 Aug 2013</time> </span>
+            <h2 class="post-title"><a href="/2013/08/08/zone-transfers-on-the-alexa-top-1-million-part-2.html">Zone Transfers on The Alexa Top 1 Million Part 2</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            In <a href="http://www.ethicalhack3r.co.uk/zone-transfers-on-the-alexa-top-1-million/">part 1</a> of this blog post I conducted a DNS Zone Transfer (axfr) against the top 2000 sites of the Alexa Top 1 Million. I did this to create a better subdomain brute forcing word list. At the time, conducting the Zone Transfer against the top 2000 sites took about 12 hours, this was using a single threaded bash script. I was pretty proud of this achievement at the time and thought that doing the same for the whole top 1 million sites was beyond the time and resources that I had.
+
+After creating a multithreaded and parallelised PoC in Ruby to do the Zone Transfers, it took about 5 minutes to conduct the Zone Transfers against the top 2000 compared to the 12 hours it took me to do the top 2000 using a single thread. I decided it was possible to do a Zone Transfer against the whole top 1 million sites.
+
+There were 60,472 successful Zone Transfers (%6) out of the Alexa Top 1 Million, this equates to 566MB of raw data on disk. This amount of data brings its own challenges when attempting to manipulate it.
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2013-08-03">03 Aug 2013</time> </span>
+            <h2 class="post-title"><a href="/2013/08/03/zone-transfers-on-the-alexa-top-1-million.html">Zone Transfers on The Alexa Top 1 Million</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            At work as part of every assessment we do a some reconnaissance which includes attempting a <a href="https://en.wikipedia.org/wiki/DNS_zone_transfer">DNS Zone Transfer (axfr)</a> and conducting a subdomain brute force on the target domain/s. The subdomain brute force is only as good as your wordlist, the Zone Transfer is a matter of luck.
+
+Alexa release a list of the <a href="http://s3.amazonaws.com/alexa-static/top-1m.csv.zip">top 1 million sites</a> which is updated on a daily basis. To create a better subdomain wordlist to conduct subdomain brute forcing I attempted a DNS Zone Transfer against the first 2000 sites in the Alexa Top 1 Million list. With every successful Zone Transfer the DNS A records were stored in a CSV file.
+
+This was all done using Carlos Perez's <a href="https://github.com/darkoperator/dnsrecon">dnsrecon</a> DNS enumeration tool. Dnsrecon was ever so slightly modified to only save A records, apart from that I just used a <a href="https://gist.github.com/ethicalhack3r/6145925">bash script</a> to iterate over the Top 1 Million list and ran dnsrecon's axfr option for each site with CSV output enabled.
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2013-07-26">26 Jul 2013</time> </span>
+            <h2 class="post-title"><a href="/2013/07/26/cracking-microsoft-excel-97-2004-xls-documents.html">Cracking Microsoft Excel 97-2004 .xls Documents</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            A client emailed to say they had forgotten a password for their Microsoft Excel .xls document and asked if it was possible to recover it. After searching on Google it was clear that there was plenty of shi...bloatware, which may have worked if you were willing to go through a few of them and pay a few dollars. It wasn't that important of a document according to the client but nevertheless a challenge is a challenge.
+
+The document was encrypted when using 'save as', according to various sources online the encryption algorithm is 40bit RC4. As it is encrypted nothing could be gleaned by opening the document with a hex editor.
+
+As always when Google turns up nothing useful I turn to Twitter. A few people recommended <a href="http://www.elcomsoft.co.uk/">Elcomsoft</a> which do Windows software to both recover and obtain the password of a Microsoft Excel document. This looked like a good bet and they offer free trials! The recover software which seems to do a brute force attack looked like it could have worked (especially now I know how weak the password was) but I was running the software on a Virtual Machine. The recovery tool unfortunately didn't reveal the password, the paid for version may have, I don't know.
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2013-06-20">20 Jun 2013</time> </span>
+            <h2 class="post-title"><a href="/2013/06/20/login-cross-site-request-forgery-csrf.html">Login Cross-Site Request Forgery (CSRF)</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            The new OWASP Top 10 2013 was released not so long ago, while reading over it I noticed this:
+
+"Attackers can trick victims into performing any state changing operation the victim is authorized to perform, e.g., updating account details, making purchases, logout and <strong>even login</strong>." - <a href="https://www.owasp.org/index.php/Top_10_2013-A8-Cross-Site_Request_Forgery_(CSRF)" target="_blank">https://www.owasp.org/index.php/Top_10_2013-A8-Cross-Site_Request_Forgery_(CSRF)</a>
+
+This must be a mistake I thought, why would you ever want to CSRF a user to log them into their own account? If you already had their login credentials this must be utterly pointless.
+
+Today I came across an academic paper which gives three examples of why Login CSRF can be an issue and how wrong I was.
+
+<strong>Google</strong>
+
+"Search History. Many search engines, including Yahoo! and Google, allow their users to opt-in to saving their search history and provide an interface for a user to review his or her personal search history. Search queries contain sensitive details about the user’s interests and activities [41, 4] and could be used by an attacker to embarrass the user, to steal the user’s identity, or to spy on the user. An attacker can spy on a user’s search history by logging the user into the search engine as the attacker; see Figure 1. The user’s search queries are then stored in the attacker’s search history, and the attacker can retrieve the queries by logging into his or her own account."
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2013-04-17">17 Apr 2013</time> </span>
+            <h2 class="post-title"><a href="/2013/04/17/http-form-password-brute-forcing-the-need-for-speed.html">HTTP Form Password Brute Forcing - The Need for Speed</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            HTTP Form password brute forcing is not rocket science, you try multiple username/password combinations until you get a correct answer (or non-negative answer).
+
+Password brute forcing, especially over a network, takes time and while your software is attempting to find a correct username/password combination it is taking up your and the remote system's resources. While the brute force is being carried out you might not want to run an automated scan, for example, as the remote server may not be able to cope with the amount of connections or the rapid succession of connections. At the same time, your network bandwidth and system memory are also limited. It makes sense that when you conduct a weak password brute force it is done as fast as possible so that your time and resources are restored for other tasks.
+
+And of course not forgetting that you're always going to be limited by time on a pentest/web app assessment as the client's budget is never unlimited.
+
+So what is the fastest way to brute force a HTTP form today? I use Burp Suite for my Web Application Security Assessments and I would normally use Burp's Intruder, but is this the fastest tool to do it with?
+
+Of course, there are other limiting factors when brute forcing remotely such as your Internet/Network speed, CPU speed, RAM and the remote system's response times, as well as other factors. For this experiment we'll only be focusing on the software used to carry out the password brute force attack. This is far from being a perfect in-depth study but it should hopefully give an idea which tool out of my small collection (Burp Intruder Spider Vs Hydra http-post-form) is fastest.
+
+<strong>The Setup</strong>
+
+On both tools I set one user to brute force, admin, and used the <a href="http://ethicalhack3r.co.uk/files/fuzzing/rockyou-75.txt" target="_blank">rockyou-75.txt</a> wordlist (19963 lines), which has one addition which is the correct password which was added to the last line of the file. Both the same username and password list was used for Burp's Intruder (Sniper) and Hydra. Each tool was run one after the other, not at the same time.
+
+Burp Suite Professional Intruder (Sniper) Version: 1.5.11
+Hydra (http-post-form) Version: 7.4.2
+
+A "Local" test was carried out on a localhost Apache 2 web server as well as a "Remote" test against the www.ethicalhack3r.co.uk Nginx web server.
+
+The <a href="http://pastebin.com/xV80ZHBj" target="_blank">Test Form</a> that I created to test against (both locally and remotely) does not make a database call which is what would normally be expected on a real HTTP login form. I'd expect my test login form to reply quicker than if it had to make a database call. The 'Local' and 'Remote' columns represent the time it took the tool to find the correct password which was at the end of the wordlist.
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2013-04-08">08 Apr 2013</time> </span>
+            <h2 class="post-title"><a href="/2013/04/08/ssh-too-many-open-files-burp.html">SSH "accept : too many open files" on OS X when using Burp</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            <strong>EDIT 19.04.2013 10:17 ---</strong>
+<strong>WARNING!</strong> This did break the Tor Browser Bundle on my machine. The error was "Couldn't set maximum number of file descriptors: Invalid argument"
+<strong>---</strong>
+
+For as long as I can remember, when <a href="http://ocaoimh.ie/2008/02/13/how-to-use-ssh-as-a-proxy-server/" target="_blank">using SSH as a forward proxy</a> to proxy Burp Suite through an upstream server I have gotten a "accept : too many open files" error in my Mac OS X Terminal after a couple of hours of using Burp's Proxy and/or Scanner.
+
+When searching Google the first solution I came across was to set the 'ulimit' to something higher, as far as I can tell 'ulimit' sets user system limits such as how many open files a user is allowed to have open at once.
+
+On OS X when attempting to set this limit to 'unlimited' I always got an error, "Neither the hard nor soft limit for "maxfiles" can be unlimited. Please use a numeric parameter for both.", or when setting the ulimit to something higher than the default (256) the error (accept : too many open files) would still not go away or at least not for long. The only thing I found that would get rid of the error was to kill my ssh session and spawn a new one.
+
+After further reading, some forums and blogs suggested updating openssh, I did this and the issue persisted. I thought the issue may have been openssl, so I updated that, the issue persisted.
+
+I also <a href="https://twitter.com/ethicalhack3r/status/313982186695036928" target="_blank">tweeted</a> about the issue where the suggestion of adjusting the ulimit resurfaced, but I just couldn't get ulimit to fix the issue.
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2013-03-16">16 Mar 2013</time> </span>
+            <h2 class="post-title"><a href="/2013/03/16/weekly-viewing-you-and-your-research-ruby-2-0.html">[Weekly Viewing] You and Your Research & Ruby 2.0</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            This week we have another two videos lined up for you. The first, by <a href="https://twitter.com/haroonmeer" target="_blank">Haroon Meer</a>, I was luckily enough to see in person at Brucon 2011. It is one of the best talks I have ever had the privilege to see, by anyone. If you're ever going to watch one of these 'Weekly Viewing' videos of mine make it be this one.
+
+The second video is by Matz, the creator of Ruby, where he talks about Ruby's development and the new features of Ruby 2.0. In his talk Matz says that Ruby 1.8 will die soon. So update already! ;)
+
+<h1>#HITB2012KUL D1T2 - Haroon Meer - You and Your Research</h1>
+
+<iframe width="560" height="315" src="http://www.youtube-nocookie.com/embed/JoVx_-bM8Tg?rel=0" frameborder="0" allowfullscreen></iframe>
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2013-03-10">10 Mar 2013</time> </span>
+            <h2 class="post-title"><a href="/2013/03/10/weekly-viewing-web-app-security-and-zero-days.html">[Weekly Viewing] Web App Security and Zero Days</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            This is a first of hopefully many weekly posts in which I will share online security related videos that I've watched during the week and think are worth sharing. This week I've got two great videos lined up for your viewing pleasure.
+
+<h3>[OWASP AppSec USA 2012] Effective Approaches to Web Application Security - Zane Lackey</h3>
+
+In this video Zane Lackey from Etsy talks about how to make a developer's job easier by making things safe by default, how to detect risky functionality and how to automate aspects of web application security monitoring and response.
+
+<iframe src="http://player.vimeo.com/video/54107692" height="275" width="500" allowfullscreen="" frameborder="0"></iframe>
+
+<a href="http://vimeo.com/54107692">Effective Approaches to Web Application Security - Zane Lackey</a> from <a href="http://vimeo.com/appsecusa">OWASP AppSec USA</a> on <a href="http://vimeo.com">Vimeo</a>.
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2013-03-07">07 Mar 2013</time> </span>
+            <h2 class="post-title"><a href="/2013/03/07/sony-freedom-of-information-foi-request.html">Sony Freedom Of Information (FOI) Request</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            On the 14th of January the UK Information Commissioner's Office (ICO) sent Sony Computer Entertainment Europe Limited a <a href="http://www.ico.gov.uk/enforcement/~/media/documents/library/Data_Protection/Notices/sony_monetary_penalty_notice.ashx" target="_blank">monetary penalty notice</a> of £250,000 following 'a serious breach of the Data Protection Act'.
+
+To be able to quantify how much the ICO was fining Sony for individual user's data the exact number of UK PSN users would need to be known. A couple of sources put this number at 3 million but I'm not sure where the original 3 million figure came from nor how accurate it really is [0][1].
+
+If we were to take this 3 million figure at face value, the ICO fined Sony (£250,000 / 3,000,000) £0.000083 per user's data. According to the ICO, £250,000 is 'reasonable and proportionate' in this case. To get a more accurate figure I sent the ICO a FOI request to ask for the redacted figure in the monetary penalty notice document which simply states "The Network Platform was used by an estimated REDACTED million customers in Europe, the Middle East, Africa, Australia and New Zealand with REDACTED million of those customers based in the UK.".
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2012-12-12">12 Dec 2012</time> </span>
+            <h2 class="post-title"><a href="/2012/12/12/wordpress-plugin-asset-manager-upload-php-arbitrary-code-execution.html">WordPress plugin Asset manager upload.php Arbitrary Code Execution</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            The '<a href="http://1337day.com/" target="_blank">Inj3ct0r Team</a>' compromised an <a href="https://www.exploithub.com/" target="_blank">ExploitHub.com</a> database and released a <a href="http://priv8.1337day.com/exploitHUB.txt" target="_blank">file</a> publicly which contained some of the data about the exploits that ExploitHub buy and sell.
+
+I saw the file yesterday, had a quick skim over it, but didn't think too much of it. That is until WPScan team member <a href="https://www.twitter.com/@gbrindisi" target="_blank">@gbrindisi</a> pointed out that it contained 2 WordPress plugin vulnerabilities.
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2012-12-11">11 Dec 2012</time> </span>
+            <h2 class="post-title"><a href="/2012/12/11/introduction-to-the-wordpress-xml-rpc-api.html">Introduction to the WordPress XML-RPC API</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            WordPress 3.5 was recently released which now comes with the WordPress API "always enabled". Personally I think this adds unnecessary risk by increasing the attack surface. How many WordPress user's actually use the API? I would put my money on it being a very small fraction, either way I'm sure the WordPress Core Development team had good reason to enable the API by default. After spending 5 minutes looking for where to turn the API off in WordPress 3.5 I gave up. Huh, I'll have another look sometime soon.
+
+I've had a play with the API in the past, however, I've always found it hard to get going as the information on how to interact with the API is a bit sparse. Having played with it for an hour or so this evening I thought I'd share some of the information on how to get started (as well as a self reminder ;).
+
+The latest API calls can be found on WordPress's Codex <a href="http://codex.wordpress.org/XML-RPC_WordPress_API" target="_blank">here</a>. It doesn't list all available calls, to find these let's extract them from the 'wp-includes/class-wp-xmlrpc-server.php' file.
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2012-12-06">06 Dec 2012</time> </span>
+            <h2 class="post-title"><a href="/2012/12/06/female-hackers-at-abertay-university.html">Female hackers at Abertay University</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            <p>Having completed a similar course at a different university, it is great to see that Abertay is attracting female students.</p>
+<p><iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/s5TFXGAfTH4" frameborder="0" allowfullscreen=""></iframe></p>
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2012-09-21">21 Sep 2012</time> </span>
+            <h2 class="post-title"><a href="/2012/09/21/implementing-basic-static-code-analysis-into-integrated-development-environments-ides-to-reduce-software-vulnerabilities.html">Implementing Basic Static Code Analysis into Integrated Development Environments (IDEs) to Reduce Software Vulnerabilities</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            <p>This is the paper that I submitted for my undergraduate dissertation in Ethical Hacking for Computer Security. The title (a mouth full) 'Implementing Basic Static Code Analysis into Integrated Development Environments (IDEs) to Reduce Software Vulnerabilities'. The paper talks about software security, modern software development, software development life cycles, static code analysis and a lot more. Since submitting it I have noticed some mistakes so I'm not putting this out there as a 'perfect paper'.</p>
+<p>The paper was the research and implementation of <a href="http://www.devbug.co.uk" target="_blank">DevBug</a> an online PHP Static Code Analysis tool written mostly in JavaScript.</p>
+<p>Feel free to have a read through, I won't be making any future amendments as I was sick of looking at it by the time I submitted it but I thought I would put it out there incase it was useful to others in learning about software security. It is a bit dry in places, be warned!</p>
+<p><a href="http://www.ethicalhack3r.co.uk/wp-content/uploads/2012/09/Implementing-Basic-Static-Code-Analysis-into-Integrated-Development-Environments-IDEs-to-Reduce-Software-Vulnerabilities.pdf">Implementing Basic Static Code Analysis into Integrated Development Environments (IDEs) to Reduce Software Vulnerabilities</a></p>
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="2012-09-15">15 Sep 2012</time> </span>
+            <h2 class="post-title"><a href="/2012/09/15/top-5-blog-posts.html">Top 5 Blog Posts</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            <p>I've been running this blog now since November 2008. As the blog's 4 year anniversary is approaching I thought I would share with you the 5 blog posts which have received the most hits within that time.</p>
+<p>1. <a href="http://www.ethicalhack3r.co.uk/security/dropbox-security/" target="_blank">DropBox Security</a> - 20,494 hits<br />
+2. <a href="http://www.ethicalhack3r.co.uk/security/introducing-wpscan-wordpress-security-scanner/" target="_blank">Introducing WPScan – WordPress Security Scanner</a> - 13,012 hits<br />
+3. <a href="http://www.ethicalhack3r.co.uk/security/setting-up-tor-on-backtrack/" target="_blank">Setting up Tor on BackTrack</a> - 10,538 hits<br />
+4. <a href="http://www.ethicalhack3r.co.uk/security/wordpress-brute-force-tool/" target="_blank">WordPress Brute Force Tool</a> - 10,017 hits<br />
+5. <a href="http://www.ethicalhack3r.co.uk/security/interview-the-jester/" target="_blank">[Interview] The Jester</a> - 7,475 hits</p>
+<p>Probably not my personal top 5 blog posts but, nevertheless, the ones that get the most hits. If you would like to guest post on ethicalhack3r.co.uk in Spanish, English or French get in contact!</p>
+
+        </section>
+    </article>
+
+    
+
+    <nav class="pagination" role="pagination">
+
+        
+          
+          <a class="newer-posts" href="/" title="Previous Page">&laquo; Newer Posts</a>
+          
+        
+
+        <span class="page-number"> Page 2 of 9 </span>
+
+        
+        <a class="older-posts" href="/page3/" title="Next Page">Older Posts &raquo;</a>
+        
+    </nav>
+
+
+</main>
+
+
+    <footer class="site-footer">
+        <div class="inner">
+            <section class="copyright">All content copyright <a href="https://dewhurstsecurity.com">Dewhurst Security</a> &copy;  &bull; All rights reserved.</section>
+        </div>
+    </footer>
+
+
+    <script type="text/javascript" src="/assets/js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3292649-12', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+</body>
+</html>

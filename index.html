@@ -7,8 +7,8 @@ cover: false
 <header class="site-head" {% if page.cover %} style="background-image: url({{ page.cover }})"{% endif %}>
     <div class="vertical">
         <div class="site-head-content" class="inner">
-					<img src="assets/images/logo_579x182.png" alt="Dewhurst Security Blog" />
-				</div>
+		  <a href="https://dewhurstsecurity.com/"><img src="assets/images/logo_579x182.png" alt="Dewhurst Security Blog" /></a>
+		</div>
     </div>
 </header>
 
@@ -40,11 +40,11 @@ cover: false
         {% endif %}
 
         <span class="page-number"> Page {{paginator.page}} of {{paginator.total_pages}} </span>
-        
-        {% if paginator.next_page %} 
+
+        {% if paginator.next_page %}
         <a class="older-posts" href="/page{{ paginator.next_page }}/" title="Next Page">Older Posts &raquo;</a>
-        {% endif %} 
+        {% endif %}
     </nav>
-    
+
 
 </main>
