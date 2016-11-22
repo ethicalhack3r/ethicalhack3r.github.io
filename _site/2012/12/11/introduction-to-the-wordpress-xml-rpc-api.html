@@ -67,15 +67,11 @@
 
         <section class="post-content">
             <p>WordPress 3.5 was recently released which now comes with the WordPress API "always enabled". Personally I think this adds unnecessary risk by increasing the attack surface. How many WordPress user's actually use the API? I would put my money on it being a very small fraction, either way I'm sure the WordPress Core Development team had good reason to enable the API by default. After spending 5 minutes looking for where to turn the API off in WordPress 3.5 I gave up. Huh, I'll have another look sometime soon.</p>
-
 <p>I've had a play with the API in the past, however, I've always found it hard to get going as the information on how to interact with the API is a bit sparse. Having played with it for an hour or so this evening I thought I'd share some of the information on how to get started (as well as a self reminder ;).</p>
-
 <p>The latest API calls can be found on WordPress's Codex <a href="http://codex.wordpress.org/XML-RPC_WordPress_API" target="_blank">here</a>. It doesn't list all available calls, to find these let's extract them from the 'wp-includes/class-wp-xmlrpc-server.php' file.</p>
-
 <p><a id="more"></a><a id="more-16894"></a></p>
-
 <p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">wp.getUsersBlogs
+<figure class="highlight"><pre><code class="language-text" data-lang="text">wp.getUsersBlogs
 wp.newPost
 wp.editPost
 wp.deletePost
@@ -153,33 +149,26 @@ demo.sayHello
 demo.addTwoNumbers
 system.getCapabilities # Incutio XML-RPC Library call - added 17.06.2013
 system.listMethods # Incutio XML-RPC Library call - added 17.06.2013
-system.multicall # Incutio XML-RPC Library call - added 17.06.2013</code></pre></div>
+system.multicall # Incutio XML-RPC Library call - added 17.06.2013</code></pre></figure>
 </p>
-
 <p>As you can see from the above list there are a whole host of different things you can do via the API. Creating blog posts, requesting information about the blog's settings and even uploading media! Most of these require authentication and use the same authorisation mechanisms as the GUI. The three I found not to require authentication were pingback.ping, demo.sayHello and demo.addTwoNumbers (there are probably others).  </p>
-
 <p>A typical API request body looks like the following:</p>
-
 <p>
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot;?&gt;</span>
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;</span>
 <span class="nt">&lt;methodCall&gt;</span>
   <span class="nt">&lt;methodName&gt;</span>demo.sayHello<span class="nt">&lt;/methodName&gt;</span>
   <span class="nt">&lt;params&gt;</span>
    <span class="nt">&lt;param&gt;&lt;/param&gt;</span>
   <span class="nt">&lt;/params&gt;</span>
-<span class="nt">&lt;/methodCall&gt;</span></code></pre></div>
+<span class="nt">&lt;/methodCall&gt;</span></code></pre></figure>
 </p>
-
 <p>The xmlrpc.php file needs the valid XML sent to it as a POST request. The easiest way to do this in Linux is to use <a href="http://curl.haxx.se/" target="_blank">cURL</a>. The following command will send the XML contained within the 'demo.sayHello.txt' file as a POST request to the remote WordPress API:</p>
-
 <p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">curl --data @demo.sayHello.txt http://www.example.com/xmlrpc.php</code></pre></div>
+<figure class="highlight"><pre><code class="language-text" data-lang="text">curl --data @demo.sayHello.txt http://www.example.com/xmlrpc.php</code></pre></figure>
 </p>
-
 <p>Which should return a response that looks like this:</p>
-
 <p>
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;methodResponse&gt;</span>
   <span class="nt">&lt;params&gt;</span>
     <span class="nt">&lt;param&gt;</span>
@@ -188,40 +177,35 @@ system.multicall # Incutio XML-RPC Library call - added 17.06.2013</code></pre><
       <span class="nt">&lt;/value&gt;</span>
     <span class="nt">&lt;/param&gt;</span>
   <span class="nt">&lt;/params&gt;</span>
-<span class="nt">&lt;/methodResponse&gt;</span></code></pre></div>
+<span class="nt">&lt;/methodResponse&gt;</span></code></pre></figure>
 </p>
-
 <p>Simple, eh?</p>
-
 <p>Here are a few other WordPress API calls:</p>
-
 <p>demo.addTwoNumbers<br />
 
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot;?&gt;</span>
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;</span>
 <span class="nt">&lt;methodCall&gt;</span>
   <span class="nt">&lt;methodName&gt;</span>demo.addTwoNumbers<span class="nt">&lt;/methodName&gt;</span>
   <span class="nt">&lt;params&gt;</span>
    <span class="nt">&lt;param&gt;&lt;value&gt;</span>2.0E+72<span class="nt">&lt;/value&gt;&lt;/param&gt;</span>
    <span class="nt">&lt;param&gt;&lt;value&gt;</span>2.0E+72<span class="nt">&lt;/value&gt;&lt;/param&gt;</span>
   <span class="nt">&lt;/params&gt;</span>
-<span class="nt">&lt;/methodCall&gt;</span></code></pre></div>
+<span class="nt">&lt;/methodCall&gt;</span></code></pre></figure>
 </p>
-
 <p>pingback.ping<br />
 
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot;?&gt;</span>
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;</span>
 <span class="nt">&lt;methodCall&gt;</span>
   <span class="nt">&lt;methodName&gt;</span>pingback.ping<span class="nt">&lt;/methodName&gt;</span>
   <span class="nt">&lt;params&gt;</span>
    <span class="nt">&lt;param&gt;&lt;value&gt;&lt;string&gt;</span>http://www.example.com/index.php?p=71<span class="nt">&lt;/string&gt;&lt;/value&gt;&lt;/param&gt;</span>
    <span class="nt">&lt;param&gt;&lt;value&gt;&lt;string&gt;</span>http://www.example2.com/index.php?p=72<span class="nt">&lt;/string&gt;&lt;/value&gt;&lt;/param&gt;</span>
   <span class="nt">&lt;/params&gt;</span>
-<span class="nt">&lt;/methodCall&gt;</span></code></pre></div>
+<span class="nt">&lt;/methodCall&gt;</span></code></pre></figure>
 </p>
-
 <p>wp.getPost<br />
 
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot;?&gt;</span>
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;</span>
 <span class="nt">&lt;methodCall&gt;</span>
   <span class="nt">&lt;methodName&gt;</span>wp.getPost<span class="nt">&lt;/methodName&gt;</span>
   <span class="nt">&lt;params&gt;</span>
@@ -230,12 +214,11 @@ system.multicall # Incutio XML-RPC Library call - added 17.06.2013</code></pre><
    <span class="nt">&lt;param&gt;&lt;value&gt;</span>password<span class="nt">&lt;/value&gt;&lt;/param&gt;</span>
    <span class="nt">&lt;param&gt;&lt;value&gt;</span>72<span class="nt">&lt;/value&gt;&lt;/param&gt;</span>
   <span class="nt">&lt;/params&gt;</span>
-<span class="nt">&lt;/methodCall&gt;</span></code></pre></div>
+<span class="nt">&lt;/methodCall&gt;</span></code></pre></figure>
 </p>
-
 <p>wp.getUsers<br />
 
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot;?&gt;</span>
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;</span>
 <span class="nt">&lt;methodCall&gt;</span>
   <span class="nt">&lt;methodName&gt;</span>wp.getUsers<span class="nt">&lt;/methodName&gt;</span>
   <span class="nt">&lt;params&gt;</span>
@@ -243,17 +226,12 @@ system.multicall # Incutio XML-RPC Library call - added 17.06.2013</code></pre><
    <span class="nt">&lt;param&gt;&lt;value&gt;</span>username<span class="nt">&lt;/value&gt;&lt;/param&gt;</span>
    <span class="nt">&lt;param&gt;&lt;value&gt;</span>password<span class="nt">&lt;/value&gt;&lt;/param&gt;</span>
   <span class="nt">&lt;/params&gt;</span>
-<span class="nt">&lt;/methodCall&gt;</span></code></pre></div>
+<span class="nt">&lt;/methodCall&gt;</span></code></pre></figure>
 </p>
-
 <p>There you are, something to get you started playing around with the WordPress API. If you find out how to turn the damn thing off let me know! :)</p>
-
 <p>EDIT ---</p>
-
 <p>After reading this post long time WPScan contributor (<a href="https://twitter.com/_FireFart_" target="_blank">@_FireFart_</a>) wrote a port scanner using a remote WordPress API! - <a href="https://github.com/FireFart/WordpressPingbackPortScanner" target="_blank">https://github.com/FireFart/WordpressPingbackPortScanner</a></p>
-
 <p>EDIT: 06.01.2013 00:55</p>
-
 <p>An even more serious issue has been identified with WordPress's XMLRPC API. ONsec research lab have found that the pingback API is vulnerable to 'SSRF' (Server Side Request Forgery): <a href="http://lab.onsec.ru/2013/01/wordpress-xmlrpc-pingback-additional.html" target="_blank">http://lab.onsec.ru/2013/01/wordpress-xmlrpc-pingback-additional.html</a></p>
 
         </section>

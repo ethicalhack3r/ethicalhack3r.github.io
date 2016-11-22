@@ -67,29 +67,17 @@
 
         <section class="post-content">
             <p>A white paper released recently (not dated) by the University of California titled ‘Why Johnny Can’t Pentest: An Analysis of Black-box Web Vulnerability Scanners’ evaluates eleven commercial and open-source black-box web vulnerability scanners.</p>
-
 <p>The three authors of the paper (Adoupe, Marco, Vigna) test the black-box scanners against their custom vulnerable web application they called WackoPicko. Their custom web application contained a number of different technical and business logic vulnerabilities, both authenticated and un-authenticated. </p>
-
 <p>They tested each scanner against WackoPicko in three different modes. Initial (point-and-click), Config (login credentials/mechanism provided) and Manual (local proxy use). The eleven scanners tested were Acunetix, Appscan, Burp, Grendel-Scan, Hailstorm, Milescan, N-Stalker, NTOSpider, Paros, w3af and Webinspect.</p>
-
 <p><a id="more"></a><a id="more-738"></a></p>
-
 <p>There were some worrying results within the report. Burp did quite well in the ‘final ranking’ coming in at third place. However according to the paper it failed to parse the 'textarea' HTML form input tag along with N-Stalker. This is obviously a huge oversight and must miss a lot of vulnerable parameters. This is a very easy fix and  no doubt after reading the paper both Burp and N-Stalker will patch their scanners.</p>
-
 <p>The logic in the paper seemed pretty sound to me however one comment was pretty confusing, ‘We used evaluation versions of each software, however they were fully functional.’. They obviously tested the full version of Acunetix judging from the results. Whether they used the evaluation version of Burp and the other scanners, I am unsure. If they did use the evaluation versions of some scanners and not others, the resulting data is going to be drastically incorrect. Most evaluation versions of scanners offer significantly less functionality than their fully paid versions.</p>
-
 <p>One conclusion of the paper was that price had absolutely nothing to do with the performance of the scanners. The prices ranged from free to over $30,000. This is something I agree with from past experience and papers.</p>
-
 <p>Acunetix took first place in the final results with Webinspect coming in second. Most scanners more or less took around the same time to complete their scans. Exceptions to this were Burp which took 74 seconds and N-Stalker which took 6 hours to complete their scans.</p>
-
 <p>According to the paper Grendel-Scan was the only scanner to be caught into an infinite loop in the WackoPicko calendar functionality. Only five out of the eleven scanners were able to register a user account under the ‘Initial’ mode of testing. None of the scanners were able to upload a picture during the Initial and Config modes. Webinspect was the only scanner to pass all of the dynamic Javascript tests that were evaluated by the spidering benchmark tool WIVET.</p>
-
 <p>The paper shows that black-box web application security scanners are still along way from being perfect. Some perform better than others at certain tasks. The paper concludes that more research is needed in order for the scanners to be able to perform better. </p>
-
 <p>The full paper can be found here; <a href="http://www.cs.ucsb.edu/~adoupe/static/black-box-scanners-dimva2010.pdf" target="_blank">http://www.cs.ucsb.edu/~adoupe/static/black-box-scanners-dimva2010.pdf</a></p>
-
 <p>UPDATE 16/7/2010:</p>
-
 <p>After contacting the authors of the paper they have released the WackoPicko vulnerable web application!<br />
 <a href="http://github.com/adamdoupe/WackoPicko" target="_blank">http://github.com/adamdoupe/WackoPicko</a></p>
 

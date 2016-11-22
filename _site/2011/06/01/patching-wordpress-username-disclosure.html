@@ -67,15 +67,10 @@
 
         <section class="post-content">
             <p>On May 26th Veronica Valero of Talsoft S.R.L. posted a security advisory on the <a href="http://seclists.org/fulldisclosure/2011/May/493" target="_blank">Full Disclosure</a> mailing list outlining a username disclosure vulnerability via a <a href="https://www.owasp.org/index.php/Top_10_2010-A4-Insecure_Direct_Object_References" target="_blank">Direct Object Reference</a>. </p>
-
 <p>This is a problem in itself, however, what was more interesting to me was Zerial's <a href="http://seclists.org/fulldisclosure/2011/May/494" target="_blank">reply</a> to the advisory; </p>
-
-<blockquote><p>"Also you can "enumerate" wordpress users using the wp-login.php. Whenyou enter a non-existent user wordpress returns "Invalid username" andwhen you enter a valid user with any random/dummie password, wordpressreturns "Invalid Password". Now you can use brute-force to enumerate allvalid users using, for example, a name&username dictionary."</p></blockquote>
-
+<blockquote><p>"Also you can "enumerate" wordpress users using the wp-login.php. Whenyou enter a non-existent user wordpress returns "Invalid username" andwhen you enter a valid user with any random/dummie password, wordpressreturns "Invalid Password". Now you can use brute-force to enumerate allvalid users using, for example, a name&amp;username dictionary."</p></blockquote>
 <p><a id="more"></a><a id="more-16035"></a></p>
-
 <p>As we can see from a simple test on <a href="https://wordpress.org/wp-login.php" target="_blank">https://wordpress.org/wp-login.php</a>, what he was saying was true.</p>
-
 <p>Existent user 'admin':<br />
 <img src="http://www.ethicalhack3r.co.uk/wp-content/uploads/2011/06/Screen-shot-2011-06-01-at-14.54.58.png" alt="" title="Screen shot 2011-06-01 at 14.54.58" width="408" height="433" class="alignnone size-full wp-image-16037" /></p>
 <p>Non-Existent user 'nonexistant':<br />
@@ -86,36 +81,26 @@
 <p>Change:</p>
 <p>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">return new WP_Error(&#39;invalid_username&#39;, sprintf(__(&#39;ERROR: Invalid username. &lt;a href=&quot;%s&quot; title=&quot;Password Lost and Found&quot;&gt;Lost your password&lt; /a&gt;?&#39;), site_url(&#39;wp-login.php?action=lostpassword&#39;, &#39;login&#39;)));&lt;/a&gt;</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-php" data-lang="php">return new WP_Error('invalid_username', sprintf(__('ERROR: Invalid username. <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"%s"</span> <span class="na">title=</span><span class="s">"Password Lost and Found"</span><span class="nt">&gt;</span>Lost your password<span class="nt">&lt; /a&gt;</span>?'), site_url('wp-login.php?action=lostpassword', 'login')));<span class="nt">&lt;/a&gt;</span></code></pre></figure>
 
 </p>
-
 <p>To:</p>
-
 <p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">return new WP_Error( &#39;invalid_username&#39;, sprintf( __( &#39;ERROR: Invalid username and/or password.&#39;)));</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-php" data-lang="php">return new WP_Error( 'invalid_username', sprintf( __( 'ERROR: Invalid username and/or password.')));</code></pre></figure>
 </p>
-
 <p><strong>wp-includes/user.php:111</strong></p>
-
 <p>Change:</p>
-
 <p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">return new WP_Error( &#39;incorrect_password&#39;, sprintf( __( &#39;ERROR: The password you entered for the username &lt;strong&gt;%1$s&lt;/strong&gt; is incorrect.      &lt;a href=&quot;%2$s&quot; title=&quot;Password Lost and Found&quot;&gt;Lost your password&lt;/a&gt;?&#39; )</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-php" data-lang="php">return new WP_Error( 'incorrect_password', sprintf( __( 'ERROR: The password you entered for the username <span class="nt">&lt;strong&gt;</span>%1$s<span class="nt">&lt;/strong&gt;</span> is incorrect.      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"%2$s"</span> <span class="na">title=</span><span class="s">"Password Lost and Found"</span><span class="nt">&gt;</span>Lost your password<span class="nt">&lt;/a&gt;</span>?' )</code></pre></figure>
 </p>
-
 <p>To:</p>
-
 <p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">return new WP_Error( &#39;incorrect_password&#39;, sprintf( __( &#39;ERROR: Invalid username and/or password.&#39;)));</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-php" data-lang="php">  return new WP_Error( 'incorrect_password', sprintf( __( 'ERROR: Invalid username and/or password.')));
+  </code></pre></figure>
 </p>
-
 <p>Let's hope WordPress patch this and the one Veronica disclosed sooner rather than later.</p>
-
 <p><strong>UPDATE</strong></p>
-
 <p>After some further searching it seems a bug report was issued in 2007 on WordPress's Trac. <a href="http://core.trac.wordpress.org/ticket/3708" target="_blank">http://core.trac.wordpress.org/ticket/3708</a></p>
-
 <blockquote><p>"There are other ways to verify user names. You can reverse engineer them from the author archive URLs (e.g.  http://example.com/author/mark/). I believe the consensus last time this came up was that it was trivial to figure out the user names anyway, and that it is much more user-friendly to tell them when they messed up their username, and not the password. Also, "admin" is created on install, and can't be changed using WordPress itself, so there's no hiding that."</p></blockquote>
 
         </section>

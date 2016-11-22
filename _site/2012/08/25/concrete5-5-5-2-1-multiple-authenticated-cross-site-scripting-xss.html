@@ -71,60 +71,40 @@
 # Author: Ryan 'ethicalhack3r' Dewhurst (www.ethicalhack3r.co.uk)<br />
 # Software Link: http://sourceforge.net/projects/concretecms/files/concrete5/5.5.2.1/<br />
 # Version: 5.5.2.1</p>
-
 <p>1.Vulnerability Description</p>
-
 <p>Multiple authenticated Cross-Site Scripting (XSS) vulnerabilities were identified within Concrete5 version 5.5.2.1. Also reported were some cookie security improvements. The first Concrete5 advisory can be found here [1].</p>
-
 <p>2.Software Description</p>
-
 <p>CMS made for Marketing but built for Geeks, concrete5 [0] is a content management system that is free and open source.</p>
-
 <p>3. Vulnerability Information</p>
-
 <p><a id="more"></a><a id="more-16847"></a></p>
-
 <p>3.1 Cross-Site Scripting (XSS)</p>
-
 <p>Page: index.php/tools/required/files/customize_search_columns<br />
 Parameters: searchInstance<br />
 Method: GET</p>
-
 <p>Page: index.php/tools/required/files/save_search<br />
 Parameters: ccm-submit-button, searchInstance<br />
 Method: POST</p>
-
 <p>Page: index.php/tools/required/files/search_results<br />
-Parameters: numResults, searchInstance & searchType<br />
+Parameters: numResults, searchInstance &amp; searchType<br />
 Method: GET</p>
-
 <p>Page: index.php/tools/required/sitemap_search_selector.php<br />
 Parameters: cID, sitemap_select_mode<br />
 Method: GET</p>
-
 <p>Page: index.php/tools/required/users/search_dialog<br />
 Parameters: mode<br />
 Method: GET</p>
-
 <p>Page: index.php/tools/required/users/search_results<br />
-Parameters: mode, numResults & searchType<br />
+Parameters: mode, numResults &amp; searchType<br />
 Method: GET</p>
-
 <p>3.2 Cookie Security</p>
-
 <p>Current cookie name/value: CONCRETE5=6amek9tk8549gisbhsqcpi0ku6;<br />
 path=/concrete5.5.2.1/</p>
-
 <p>The 'httpOnly' and 'secure' flags should be set as well as an expiry time/date.</p>
-
 <p>4.Vulnerability Timeline</p>
-
 <p>2012-07-24 – Reported to vendor<br />
 2012-07-24 – Vendor acknowledged<br />
 2012-08-25 – Vulnerability Disclosed</p>
-
 <p>5.References</p>
-
 <p>[0] http://www.concrete5.org/<br />
 [1] http://www.ethicalhack3r.co.uk/security/concrete5/</p>
 

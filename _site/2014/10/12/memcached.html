@@ -66,44 +66,51 @@
         <h1 class="post-title">Memcached</h1>
 
         <section class="post-content">
-            <h2>What is Memcached?</h2>
+            <p>##What is Memcached?</p>
 
 <blockquote>
-<p>Free &amp; open source, high-performance, distributed memory object caching system, generic in nature, but intended for use in speeding up dynamic web applications by alleviating database load.</p>
+  <p>Free &amp; open source, high-performance, distributed memory object caching system, generic in nature, but intended for use in speeding up dynamic web applications by alleviating database load.</p>
+</blockquote>
 
-<p>Memcached is an in-memory key-value store for small chunks of arbitrary data (strings, objects) from results of database calls, API calls, or page rendering.</p>
+<blockquote>
+  <p>Memcached is an in-memory key-value store for small chunks of arbitrary data (strings, objects) from results of database calls, API calls, or page rendering.</p>
+</blockquote>
 
-<p>Memcached is simple yet powerful. Its simple design promotes quick deployment, ease of development, and solves many problems facing large data caches. Its API is available for most popular languages.</p>
+<blockquote>
+  <p>Memcached is simple yet powerful. Its simple design promotes quick deployment, ease of development, and solves many problems facing large data caches. Its API is available for most popular languages.</p>
+</blockquote>
 
-<p>At heart it is a simple Key/Value store.</p>
+<blockquote>
+  <p>At heart it is a simple Key/Value store.</p>
 </blockquote>
 
 <p>http://memcached.org/</p>
 
-<h2>Background</h2>
+<h2 id="background">Background</h2>
 
-<p>Last week I came across a service on the Internet running on TCP port 11211, Memcached&#39;s default port. I had heard of Memcached before but I probably only knew it was some kind of database system, that was the extent of my familiarity with it.</p>
+<p>Last week I came across a service on the Internet running on TCP port 11211, Memcached’s default port. I had heard of Memcached before but I probably only knew it was some kind of database system, that was the extent of my familiarity with it.</p>
 
-<p>I quickly learnt that connecting to Memcached does not require authentication. Authentication can be implmented but even then Memcached&#39;s own documentation says it should not be fully trusted. </p>
+<p>I quickly learnt that connecting to Memcached does not require authentication. Authentication can be implmented but even then Memcached’s own documentation says it should not be fully trusted.</p>
 
 <blockquote>
-<p>Using SASL authentication here helps, but should not be totally trusted.</p>
+  <p>Using SASL authentication here helps, but should not be totally trusted.</p>
 </blockquote>
 
 <p><a href="https://code.google.com/p/memcached/wiki/NewConfiguringServer#Networking">https://code.google.com/p/memcached/wiki/NewConfiguringServer#Networking</a></p>
 
-<h2>Give me the data!</h2>
+<h2 id="give-me-the-data">Give me the data!</h2>
 
 <p>I have a database server which I can connect to (you can use Telnet) without any authentication, great! Give me the data!</p>
 
-<p>Now here lies the problem, Memcached is a Key/Value store. To get any data from the key&#39;s values I need to know the key name first and the key name can be any string. I was also told that there was no way to get the key names from a Memcached server.</p>
+<p>Now here lies the problem, Memcached is a Key/Value store. To get any data from the key’s values I need to know the key name first and the key name can be any string. I was also told that there was no way to get the key names from a Memcached server.</p>
 
-<h3>Stats</h3>
+<h3 id="stats">Stats</h3>
 
-<p>I found a Ruby Gem called <a href="https://github.com/mperham/dalli">dalli</a> which is a Memchaced client and started to play around with the API, one interesting Memchaced call is the <code>stats</code> one.</p>
+<p>I found a Ruby Gem called <a href="https://github.com/mperham/dalli">dalli</a> which is a Memchaced client and started to play around with the API, one interesting Memchaced call is the <code class="highlighter-rouge">stats</code> one.</p>
 
-<p>Here is some example output when the <code>stats</code> command is executed on a remote Memcached server:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">[*] pid: 1020
+<p>Here is some example output when the <code class="highlighter-rouge">stats</code> command is executed on a remote Memcached server:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[*] pid: 1020
 [*] uptime: 14903707
 [*] time: 1413105644
 [*] version: 1.4.4
@@ -140,47 +147,55 @@
 [*] curr_items: 1541
 [*] total_items: 38617
 [*] evictions: 0
-</code></pre></div>
-<p>I&#39;ve seen this data fluctuate in terms of content, sometimes you get more stat information and others less. There&#39;s some interesting data here but nothing to help get any key names.</p>
+</code></pre>
+</div>
 
-<h3>Cachedump</h3>
+<p>I’ve seen this data fluctuate in terms of content, sometimes you get more stat information and others less. There’s some interesting data here but nothing to help get any key names.</p>
+
+<h3 id="cachedump">Cachedump</h3>
 
 <p>After some googleing I came across a <a href="http://www.darkcoding.net/software/memcached-list-all-keys/">blog post</a> which outlines a method to extract some of the key names.</p>
 
-<p>The method to extract the key names outlined in the blog post uses the <code>stats cachedump</code> command and passing a &#39;slab id&#39; and a keys limit.</p>
+<p>The method to extract the key names outlined in the blog post uses the <code class="highlighter-rouge">stats cachedump</code> command and passing a ‘slab id’ and a keys limit.</p>
 
 <p>The full command would look something like this:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">stats cachedump 3 100
-</code></pre></div>
-<p>Where <code>3</code> is the slab id and <code>100</code> is the maximum number of keys to return. Slabs are a way Memcached handles its internal memory rather than storing the key/values individually.</p>
 
-<h3>Slabs</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>stats cachedump 3 100
+</code></pre>
+</div>
 
-<p>So to return the key names we first need the slab ids. Luckily for us some slab ids are returned when issueing the <code>stats items</code> command.</p>
+<p>Where <code class="highlighter-rouge">3</code> is the slab id and <code class="highlighter-rouge">100</code> is the maximum number of keys to return. Slabs are a way Memcached handles its internal memory rather than storing the key/values individually.</p>
+
+<h3 id="slabs">Slabs</h3>
+
+<p>So to return the key names we first need the slab ids. Luckily for us some slab ids are returned when issueing the <code class="highlighter-rouge">stats items</code> command.</p>
 
 <p>The output of this command looks like this (borrowed from the previous <a href="http://www.darkcoding.net/software/memcached-list-all-keys/">blog post</a>):</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">STAT items:3:number 1
+
+<div class="highlighter-rouge"><pre class="highlight"><code>STAT items:3:number 1
 STAT items:3:age 498
 STAT items:22:number 1
 STAT items:22:age 498
 END
-</code></pre></div>
-<p>The number after <code>items:</code> is a slab id, we can easily extract the slab ids with the following regex <code>^items:(\d*):</code>.</p>
+</code></pre>
+</div>
 
-<p>Now we have some slab ids we can use <code>cachedump</code> do get the key name and once we have the key name we can extract the key value. Unfortunatly the <a href="https://github.com/mperham/dalli">dalli</a> gem doesn&#39;t have an API call for <code>cachedump</code>, however, this can be done easily over Telnet or the like.</p>
+<p>The number after <code class="highlighter-rouge">items:</code> is a slab id, we can easily extract the slab ids with the following regex <code class="highlighter-rouge">^items:(\d*):</code>.</p>
 
-<h3>Values (the meat!)</h3>
+<p>Now we have some slab ids we can use <code class="highlighter-rouge">cachedump</code> do get the key name and once we have the key name we can extract the key value. Unfortunatly the <a href="https://github.com/mperham/dalli">dalli</a> gem doesn’t have an API call for <code class="highlighter-rouge">cachedump</code>, however, this can be done easily over Telnet or the like.</p>
 
-<p>To get the key value I just used the <a href="https://github.com/mperham/dalli">dalli</a> gem&#39;s <code>get(key_name)</code> API call. I did come across some interesting data but most of the time no data was returned. I guess it depends on how frequently the Memcached server is used.</p>
+<h3 id="values-the-meat">Values (the meat!)</h3>
 
-<h2>The Script</h2>
+<p>To get the key value I just used the <a href="https://github.com/mperham/dalli">dalli</a> gem’s <code class="highlighter-rouge">get(key_name)</code> API call. I did come across some interesting data but most of the time no data was returned. I guess it depends on how frequently the Memcached server is used.</p>
+
+<h2 id="the-script">The Script</h2>
 
 <p>To automate the data extraction from a Memcached server I wrote the following script - <a href="https://github.com/ethicalhack3r/my-scripts/blob/master/memcached_client.rb">https://github.com/ethicalhack3r/my-scripts/blob/master/memcached_client.rb</a> - which uses a mixture of the <a href="https://github.com/mperham/dalli">dalli</a> Gem and Telnet to extract the data.</p>
 
-<p>Using <a href="https://github.com/robertdavidgraham/masscan">massscan</a> I scanned some net blocks for TCP port 11211 to see how popular Memcached was and how how frequently it was listening over the Internet despite Memcached&#39;s own documentation advising against this.</p>
+<p>Using <a href="https://github.com/robertdavidgraham/masscan">massscan</a> I scanned some net blocks for TCP port 11211 to see how popular Memcached was and how how frequently it was listening over the Internet despite Memcached’s own documentation advising against this.</p>
 
 <blockquote>
-<p>Memcached does not spend much, if any, effort in ensuring its defensibility from random internet connections. So you must not expose memcached directly to the internet, or otherwise any untrusted users.</p>
+  <p>Memcached does not spend much, if any, effort in ensuring its defensibility from random internet connections. So you must not expose memcached directly to the internet, or otherwise any untrusted users.</p>
 </blockquote>
 
 <p><a href="https://code.google.com/p/memcached/wiki/NewConfiguringServer#Networking">https://code.google.com/p/memcached/wiki/NewConfiguringServer#Networking</a></p>
@@ -188,26 +203,26 @@ END
 <p>Memcached were nice enough to tell us who the biggest users of the software are:</p>
 
 <ul>
-<li>LiveJournal</li>
-<li>Wikipedia</li>
-<li>Flickr</li>
-<li>Bebo</li>
-<li>Twitter</li>
-<li>Typepad</li>
-<li>Yellowbot</li>
-<li>Youtube</li>
-<li>WordPress.com</li>
-<li>Craigslist</li>
-<li>Mixi</li>
+  <li>LiveJournal</li>
+  <li>Wikipedia</li>
+  <li>Flickr</li>
+  <li>Bebo</li>
+  <li>Twitter</li>
+  <li>Typepad</li>
+  <li>Yellowbot</li>
+  <li>Youtube</li>
+  <li>WordPress.com</li>
+  <li>Craigslist</li>
+  <li>Mixi</li>
 </ul>
 
 <p><a href="http://memcached.org/">http://memcached.org/</a></p>
 
-<h2>Conclusion</h2>
+<h2 id="conclusion">Conclusion</h2>
 
-<p>After all this I came across a <a href="http://www.sensepost.com/blog/4873.html">blog post</a> by SensePost who did all of this back in 2010. They even wrote a tool called <code>go-derper</code> which I havn&#39;t had the chance to try yet. My Google Fu must have been weak when I first came across the Memcached server on the Internet. Nevertheless I learned a little about Memcached and will be prepared next time I come across it. Hopefully you learned a little about it too.</p>
+<p>After all this I came across a <a href="http://www.sensepost.com/blog/4873.html">blog post</a> by SensePost who did all of this back in 2010. They even wrote a tool called <code class="highlighter-rouge">go-derper</code> which I havn’t had the chance to try yet. My Google Fu must have been weak when I first came across the Memcached server on the Internet. Nevertheless I learned a little about Memcached and will be prepared next time I come across it. Hopefully you learned a little about it too.</p>
 
-<p>There was no Metasploit module to extract data from a Memcached server, maybe this is something I can do in future if I get the time or someone else can do if they&#39;re interested. Metaploit did have a <a href="https://github.com/rapid7/metasploit-framework/blob/master/modules/auxiliary/dos/misc/memcached.rb">DoS exploit</a> (CVE-2011-4971) for Memcached though.</p>
+<p>There was no Metasploit module to extract data from a Memcached server, maybe this is something I can do in future if I get the time or someone else can do if they’re interested. Metaploit did have a <a href="https://github.com/rapid7/metasploit-framework/blob/master/modules/auxiliary/dos/misc/memcached.rb">DoS exploit</a> (CVE-2011-4971) for Memcached though.</p>
 
         </section>
 

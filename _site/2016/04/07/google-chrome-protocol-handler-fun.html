@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title> Google Chrome Protocol Handler Fun </title>
+    <meta name="description" content="You're probably all familiar of the custom protocol handlers browsers use for various things such as ```chrome://settings/``` and ```chrome://credits/```. I ...">
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+    <!-- This is for syntax highlight -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
+    <!-- Customisation  -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://dewhurstsecurity.com/img/favicomatic/apple-touch-icon-57x57.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://dewhurstsecurity.com/img/favicomatic/apple-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://dewhurstsecurity.com/img/favicomatic/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://dewhurstsecurity.com/img/favicomatic/apple-touch-icon-144x144.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="https://dewhurstsecurity.com/img/favicomatic/apple-touch-icon-60x60.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://dewhurstsecurity.com/img/favicomatic/img/favicomatic/apple-touch-icon-120x120.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://dewhurstsecurity.com/img/favicomatic/apple-touch-icon-76x76.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://dewhurstsecurity.com/img/favicomatic/apple-touch-icon-152x152.png" />
+	<link rel="icon" type="image/png" href="https://dewhurstsecurity.com/img/favicomatic/favicon-196x196.png" sizes="196x196" />
+	<link rel="icon" type="image/png" href="https://dewhurstsecurity.com/img/favicomatic/favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/png" href="https://dewhurstsecurity.com/img/favicomatic/favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="https://dewhurstsecurity.com/img/favicomatic/favicon-16x16.png" sizes="16x16" />
+	<link rel="icon" type="image/png" href="https://dewhurstsecurity.com/img/favicomatic/favicon-128.png" sizes="128x128" />
+	<meta name="application-name" content="&nbsp;"/>
+	<meta name="msapplication-TileColor" content="#FFFFFF" />
+	<meta name="msapplication-TileImage" content="https://dewhurstsecurity.com/img/favicomatic/mstile-144x144.png" />
+	<meta name="msapplication-square70x70logo" content="https://dewhurstsecurity.com/img/favicomatic/mstile-70x70.png" />
+	<meta name="msapplication-square150x150logo" content="https://dewhurstsecurity.com/img/favicomatic/mstile-150x150.png" />
+	<meta name="msapplication-wide310x150logo" content="https://dewhurstsecurity.com/img/favicomatic/mstile-310x150.png" />
+	<meta name="msapplication-square310x310logo" content="https://dewhurstsecurity.com/img/favicomatic/mstile-310x310.png" />
+
+</head>
+<body class="home-template">
+
+
+    <main class="content" role="main">
+
+    <article class="post">
+        <header class="post-header">
+            <a id="blog-logo" href="http://blog.dewhurstsecurity.com">
+                
+                    <span class="blog-title">Dewhurst Security Blog</span>
+                
+            </a>
+        </header>
+
+        <span class="post-meta">
+        	<time datetime="2016-04-07">07 Apr 2016</time>
+        	
+        		on
+	        	
+	        
+       	</span>
+
+        <h1 class="post-title">Google Chrome Protocol Handler Fun</h1>
+
+        <section class="post-content">
+            <p>You’re probably all familiar of the custom protocol handlers browsers use for various things such as <code class="highlighter-rouge">chrome://settings/</code> and <code class="highlighter-rouge">chrome://credits/</code>. I was using a Chrome app (extension) the other day that suggested I copy and pasted <code class="highlighter-rouge">chrome://restart</code> in to my browser address bar to restart Chrome. This got me thinking about the <code class="highlighter-rouge">chrome</code> protocol handler, what other ones are there and how they might they be able to be used for a bit of fun.</p>
+
+<p>The first obvious bit of fun we could have is if someone clicked on a HTML link to <code class="highlighter-rouge">chrome://restart</code> and have their browser restart, losing all of their open tabs. This is so obvious that Chrome do not allow this to happen by default and you will see the following error in the browser console <code class="highlighter-rouge">Not allowed to load local resource: chrome://restart/</code>.</p>
+
+<p>So I thought about setting <code class="highlighter-rouge">chrome://restart</code> as the browser’s startup page, the idea being that Chrome would just restart itself every time the browser is opened. This kind of worked, but Chrome only restarted itself once and then continued as usual, not much fun.</p>
+
+<p>Next idea was to set <code class="highlighter-rouge">chrome://restart</code> as the default search engine, this way anytime someone mistypes a URL or searches for something using the address bar the browser will restart, very frustrating! This didn’t work initially as Chrome expects all search engine URLs to have the <code class="highlighter-rouge">%s</code> marker to denote the search keyword position. After some fiddling this was achieved by setting the URL as <code class="highlighter-rouge">chrome://restart/../%s./../</code>, and voila, Chrome now restarts every time the address bar is used to search for something. That’s much more fun!</p>
+
+<p>Later it was pointed out to me on <a href="https://twitter.com/avlidienbrunn/status/689185744762630144">Twitter</a> that the browser’s startup page could actually be set to <code class="highlighter-rouge">chrome://quit</code>. This is much more annoying than using <code class="highlighter-rouge">chrome://restart</code> for the startup page as the browser would just quit straight after opening. I had to <code class="highlighter-rouge">rm -rf</code> all of the Chrome directories on my machine that contained saved settings to get Chrome to start again. Don’t try this unless you want to spend some time recovering Chrome!</p>
+
+<p>So what other Chrome Protocol Handlers are there? I couldn’t find a definitive up to date list online so I decided to download the Google Chrome source code and extract them all, resulting in the list below:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>chrome://-alkuisissa
+chrome://-nettadresser
+chrome://-webbadresser
+chrome://ChromeTestChromeWebUIControllerFactory
+chrome://DummyURL
+chrome://URLs
+chrome://about
+chrome://accessibility
+chrome://anything
+chrome://app-list
+chrome://appcache-internals
+chrome://apps
+chrome://badala
+chrome://badcastcrash
+chrome://bar
+chrome://blah
+chrome://blank
+chrome://blob-internals
+chrome://bluetooth-pairing
+chrome://bogus
+chrome://bookmarks
+chrome://browser
+chrome://certificate-manager
+chrome://choose-mobile-network
+chrome://chrome
+chrome://chrome-signin
+chrome://chrome-urls
+chrome://components
+chrome://conflicts
+chrome://constrained-test
+chrome://consumer-management
+chrome://contextual-search-promo
+chrome://cookieset
+chrome://copresence
+chrome://crash
+chrome://crashdump
+chrome://crashes
+chrome://credits
+chrome://credits-
+chrome://cryptohome
+chrome://device-emulator
+chrome://device-log
+chrome://devices
+chrome://discards
+chrome://dns
+chrome://dom-distiller
+chrome://domain-reliability-internals
+chrome://downloads
+chrome://drive
+chrome://drive-internals
+chrome://example
+chrome://extension
+chrome://extension-crash
+chrome://extension-icon
+chrome://extensions
+chrome://extensions-frame
+chrome://extensions-kohdassa
+chrome://external-file
+chrome://f
+chrome://fallback-icon
+chrome://favicon
+chrome://fblahblahblah
+chrome://fg
+chrome://fileicon
+chrome://first-run
+chrome://fl
+chrome://flag
+chrome://flagg
+chrome://flags
+chrome://flash
+chrome://foo
+chrome://gcm-internals
+chrome://gesture
+chrome://gpu
+chrome://gpuclean
+chrome://gpucrash
+chrome://gpuhang
+chrome://hang
+chrome://help
+chrome://help-frame
+chrome://histograms
+chrome://historik
+chrome://history
+chrome://history-frame
+chrome://host
+chrome://http
+chrome://identity-internals
+chrome://imageburner
+chrome://indexeddb-internals
+chrome://inducebrowsercrashforrealz
+chrome://inspect
+chrome://instant
+chrome://internal
+chrome://interstitials
+chrome://invalidations
+chrome://javascript
+chrome://kasko
+chrome://keyboard
+chrome://keyboardoverlay
+chrome://kill
+chrome://large-icon
+chrome://linux-proxy-config
+chrome://local-state
+chrome://make-metro
+chrome://managed-user-passphrase
+chrome://md-policy
+chrome://md-settings
+chrome://measurepageloadtimeextension
+chrome://media-internals
+chrome://media-router
+chrome://memory
+chrome://memory-internals
+chrome://memory-redirect
+chrome://mobilesetup
+chrome://mojo-web-ui
+chrome://most_visited
+chrome://nacl
+chrome://navigate
+chrome://net
+chrome://net-export
+chrome://net-internals
+chrome://network
+chrome://network-error
+chrome://network-errors
+chrome://newprofile
+chrome://newtab
+chrome://newtab2
+chrome://newtab3
+chrome://nfc-debug
+chrome://omaha
+chrome://omnibox
+chrome://oobe
+chrome://options
+chrome://os-credits
+chrome://os_credits
+chrome://password-manager-internals
+chrome://path
+chrome://peripheral-battery
+chrome://plugins
+chrome://pnacl-translator
+chrome://policy
+chrome://popular-sites-internals
+chrome://power
+chrome://ppapiflashcrash
+chrome://ppapiflashhang
+chrome://predictors
+chrome://preferences
+chrome://print
+chrome://profile-signin-confirmation
+chrome://profiler
+chrome://proximity-auth
+chrome://proximity_auth
+chrome://proxy-settings
+chrome://quit
+chrome://quit-with-apps
+chrome://quota-internals
+chrome://recent-tabs
+chrome://resources
+chrome://restart
+chrome://s
+chrome://salsa
+chrome://sandbox
+chrome://screen
+chrome://screenlock-icon
+chrome://screenshot
+chrome://serviceworker-internals
+chrome://session
+chrome://set-time
+chrome://settings
+chrome://settings-frame
+chrome://setupfortesting
+chrome://shorthang
+chrome://sign-in
+chrome://signin
+chrome://signin-internals
+chrome://sim-unlock
+chrome://site-engagement
+chrome://slow
+chrome://slow_trace
+chrome://somepage
+chrome://source_name
+chrome://stylesheet
+chrome://suggestions
+chrome://supervised-user-internals
+chrome://sync-internals
+chrome://syncfs-internals
+chrome://syncresources
+chrome://system
+chrome://tab-modal-confirm-dialog
+chrome://tcmalloc
+chrome://terms
+chrome://test
+chrome://test-page
+chrome://theme
+chrome://thumb
+chrome://thumbnail
+chrome://thumbnails
+chrome://thumbs
+chrome://tracing
+chrome://trailing2blah
+chrome://translate-internals
+chrome://uber-frame
+chrome://ui-alternatives
+chrome://uithreadhang
+chrome://user
+chrome://user-actions
+chrome://user-chooser
+chrome://user-manager
+chrome://userimage
+chrome://usr
+chrome://ve
+chrome://version
+chrome://view-cert
+chrome://view-cert-dialog
+chrome://view-http-cache
+chrome://voicesearch
+chrome://webrtc-device-provider
+chrome://webrtc-internals
+chrome://webrtc-logs
+chrome://webui
+chrome://welcome
+chrome://youtube
+</code></pre>
+</div>
+
+<p>Not all of these will work as some will have come from unit tests, code comments and other places, but there are some interesting ones there to play about with!  <code class="highlighter-rouge">chrome://inducebrowsercrashforrealz</code> is especially interesting!</p>
+
+<p>Later it was also pointed out to me on <a href="https://twitter.com/sleevi_/status/689161977642352640">Twitter</a> that I had used an outdated version of Google Chrome to extract the protocol handlers from, so the above list is a revised list using the latest version of Chrome that I could find. It was also pointed out to me that you can use <code class="highlighter-rouge">chrome://chrome-urls</code> to list some of the protocol handlers but I did find that there were some missing from that list such as <code class="highlighter-rouge">chrome://inducebrowsercrashforrealz</code>.</p>
+
+<p>Nothing groundbreaking here but hopefully some one will find it mildly interesting!</p>
+
+
+        </section>
+
+        
+
+        <footer class="post-footer">
+            <section class="hire-me">
+              <h4><a href="https://dewhurstsecurity.com/" onClick="_gaq.push(['_trackEvent', 'External Link', 'Dewhurst Security Link', 'Hire Us – Words']);">Hire Us</a></h4>
+            </section>
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=Google Chrome Protocol Handler Fun&amp;url=http://blog.dewhurstsecurity.com/2016/04/07/google-chrome-protocol-handler-fun.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.dewhurstsecurity.com/2016/04/07/google-chrome-protocol-handler-fun.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://blog.dewhurstsecurity.com/2016/04/07/google-chrome-protocol-handler-fun.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+    </article>
+
+</main>
+
+
+    <footer class="site-footer">
+        <div class="inner">
+            <section class="copyright">All content copyright <a href="https://dewhurstsecurity.com">Dewhurst Security</a> &copy;  &bull; All rights reserved.</section>
+        </div>
+    </footer>
+
+
+    <script type="text/javascript" src="/assets/js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3292649-12', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+</body>
+</html>

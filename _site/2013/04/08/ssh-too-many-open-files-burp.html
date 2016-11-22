@@ -78,26 +78,22 @@
 <p>Finally, I came across <a href="http://superuser.com/questions/302754/increase-the-maximum-number-of-open-file-descriptors-in-snow-leopard" target="_blank">this</a> post on superuser.com where the errant.info user suggests to issue the following commands:</p>
 <p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s1">&#39;kern.maxfiles=20480&#39;</span> <span class="p">|</span> sudo tee -a /etc/sysctl.conf
-<span class="nb">echo</span> -e <span class="s1">&#39;limit maxfiles 8192 20480\nlimit maxproc 1000 2000&#39;</span> <span class="p">|</span> sudo tee -a /etc/launchd.conf
-<span class="nb">echo</span> <span class="s1">&#39;ulimit -n 4096&#39;</span> <span class="p">|</span> sudo tee -a /etc/profile</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s1">'kern.maxfiles=20480'</span> | sudo tee -a /etc/sysctl.conf
+<span class="nb">echo</span> -e <span class="s1">'limit maxfiles 8192 20480\nlimit maxproc 1000 2000'</span> | sudo tee -a /etc/launchd.conf
+<span class="nb">echo</span> <span class="s1">'ulimit -n 4096'</span> | sudo tee -a /etc/profile</code></pre></figure>
 </p>
-
 <p>As far as I can tell, the above seems to set a kernal limit, system limit and also the user's ulimit. After a system restart, the error has now gone!</p>
-
 <p>The user also adds some additional notes:</p>
-
 <p>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">You will need to restart for these changes to take effect.
-AFAIK you can no longer set limits to &#39;unlimited&#39; under OS X
+<figure class="highlight"><pre><code class="language-text" data-lang="text">You will need to restart for these changes to take effect.
+AFAIK you can no longer set limits to 'unlimited' under OS X
 launchctl maxfiles are bounded by sysctl maxfiles, and therefore cannot exceed them
 sysctl seems to inherit kern.maxfilesperproc from launchctl maxfiles
-ulimit seems to inherit it&#39;s &#39;open files&#39; value from launchctl by default
-you can set a custom ulimit within /etc/profile, or ~/.profile ; while this isn&#39;t required I&#39;ve provided an example
-Be cautious when setting any of these values to a very high number when compared with their default - the features exist stability/security. I&#39;ve taken these example numbers that I believe to be reasonable, written on other websites.</code></pre></div>
+ulimit seems to inherit it's 'open files' value from launchctl by default
+you can set a custom ulimit within /etc/profile, or ~/.profile ; while this isn't required I've provided an example
+Be cautious when setting any of these values to a very high number when compared with their default - the features exist stability/security. I've taken these example numbers that I believe to be reasonable, written on other websites.</code></pre></figure>
 </p>
-
 <p>I'm sure I am not the only one who has come across this before, so hopefully it is useful to other Burp Suite user's who use SSH as a forwarding proxy on Mac OS X. It worked for me so should hopefully work for you too.</p>
 
         </section>

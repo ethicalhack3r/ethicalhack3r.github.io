@@ -67,63 +67,62 @@
 
         <section class="post-content">
             <p>It has been a rainy Sunday so I wrote a Caesar Cipher (ROT) Encoder/Decoder in Ruby to ease the boredom.</p>
-
 <p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#!/usr/bin/env ruby</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#!/usr/bin/env ruby</span>
 
 <span class="c1">#</span>
-<span class="c1"># Caesar Cipher (ROT) Encoder/Decoder - Ryan &#39;ethicalhack3r&#39; Dewhurst - 05.08.2012</span>
+<span class="c1"># Caesar Cipher (ROT) Encoder/Decoder - Ryan 'ethicalhack3r' Dewhurst - 05.08.2012</span>
 <span class="c1">#</span>
 
-<span class="vi">@alphabet</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;z&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
+<span class="vi">@alphabet</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">.</span><span class="nf">.</span><span class="s1">'z'</span><span class="p">).</span><span class="nf">to_a</span>
 
 <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="n">plaintext</span><span class="p">)</span>
-  <span class="n">plaintext</span> <span class="o">=</span> <span class="n">plaintext</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/\s+/</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">downcase</span>
+  <span class="n">plaintext</span> <span class="o">=</span> <span class="n">plaintext</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="sr">/\s+/</span><span class="p">,</span> <span class="s1">''</span><span class="p">).</span><span class="nf">downcase</span>
 
-  <span class="vi">@alphabet</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
-    <span class="n">encoded_forward</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+  <span class="vi">@alphabet</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
+    <span class="n">encoded_forward</span> <span class="o">=</span> <span class="s1">''</span>
 
-    <span class="n">plaintext_position</span> <span class="o">=</span> <span class="vi">@alphabet</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">plaintext</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="n">chr</span><span class="p">)</span>
-    <span class="n">cipher_position</span> <span class="o">=</span> <span class="vi">@alphabet</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
+    <span class="n">plaintext_position</span> <span class="o">=</span> <span class="vi">@alphabet</span><span class="p">.</span><span class="nf">index</span><span class="p">(</span><span class="n">plaintext</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">chr</span><span class="p">)</span>
+    <span class="n">cipher_position</span> <span class="o">=</span> <span class="vi">@alphabet</span><span class="p">.</span><span class="nf">index</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
     <span class="n">position_difference</span> <span class="o">=</span> <span class="n">plaintext_position</span> <span class="o">-</span> <span class="n">cipher_position</span>
 
-    <span class="n">plaintext</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">char</span><span class="o">|</span>
-      <span class="n">encoded_forward</span> <span class="o">+=</span> <span class="vi">@alphabet</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">position_forward_count</span><span class="p">(</span><span class="vi">@alphabet</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">char</span><span class="p">),</span> <span class="n">position_difference</span><span class="p">))</span><span class="o">.</span><span class="n">to_s</span>
+    <span class="n">plaintext</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s1">''</span><span class="p">).</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">char</span><span class="o">|</span>
+      <span class="n">encoded_forward</span> <span class="o">+=</span> <span class="vi">@alphabet</span><span class="p">.</span><span class="nf">at</span><span class="p">(</span><span class="n">position_forward_count</span><span class="p">(</span><span class="vi">@alphabet</span><span class="p">.</span><span class="nf">index</span><span class="p">(</span><span class="n">char</span><span class="p">),</span> <span class="n">position_difference</span><span class="p">)).</span><span class="nf">to_s</span>
     <span class="k">end</span>
 
-    <span class="nb">puts</span> <span class="s2">&quot;Shifted </span><span class="si">#{</span><span class="n">position_difference</span><span class="si">}</span><span class="s2"> to &#39;</span><span class="si">#{</span><span class="n">letter</span><span class="si">}</span><span class="s2">&#39; - </span><span class="si">#{</span><span class="n">encoded_forward</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="nb">puts</span> <span class="s2">"Shifted </span><span class="si">#{</span><span class="n">position_difference</span><span class="si">}</span><span class="s2"> to '</span><span class="si">#{</span><span class="n">letter</span><span class="si">}</span><span class="s2">' - </span><span class="si">#{</span><span class="n">encoded_forward</span><span class="si">}</span><span class="s2">"</span>
   <span class="k">end</span>
 
 <span class="k">end</span>
 
 <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="n">cipher</span><span class="p">)</span>
-  <span class="n">cipher</span> <span class="o">=</span> <span class="n">cipher</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/\s+/</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">downcase</span>
+  <span class="n">cipher</span> <span class="o">=</span> <span class="n">cipher</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="sr">/\s+/</span><span class="p">,</span> <span class="s1">''</span><span class="p">).</span><span class="nf">downcase</span>
 
-  <span class="vi">@alphabet</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
-    <span class="n">deciphered_forward</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+  <span class="vi">@alphabet</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
+    <span class="n">deciphered_forward</span> <span class="o">=</span> <span class="s1">''</span>
 
-    <span class="n">cipher_position</span> <span class="o">=</span> <span class="vi">@alphabet</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">cipher</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="n">chr</span><span class="p">)</span>
-    <span class="n">clear_position</span> <span class="o">=</span> <span class="vi">@alphabet</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
+    <span class="n">cipher_position</span> <span class="o">=</span> <span class="vi">@alphabet</span><span class="p">.</span><span class="nf">index</span><span class="p">(</span><span class="n">cipher</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">chr</span><span class="p">)</span>
+    <span class="n">clear_position</span> <span class="o">=</span> <span class="vi">@alphabet</span><span class="p">.</span><span class="nf">index</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
     <span class="n">position_difference</span> <span class="o">=</span> <span class="n">cipher_position</span> <span class="o">-</span> <span class="n">clear_position</span>
 
-    <span class="n">cipher</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">char</span><span class="o">|</span>
-      <span class="n">deciphered_forward</span> <span class="o">+=</span> <span class="vi">@alphabet</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">position_forward_count</span><span class="p">(</span><span class="vi">@alphabet</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">char</span><span class="p">),</span> <span class="n">position_difference</span><span class="p">))</span><span class="o">.</span><span class="n">to_s</span>
+    <span class="n">cipher</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s1">''</span><span class="p">).</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">char</span><span class="o">|</span>
+      <span class="n">deciphered_forward</span> <span class="o">+=</span> <span class="vi">@alphabet</span><span class="p">.</span><span class="nf">at</span><span class="p">(</span><span class="n">position_forward_count</span><span class="p">(</span><span class="vi">@alphabet</span><span class="p">.</span><span class="nf">index</span><span class="p">(</span><span class="n">char</span><span class="p">),</span> <span class="n">position_difference</span><span class="p">)).</span><span class="nf">to_s</span>
     <span class="k">end</span>
 
-    <span class="nb">puts</span> <span class="s2">&quot;Shifted </span><span class="si">#{</span><span class="n">position_difference</span><span class="si">}</span><span class="s2"> to &#39;</span><span class="si">#{</span><span class="n">letter</span><span class="si">}</span><span class="s2">&#39; - </span><span class="si">#{</span><span class="n">deciphered_forward</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="nb">puts</span> <span class="s2">"Shifted </span><span class="si">#{</span><span class="n">position_difference</span><span class="si">}</span><span class="s2"> to '</span><span class="si">#{</span><span class="n">letter</span><span class="si">}</span><span class="s2">' - </span><span class="si">#{</span><span class="n">deciphered_forward</span><span class="si">}</span><span class="s2">"</span>
   <span class="k">end</span>
 
 <span class="k">end</span>
 
 <span class="k">def</span> <span class="nf">position_forward_count</span><span class="p">(</span><span class="n">current_position</span><span class="p">,</span> <span class="n">position_difference</span><span class="p">)</span>
   <span class="n">position_total</span> <span class="o">=</span> <span class="p">(</span><span class="n">current_position</span> <span class="o">+</span> <span class="n">position_difference</span><span class="p">)</span>
-  <span class="n">position_total</span> <span class="o">&gt;</span> <span class="mi">25</span> <span class="o">?</span> <span class="n">position_total</span> <span class="o">-</span> <span class="mi">25</span> <span class="p">:</span> <span class="n">position_total</span>
+  <span class="n">position_total</span> <span class="o">&gt;</span> <span class="mi">25</span> <span class="p">?</span> <span class="n">position_total</span> <span class="o">-</span> <span class="mi">25</span> <span class="p">:</span> <span class="n">position_total</span>
 <span class="k">end</span>
 
-<span class="nb">puts</span> <span class="s1">&#39;[Decode]&#39;</span>
-<span class="n">decode</span><span class="p">(</span><span class="s1">&#39;W KHTXLFNEUZQ IRA MXPSVR  YHU WKH ODCB GRJ&#39;</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="s1">&#39;[Encode]&#39;</span>
-<span class="n">encode</span><span class="p">(</span><span class="s1">&#39;plaintext&#39;</span><span class="p">)</span></code></pre></div>
+<span class="nb">puts</span> <span class="s1">'[Decode]'</span>
+<span class="n">decode</span><span class="p">(</span><span class="s1">'W KHTXLFNEUZQ IRA MXPSVR  YHU WKH ODCB GRJ'</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="s1">'[Encode]'</span>
+<span class="n">encode</span><span class="p">(</span><span class="s1">'plaintext'</span><span class="p">)</span></code></pre></figure>
 </p>
 
         </section>

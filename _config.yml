@@ -9,3 +9,4 @@ excerpt_separator: https://github.com/jekyll/jekyll/issues/1401
 
 gems:
   - jekyll-sitemap
+  - jekyll-paginate
