@@ -59,9 +59,9 @@ There are tons of other improvements throughout WPScan v3. Everything was rewrit
 
 ## License
 
-WPScan v3 was released under the same license as the WPScan v2 branch, the WPScan Public License (https://github.com/wpscanteam/wpscan-v3/blob/master/LICENSE). This is not an Open Source license. The license allows for individuals to use WPScan free of charge. If you're a pentester (our intended users), or want to scan your own personal WordPress blog (also our intended users) then WPScan is free of charge. If you want to sell WPScan as a service or use it to give your business a commercial advantage over your competitors, or to attract new clients or keep existing ones. Then you will need to purchase a commercial license. Refer to the license for the full legalities. You can also contact us if you have any questions.
+WPScan v3 was released under the same license as the WPScan v2 branch, the [WPScan Public License](https://github.com/wpscanteam/wpscan-v3/blob/master/LICENSE). This is not an Open Source license. The license allows for individuals to use WPScan free of charge. If you're a pentester (our intended users), or want to scan your own personal WordPress blog (also our intended users) then WPScan is free of charge. If you want to sell WPScan as a service, or use it to give your business a commercial advantage over your competitors, or to attract new clients, or keep existing ones. Then you will need to purchase a commercial license. Refer to the license for the full legalities. You can also contact us if you have any questions.
 
-Please note that the CMS Scanner Framework is released under a separate license with different conditions (https://github.com/wpscanteam/CMSScanner/blob/master/LICENSE).
+Please note that the CMS Scanner Framework is released under a separate license with [different conditions](https://github.com/wpscanteam/CMSScanner/blob/master/LICENSE).
 
 ## Road Ahead
 
