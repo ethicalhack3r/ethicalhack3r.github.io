@@ -6,8 +6,6 @@ title: WPScan Version 3.0 BETA Release
 excerpt: "Yesterday, January 28th 2017, members of the WPScan Team released WPScan version 3.0. WPScan is a black box WordPress Vulnerability Scanner written in Ruby which was released in 2011 for Penetration Testers. WPScan 3.0 is not just another release. It was re-written from the ground up by a WPScan team member, Erwan."
 ---
 
-# WPScan Version 3.0 BETA Release
-
 Yesterday, January 28th 2017, members of the WPScan Team released WPScan version 3.0.
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">WPScan v3 BETA Released!!! <a href="https://t.co/eUSWg15iHC">https://t.co/eUSWg15iHC</a> (complete rewrite, new repo, ++functionality) Feedback welcome!</p>&mdash; WPScan (@_WPScan_) <a href="https://twitter.com/_WPScan_/status/824996933391499266">January 27, 2017</a></blockquote>
