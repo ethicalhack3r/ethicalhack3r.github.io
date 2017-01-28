@@ -3,11 +3,20 @@
   <title>Dewhurst Security Blog</title>
   <link href="http://blog.dewhurstsecurity.com/atom.xml" rel="self" />
   <link href="http://blog.dewhurstsecurity.com/"/>
-  <updated>2017-01-28T10:55:13+01:00</updated>
+  <updated>2017-01-28T11:26:54+01:00</updated>
   <id>http://blog.dewhurstsecurity.com</id>
   <author>
     <name>Dewhurst Security Blog</name>
   </author>
+  
+    <entry>
+      <title>WPScan Version 3.0 BETA Release</title>
+      <link href="http://blog.dewhurstsecurity.com/2017/01/28/wpscan-v3-release.html" />
+      <id>http://blog.dewhurstsecurity.com/2017/01/28/wpscan-v3-release</id>
+	  
+	  <content type="html">Yesterday, January 28th 2017, members of the WPScan Team released WPScan version 3.0. WPScan is a black box WordPress Vulnerability Scanner written in Ruby which was released in 2011 for Penetration Testers. WPScan 3.0 is not just another release. It was re-written from the ground up by a WPScan team member, Erwan.</content>
+	  
+    </entry>
   
     <entry>
       <title>YouTube Windows Exploit Suggester</title>

@@ -58,6 +58,23 @@
 
     <article class="post">
         <header class="post-header">
+            <span class="post-meta"><time datetime="2012-09-21">21 Sep 2012</time> </span>
+            <h2 class="post-title"><a href="/2012/09/21/implementing-basic-static-code-analysis-into-integrated-development-environments-ides-to-reduce-software-vulnerabilities.html">Implementing Basic Static Code Analysis into Integrated Development Environments (IDEs) to Reduce Software Vulnerabilities</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            <p>This is the paper that I submitted for my undergraduate dissertation in Ethical Hacking for Computer Security. The title (a mouth full) 'Implementing Basic Static Code Analysis into Integrated Development Environments (IDEs) to Reduce Software Vulnerabilities'. The paper talks about software security, modern software development, software development life cycles, static code analysis and a lot more. Since submitting it I have noticed some mistakes so I'm not putting this out there as a 'perfect paper'.</p>
+<p>The paper was the research and implementation of <a href="http://www.devbug.co.uk" target="_blank">DevBug</a> an online PHP Static Code Analysis tool written mostly in JavaScript.</p>
+<p>Feel free to have a read through, I won't be making any future amendments as I was sick of looking at it by the time I submitted it but I thought I would put it out there incase it was useful to others in learning about software security. It is a bit dry in places, be warned!</p>
+<p><a href="http://www.ethicalhack3r.co.uk/wp-content/uploads/2012/09/Implementing-Basic-Static-Code-Analysis-into-Integrated-Development-Environments-IDEs-to-Reduce-Software-Vulnerabilities.pdf">Implementing Basic Static Code Analysis into Integrated Development Environments (IDEs) to Reduce Software Vulnerabilities</a></p>
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
             <span class="post-meta"><time datetime="2012-09-15">15 Sep 2012</time> </span>
             <h2 class="post-title"><a href="/2012/09/15/top-5-blog-posts.html">Top 5 Blog Posts</a></h2>
 
@@ -428,33 +445,6 @@ A full list of changes can be found here:
 A list of servers running WordPress was acquired from <a href="http://www.shodanhq.com/" target="_blank">Shodan</a> by searching for a particular HTTP response header and its value. The list contained 10,000 entries, I don't know for sure, but I assume the list contained servers from around the world and was fairly random.
 
 An Open Source project I have been working on, <a href="http://code.google.com/p/wpscan/" target="_blank">WPScan</a>, a WordPress security scanner, was used to passively scan 100 of those WordPress installations. This was done partly to test the scanner for any defects and also to gather data about the security of WordPress installations in the wild.
-
-
-        </section>
-    </article>
-
-    
-
-    <article class="post">
-        <header class="post-header">
-            <span class="post-meta"><time datetime="2011-10-05">05 Oct 2011</time> </span>
-            <h2 class="post-title"><a href="/2011/10/05/full-path-disclosure-fpd.html">Full Path Disclosure (FPD)</a></h2>
-
-        </header>
-        <section class="post-excerpt">
-            Many people including developers, vendors and security professionals believe that Full Path Disclosure (FPD) is mainly a Security Misconfiguration problem rather than a Input Sanitation or Error Handling problem. I'm not saying that they are wrong, but I hope to convince them that it is more of a coding bug than a configuration bug. I want to put my argument over as to why I think FPD is a bug in source code and not in configuration. 
-
-<strong>What is Full Path Disclosure (FPD)?</strong>
-
-According to OWASP:
-"Full Path Disclosure (FPD) vulnerabilities enable the attacker to see the path to the webroot/file. e.g.: /home/omg/htdocs/file/. Certain vulnerabilities, such as using the load_file() (within a SQL Injection) query to view the page source, require the attacker to have the full path to the file they wish to view."
-<a href="https://www.owasp.org/index.php/Full_Path_Disclosure" target="_blank">https://www.owasp.org/index.php/Full_Path_Disclosure</a>
-
-For me this is a very vague description of what FPD really is. FPD occurs when a web application encounters an error that is displayed to the user; the error includes the full path to the file the error occurred in possibly along with other debugging information.
-
-<strong>Why is it a problem?</strong>
-
-It's just the path of the file from the root directory, what's all the fuss about?
 
 
         </section>

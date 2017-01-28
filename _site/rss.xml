@@ -8,6 +8,19 @@
     
       
       <item>
+        <title>WPScan Version 3.0 BETA Release</title>
+        
+          <description>Yesterday, January 28th 2017, members of the WPScan Team released WPScan version 3.0. WPScan is a black box WordPress Vulnerability Scanner written in Ruby which was released in 2011 for Penetration Testers. WPScan 3.0 is not just another release. It was re-written from the ground up by a WPScan team member, Erwan.</description>
+        
+        <pubDate>Sat, 28 Jan 2017 00:00:00 +0100</pubDate>
+        <link>
+        http://blog.dewhurstsecurity.com/2017/01/28/wpscan-v3-release.html</link>
+        <guid isPermaLink="true">http://blog.dewhurstsecurity.com/2017/01/28/wpscan-v3-release.html</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>YouTube Windows Exploit Suggester</title>
         
           <description>YouTube is fast becoming the number one choice for content on family TVs thanks to 'smart' TVs and gadgets like Google's Chromecast. Recording, editing and uploading videos is also becoming much easier. Almost everyone in the western world owns a powerful smart phone with a built in camera. Generally, people also have computers powerful enough to edit videos in less and less time. And finally, relatively fast Internet speeds to upload the final video (as well as consume videos).</description>
