@@ -25,7 +25,7 @@ The main reasons why WPScan was completely rewritten was to be able to release W
 
 ## CMS Scanner Framework
 
-Also created by Erwan, WPScan now uses a [CMS Scanner Framework](https://github.com/wpscanteam/CMSScanner) which handles a lot of the core scanning logic. The CMS Scanner Framework will allow for other scanners to be created for other CMSs by us or by anyone else.
+Also created by Erwan, WPScan now uses a [CMS Scanner Framework](https://github.com/wpscanteam/CMSScanner) which handles a lot of the core scanning logic. The CMS Scanner Framework will allow for other scanners to be created for other CMSs.
 
 WordPress has the largest market share in Content Management Systems (CMSs) by far. Looking at [some statistics](https://w3techs.com/technologies/history_overview/content_management) it has more than half of the CMS market share. Followed by Joomla, Drupal and Magento.
 
