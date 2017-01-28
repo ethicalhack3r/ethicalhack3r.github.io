@@ -35,7 +35,7 @@ The new CMS Scanner Framework opens up the opportunity to create WPScan-esk scan
 
 ### Machine Readable Output
 
-With the release of WPScan version 3.0 we now have machine readable output in JSON format. This was a [much requested feature](https://github.com/wpscanteam/wpscan/issues/198) by our users for obvious reasons. It makes WPScan more automate-able and easier to integrate with other software.
+With the release of WPScan version 3.0 we now have machine readable output in JSON format. This was a [much requested feature](https://github.com/wpscanteam/wpscan/issues/198) by our users for obvious reasons. It makes WPScan more automateable and easier to integrate with other software.
 
 ### Ruby Gem
 
