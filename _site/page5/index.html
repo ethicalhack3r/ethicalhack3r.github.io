@@ -58,6 +58,30 @@
 
     <article class="post">
         <header class="post-header">
+            <span class="post-meta"><time datetime="2011-02-01">01 Feb 2011</time> </span>
+            <h2 class="post-title"><a href="/2011/02/01/greping-for-bugs-in-php.html">Grepping for bugs in PHP</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            Today I used the following commands to grep through PHP source code to find some bugs. I thought they may be useful to someone else so I thought I would stick them on here. This list is by no means extensive however they are the ones I found most useful. 
+
+<strong>Find user input/output for possible XSS:</strong>
+
+<blockquote>grep -i -r "echo" *
+grep -i -r "\$_GET" *
+grep -i -r "\$_" * | grep "echo"
+grep -i -r "\$_GET" * | grep "echo"
+grep -i -r "\$_POST" * | grep "echo"
+grep -i -r "\$_REQUEST" * | grep "echo"</blockquote>
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
             <span class="post-meta"><time datetime="2011-01-10">10 Jan 2011</time> </span>
             <h2 class="post-title"><a href="/2011/01/10/web-application-security-timeline-wast-v1-0.html">Web Application Security Timeline (WAST) v1.0</a></h2>
 
@@ -340,35 +364,6 @@ Reference: <a href="http://www.securityclearedjobs.com/HowToBeSecurityCleared.as
 "The intention of the Month of PHP Security is to gather the best research and articles about PHP security topics from the security community and share them with the rest of the world. This time the goal is not only to improve the security of PHP itself and applications directly by fixing security bugs, but also to help PHP developers around the world to write better and more secure PHP applications."
 
 
-        </section>
-    </article>
-
-    
-
-    <article class="post">
-        <header class="post-header">
-            <span class="post-meta"><time datetime="2010-03-21">21 Mar 2010</time> </span>
-            <h2 class="post-title"><a href="/2010/03/21/skipfish-automated-web-security-scanner.html">Skipfish - Automated web security scanner</a></h2>
-
-        </header>
-        <section class="post-excerpt">
-            A couple of days ago (March 19th) Michal Zalewski famous for tools such as p0f and his excellent book 'Silence on the wire' announced the release of an open source automated web security scanner called Skipfish from the <a href="http://googleonlinesecurity.blogspot.com/">Google Online Security Blog</a>.
-
-<strong>
-</strong>
-
-<img src="http://www.ethicalhack3r.co.uk/wp-content/uploads/2010/03/sf_name.png" alt="" title="sf_name" width="203" height="93" class="alignnone size-full wp-image-638" />
-
-<strong>
-</strong>
-
-<blockquote>Key features:
-
-<strong>High speed:</strong> pure C code, highly optimized HTTP handling, minimal CPU footprint - easily achieving 2000 requests per second with responsive targets. 
-
-<strong>Ease of use:</strong> heuristics to support a variety of quirky web frameworks and mixed-technology sites, with automatic learning capabilities, on-the-fly wordlist creation, and form autocompletion. 
-
-<strong>Cutting-edge security logic:</strong> high quality, low false positive, differential security checks, capable of spotting a range of subtle flaws, including blind injection vectors. </blockquote>
         </section>
     </article>
 
