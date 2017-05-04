@@ -8,6 +8,19 @@
     
       
       <item>
+        <title>ExploitBox WordPress Security Advisories</title>
+        
+          <description>Yesterday, May 3rd 2017, a site named ExploitBox released two WordPress advisories discovered by Dawid Golunski. The titles of the two advisories are: WordPress Core &lt;= 4.7.4 Potential Unauthorized Password Reset (0day) and WordPress Core 4.6 - Unauthenticated Remote Code Execution (RCE) PoC Exploit (default configuration, no plugins, no auth).</description>
+        
+        <pubDate>Thu, 04 May 2017 00:00:00 +0200</pubDate>
+        <link>
+        http://blog.dewhurstsecurity.com/2017/05/04/exploitbox-wordpress-security-advisories.html</link>
+        <guid isPermaLink="true">http://blog.dewhurstsecurity.com/2017/05/04/exploitbox-wordpress-security-advisories.html</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Installing WPScan on Windows 10</title>
         
           <description>We constantly get asked by users how to install WPScan on Windows machines. Since none of the core developers use Windows day to day, Windows is not officially supported by WPScan. Nevertheless, it is possible to install WPScan on Windows by using Bash on Windows. In this video we'll show you how to do just that, install WPScan on Windows 10.</description>

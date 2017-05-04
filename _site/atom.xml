@@ -3,11 +3,20 @@
   <title>Dewhurst Security Blog</title>
   <link href="http://blog.dewhurstsecurity.com/atom.xml" rel="self" />
   <link href="http://blog.dewhurstsecurity.com/"/>
-  <updated>2017-05-03T15:30:59+02:00</updated>
+  <updated>2017-05-04T12:32:04+02:00</updated>
   <id>http://blog.dewhurstsecurity.com</id>
   <author>
     <name>Dewhurst Security Blog</name>
   </author>
+  
+    <entry>
+      <title>ExploitBox WordPress Security Advisories</title>
+      <link href="http://blog.dewhurstsecurity.com/2017/05/04/exploitbox-wordpress-security-advisories.html" />
+      <id>http://blog.dewhurstsecurity.com/2017/05/04/exploitbox-wordpress-security-advisories</id>
+	  
+	  <content type="html">Yesterday, May 3rd 2017, a site named ExploitBox released two WordPress advisories discovered by Dawid Golunski. The titles of the two advisories are: WordPress Core &lt;= 4.7.4 Potential Unauthorized Password Reset (0day) and WordPress Core 4.6 - Unauthenticated Remote Code Execution (RCE) PoC Exploit (default configuration, no plugins, no auth).</content>
+	  
+    </entry>
   
     <entry>
       <title>Installing WPScan on Windows 10</title>

@@ -58,6 +58,25 @@
 
     <article class="post">
         <header class="post-header">
+            <span class="post-meta"><time datetime="2012-12-11">11 Dec 2012</time> </span>
+            <h2 class="post-title"><a href="/2012/12/11/introduction-to-the-wordpress-xml-rpc-api.html">Introduction to the WordPress XML-RPC API</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            WordPress 3.5 was recently released which now comes with the WordPress API "always enabled". Personally I think this adds unnecessary risk by increasing the attack surface. How many WordPress user's actually use the API? I would put my money on it being a very small fraction, either way I'm sure the WordPress Core Development team had good reason to enable the API by default. After spending 5 minutes looking for where to turn the API off in WordPress 3.5 I gave up. Huh, I'll have another look sometime soon.
+
+I've had a play with the API in the past, however, I've always found it hard to get going as the information on how to interact with the API is a bit sparse. Having played with it for an hour or so this evening I thought I'd share some of the information on how to get started (as well as a self reminder ;).
+
+The latest API calls can be found on WordPress's Codex <a href="http://codex.wordpress.org/XML-RPC_WordPress_API" target="_blank">here</a>. It doesn't list all available calls, to find these let's extract them from the 'wp-includes/class-wp-xmlrpc-server.php' file.
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
             <span class="post-meta"><time datetime="2012-12-06">06 Dec 2012</time> </span>
             <h2 class="post-title"><a href="/2012/12/06/female-hackers-at-abertay-university.html">Female hackers at Abertay University</a></h2>
 
@@ -408,39 +427,6 @@ A comment left on my blog quite a while ago (2010/04/20 at 6:18 am), looked fair
 
 <blockquote>"smith said...
 Hey folks, Thanks for sharing your views,article includes a very good information about the ethical hacking, the most interesting job in the field of computer security is being an ethical hacker,so i striven into the field of CEH, for more information on CEH check this link http://www.eccouncil.org/certification/certified_ethical_hacker.aspx"</blockquote>
-
-
-        </section>
-    </article>
-
-    
-
-    <article class="post">
-        <header class="post-header">
-            <span class="post-meta"><time datetime="2011-11-25">25 Nov 2011</time> </span>
-            <h2 class="post-title"><a href="/2011/11/25/wpscan-1-1-released.html">WPScan 1.1 released</a></h2>
-
-        </header>
-        <section class="post-excerpt">
-            I am pleased to announce, after 5 months of work, that WPScan version 1.1 has been released!
-
-With 780 more lines of code the most notable changes are:
-
-Detection for 750 more plugins.
-Detection for 107 new plugin vulnerabilities.
-Detection for 447 possible timthumb file locations.
-Advanced version fingerprinting implemented.
-Full Path Disclosure (FPD) checks.
-Auto updates.
-Progress indicators.
-Improved custom 404 checking.
-Improved plugin detection.
-Improved error_log checking.
-Lots of bugs fixed.
-Lots of small tweaks.
-
-A full list of changes can be found here:
-<a href="http://code.google.com/p/wpscan/source/browse/trunk/CHANGELOG" target="_blank">http://code.google.com/p/wpscan/source/browse/trunk/CHANGELOG</a>
 
 
         </section>
