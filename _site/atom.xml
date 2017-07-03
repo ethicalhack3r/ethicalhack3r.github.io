@@ -3,11 +3,20 @@
   <title>Dewhurst Security Blog</title>
   <link href="http://blog.dewhurstsecurity.com/atom.xml" rel="self" />
   <link href="http://blog.dewhurstsecurity.com/"/>
-  <updated>2017-05-05T20:28:14+02:00</updated>
+  <updated>2017-07-03T20:27:53+02:00</updated>
   <id>http://blog.dewhurstsecurity.com</id>
   <author>
     <name>Dewhurst Security Blog</name>
   </author>
+  
+    <entry>
+      <title>Authenticated XSS Vulnerability in WP Statistics</title>
+      <link href="http://blog.dewhurstsecurity.com/2017/07/03/wp-statistics-authenticated-xss-vulnerability.html" />
+      <id>http://blog.dewhurstsecurity.com/2017/07/03/wp-statistics-authenticated-xss-vulnerability</id>
+	  
+	  <content type="html">A few days ago the awesome folks over at Sucuri found a SQL Injection vulnerability in the popular WP Statistics WordPress Plugin, currently installed on over 300,000 websites. We wanted to check our  existing toolsets would have detected the vulnerability so that we could ensure that Dewhurst Security clients were not affected by similar issues. During this process we identified the Authenticated Reflected Cross-Site Scripting (XSS) vulnerability we discuss below. This vulnerability was responsibly disclosed to the vendor who patched the issue and released a new version in the same day.</content>
+	  
+    </entry>
   
     <entry>
       <title>ExploitBox WordPress Security Advisories</title>

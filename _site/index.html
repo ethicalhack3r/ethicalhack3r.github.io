@@ -58,6 +58,19 @@
 
     <article class="post">
         <header class="post-header">
+            <span class="post-meta"><time datetime="2017-07-03">03 Jul 2017</time> </span>
+            <h2 class="post-title"><a href="/2017/07/03/wp-statistics-authenticated-xss-vulnerability.html">Authenticated XSS Vulnerability in WP Statistics</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            A few days ago the awesome folks over at Sucuri found a SQL Injection vulnerability in the popular WP Statistics WordPress Plugin, currently installed on over 300,000 websites. We wanted to check our  existing toolsets would have detected the vulnerability so that we could ensure that Dewhurst Security clients were not affected by similar issues. During this process we identified the Authenticated Reflected Cross-Site Scripting (XSS) vulnerability we discuss below. This vulnerability was responsibly disclosed to the vendor who patched the issue and released a new version in the same day.
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
             <span class="post-meta"><time datetime="2017-05-04">04 May 2017</time> </span>
             <h2 class="post-title"><a href="/2017/05/04/exploitbox-wordpress-security-advisories.html">ExploitBox WordPress Security Advisories</a></h2>
 
@@ -249,21 +262,6 @@
         </header>
         <section class="post-excerpt">
             At WPScan we sometimes get users who strugle installing and using WPScan. I have made a video which shows the installation steps and an introduction to using WPScan for these users.
-        </section>
-    </article>
-
-    
-
-    <article class="post">
-        <header class="post-header">
-            <span class="post-meta"><time datetime="2014-10-12">12 Oct 2014</time> </span>
-            <h2 class="post-title"><a href="/2014/10/12/memcached.html">Memcached</a></h2>
-
-        </header>
-        <section class="post-excerpt">
-            Last week I came across a service on the Internet running on TCP port 11211, Memcached's default port. I had heard of Memcached before but I probably only knew it was some kind of database system, that was the extent of my familiarity with it. 
-
- I quickly learnt that connecting to Memcached does not require authentication. Authentication can be implmented but even then Memcached's own documentation says it should not be fully trusted.
         </section>
     </article>
 

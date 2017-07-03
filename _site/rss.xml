@@ -8,6 +8,19 @@
     
       
       <item>
+        <title>Authenticated XSS Vulnerability in WP Statistics</title>
+        
+          <description>A few days ago the awesome folks over at Sucuri found a SQL Injection vulnerability in the popular WP Statistics WordPress Plugin, currently installed on over 300,000 websites. We wanted to check our  existing toolsets would have detected the vulnerability so that we could ensure that Dewhurst Security clients were not affected by similar issues. During this process we identified the Authenticated Reflected Cross-Site Scripting (XSS) vulnerability we discuss below. This vulnerability was responsibly disclosed to the vendor who patched the issue and released a new version in the same day.</description>
+        
+        <pubDate>Mon, 03 Jul 2017 00:00:00 +0200</pubDate>
+        <link>
+        http://blog.dewhurstsecurity.com/2017/07/03/wp-statistics-authenticated-xss-vulnerability.html</link>
+        <guid isPermaLink="true">http://blog.dewhurstsecurity.com/2017/07/03/wp-statistics-authenticated-xss-vulnerability.html</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>ExploitBox WordPress Security Advisories</title>
         
           <description>Yesterday, May 3rd 2017, a site named ExploitBox released two WordPress advisories discovered by Dawid Golunski. The titles of the two advisories are: WordPress Core &lt;= 4.7.4 Potential Unauthorized Password Reset (0day) and WordPress Core 4.6 - Unauthenticated Remote Code Execution (RCE) PoC Exploit (default configuration, no plugins, no auth).</description>
