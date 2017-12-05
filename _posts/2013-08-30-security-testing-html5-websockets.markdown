@@ -21,8 +21,6 @@ excerpt: "Recently I became faced with my first Web Application Security Assessm
   request</a>'. After the initial exchange over HTTP all future communication is carried
   out over TCP. On the application I was testing the WebSocket handshake over HTTP
   within <a href=\"https://www.wireshark.org/\">WireShark</a> looked like this:\r\n\r\n"
-wordpress_id: 17130
-wordpress_url: http://www.ethicalhack3r.co.uk/?p=17130
 date: '2013-08-30 18:57:45 +0100'
 date_gmt: '2013-08-30 17:57:45 +0100'
 ---
@@ -66,7 +64,7 @@ Date: Fri, 30 Aug 2013 13:33:42 GMT
 <h3>Origin</h3>
 <p>It is the web server's responsibility to verify the <em>Origin</em> header in the initial HTTP WebSocket handshake. If the Origin header is not properly checked, the application may be vulnerable to OWASP Top 10 2013 <a href="https://www.owasp.org/index.php/Top_10_2013-A8-Cross-Site_Request_Forgery_(CSRF)">A8-Cross-Site Request Forgery (CSRF)</a>.</p>
 <p>There's a great blog post <a href="http://www.christian-schneider.net/CrossSiteWebSocketHijacking.html">here</a> describing a 'Cross-Site WebSocket Hijacking' technique which is possible when the application/server does not check the Origin header.</p>
-<p>I also created a WebSocket client which can be used to test origin issues which can be found <a href="https://raw.github.com/RandomStorm/scripts/master/WebSockets.html">here</a>.</p>
+<p>I also created a WebSocket client which can be used to test origin issues which can be found <a href="https://raw.githubusercontent.com/ethicalhack3r/scripts/master/WebSockets.html">here</a>.</p>
 <h3>Authentication</h3>
 <p>WebSockets do not handle authentication, instead normal application authentication mechanisms apply, such as cookies, HTTP Authentication or TLS authentication. Here you probably want to check for OWASP Top 10 2013 <a href="https://www.owasp.org/index.php/Top_10_2013-A2-Broken_Authentication_and_Session_Management">A2-Broken Authentication and Session Management</a> type issues.</p>
 <h3>Authorisation</h3>
