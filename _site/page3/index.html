@@ -58,6 +58,25 @@
 
     <article class="post">
         <header class="post-header">
+            <span class="post-meta"><time datetime="2013-03-07">07 Mar 2013</time> </span>
+            <h2 class="post-title"><a href="/2013/03/07/sony-freedom-of-information-foi-request.html">Sony Freedom Of Information (FOI) Request</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            On the 14th of January the UK Information Commissioner's Office (ICO) sent Sony Computer Entertainment Europe Limited a <a href="http://www.ico.gov.uk/enforcement/~/media/documents/library/Data_Protection/Notices/sony_monetary_penalty_notice.ashx" target="_blank">monetary penalty notice</a> of £250,000 following 'a serious breach of the Data Protection Act'.
+
+To be able to quantify how much the ICO was fining Sony for individual user's data the exact number of UK PSN users would need to be known. A couple of sources put this number at 3 million but I'm not sure where the original 3 million figure came from nor how accurate it really is [0][1].
+
+If we were to take this 3 million figure at face value, the ICO fined Sony (£250,000 / 3,000,000) £0.000083 per user's data. According to the ICO, £250,000 is 'reasonable and proportionate' in this case. To get a more accurate figure I sent the ICO a FOI request to ask for the redacted figure in the monetary penalty notice document which simply states "The Network Platform was used by an estimated REDACTED million customers in Europe, the Middle East, Africa, Australia and New Zealand with REDACTED million of those customers based in the UK.".
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
             <span class="post-meta"><time datetime="2012-12-12">12 Dec 2012</time> </span>
             <h2 class="post-title"><a href="/2012/12/12/wordpress-plugin-asset-manager-upload-php-arbitrary-code-execution.html">WordPress plugin Asset manager upload.php Arbitrary Code Execution</a></h2>
 
@@ -188,7 +207,7 @@ CMS made for Marketing but built for Geeks, concrete5 [0] is a content managemen
 <span class="c1"># Caesar Cipher (ROT) Encoder/Decoder - Ryan 'ethicalhack3r' Dewhurst - 05.08.2012</span>
 <span class="c1">#</span>
 
-<span class="vi">@alphabet</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">.</span><span class="nf">.</span><span class="s1">'z'</span><span class="p">).</span><span class="nf">to_a</span>
+<span class="vi">@alphabet</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'a'</span><span class="o">..</span><span class="s1">'z'</span><span class="p">).</span><span class="nf">to_a</span>
 
 <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="n">plaintext</span><span class="p">)</span>
   <span class="n">plaintext</span> <span class="o">=</span> <span class="n">plaintext</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="sr">/\s+/</span><span class="p">,</span> <span class="s1">''</span><span class="p">).</span><span class="nf">downcase</span>
@@ -395,31 +414,6 @@ I started to think that the vulnerability was a miss-understanding or publicity 
 The researchers got back in touch with a link to a WordPress installation on which the vulnerability worked. The URL they gave me was an IP address. Within their environment the XSS worked.
 
 At this point I think even the researchers were puzzled. They sent me this code that they believed was the function causing the XSS within wp-includes/functions.php <a href="http://pastebin.com/iBnpN8Zm" target="_blank">http://pastebin.com/iBnpN8Zm</a>.
-
-
-        </section>
-    </article>
-
-    
-
-    <article class="post">
-        <header class="post-header">
-            <span class="post-meta"><time datetime="2011-12-11">11 Dec 2011</time> </span>
-            <h2 class="post-title"><a href="/2011/12/11/wordpress-plugin-disqus-comment-system-xss.html">WordPress Plugin Disqus Comment System XSS</a></h2>
-
-        </header>
-        <section class="post-excerpt">
-            # Exploit Title: WordPress Plugin Disqus Comment System < = 2.68 Reflected Cross-Site Scripting (XSS)
-# Google Dork: inurl:/wp-content/plugins/disqus-comment-system/
-# Date: 11.12.11
-# Author: Ryan Dewhurst (@ethicalhack3r)
-# Software Link: http://downloads.wordpress.org/plugin/disqus-comment-system.2.68.zip
-# Version: 2.68
-# Tested on: Cross-Platform
-
-** Vulnerability Description **
-
-The WordPress Disqus Commment System version 2.68 was found to be effected by Reflected Cross-Site Scripting (XSS). At the time of writing the plugin (not version) had been downloaded 504,746 times. [0]
 
 
         </section>

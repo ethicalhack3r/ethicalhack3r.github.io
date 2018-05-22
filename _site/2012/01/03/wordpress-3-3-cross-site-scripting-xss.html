@@ -48,7 +48,7 @@
 
     <article class="post">
         <header class="post-header">
-            <a id="blog-logo" href="http://blog.dewhurstsecurity.com">
+            <a id="blog-logo" href="https://blog.dewhurstsecurity.com">
                 
                     <span class="blog-title">Dewhurst Security Blog</span>
                 
@@ -72,15 +72,15 @@
 <p>At this point I think even the researchers were puzzled. They sent me this code that they believed was the function causing the XSS within wp-includes/functions.php <a href="http://pastebin.com/iBnpN8Zm" target="_blank">http://pastebin.com/iBnpN8Zm</a>.</p>
 <p><a id="more"></a><a id="more-16709"></a></p>
 <p>
-<figure class="highlight"><pre><code class="language-php" data-lang="php">  function wp_guess_url() {
-  if ( defined('WP_SITEURL') <span class="err">&amp;&amp;</span> '' != WP_SITEURL ) {
-    $url = WP_SITEURL;
-  } else {
-    $schema = is_ssl() ? 'https://' : 'http://';
-    $url = preg_replace('|/wp-admin/.*|i', '', $schema . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
-  }
-  return rtrim($url, '/');
-}</code></pre></figure>
+<figure class="highlight"><pre><code class="language-php" data-lang="php">  <span class="k">function</span> <span class="nf">wp_guess_url</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span> <span class="nb">defined</span><span class="p">(</span><span class="s1">'WP_SITEURL'</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="s1">''</span> <span class="o">!=</span> <span class="nx">WP_SITEURL</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$url</span> <span class="o">=</span> <span class="nx">WP_SITEURL</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nv">$schema</span> <span class="o">=</span> <span class="nx">is_ssl</span><span class="p">()</span> <span class="o">?</span> <span class="s1">'https://'</span> <span class="o">:</span> <span class="s1">'http://'</span><span class="p">;</span>
+    <span class="nv">$url</span> <span class="o">=</span> <span class="nb">preg_replace</span><span class="p">(</span><span class="s1">'|/wp-admin/.*|i'</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="nv">$schema</span> <span class="o">.</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'HTTP_HOST'</span><span class="p">]</span> <span class="o">.</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'REQUEST_URI'</span><span class="p">]);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nb">rtrim</span><span class="p">(</span><span class="nv">$url</span><span class="p">,</span> <span class="s1">'/'</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
 </p>
 <p>The XSS occurs because $_SERVER['REQUEST_URI'] (the URI which was given in order to access the page) was used within output before first being sanitized. Or better yet, it shouldn't have been used at all.</p>
 <p>The reason I couldn't reproduce it or why the researchers couldn't reproduce outside of their environment? The reason is the 'else' never gets triggered when WordPress was installed via a domain.</p>
@@ -89,7 +89,7 @@
 <p>Example (tested):</p>
 <p>wp-includes/functions.php:3756<br />
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php">$url = preg_replace('|/wp-admin/.*|i', '', $schema . $_SERVER['HTTP_HOST'] . esc_html($_SERVER['REQUEST_URI']));</code></pre></figure>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="nv">$url</span> <span class="o">=</span> <span class="nb">preg_replace</span><span class="p">(</span><span class="s1">'|/wp-admin/.*|i'</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="nv">$schema</span> <span class="o">.</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'HTTP_HOST'</span><span class="p">]</span> <span class="o">.</span> <span class="nx">esc_html</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'REQUEST_URI'</span><span class="p">]));</span></code></pre></figure>
 
 </p>
 <p><strong>UPDATE --</strong></p>
@@ -106,15 +106,15 @@
 
             <section class="share">
                 <h4>Share this post</h4>
-                <a class="icon-twitter" href="http://twitter.com/share?text=WordPress 3.3 Cross-Site Scripting (XSS)&amp;url=http://blog.dewhurstsecurity.com/2012/01/03/wordpress-3-3-cross-site-scripting-xss.html"
+                <a class="icon-twitter" href="http://twitter.com/share?text=WordPress 3.3 Cross-Site Scripting (XSS)&amp;url=https://blog.dewhurstsecurity.com/2012/01/03/wordpress-3-3-cross-site-scripting-xss.html"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <span class="hidden">Twitter</span>
                 </a>
-                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.dewhurstsecurity.com/2012/01/03/wordpress-3-3-cross-site-scripting-xss.html"
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.dewhurstsecurity.com/2012/01/03/wordpress-3-3-cross-site-scripting-xss.html"
                     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                     <span class="hidden">Facebook</span>
                 </a>
-                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://blog.dewhurstsecurity.com/2012/01/03/wordpress-3-3-cross-site-scripting-xss.html"
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=https://blog.dewhurstsecurity.com/2012/01/03/wordpress-3-3-cross-site-scripting-xss.html"
                    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                     <span class="hidden">Google+</span>
                 </a>

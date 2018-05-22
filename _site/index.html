@@ -58,6 +58,19 @@
 
     <article class="post">
         <header class="post-header">
+            <span class="post-meta"><time datetime="2018-05-22">22 May 2018</time> </span>
+            <h2 class="post-title"><a href="/2018/05/22/loginizer-wordpress-plugin-xss-vulnerability.html">Security Vulnerability in Loginizer WordPress Plugin</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            Versions 1.3.8 to 1.3.9 of the Loginizer WordPress Plugin were found to be vulnerable to Stored Cross-Site Scripting (XSS). The vulnerability was due to the Plugin's logging functionality using the $_SERVER['REQUEST_URI'] PHP variable to create a URL string that was logged to the database without any input validation. The URL that was saved to the database was later output within HTML without any output encoding.
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
             <span class="post-meta"><time datetime="2017-07-03">03 Jul 2017</time> </span>
             <h2 class="post-title"><a href="/2017/07/03/wp-statistics-authenticated-xss-vulnerability.html">Authenticated XSS Vulnerability in WP Statistics</a></h2>
 
@@ -249,19 +262,6 @@
         </header>
         <section class="post-excerpt">
             Ok, ok. I didn't quite 'hack Facebook'. What I did was execute OS level commands on one of Facebook's acquisition's servers. This is how I did it.
-        </section>
-    </article>
-
-    
-
-    <article class="post">
-        <header class="post-header">
-            <span class="post-meta"><time datetime="2014-11-20">20 Nov 2014</time> </span>
-            <h2 class="post-title"><a href="/2014/11/20/wpscan-installation.html">WPScan Installation & Introduction</a></h2>
-
-        </header>
-        <section class="post-excerpt">
-            At WPScan we sometimes get users who strugle installing and using WPScan. I have made a video which shows the installation steps and an introduction to using WPScan for these users.
         </section>
     </article>
 

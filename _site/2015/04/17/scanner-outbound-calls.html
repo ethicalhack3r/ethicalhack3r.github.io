@@ -48,7 +48,7 @@
 
     <article class="post">
         <header class="post-header">
-            <a id="blog-logo" href="http://blog.dewhurstsecurity.com">
+            <a id="blog-logo" href="https://blog.dewhurstsecurity.com">
                 
                     <span class="blog-title">Dewhurst Security Blog</span>
                 
@@ -78,9 +78,8 @@
 
 <p>For example, Burp version 1.6.14, the version prior to this new feature sends this payload:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>http://www.example.com/wordpress-40/?feed=http://portswigger.net/f517a2bc19bdff66d7c64e8a7ad2f043.txt
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://www.example.com/wordpress-40/?feed=http://portswigger.net/f517a2bc19bdff66d7c64e8a7ad2f043.txt
+</code></pre></div></div>
 
 <p>This request gets sent to the application and if vulnerable, the application will forward the request to portswigger.net where it could be logged. The HTTP Referer header containing the application’s domain name, the IP address of the server that made the request, times, dates and more could be logged.</p>
 
@@ -88,15 +87,13 @@
 
 <p>OWASP’s ZAP scanner makes this request, probably looking for the “OWASP ZAP” keyword in the response:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>http://www.example.com/wordpress-40/xmlrpc.php?rsd=http://www.google.com:80/search?q=OWASP ZAP
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://www.example.com/wordpress-40/xmlrpc.php?rsd=http://www.google.com:80/search?q=OWASP ZAP
+</code></pre></div></div>
 
 <p>Arachni will use this payload:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>http://tests.arachni-scanner.com/rfi.md5.txt
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://tests.arachni-scanner.com/rfi.md5.txt
+</code></pre></div></div>
 
 <p>My point is if you do not like this new feature for the sole purpose that it may be logging data, well, most scanners already could, including Burp. You could argue that because this new feature attempts to identify a wider variety of vulnerabilities that even more data could potentially be logged. That would be a legitimate argument. However, Burp state “No data of any kind is in recorded in any persistent form: for example, a database or log file.”.</p>
 
@@ -115,15 +112,15 @@
 
             <section class="share">
                 <h4>Share this post</h4>
-                <a class="icon-twitter" href="http://twitter.com/share?text=Scanner Outbound Calls&amp;url=http://blog.dewhurstsecurity.com/2015/04/17/scanner-outbound-calls.html"
+                <a class="icon-twitter" href="http://twitter.com/share?text=Scanner Outbound Calls&amp;url=https://blog.dewhurstsecurity.com/2015/04/17/scanner-outbound-calls.html"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <span class="hidden">Twitter</span>
                 </a>
-                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.dewhurstsecurity.com/2015/04/17/scanner-outbound-calls.html"
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.dewhurstsecurity.com/2015/04/17/scanner-outbound-calls.html"
                     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                     <span class="hidden">Facebook</span>
                 </a>
-                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://blog.dewhurstsecurity.com/2015/04/17/scanner-outbound-calls.html"
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=https://blog.dewhurstsecurity.com/2015/04/17/scanner-outbound-calls.html"
                    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                     <span class="hidden">Google+</span>
                 </a>

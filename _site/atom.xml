@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Dewhurst Security Blog</title>
-  <link href="http://blog.dewhurstsecurity.com/atom.xml" rel="self" />
-  <link href="http://blog.dewhurstsecurity.com/"/>
-  <updated>2017-07-03T20:40:30+02:00</updated>
-  <id>http://blog.dewhurstsecurity.com</id>
+  <link href="https://blog.dewhurstsecurity.com/atom.xml" rel="self" />
+  <link href="https://blog.dewhurstsecurity.com/"/>
+  <updated>2018-05-22T09:21:50+02:00</updated>
+  <id>https://blog.dewhurstsecurity.com</id>
   <author>
     <name>Dewhurst Security Blog</name>
   </author>
   
     <entry>
+      <title>Security Vulnerability in Loginizer WordPress Plugin</title>
+      <link href="https://blog.dewhurstsecurity.com/2018/05/22/loginizer-wordpress-plugin-xss-vulnerability.html" />
+      <id>https://blog.dewhurstsecurity.com/2018/05/22/loginizer-wordpress-plugin-xss-vulnerability</id>
+	  
+	  <content type="html">Versions 1.3.8 to 1.3.9 of the Loginizer WordPress Plugin were found to be vulnerable to Stored Cross-Site Scripting (XSS). The vulnerability was due to the Plugin's logging functionality using the $_SERVER['REQUEST_URI'] PHP variable to create a URL string that was logged to the database without any input validation. The URL that was saved to the database was later output within HTML without any output encoding.</content>
+	  
+    </entry>
+  
+    <entry>
       <title>Authenticated XSS Vulnerability in WP Statistics</title>
-      <link href="http://blog.dewhurstsecurity.com/2017/07/03/wp-statistics-authenticated-xss-vulnerability.html" />
-      <id>http://blog.dewhurstsecurity.com/2017/07/03/wp-statistics-authenticated-xss-vulnerability</id>
+      <link href="https://blog.dewhurstsecurity.com/2017/07/03/wp-statistics-authenticated-xss-vulnerability.html" />
+      <id>https://blog.dewhurstsecurity.com/2017/07/03/wp-statistics-authenticated-xss-vulnerability</id>
 	  
 	  <content type="html">A few days ago the awesome folks over at Sucuri found a SQL Injection vulnerability in the popular WP Statistics WordPress Plugin, currently installed on over 300,000 websites. We wanted to check our  existing toolsets would have detected the vulnerability so that we could ensure that Dewhurst Security clients were not affected by similar issues. During this process we identified the Authenticated Reflected Cross-Site Scripting (XSS) vulnerability we discuss below. This vulnerability was responsibly disclosed to the vendor who patched the issue and released a new version in the same day.</content>
 	  
@@ -20,8 +29,8 @@
   
     <entry>
       <title>ExploitBox WordPress Security Advisories</title>
-      <link href="http://blog.dewhurstsecurity.com/2017/05/04/exploitbox-wordpress-security-advisories.html" />
-      <id>http://blog.dewhurstsecurity.com/2017/05/04/exploitbox-wordpress-security-advisories</id>
+      <link href="https://blog.dewhurstsecurity.com/2017/05/04/exploitbox-wordpress-security-advisories.html" />
+      <id>https://blog.dewhurstsecurity.com/2017/05/04/exploitbox-wordpress-security-advisories</id>
 	  
 	  <content type="html">Yesterday, May 3rd 2017, a site named ExploitBox released two WordPress advisories discovered by Dawid Golunski. The titles of the two advisories are: WordPress Core &lt;= 4.7.4 Potential Unauthorized Password Reset (0day) and WordPress Core 4.6 - Unauthenticated Remote Code Execution (RCE) PoC Exploit (default configuration, no plugins, no auth).</content>
 	  
@@ -29,8 +38,8 @@
   
     <entry>
       <title>Installing WPScan on Windows 10</title>
-      <link href="http://blog.dewhurstsecurity.com/2017/05/03/installing-wpscan-on-windows-10.html" />
-      <id>http://blog.dewhurstsecurity.com/2017/05/03/installing-wpscan-on-windows-10</id>
+      <link href="https://blog.dewhurstsecurity.com/2017/05/03/installing-wpscan-on-windows-10.html" />
+      <id>https://blog.dewhurstsecurity.com/2017/05/03/installing-wpscan-on-windows-10</id>
 	  
 	  <content type="html">We constantly get asked by users how to install WPScan on Windows machines. Since none of the core developers use Windows day to day, Windows is not officially supported by WPScan. Nevertheless, it is possible to install WPScan on Windows by using Bash on Windows. In this video we'll show you how to do just that, install WPScan on Windows 10.</content>
 	  
@@ -38,8 +47,8 @@
   
     <entry>
       <title>WPScan Version 3.0 BETA Release</title>
-      <link href="http://blog.dewhurstsecurity.com/2017/01/28/wpscan-v3-release.html" />
-      <id>http://blog.dewhurstsecurity.com/2017/01/28/wpscan-v3-release</id>
+      <link href="https://blog.dewhurstsecurity.com/2017/01/28/wpscan-v3-release.html" />
+      <id>https://blog.dewhurstsecurity.com/2017/01/28/wpscan-v3-release</id>
 	  
 	  <content type="html">Yesterday, January 28th 2017, members of the WPScan Team released WPScan version 3.0. WPScan is a black box WordPress Vulnerability Scanner written in Ruby which was released in 2011 for Penetration Testers. WPScan 3.0 is not just another release. It was re-written from the ground up by a WPScan team member, Erwan.</content>
 	  
@@ -47,8 +56,8 @@
   
     <entry>
       <title>YouTube Windows Exploit Suggester</title>
-      <link href="http://blog.dewhurstsecurity.com/2016/11/22/youtube-windows-exploit-suggester.html" />
-      <id>http://blog.dewhurstsecurity.com/2016/11/22/youtube-windows-exploit-suggester</id>
+      <link href="https://blog.dewhurstsecurity.com/2016/11/22/youtube-windows-exploit-suggester.html" />
+      <id>https://blog.dewhurstsecurity.com/2016/11/22/youtube-windows-exploit-suggester</id>
 	  
 	  <content type="html">YouTube is fast becoming the number one choice for content on family TVs thanks to 'smart' TVs and gadgets like Google's Chromecast. Recording, editing and uploading videos is also becoming much easier. Almost everyone in the western world owns a powerful smart phone with a built in camera. Generally, people also have computers powerful enough to edit videos in less and less time. And finally, relatively fast Internet speeds to upload the final video (as well as consume videos).</content>
 	  
@@ -56,8 +65,8 @@
   
     <entry>
       <title>WordPress Plugin Security Testing Cheat Sheet</title>
-      <link href="http://blog.dewhurstsecurity.com/2016/08/18/wordpress-plugin-security-cheat-sheet.html" />
-      <id>http://blog.dewhurstsecurity.com/2016/08/18/wordpress-plugin-security-cheat-sheet</id>
+      <link href="https://blog.dewhurstsecurity.com/2016/08/18/wordpress-plugin-security-cheat-sheet.html" />
+      <id>https://blog.dewhurstsecurity.com/2016/08/18/wordpress-plugin-security-cheat-sheet</id>
 	  
 	  <content type="html">This cheat sheet was compiled by Dewhurst Security to record the knowledge gained when testing WordPress plugins for security issues for our clients. The security documentation provided by WordPress and found online for plugin security is sparse, outdated or unclear. This cheat sheet is intended for Penetration Testers who audit WordPress plugins or developers who wish to audit their own WordPress plugins.</content>
 	  
@@ -65,8 +74,8 @@
   
     <entry>
       <title>OSVDB Shut Down</title>
-      <link href="http://blog.dewhurstsecurity.com/2016/04/07/osvdb-shut-down.html" />
-      <id>http://blog.dewhurstsecurity.com/2016/04/07/osvdb-shut-down</id>
+      <link href="https://blog.dewhurstsecurity.com/2016/04/07/osvdb-shut-down.html" />
+      <id>https://blog.dewhurstsecurity.com/2016/04/07/osvdb-shut-down</id>
 	  
 	  <content type="html">On April 5th the Open Sourced Vulnerability Database (OSVDB) announced that they were shutting down. 
 
@@ -76,8 +85,8 @@
   
     <entry>
       <title>Google Chrome Protocol Handler Fun</title>
-      <link href="http://blog.dewhurstsecurity.com/2016/04/07/google-chrome-protocol-handler-fun.html" />
-      <id>http://blog.dewhurstsecurity.com/2016/04/07/google-chrome-protocol-handler-fun</id>
+      <link href="https://blog.dewhurstsecurity.com/2016/04/07/google-chrome-protocol-handler-fun.html" />
+      <id>https://blog.dewhurstsecurity.com/2016/04/07/google-chrome-protocol-handler-fun</id>
 	  
 	  <content type="html">You're probably all familiar of the custom protocol handlers browsers use for various things such as ```chrome://settings/``` and ```chrome://credits/```. I was using a Chrome app (extension) the other day that suggested I copy and pasted ```chrome://restart``` in to my browser address bar to restart Chrome. This got me thinking about the ```chrome``` protocol handler, what other ones are there and how they might they be able to be used for a bit of fun. 
 
@@ -87,8 +96,8 @@
   
     <entry>
       <title>Mobile Security Certificate Pinning</title>
-      <link href="http://blog.dewhurstsecurity.com/2015/11/10/mobile-security-certificate-pining.html" />
-      <id>http://blog.dewhurstsecurity.com/2015/11/10/mobile-security-certificate-pining</id>
+      <link href="https://blog.dewhurstsecurity.com/2015/11/10/mobile-security-certificate-pining.html" />
+      <id>https://blog.dewhurstsecurity.com/2015/11/10/mobile-security-certificate-pining</id>
 	  
 	  <content type="html">Certificate Pinning is an extra layer of security that is used by applications to ensure that the certificate provided by the remote server is the one which is expected. 
 
@@ -100,8 +109,8 @@
   
     <entry>
       <title>OWASP Application Security Verification Standard (ASVS)</title>
-      <link href="http://blog.dewhurstsecurity.com/2015/10/11/owasp-asvs.html" />
-      <id>http://blog.dewhurstsecurity.com/2015/10/11/owasp-asvs</id>
+      <link href="https://blog.dewhurstsecurity.com/2015/10/11/owasp-asvs.html" />
+      <id>https://blog.dewhurstsecurity.com/2015/10/11/owasp-asvs</id>
 	  
 	  <content type="html">A few days ago (October, 2015) the OWASP Application Security Verification Standard (ASVS) version 3.0 was released which I had the opportunity to contribute to in a small way by helping review some of the draft documents before the official release. 
 
@@ -111,8 +120,8 @@
   
     <entry>
       <title>Scanner Outbound Calls</title>
-      <link href="http://blog.dewhurstsecurity.com/2015/04/17/scanner-outbound-calls.html" />
-      <id>http://blog.dewhurstsecurity.com/2015/04/17/scanner-outbound-calls</id>
+      <link href="https://blog.dewhurstsecurity.com/2015/04/17/scanner-outbound-calls.html" />
+      <id>https://blog.dewhurstsecurity.com/2015/04/17/scanner-outbound-calls</id>
 	  
 	  <content type="html">Today Burp Suite announced the release of a new feature they call Burp Collaborator which is enabled by default. 
 
@@ -124,8 +133,8 @@
   
     <entry>
       <title>WPScan Licensing</title>
-      <link href="http://blog.dewhurstsecurity.com/2015/01/21/wpscan-licensing.html" />
-      <id>http://blog.dewhurstsecurity.com/2015/01/21/wpscan-licensing</id>
+      <link href="https://blog.dewhurstsecurity.com/2015/01/21/wpscan-licensing.html" />
+      <id>https://blog.dewhurstsecurity.com/2015/01/21/wpscan-licensing</id>
 	  
 	  <content type="html">When you first release software online you don't put too much thought into the software license (I didn't at least). You have no idea if the project will take off. If your intention is for your peers to use it freely your first thought may be Open Source. The most popular Open Source license is the GNU GPL, so why not use that!? 
 
@@ -135,8 +144,8 @@
   
     <entry>
       <title>2014 Achievements</title>
-      <link href="http://blog.dewhurstsecurity.com/2014/12/12/2014-achievements.html" />
-      <id>http://blog.dewhurstsecurity.com/2014/12/12/2014-achievements</id>
+      <link href="https://blog.dewhurstsecurity.com/2014/12/12/2014-achievements.html" />
+      <id>https://blog.dewhurstsecurity.com/2014/12/12/2014-achievements</id>
 	  
 	  <content type="html">It's almost the end of the year so I thought I would take the opportunity to reflect on my achievements during 2014 before the holidays start. It is a good way for me to put the year into perspective and focus on my goals for 2015.</content>
 	  
@@ -144,8 +153,8 @@
   
     <entry>
       <title>How I hacked Facebook</title>
-      <link href="http://blog.dewhurstsecurity.com/2014/12/09/how-i-hacked-facebook.html" />
-      <id>http://blog.dewhurstsecurity.com/2014/12/09/how-i-hacked-facebook</id>
+      <link href="https://blog.dewhurstsecurity.com/2014/12/09/how-i-hacked-facebook.html" />
+      <id>https://blog.dewhurstsecurity.com/2014/12/09/how-i-hacked-facebook</id>
 	  
 	  <content type="html">Ok, ok. I didn't quite 'hack Facebook'. What I did was execute OS level commands on one of Facebook's acquisition's servers. This is how I did it.</content>
 	  
@@ -153,8 +162,8 @@
   
     <entry>
       <title>WPScan Installation & Introduction</title>
-      <link href="http://blog.dewhurstsecurity.com/2014/11/20/wpscan-installation.html" />
-      <id>http://blog.dewhurstsecurity.com/2014/11/20/wpscan-installation</id>
+      <link href="https://blog.dewhurstsecurity.com/2014/11/20/wpscan-installation.html" />
+      <id>https://blog.dewhurstsecurity.com/2014/11/20/wpscan-installation</id>
 	  
 	  <content type="html">At WPScan we sometimes get users who strugle installing and using WPScan. I have made a video which shows the installation steps and an introduction to using WPScan for these users.</content>
 	  
@@ -162,8 +171,8 @@
   
     <entry>
       <title>Memcached</title>
-      <link href="http://blog.dewhurstsecurity.com/2014/10/12/memcached.html" />
-      <id>http://blog.dewhurstsecurity.com/2014/10/12/memcached</id>
+      <link href="https://blog.dewhurstsecurity.com/2014/10/12/memcached.html" />
+      <id>https://blog.dewhurstsecurity.com/2014/10/12/memcached</id>
 	  
 	  <content type="html">Last week I came across a service on the Internet running on TCP port 11211, Memcached's default port. I had heard of Memcached before but I probably only knew it was some kind of database system, that was the extent of my familiarity with it. 
 
@@ -173,8 +182,8 @@
   
     <entry>
       <title>WPScan and WordPress Security Interview</title>
-      <link href="http://blog.dewhurstsecurity.com/2014/07/10/wpscan-and-wordpress-security-interview.html" />
-      <id>http://blog.dewhurstsecurity.com/2014/07/10/wpscan-and-wordpress-security-interview</id>
+      <link href="https://blog.dewhurstsecurity.com/2014/07/10/wpscan-and-wordpress-security-interview.html" />
+      <id>https://blog.dewhurstsecurity.com/2014/07/10/wpscan-and-wordpress-security-interview</id>
 	  
 	  <content type="html">&lt;p&gt;I was asked to do an interview about WPScan and WordPress security in general. Thought I'd share it here too.&lt;/p&gt;
 &lt;p&gt;&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/k0aZGK8sbJI&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;
@@ -184,8 +193,8 @@
   
     <entry>
       <title>BruCON 5by5 - WPScan Online Vulnerability Database</title>
-      <link href="http://blog.dewhurstsecurity.com/2014/02/11/brucon-5by5-wpscan-online-vulnerability-database.html" />
-      <id>http://blog.dewhurstsecurity.com/2014/02/11/brucon-5by5-wpscan-online-vulnerability-database</id>
+      <link href="https://blog.dewhurstsecurity.com/2014/02/11/brucon-5by5-wpscan-online-vulnerability-database.html" />
+      <id>https://blog.dewhurstsecurity.com/2014/02/11/brucon-5by5-wpscan-online-vulnerability-database</id>
 	  
 	  <content type="html">For those of you who have been living under a rock, &lt;a href=&quot;http://2014.brucon.org/index.php/Main_Page&quot;&gt;BruCON&lt;/a&gt; is a security conference held every year in Belgium (originally Brussels, now Ghent). I have attended every BruCON conference since the second. Last year was the 5th time the conference had been held (correct me if I'm wrong) and so the year before (2012) they setup what they called &lt;a href=&quot;http://blog.brucon.org/2012/10/announcing-brucon-5by5.html&quot;&gt;5by5&lt;/a&gt;. This allowed BruCON, as it's a non-for-profit, to share its extra left over cash by supporting community projects.
 
@@ -204,8 +213,8 @@ As last year was such a success, they're doing it again this year! And this year
   
     <entry>
       <title>What passwords is GitHub banning?</title>
-      <link href="http://blog.dewhurstsecurity.com/2013/11/20/what-passwords-is-github-banning.html" />
-      <id>http://blog.dewhurstsecurity.com/2013/11/20/what-passwords-is-github-banning</id>
+      <link href="https://blog.dewhurstsecurity.com/2013/11/20/what-passwords-is-github-banning.html" />
+      <id>https://blog.dewhurstsecurity.com/2013/11/20/what-passwords-is-github-banning</id>
 	  
 	  <content type="html">GitHub was recently the target of a large weak password brute force attack which involved &lt;a href=&quot;https://github.com/blog/1698-weak-passwords-brute-forced&quot;&gt;40k unique IP addresses&lt;/a&gt;. One of many of the security measures GitHub has now taken is to ban users to register with 'commonly-used weak passwords'.
 
@@ -219,8 +228,8 @@ GitHub's password policy is reasonable (at least 7 chars, 1 number and 1 letter)
   
     <entry>
       <title>SimpleRisk v.20130915-01 CSRF-XSS Account Compromise</title>
-      <link href="http://blog.dewhurstsecurity.com/2013/09/30/simplerisk-v-20130915-01-csrf-xss-account-compromise.html" />
-      <id>http://blog.dewhurstsecurity.com/2013/09/30/simplerisk-v-20130915-01-csrf-xss-account-compromise</id>
+      <link href="https://blog.dewhurstsecurity.com/2013/09/30/simplerisk-v-20130915-01-csrf-xss-account-compromise.html" />
+      <id>https://blog.dewhurstsecurity.com/2013/09/30/simplerisk-v-20130915-01-csrf-xss-account-compromise</id>
 	  
 	  <content type="html">1. *Advisory Information*
 
@@ -250,8 +259,8 @@ Download: &lt;a href=&quot;https://simplerisk.googlecode.com/files/simplerisk-20
   
     <entry>
       <title>Security Testing HTML5 WebSockets</title>
-      <link href="http://blog.dewhurstsecurity.com/2013/08/30/security-testing-html5-websockets.html" />
-      <id>http://blog.dewhurstsecurity.com/2013/08/30/security-testing-html5-websockets</id>
+      <link href="https://blog.dewhurstsecurity.com/2013/08/30/security-testing-html5-websockets.html" />
+      <id>https://blog.dewhurstsecurity.com/2013/08/30/security-testing-html5-websockets</id>
 	  
 	  <content type="html">Recently I became faced with my first Web Application Security Assessment which relied heavily on HTML5's &lt;a href=&quot;http://www.html5rocks.com/en/tutorials/websockets/basics/&quot;&gt;WebSockets&lt;/a&gt;.
 
@@ -267,8 +276,8 @@ The initial WebSocket handshake is carried out over HTTP using an '&lt;a href=&q
   
     <entry>
       <title>Zone Transfers on The Alexa Top 1 Million Part 2</title>
-      <link href="http://blog.dewhurstsecurity.com/2013/08/08/zone-transfers-on-the-alexa-top-1-million-part-2.html" />
-      <id>http://blog.dewhurstsecurity.com/2013/08/08/zone-transfers-on-the-alexa-top-1-million-part-2</id>
+      <link href="https://blog.dewhurstsecurity.com/2013/08/08/zone-transfers-on-the-alexa-top-1-million-part-2.html" />
+      <id>https://blog.dewhurstsecurity.com/2013/08/08/zone-transfers-on-the-alexa-top-1-million-part-2</id>
 	  
 	  <content type="html">In &lt;a href=&quot;http://www.ethicalhack3r.co.uk/zone-transfers-on-the-alexa-top-1-million/&quot;&gt;part 1&lt;/a&gt; of this blog post I conducted a DNS Zone Transfer (axfr) against the top 2000 sites of the Alexa Top 1 Million. I did this to create a better subdomain brute forcing word list. At the time, conducting the Zone Transfer against the top 2000 sites took about 12 hours, this was using a single threaded bash script. I was pretty proud of this achievement at the time and thought that doing the same for the whole top 1 million sites was beyond the time and resources that I had.
 
@@ -282,8 +291,8 @@ There were 60,472 successful Zone Transfers (%6) out of the Alexa Top 1 Million,
   
     <entry>
       <title>Zone Transfers on The Alexa Top 1 Million</title>
-      <link href="http://blog.dewhurstsecurity.com/2013/08/03/zone-transfers-on-the-alexa-top-1-million.html" />
-      <id>http://blog.dewhurstsecurity.com/2013/08/03/zone-transfers-on-the-alexa-top-1-million</id>
+      <link href="https://blog.dewhurstsecurity.com/2013/08/03/zone-transfers-on-the-alexa-top-1-million.html" />
+      <id>https://blog.dewhurstsecurity.com/2013/08/03/zone-transfers-on-the-alexa-top-1-million</id>
 	  
 	  <content type="html">At work as part of every assessment we do a some reconnaissance which includes attempting a &lt;a href=&quot;https://en.wikipedia.org/wiki/DNS_zone_transfer&quot;&gt;DNS Zone Transfer (axfr)&lt;/a&gt; and conducting a subdomain brute force on the target domain/s. The subdomain brute force is only as good as your wordlist, the Zone Transfer is a matter of luck.
 
@@ -297,8 +306,8 @@ This was all done using Carlos Perez's &lt;a href=&quot;https://github.com/darko
   
     <entry>
       <title>Cracking Microsoft Excel 97-2004 .xls Documents</title>
-      <link href="http://blog.dewhurstsecurity.com/2013/07/26/cracking-microsoft-excel-97-2004-xls-documents.html" />
-      <id>http://blog.dewhurstsecurity.com/2013/07/26/cracking-microsoft-excel-97-2004-xls-documents</id>
+      <link href="https://blog.dewhurstsecurity.com/2013/07/26/cracking-microsoft-excel-97-2004-xls-documents.html" />
+      <id>https://blog.dewhurstsecurity.com/2013/07/26/cracking-microsoft-excel-97-2004-xls-documents</id>
 	  
 	  <content type="html">A client emailed to say they had forgotten a password for their Microsoft Excel .xls document and asked if it was possible to recover it. After searching on Google it was clear that there was plenty of shi...bloatware, which may have worked if you were willing to go through a few of them and pay a few dollars. It wasn't that important of a document according to the client but nevertheless a challenge is a challenge.
 
@@ -312,8 +321,8 @@ As always when Google turns up nothing useful I turn to Twitter. A few people re
   
     <entry>
       <title>Login Cross-Site Request Forgery (CSRF)</title>
-      <link href="http://blog.dewhurstsecurity.com/2013/06/20/login-cross-site-request-forgery-csrf.html" />
-      <id>http://blog.dewhurstsecurity.com/2013/06/20/login-cross-site-request-forgery-csrf</id>
+      <link href="https://blog.dewhurstsecurity.com/2013/06/20/login-cross-site-request-forgery-csrf.html" />
+      <id>https://blog.dewhurstsecurity.com/2013/06/20/login-cross-site-request-forgery-csrf</id>
 	  
 	  <content type="html">The new OWASP Top 10 2013 was released not so long ago, while reading over it I noticed this:
 
@@ -333,8 +342,8 @@ Today I came across an academic paper which gives three examples of why Login CS
   
     <entry>
       <title>HTTP Form Password Brute Forcing - The Need for Speed</title>
-      <link href="http://blog.dewhurstsecurity.com/2013/04/17/http-form-password-brute-forcing-the-need-for-speed.html" />
-      <id>http://blog.dewhurstsecurity.com/2013/04/17/http-form-password-brute-forcing-the-need-for-speed</id>
+      <link href="https://blog.dewhurstsecurity.com/2013/04/17/http-form-password-brute-forcing-the-need-for-speed.html" />
+      <id>https://blog.dewhurstsecurity.com/2013/04/17/http-form-password-brute-forcing-the-need-for-speed</id>
 	  
 	  <content type="html">HTTP Form password brute forcing is not rocket science, you try multiple username/password combinations until you get a correct answer (or non-negative answer).
 
@@ -363,8 +372,8 @@ The &lt;a href=&quot;http://pastebin.com/xV80ZHBj&quot; target=&quot;_blank&quot
   
     <entry>
       <title>SSH "accept : too many open files" on OS X when using Burp</title>
-      <link href="http://blog.dewhurstsecurity.com/2013/04/08/ssh-too-many-open-files-burp.html" />
-      <id>http://blog.dewhurstsecurity.com/2013/04/08/ssh-too-many-open-files-burp</id>
+      <link href="https://blog.dewhurstsecurity.com/2013/04/08/ssh-too-many-open-files-burp.html" />
+      <id>https://blog.dewhurstsecurity.com/2013/04/08/ssh-too-many-open-files-burp</id>
 	  
 	  <content type="html">&lt;strong&gt;EDIT 19.04.2013 10:17 ---&lt;/strong&gt;
 &lt;strong&gt;WARNING!&lt;/strong&gt; This did break the Tor Browser Bundle on my machine. The error was &quot;Couldn't set maximum number of file descriptors: Invalid argument&quot;
@@ -386,8 +395,8 @@ I also &lt;a href=&quot;https://twitter.com/ethicalhack3r/status/313982186695036
   
     <entry>
       <title>[Weekly Viewing] You and Your Research & Ruby 2.0</title>
-      <link href="http://blog.dewhurstsecurity.com/2013/03/16/weekly-viewing-you-and-your-research-ruby-2-0.html" />
-      <id>http://blog.dewhurstsecurity.com/2013/03/16/weekly-viewing-you-and-your-research-ruby-2-0</id>
+      <link href="https://blog.dewhurstsecurity.com/2013/03/16/weekly-viewing-you-and-your-research-ruby-2-0.html" />
+      <id>https://blog.dewhurstsecurity.com/2013/03/16/weekly-viewing-you-and-your-research-ruby-2-0</id>
 	  
 	  <content type="html">This week we have another two videos lined up for you. The first, by &lt;a href=&quot;https://twitter.com/haroonmeer&quot; target=&quot;_blank&quot;&gt;Haroon Meer&lt;/a&gt;, I was luckily enough to see in person at Brucon 2011. It is one of the best talks I have ever had the privilege to see, by anyone. If you're ever going to watch one of these 'Weekly Viewing' videos of mine make it be this one.
 
@@ -403,8 +412,8 @@ The second video is by Matz, the creator of Ruby, where he talks about Ruby's de
   
     <entry>
       <title>[Weekly Viewing] Web App Security and Zero Days</title>
-      <link href="http://blog.dewhurstsecurity.com/2013/03/10/weekly-viewing-web-app-security-and-zero-days.html" />
-      <id>http://blog.dewhurstsecurity.com/2013/03/10/weekly-viewing-web-app-security-and-zero-days</id>
+      <link href="https://blog.dewhurstsecurity.com/2013/03/10/weekly-viewing-web-app-security-and-zero-days.html" />
+      <id>https://blog.dewhurstsecurity.com/2013/03/10/weekly-viewing-web-app-security-and-zero-days</id>
 	  
 	  <content type="html">This is a first of hopefully many weekly posts in which I will share online security related videos that I've watched during the week and think are worth sharing. This week I've got two great videos lined up for your viewing pleasure.
 
@@ -422,8 +431,8 @@ In this video Zane Lackey from Etsy talks about how to make a developer's job ea
   
     <entry>
       <title>Sony Freedom Of Information (FOI) Request</title>
-      <link href="http://blog.dewhurstsecurity.com/2013/03/07/sony-freedom-of-information-foi-request.html" />
-      <id>http://blog.dewhurstsecurity.com/2013/03/07/sony-freedom-of-information-foi-request</id>
+      <link href="https://blog.dewhurstsecurity.com/2013/03/07/sony-freedom-of-information-foi-request.html" />
+      <id>https://blog.dewhurstsecurity.com/2013/03/07/sony-freedom-of-information-foi-request</id>
 	  
 	  <content type="html">On the 14th of January the UK Information Commissioner's Office (ICO) sent Sony Computer Entertainment Europe Limited a &lt;a href=&quot;http://www.ico.gov.uk/enforcement/~/media/documents/library/Data_Protection/Notices/sony_monetary_penalty_notice.ashx&quot; target=&quot;_blank&quot;&gt;monetary penalty notice&lt;/a&gt; of £250,000 following 'a serious breach of the Data Protection Act'.
 
@@ -437,8 +446,8 @@ If we were to take this 3 million figure at face value, the ICO fined Sony (£25
   
     <entry>
       <title>WordPress plugin Asset manager upload.php Arbitrary Code Execution</title>
-      <link href="http://blog.dewhurstsecurity.com/2012/12/12/wordpress-plugin-asset-manager-upload-php-arbitrary-code-execution.html" />
-      <id>http://blog.dewhurstsecurity.com/2012/12/12/wordpress-plugin-asset-manager-upload-php-arbitrary-code-execution</id>
+      <link href="https://blog.dewhurstsecurity.com/2012/12/12/wordpress-plugin-asset-manager-upload-php-arbitrary-code-execution.html" />
+      <id>https://blog.dewhurstsecurity.com/2012/12/12/wordpress-plugin-asset-manager-upload-php-arbitrary-code-execution</id>
 	  
 	  <content type="html">The '&lt;a href=&quot;http://1337day.com/&quot; target=&quot;_blank&quot;&gt;Inj3ct0r Team&lt;/a&gt;' compromised an &lt;a href=&quot;https://www.exploithub.com/&quot; target=&quot;_blank&quot;&gt;ExploitHub.com&lt;/a&gt; database and released a &lt;a href=&quot;http://priv8.1337day.com/exploitHUB.txt&quot; target=&quot;_blank&quot;&gt;file&lt;/a&gt; publicly which contained some of the data about the exploits that ExploitHub buy and sell.
 
@@ -450,8 +459,8 @@ I saw the file yesterday, had a quick skim over it, but didn't think too much of
   
     <entry>
       <title>Introduction to the WordPress XML-RPC API</title>
-      <link href="http://blog.dewhurstsecurity.com/2012/12/11/introduction-to-the-wordpress-xml-rpc-api.html" />
-      <id>http://blog.dewhurstsecurity.com/2012/12/11/introduction-to-the-wordpress-xml-rpc-api</id>
+      <link href="https://blog.dewhurstsecurity.com/2012/12/11/introduction-to-the-wordpress-xml-rpc-api.html" />
+      <id>https://blog.dewhurstsecurity.com/2012/12/11/introduction-to-the-wordpress-xml-rpc-api</id>
 	  
 	  <content type="html">WordPress 3.5 was recently released which now comes with the WordPress API &quot;always enabled&quot;. Personally I think this adds unnecessary risk by increasing the attack surface. How many WordPress user's actually use the API? I would put my money on it being a very small fraction, either way I'm sure the WordPress Core Development team had good reason to enable the API by default. After spending 5 minutes looking for where to turn the API off in WordPress 3.5 I gave up. Huh, I'll have another look sometime soon.
 
@@ -465,8 +474,8 @@ The latest API calls can be found on WordPress's Codex &lt;a href=&quot;http://c
   
     <entry>
       <title>Female hackers at Abertay University</title>
-      <link href="http://blog.dewhurstsecurity.com/2012/12/06/female-hackers-at-abertay-university.html" />
-      <id>http://blog.dewhurstsecurity.com/2012/12/06/female-hackers-at-abertay-university</id>
+      <link href="https://blog.dewhurstsecurity.com/2012/12/06/female-hackers-at-abertay-university.html" />
+      <id>https://blog.dewhurstsecurity.com/2012/12/06/female-hackers-at-abertay-university</id>
 	  
 	  <content type="html">&lt;p&gt;Having completed a similar course at a different university, it is great to see that Abertay is attracting female students.&lt;/p&gt;
 &lt;p&gt;&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;https://www.youtube-nocookie.com/embed/s5TFXGAfTH4&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;
@@ -476,8 +485,8 @@ The latest API calls can be found on WordPress's Codex &lt;a href=&quot;http://c
   
     <entry>
       <title>Implementing Basic Static Code Analysis into Integrated Development Environments (IDEs) to Reduce Software Vulnerabilities</title>
-      <link href="http://blog.dewhurstsecurity.com/2012/09/21/implementing-basic-static-code-analysis-into-integrated-development-environments-ides-to-reduce-software-vulnerabilities.html" />
-      <id>http://blog.dewhurstsecurity.com/2012/09/21/implementing-basic-static-code-analysis-into-integrated-development-environments-ides-to-reduce-software-vulnerabilities</id>
+      <link href="https://blog.dewhurstsecurity.com/2012/09/21/implementing-basic-static-code-analysis-into-integrated-development-environments-ides-to-reduce-software-vulnerabilities.html" />
+      <id>https://blog.dewhurstsecurity.com/2012/09/21/implementing-basic-static-code-analysis-into-integrated-development-environments-ides-to-reduce-software-vulnerabilities</id>
 	  
 	  <content type="html">&lt;p&gt;This is the paper that I submitted for my undergraduate dissertation in Ethical Hacking for Computer Security. The title (a mouth full) 'Implementing Basic Static Code Analysis into Integrated Development Environments (IDEs) to Reduce Software Vulnerabilities'. The paper talks about software security, modern software development, software development life cycles, static code analysis and a lot more. Since submitting it I have noticed some mistakes so I'm not putting this out there as a 'perfect paper'.&lt;/p&gt;
 &lt;p&gt;The paper was the research and implementation of &lt;a href=&quot;http://www.devbug.co.uk&quot; target=&quot;_blank&quot;&gt;DevBug&lt;/a&gt; an online PHP Static Code Analysis tool written mostly in JavaScript.&lt;/p&gt;
@@ -489,8 +498,8 @@ The latest API calls can be found on WordPress's Codex &lt;a href=&quot;http://c
   
     <entry>
       <title>Top 5 Blog Posts</title>
-      <link href="http://blog.dewhurstsecurity.com/2012/09/15/top-5-blog-posts.html" />
-      <id>http://blog.dewhurstsecurity.com/2012/09/15/top-5-blog-posts</id>
+      <link href="https://blog.dewhurstsecurity.com/2012/09/15/top-5-blog-posts.html" />
+      <id>https://blog.dewhurstsecurity.com/2012/09/15/top-5-blog-posts</id>
 	  
 	  <content type="html">&lt;p&gt;I've been running this blog now since November 2008. As the blog's 4 year anniversary is approaching I thought I would share with you the 5 blog posts which have received the most hits within that time.&lt;/p&gt;
 &lt;p&gt;1. &lt;a href=&quot;http://www.ethicalhack3r.co.uk/security/dropbox-security/&quot; target=&quot;_blank&quot;&gt;DropBox Security&lt;/a&gt; - 20,494 hits&lt;br /&gt;
@@ -505,8 +514,8 @@ The latest API calls can be found on WordPress's Codex &lt;a href=&quot;http://c
   
     <entry>
       <title>Concrete5 5.5.2.1 Multiple Authenticated Cross-Site Scripting (XSS)</title>
-      <link href="http://blog.dewhurstsecurity.com/2012/08/25/concrete5-5-5-2-1-multiple-authenticated-cross-site-scripting-xss.html" />
-      <id>http://blog.dewhurstsecurity.com/2012/08/25/concrete5-5-5-2-1-multiple-authenticated-cross-site-scripting-xss</id>
+      <link href="https://blog.dewhurstsecurity.com/2012/08/25/concrete5-5-5-2-1-multiple-authenticated-cross-site-scripting-xss.html" />
+      <id>https://blog.dewhurstsecurity.com/2012/08/25/concrete5-5-5-2-1-multiple-authenticated-cross-site-scripting-xss</id>
 	  
 	  <content type="html"># Exploit Title: Concrete5 5.5.2.1 Multiple Authenticated Cross-Site Scripting (XSS)
 # Date: 2012-08-25
@@ -530,8 +539,8 @@ CMS made for Marketing but built for Geeks, concrete5 [0] is a content managemen
   
     <entry>
       <title>Sunday Ruby Coding: Caesar Cipher (ROT) Encoder/Decoder </title>
-      <link href="http://blog.dewhurstsecurity.com/2012/08/05/sunday-ruby-coding-caesar-cipher-rot-encoderdecoder.html" />
-      <id>http://blog.dewhurstsecurity.com/2012/08/05/sunday-ruby-coding-caesar-cipher-rot-encoderdecoder</id>
+      <link href="https://blog.dewhurstsecurity.com/2012/08/05/sunday-ruby-coding-caesar-cipher-rot-encoderdecoder.html" />
+      <id>https://blog.dewhurstsecurity.com/2012/08/05/sunday-ruby-coding-caesar-cipher-rot-encoderdecoder</id>
 	  
 	  <content type="html">&lt;p&gt;It has been a rainy Sunday so I wrote a Caesar Cipher (ROT) Encoder/Decoder in Ruby to ease the boredom.&lt;/p&gt;
 &lt;p&gt;
@@ -541,7 +550,7 @@ CMS made for Marketing but built for Geeks, concrete5 [0] is a content managemen
 &lt;span class=&quot;c1&quot;&gt;# Caesar Cipher (ROT) Encoder/Decoder - Ryan 'ethicalhack3r' Dewhurst - 05.08.2012&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
 
-&lt;span class=&quot;vi&quot;&gt;@alphabet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'a'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'z'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_a&lt;/span&gt;
+&lt;span class=&quot;vi&quot;&gt;@alphabet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'a'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'z'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_a&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plaintext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;n&quot;&gt;plaintext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plaintext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;gsub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/\s+/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;downcase&lt;/span&gt;
@@ -597,8 +606,8 @@ CMS made for Marketing but built for Geeks, concrete5 [0] is a content managemen
   
     <entry>
       <title>Freedom of Speech on Social Media</title>
-      <link href="http://blog.dewhurstsecurity.com/2012/07/31/freedom-of-speech-on-social-media.html" />
-      <id>http://blog.dewhurstsecurity.com/2012/07/31/freedom-of-speech-on-social-media</id>
+      <link href="https://blog.dewhurstsecurity.com/2012/07/31/freedom-of-speech-on-social-media.html" />
+      <id>https://blog.dewhurstsecurity.com/2012/07/31/freedom-of-speech-on-social-media</id>
 	  
 	  <content type="html">There have been many cases recently where people in the UK have been arrested under the &lt;a href=&quot;http://www.legislation.gov.uk/ukpga/1988/27/contents&quot;&gt;Malicious Communications Act 1988&lt;/a&gt; as well as others such as the &lt;a href=&quot;http://www.legislation.gov.uk/ukpga/2003/21/contents&quot;&gt;Communications Act of 2003&lt;/a&gt; and the &lt;a href=&quot;http://www.legislation.gov.uk/ukpga/2006/11/contents&quot;&gt;Terrorism Act 2006&lt;/a&gt; for what they have said on social media web sites such as Twitter or Facebook. Paul Chambers &lt;a href=&quot;http://www.aolnews.com/2010/01/18/ill-advised-twitter-post-sparks-uk-terror-arrest/&quot;&gt;seems to have been the first&lt;/a&gt; in the UK to be arrested for what he said on Twitter in 2010. He later appealed and recently had his conviction &lt;a href=&quot;http://www.dailymail.co.uk/news/article-2179782/Twitter-joke-trial-Paul-Chambers-wins-appeal-conviction-airport-bomb-Tweet.html&quot;&gt;quashed&lt;/a&gt;.
 
@@ -619,8 +628,8 @@ Some of these UK cases include:
   
     <entry>
       <title>StaticBurp - Burp Suite potential DOM XSS Analysis</title>
-      <link href="http://blog.dewhurstsecurity.com/2012/07/19/staticburp-burp-suite-potential-dom-xss-analysis.html" />
-      <id>http://blog.dewhurstsecurity.com/2012/07/19/staticburp-burp-suite-potential-dom-xss-analysis</id>
+      <link href="https://blog.dewhurstsecurity.com/2012/07/19/staticburp-burp-suite-potential-dom-xss-analysis.html" />
+      <id>https://blog.dewhurstsecurity.com/2012/07/19/staticburp-burp-suite-potential-dom-xss-analysis</id>
 	  
 	  <content type="html">A few weeks a go I had an idea.
 
@@ -647,8 +656,8 @@ The third step is to analyse the extracted JavaScript for Sinks, Sources and Sec
   
     <entry>
       <title>DevBug - PHP Static Code Analysis</title>
-      <link href="http://blog.dewhurstsecurity.com/2012/05/20/devbug-php-static-code-analysis.html" />
-      <id>http://blog.dewhurstsecurity.com/2012/05/20/devbug-php-static-code-analysis</id>
+      <link href="https://blog.dewhurstsecurity.com/2012/05/20/devbug-php-static-code-analysis.html" />
+      <id>https://blog.dewhurstsecurity.com/2012/05/20/devbug-php-static-code-analysis</id>
 	  
 	  <content type="html">My final year university dissertation was on the topic of Static Code Analysis, specifically the integration of IDEs (Integrated Development Environments) with Static Code Analysis. The idea was to make Static Code Analysis accesible to the developer, without them having to install and use additional specialist Static Code Analysis software.
 
@@ -662,8 +671,8 @@ The IDE used is called &lt;a href=&quot;http://codemirror.net/&quot; target=&quo
   
     <entry>
       <title>Old School hacking</title>
-      <link href="http://blog.dewhurstsecurity.com/2012/05/09/old-school-hacking.html" />
-      <id>http://blog.dewhurstsecurity.com/2012/05/09/old-school-hacking</id>
+      <link href="https://blog.dewhurstsecurity.com/2012/05/09/old-school-hacking.html" />
+      <id>https://blog.dewhurstsecurity.com/2012/05/09/old-school-hacking</id>
 	  
 	  <content type="html">Back in the late nineties, around 1999, my mother bought me my first computer. Around this time The Matrix movie was released which as a young boy with a new computer had me Yahoo'ing (Google was largely unknown) for the term 'hacking'. Back then Yahoo! Chat was still around and had a chat room called the 'Hackers Lounge', everyone in there was talking about all sorts of cool things you could do with computers that I had never heard of before. With hindsight, most of the people in the chat room were script kiddies who knew how to run a few Windows GUI 'hacking' tools and largely acting like they were the kings of the Internet. At the time I wanted to learn about all of the cool things they knew. I started downloading and learning how to use these 'hacking' tools by the use of my guinea pig friends and family (my siblings soon grew tired of me remotely opening and closing their CD-ROM drives).
 
@@ -685,8 +694,8 @@ Download: &lt;a href=&quot;http://packetstormsecurity.org/files/14711/legion.zip
   
     <entry>
       <title>Wireless Man In The Middle (MITM)</title>
-      <link href="http://blog.dewhurstsecurity.com/2012/02/13/wireless-man-in-the-middle-mitm.html" />
-      <id>http://blog.dewhurstsecurity.com/2012/02/13/wireless-man-in-the-middle-mitm</id>
+      <link href="https://blog.dewhurstsecurity.com/2012/02/13/wireless-man-in-the-middle-mitm.html" />
+      <id>https://blog.dewhurstsecurity.com/2012/02/13/wireless-man-in-the-middle-mitm</id>
 	  
 	  <content type="html">&lt;p&gt;This is a recent piece I did for the BBC Inside Out program that originally aired on February 6th. In the video I demonstrate a wireless &lt;a href=&quot;http://en.wikipedia.org/wiki/Man-in-the-middle_attack&quot; target=&quot;_blank&quot;&gt;Main In The Middle (MITM)&lt;/a&gt; attack in a coffee shop using a FON+ wireless router, Karma and &lt;a href=&quot;http://www.digininja.org/jasager/&quot; target=&quot;_blank&quot;&gt;Jasager&lt;/a&gt;. Oh, and they're the ones who call me an 'expert', personally, I hate the term and would never call myself one.&lt;/p&gt;
 &lt;p&gt;&lt;iframe width=&quot;420&quot; height=&quot;315&quot; src=&quot;http://www.youtube.com/embed/J6Lch5fhlO4&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;
@@ -696,8 +705,8 @@ Download: &lt;a href=&quot;http://packetstormsecurity.org/files/14711/legion.zip
   
     <entry>
       <title>Prevention of unwanted telemarketing calls</title>
-      <link href="http://blog.dewhurstsecurity.com/2012/01/20/prevention-of-unwanted-telemarketing-calls.html" />
-      <id>http://blog.dewhurstsecurity.com/2012/01/20/prevention-of-unwanted-telemarketing-calls</id>
+      <link href="https://blog.dewhurstsecurity.com/2012/01/20/prevention-of-unwanted-telemarketing-calls.html" />
+      <id>https://blog.dewhurstsecurity.com/2012/01/20/prevention-of-unwanted-telemarketing-calls</id>
 	  
 	  <content type="html">&lt;p&gt;I am tired of receiving multiple telemarketing calls per day, I'm tired of the &lt;a href=&quot;http://www.tpsonline.org.uk/tps/index.html&quot; target=&quot;_blank&quot;&gt;Telephone Preference Service (TPS)&lt;/a&gt; not having an affect and I'm tired of telecommunication companies charging for prevention features which should be free.&lt;/p&gt;
 &lt;p&gt;I came across an e-petition that was setup by a Rob Whitelock, it is not perfect in its recommendations but certainly puts the general point across.&lt;/p&gt;
@@ -710,8 +719,8 @@ Download: &lt;a href=&quot;http://packetstormsecurity.org/files/14711/legion.zip
   
     <entry>
       <title>WordPress 3.3 Cross-Site Scripting (XSS)</title>
-      <link href="http://blog.dewhurstsecurity.com/2012/01/03/wordpress-3-3-cross-site-scripting-xss.html" />
-      <id>http://blog.dewhurstsecurity.com/2012/01/03/wordpress-3-3-cross-site-scripting-xss</id>
+      <link href="https://blog.dewhurstsecurity.com/2012/01/03/wordpress-3-3-cross-site-scripting-xss.html" />
+      <id>https://blog.dewhurstsecurity.com/2012/01/03/wordpress-3-3-cross-site-scripting-xss</id>
 	  
 	  <content type="html">Yesterday two Indian security researchers, Aditya Modha &amp; Samir Shah, released an &lt;a href=&quot;http://oldmanlab.blogspot.com/2012/01/wordpress-33-xss-vulnerability.html&quot; target=&quot;_blank&quot;&gt;advisory&lt;/a&gt; outlining a Cross-Site Scripting (XSS) vulnerability within the latest version (at the time of writing) of WordPress 3.3. Many people started re-tweeting the news (including myself) and &lt;a href=&quot;http://thehackernews.com/2012/01/zero-day-reflected-cross-site-scripting.html&quot; target=&quot;_blank&quot;&gt;blogging&lt;/a&gt; about it. The problem came when I tried to reproduce the vulnerability, I couldn't.
 
@@ -727,8 +736,8 @@ At this point I think even the researchers were puzzled. They sent me this code 
   
     <entry>
       <title>WordPress Plugin Disqus Comment System XSS</title>
-      <link href="http://blog.dewhurstsecurity.com/2011/12/11/wordpress-plugin-disqus-comment-system-xss.html" />
-      <id>http://blog.dewhurstsecurity.com/2011/12/11/wordpress-plugin-disqus-comment-system-xss</id>
+      <link href="https://blog.dewhurstsecurity.com/2011/12/11/wordpress-plugin-disqus-comment-system-xss.html" />
+      <id>https://blog.dewhurstsecurity.com/2011/12/11/wordpress-plugin-disqus-comment-system-xss</id>
 	  
 	  <content type="html"># Exploit Title: WordPress Plugin Disqus Comment System &lt; = 2.68 Reflected Cross-Site Scripting (XSS)
 # Google Dork: inurl:/wp-content/plugins/disqus-comment-system/
@@ -748,8 +757,8 @@ The WordPress Disqus Commment System version 2.68 was found to be effected by Re
   
     <entry>
       <title>EC-Council - CEH - Unethical Behavior</title>
-      <link href="http://blog.dewhurstsecurity.com/2011/11/27/ec-council-ceh-unethical-behavior.html" />
-      <id>http://blog.dewhurstsecurity.com/2011/11/27/ec-council-ceh-unethical-behavior</id>
+      <link href="https://blog.dewhurstsecurity.com/2011/11/27/ec-council-ceh-unethical-behavior.html" />
+      <id>https://blog.dewhurstsecurity.com/2011/11/27/ec-council-ceh-unethical-behavior</id>
 	  
 	  <content type="html">The EC-Council or 'The International Council of E-Commerce Consultants' as they like to call themselves offer a range of different services, mostly in the field of Information Security training and certifications. One of their certifications, the Certified Ethical Hacker (CEH) claims to aspire to training 'ethical' hackers. 
 
@@ -768,8 +777,8 @@ Hey folks, Thanks for sharing your views,article includes a very good informatio
   
     <entry>
       <title>WPScan 1.1 released</title>
-      <link href="http://blog.dewhurstsecurity.com/2011/11/25/wpscan-1-1-released.html" />
-      <id>http://blog.dewhurstsecurity.com/2011/11/25/wpscan-1-1-released</id>
+      <link href="https://blog.dewhurstsecurity.com/2011/11/25/wpscan-1-1-released.html" />
+      <id>https://blog.dewhurstsecurity.com/2011/11/25/wpscan-1-1-released</id>
 	  
 	  <content type="html">I am pleased to announce, after 5 months of work, that WPScan version 1.1 has been released!
 
@@ -797,8 +806,8 @@ A full list of changes can be found here:
   
     <entry>
       <title>WordPress 'In the Wild' and WPScan Update</title>
-      <link href="http://blog.dewhurstsecurity.com/2011/11/23/wordpress-in-the-wild-and-wpscan-update.html" />
-      <id>http://blog.dewhurstsecurity.com/2011/11/23/wordpress-in-the-wild-and-wpscan-update</id>
+      <link href="https://blog.dewhurstsecurity.com/2011/11/23/wordpress-in-the-wild-and-wpscan-update.html" />
+      <id>https://blog.dewhurstsecurity.com/2011/11/23/wordpress-in-the-wild-and-wpscan-update</id>
 	  
 	  <content type="html">As part of my on-going interest in WordPress security I wanted to find out for myself what the state of security was like on installations in the wild.
 
@@ -812,8 +821,8 @@ An Open Source project I have been working on, &lt;a href=&quot;http://code.goog
   
     <entry>
       <title>Full Path Disclosure (FPD)</title>
-      <link href="http://blog.dewhurstsecurity.com/2011/10/05/full-path-disclosure-fpd.html" />
-      <id>http://blog.dewhurstsecurity.com/2011/10/05/full-path-disclosure-fpd</id>
+      <link href="https://blog.dewhurstsecurity.com/2011/10/05/full-path-disclosure-fpd.html" />
+      <id>https://blog.dewhurstsecurity.com/2011/10/05/full-path-disclosure-fpd</id>
 	  
 	  <content type="html">Many people including developers, vendors and security professionals believe that Full Path Disclosure (FPD) is mainly a Security Misconfiguration problem rather than a Input Sanitation or Error Handling problem. I'm not saying that they are wrong, but I hope to convince them that it is more of a coding bug than a configuration bug. I want to put my argument over as to why I think FPD is a bug in source code and not in configuration. 
 
@@ -835,8 +844,8 @@ It's just the path of the file from the root directory, what's all the fuss abou
   
     <entry>
       <title>Concrete5 <= 5.4.2.1 SQL Injection and XSS Vulnerabilities</title>
-      <link href="http://blog.dewhurstsecurity.com/2011/10/04/concrete5.html" />
-      <id>http://blog.dewhurstsecurity.com/2011/10/04/concrete5</id>
+      <link href="https://blog.dewhurstsecurity.com/2011/10/04/concrete5.html" />
+      <id>https://blog.dewhurstsecurity.com/2011/10/04/concrete5</id>
 	  
 	  <content type="html"># Exploit Title: Concrete5 &lt; = 5.4.2.1 SQL Injection and XSS Vulnerabilities
 # Date: 2011-10-04
@@ -860,8 +869,8 @@ CMS made for Marketing but built for Geeks, concrete5 [0] is a content managemen
   
     <entry>
       <title>[Video] WPScan and Metasploit's Meterpreter</title>
-      <link href="http://blog.dewhurstsecurity.com/2011/09/27/video-wpscan-and-metasploits-meterpreter.html" />
-      <id>http://blog.dewhurstsecurity.com/2011/09/27/video-wpscan-and-metasploits-meterpreter</id>
+      <link href="https://blog.dewhurstsecurity.com/2011/09/27/video-wpscan-and-metasploits-meterpreter.html" />
+      <id>https://blog.dewhurstsecurity.com/2011/09/27/video-wpscan-and-metasploits-meterpreter</id>
 	  
 	  <content type="html">&lt;p&gt;Video demonstrating the PoC of WPScan using Metasploit's meterpreter to exploit a vulnerable WordPress plugin.&lt;/p&gt;
 &lt;p&gt;&lt;iframe src=&quot;http://player.vimeo.com/video/29660886?title=0&amp;amp;byline=0&amp;amp;portrait=0&quot; width=&quot;600&quot; height=&quot;500&quot; frameborder=&quot;0&quot; webkitallowfullscreen=&quot;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
@@ -873,8 +882,8 @@ CMS made for Marketing but built for Geeks, concrete5 [0] is a content managemen
   
     <entry>
       <title>[ES] Metasploit db_autopwn contra Windows 8</title>
-      <link href="http://blog.dewhurstsecurity.com/2011/09/14/es-metasploit-db_autopwn-contra-windows-8.html" />
-      <id>http://blog.dewhurstsecurity.com/2011/09/14/es-metasploit-db_autopwn-contra-windows-8</id>
+      <link href="https://blog.dewhurstsecurity.com/2011/09/14/es-metasploit-db_autopwn-contra-windows-8.html" />
+      <id>https://blog.dewhurstsecurity.com/2011/09/14/es-metasploit-db_autopwn-contra-windows-8</id>
 	  
 	  <content type="html">Mi primer blog post en Español! &lt;em&gt;(lo siento si mi Español escrito no es perfecto)&lt;/em&gt;
 
@@ -892,8 +901,8 @@ Para esto quería usar el db_autopwn para que Metasploit use todos los exploits 
   
     <entry>
       <title>Setting up Tor on BackTrack</title>
-      <link href="http://blog.dewhurstsecurity.com/2011/09/08/setting-up-tor-on-backtrack.html" />
-      <id>http://blog.dewhurstsecurity.com/2011/09/08/setting-up-tor-on-backtrack</id>
+      <link href="https://blog.dewhurstsecurity.com/2011/09/08/setting-up-tor-on-backtrack.html" />
+      <id>https://blog.dewhurstsecurity.com/2011/09/08/setting-up-tor-on-backtrack</id>
 	  
 	  <content type="html">I was playing around with getting &lt;a href=&quot;http://www.randomstorm.com/wpscan-security-tool.php&quot; target=&quot;_blank&quot;&gt;wpscan&lt;/a&gt; to run through the &lt;a href=&quot;http://www.torproject.org/&quot; target=&quot;_blank&quot;&gt;Tor&lt;/a&gt; network so I needed to setup Tor (from source) and &lt;a href=&quot;http://www.privoxy.org/&quot; target=&quot;_blank&quot;&gt;Privoxy&lt;/a&gt; on &lt;a href=&quot;http://www.backtrack-linux.org/&quot; target=&quot;_blank&quot;&gt;BackTrack&lt;/a&gt;. These are the steps I took to setup Tor and Privoxy on Backtrack 5 R1. (wpscan does not yet support scanning through the Tor network)
 
@@ -916,8 +925,8 @@ $./configure &amp;&amp; make &amp;&amp; src/or/tor
   
     <entry>
       <title>WordPress CD</title>
-      <link href="http://blog.dewhurstsecurity.com/2011/07/13/wordpress-cd.html" />
-      <id>http://blog.dewhurstsecurity.com/2011/07/13/wordpress-cd</id>
+      <link href="https://blog.dewhurstsecurity.com/2011/07/13/wordpress-cd.html" />
+      <id>https://blog.dewhurstsecurity.com/2011/07/13/wordpress-cd</id>
 	  
 	  <content type="html">I needed a research environment to help develop &lt;a href=&quot;http://www.randomstorm.com/wpscan-security-tool.php&quot; target=&quot;_blank&quot;&gt;WPScan&lt;/a&gt; so I put together a &lt;a href=&quot;http://www.virtualbox.org/&quot; target=&quot;_blank&quot;&gt;VirtualBox&lt;/a&gt; virtual machine with every &lt;a href=&quot;http://wordpress.org/download/release-archive/&quot; target=&quot;_blank&quot;&gt;WordPress release&lt;/a&gt; installed (not including MU or BETA/Candidates). The download, untar and database creation was all automated. The manual bit was installing them all.
 
@@ -944,8 +953,8 @@ wordpress-2.0.10
   
     <entry>
       <title>BSidesLondon HNN Videos</title>
-      <link href="http://blog.dewhurstsecurity.com/2011/07/10/bsideslondon-hnn-videos.html" />
-      <id>http://blog.dewhurstsecurity.com/2011/07/10/bsideslondon-hnn-videos</id>
+      <link href="https://blog.dewhurstsecurity.com/2011/07/10/bsideslondon-hnn-videos.html" />
+      <id>https://blog.dewhurstsecurity.com/2011/07/10/bsideslondon-hnn-videos</id>
 	  
 	  <content type="html">20th of April 2011 was the first &lt;a href=&quot;http://www.securitybsides.com/w/page/12194156/FrontPage&quot; target=&quot;_blank&quot;&gt;BSides&lt;/a&gt; held in London, &lt;a href=&quot;http://www.securitybsides.com/w/page/27749044/BSidesLondon&quot; target=&quot;_blank&quot;&gt;BSidesLondon&lt;/a&gt;.
 
@@ -963,8 +972,8 @@ Instead of letting the footage go to waste I thought I would stick the &lt;stron
   
     <entry>
       <title>Did lulzsec expose your friends password?</title>
-      <link href="http://blog.dewhurstsecurity.com/2011/06/27/did-lulzsec-expose-your-freinds-password.html" />
-      <id>http://blog.dewhurstsecurity.com/2011/06/27/did-lulzsec-expose-your-freinds-password</id>
+      <link href="https://blog.dewhurstsecurity.com/2011/06/27/did-lulzsec-expose-your-freinds-password.html" />
+      <id>https://blog.dewhurstsecurity.com/2011/06/27/did-lulzsec-expose-your-freinds-password</id>
 	  
 	  <content type="html">I assume you have all heard about Lulzsec over the past few months so I will not go into their backstory and instead get straight to the point.
 
@@ -978,8 +987,8 @@ The data dump has now been removed from TPB due to some of the files allegedly b
   
     <entry>
       <title>Introducing WPScan - WordPress Security Scanner</title>
-      <link href="http://blog.dewhurstsecurity.com/2011/06/16/introducing-wpscan-wordpress-security-scanner.html" />
-      <id>http://blog.dewhurstsecurity.com/2011/06/16/introducing-wpscan-wordpress-security-scanner</id>
+      <link href="https://blog.dewhurstsecurity.com/2011/06/16/introducing-wpscan-wordpress-security-scanner.html" />
+      <id>https://blog.dewhurstsecurity.com/2011/06/16/introducing-wpscan-wordpress-security-scanner</id>
 	  
 	  <content type="html">After creating the &lt;a href=&quot;http://www.ethicalhack3r.co.uk/security/wordpress-brute-force-tool/&quot;&gt;WordPress Brute Force Tool&lt;/a&gt; last weekend, I decided to create a bigger project out of it, called WPScan. 
 
@@ -1001,8 +1010,8 @@ Other miscellaneous checks
   
     <entry>
       <title>WordPress Brute Force Tool</title>
-      <link href="http://blog.dewhurstsecurity.com/2011/06/13/wordpress-brute-force-tool.html" />
-      <id>http://blog.dewhurstsecurity.com/2011/06/13/wordpress-brute-force-tool</id>
+      <link href="https://blog.dewhurstsecurity.com/2011/06/13/wordpress-brute-force-tool.html" />
+      <id>https://blog.dewhurstsecurity.com/2011/06/13/wordpress-brute-force-tool</id>
 	  
 	  <content type="html">Following on from my previous post &lt;a href=&quot;http://www.ethicalhack3r.co.uk/security/patching-wordpress-username-disclosure/&quot;&gt;Patching WordPress Username Disclosure&lt;/a&gt; I got bored over the weekend and decided to implement Veronica Valeros's username disclosure technique into a WordPress password brute force tool.
 
@@ -1016,8 +1025,8 @@ Currently you can use the tool in 3 different ways.
   
     <entry>
       <title>Patching WordPress Username Disclosure</title>
-      <link href="http://blog.dewhurstsecurity.com/2011/06/01/patching-wordpress-username-disclosure.html" />
-      <id>http://blog.dewhurstsecurity.com/2011/06/01/patching-wordpress-username-disclosure</id>
+      <link href="https://blog.dewhurstsecurity.com/2011/06/01/patching-wordpress-username-disclosure.html" />
+      <id>https://blog.dewhurstsecurity.com/2011/06/01/patching-wordpress-username-disclosure</id>
 	  
 	  <content type="html">On May 26th Veronica Valero of Talsoft S.R.L. posted a security advisory on the &lt;a href=&quot;http://seclists.org/fulldisclosure/2011/May/493&quot; target=&quot;_blank&quot;&gt;Full Disclosure&lt;/a&gt; mailing list outlining a username disclosure vulnerability via a &lt;a href=&quot;https://www.owasp.org/index.php/Top_10_2010-A4-Insecure_Direct_Object_References&quot; target=&quot;_blank&quot;&gt;Direct Object Reference&lt;/a&gt;. 
 
@@ -1031,8 +1040,8 @@ This is a problem in itself, however, what was more interesting to me was Zerial
   
     <entry>
       <title>Ethical Hacking Degrees - the good, the bad, the ugly</title>
-      <link href="http://blog.dewhurstsecurity.com/2011/04/11/ethical-hacking-degrees-the-good-the-bad-the-ugly.html" />
-      <id>http://blog.dewhurstsecurity.com/2011/04/11/ethical-hacking-degrees-the-good-the-bad-the-ugly</id>
+      <link href="https://blog.dewhurstsecurity.com/2011/04/11/ethical-hacking-degrees-the-good-the-bad-the-ugly.html" />
+      <id>https://blog.dewhurstsecurity.com/2011/04/11/ethical-hacking-degrees-the-good-the-bad-the-ugly</id>
 	  
 	  <content type="html">&lt;rant&gt;
 I often get emails (yes, people actually email me) around September time from young students who have come across this blog wanting to know more about doing Ethical Hacking at university level. I am writing this blog post in part to prevent myself from asking these young people for money for my time in replying to all of their questions. Also there seems to be a lot of misinformation about doing degrees related to computer/information security within the community.
@@ -1045,8 +1054,8 @@ Now, you maybe thinking... Ryan has invested countless thousands of pounds and f
   
     <entry>
       <title>HNNCast + Boxee = <3</title>
-      <link href="http://blog.dewhurstsecurity.com/2011/04/01/hnncast-boxee.html" />
-      <id>http://blog.dewhurstsecurity.com/2011/04/01/hnncast-boxee</id>
+      <link href="https://blog.dewhurstsecurity.com/2011/04/01/hnncast-boxee.html" />
+      <id>https://blog.dewhurstsecurity.com/2011/04/01/hnncast-boxee</id>
 	  
 	  <content type="html">Trying to get &quot;hacker&quot; media on Boxee can sometimes be a pain in the ass. 
 
@@ -1058,8 +1067,8 @@ Now, you maybe thinking... Ryan has invested countless thousands of pounds and f
   
     <entry>
       <title>DO NOT CLICK!</title>
-      <link href="http://blog.dewhurstsecurity.com/2011/02/28/do-not-click.html" />
-      <id>http://blog.dewhurstsecurity.com/2011/02/28/do-not-click</id>
+      <link href="https://blog.dewhurstsecurity.com/2011/02/28/do-not-click.html" />
+      <id>https://blog.dewhurstsecurity.com/2011/02/28/do-not-click</id>
 	  
 	  <content type="html">So I was listening to the latest PaulDotCom security weekly podcast &lt;a href=&quot;http://pauldotcom.com/2011/02/pauldotcom---security-weekly---48.html&quot; target=&quot;_blank&quot;&gt;episode 232&lt;/a&gt; via my &lt;a href=&quot;http://www.ethicalhack3r.co.uk/security/securitypodcasts-boxee-app/&quot; target=&quot;_blank&quot;&gt;SecurityPodcasts Boxee app&lt;/a&gt; where Mike Murr or Murray or both?! were talking about effective Phishing and how to be 110% successful.
 
@@ -1076,8 +1085,8 @@ As you can see I tweeted the words &quot;DO NOT CLICK =&gt;&quot; followed by a 
   
     <entry>
       <title>Grepping for bugs in PHP</title>
-      <link href="http://blog.dewhurstsecurity.com/2011/02/01/greping-for-bugs-in-php.html" />
-      <id>http://blog.dewhurstsecurity.com/2011/02/01/greping-for-bugs-in-php</id>
+      <link href="https://blog.dewhurstsecurity.com/2011/02/01/greping-for-bugs-in-php.html" />
+      <id>https://blog.dewhurstsecurity.com/2011/02/01/greping-for-bugs-in-php</id>
 	  
 	  <content type="html">Today I used the following commands to grep through PHP source code to find some bugs. I thought they may be useful to someone else so I thought I would stick them on here. This list is by no means extensive however they are the ones I found most useful. 
 
@@ -1096,8 +1105,8 @@ grep -i -r &quot;\$_REQUEST&quot; * | grep &quot;echo&quot;&lt;/blockquote&gt;
   
     <entry>
       <title>Web Application Security Timeline (WAST) v1.0</title>
-      <link href="http://blog.dewhurstsecurity.com/2011/01/10/web-application-security-timeline-wast-v1-0.html" />
-      <id>http://blog.dewhurstsecurity.com/2011/01/10/web-application-security-timeline-wast-v1-0</id>
+      <link href="https://blog.dewhurstsecurity.com/2011/01/10/web-application-security-timeline-wast-v1-0.html" />
+      <id>https://blog.dewhurstsecurity.com/2011/01/10/web-application-security-timeline-wast-v1-0</id>
 	  
 	  <content type="html">&lt;p&gt;In order to know where we’re going, we have to understand where we have come from.&lt;/p&gt;
 &lt;p&gt;Over the weekend I had the idea of creating the Web Application Security Timeline (WAST) and posted an RFC yesterday in this post: &lt;a href=&quot;http://www.ethicalhack3r.co.uk/security/web-application-security-timeline-rfc/&quot;&gt;http://www.ethicalhack3r.co.uk/security/web-application-security-timeline-rfc/&lt;/a&gt;. After much feedback from the WebAppSec community from various mailing lists, Twitter, email and this blog I present to you version 1.0!&lt;/p&gt;
@@ -1110,8 +1119,8 @@ grep -i -r &quot;\$_REQUEST&quot; * | grep &quot;echo&quot;&lt;/blockquote&gt;
   
     <entry>
       <title>Web Application Security Timeline RFC</title>
-      <link href="http://blog.dewhurstsecurity.com/2011/01/09/web-application-security-timeline-rfc.html" />
-      <id>http://blog.dewhurstsecurity.com/2011/01/09/web-application-security-timeline-rfc</id>
+      <link href="https://blog.dewhurstsecurity.com/2011/01/09/web-application-security-timeline-rfc.html" />
+      <id>https://blog.dewhurstsecurity.com/2011/01/09/web-application-security-timeline-rfc</id>
 	  
 	  <content type="html">&lt;p&gt;In order to know where we’re going, we have to understand where we have come from.&lt;/p&gt;
 &lt;p&gt;I began wondering a couple of days ago, how did we get here? What was the evolution of web application security? To answer this question I decided to put together a Web Application Security Timeline. &lt;/p&gt;
@@ -1129,8 +1138,8 @@ grep -i -r &quot;\$_REQUEST&quot; * | grep &quot;echo&quot;&lt;/blockquote&gt;
   
     <entry>
       <title>Barclays bank #fail</title>
-      <link href="http://blog.dewhurstsecurity.com/2011/01/03/barclays-bank-fail.html" />
-      <id>http://blog.dewhurstsecurity.com/2011/01/03/barclays-bank-fail</id>
+      <link href="https://blog.dewhurstsecurity.com/2011/01/03/barclays-bank-fail.html" />
+      <id>https://blog.dewhurstsecurity.com/2011/01/03/barclays-bank-fail</id>
 	  
 	  <content type="html">Look what I saw in a Barclays bank window during my trip to Gibraltar! PCI Fail?
 
@@ -1142,8 +1151,8 @@ grep -i -r &quot;\$_REQUEST&quot; * | grep &quot;echo&quot;&lt;/blockquote&gt;
   
     <entry>
       <title>Persistent BeEF</title>
-      <link href="http://blog.dewhurstsecurity.com/2010/11/05/persistent-beef.html" />
-      <id>http://blog.dewhurstsecurity.com/2010/11/05/persistent-beef</id>
+      <link href="https://blog.dewhurstsecurity.com/2010/11/05/persistent-beef.html" />
+      <id>https://blog.dewhurstsecurity.com/2010/11/05/persistent-beef</id>
 	  
 	  <content type="html">No, not that kind of beef!
 
@@ -1160,8 +1169,8 @@ BeEF is a tool used to enhance the exploitation of Cross Site Scripting (XSS) at
   
     <entry>
       <title>OWASP AppSec Ireland 2010</title>
-      <link href="http://blog.dewhurstsecurity.com/2010/09/19/owasp-appsec-ireland-2010.html" />
-      <id>http://blog.dewhurstsecurity.com/2010/09/19/owasp-appsec-ireland-2010</id>
+      <link href="https://blog.dewhurstsecurity.com/2010/09/19/owasp-appsec-ireland-2010.html" />
+      <id>https://blog.dewhurstsecurity.com/2010/09/19/owasp-appsec-ireland-2010</id>
 	  
 	  <content type="html">Over the weekend I attended OWASP AppSec Ireland 2010 at Trinity College in Dublin. The event was a full day event held on the 17th September starting at 9AM and 'officially' ending at 9PM. On my first night in Dublin I went for an excellent Italian meal with some great people, these include &lt;a href=&quot;http://www.twitter.com/securityninja&quot; target=&quot;_blank&quot;&gt;@securityninja&lt;/a&gt;, &lt;a href=&quot;http://www.twitter.com/Angelill0&quot; target=&quot;_blank&quot;&gt;@Angelill0, &lt;/a&gt;&lt;a href=&quot;http://www.twitter.com/danielcornell&quot; target=&quot;_blank&quot;&gt;@danielcornell&lt;/a&gt; and others. The evening was polished off with a traditional pint of Guiness in a local pub.
 
@@ -1173,8 +1182,8 @@ On the day of the conference I arrived a little early and had some brief discuss
   
     <entry>
       <title>DVWA 1.0.7 is here!</title>
-      <link href="http://blog.dewhurstsecurity.com/2010/09/08/dvwa-1-0-7-is-here.html" />
-      <id>http://blog.dewhurstsecurity.com/2010/09/08/dvwa-1-0-7-is-here</id>
+      <link href="https://blog.dewhurstsecurity.com/2010/09/08/dvwa-1-0-7-is-here.html" />
+      <id>https://blog.dewhurstsecurity.com/2010/09/08/dvwa-1-0-7-is-here</id>
 	  
 	  <content type="html">After 9 months since the last release we are proud to present the all new Damn Vulnerable Web Application version 1.0.7.
 
@@ -1193,8 +1202,8 @@ Many bug fixes and small changes throughout the application.
   
     <entry>
       <title>DropBox Security</title>
-      <link href="http://blog.dewhurstsecurity.com/2010/08/03/dropbox-security.html" />
-      <id>http://blog.dewhurstsecurity.com/2010/08/03/dropbox-security</id>
+      <link href="https://blog.dewhurstsecurity.com/2010/08/03/dropbox-security.html" />
+      <id>https://blog.dewhurstsecurity.com/2010/08/03/dropbox-security</id>
 	  
 	  <content type="html">For those of you new to Dropbox:
 &lt;blockquote&gt;&quot;Dropbox is a Web-based file hosting service operated by Dropbox, Inc. which uses cloud computing to enable users to store and share files and folders with others across the Internet using file synchronization.&quot;&lt;/blockquote&gt;
@@ -1210,8 +1219,8 @@ Dropbox has become very popular and widely used as it has so many different uses
   
     <entry>
       <title>[Interview] The Jester</title>
-      <link href="http://blog.dewhurstsecurity.com/2010/07/04/interview-the-jester.html" />
-      <id>http://blog.dewhurstsecurity.com/2010/07/04/interview-the-jester</id>
+      <link href="https://blog.dewhurstsecurity.com/2010/07/04/interview-the-jester.html" />
+      <id>https://blog.dewhurstsecurity.com/2010/07/04/interview-the-jester</id>
 	  
 	  <content type="html">It's not often I interview people for the blog however when some one catches my eye and raises my interest I like to find out more about them and share it with my readers. This time I interviewed 'The Jester'. The Jester has been in the media spotlight recently for taking down Jihadist terrorist web sites via use of a targeted DoS attacks. 
 
@@ -1227,8 +1236,8 @@ Now with regard to what I do: I aim to cause disruption to the online efforts of
   
     <entry>
       <title>Why Johnny Can’t Pentest</title>
-      <link href="http://blog.dewhurstsecurity.com/2010/07/03/738.html" />
-      <id>http://blog.dewhurstsecurity.com/2010/07/03/738</id>
+      <link href="https://blog.dewhurstsecurity.com/2010/07/03/738.html" />
+      <id>https://blog.dewhurstsecurity.com/2010/07/03/738</id>
 	  
 	  <content type="html">A white paper released recently (not dated) by the University of California titled ‘Why Johnny Can’t Pentest: An Analysis of Black-box Web Vulnerability Scanners’ evaluates eleven commercial and open-source black-box web vulnerability scanners.
 
@@ -1242,8 +1251,8 @@ They tested each scanner against WackoPicko in three different modes. Initial (p
   
     <entry>
       <title>Web server zombies</title>
-      <link href="http://blog.dewhurstsecurity.com/2010/06/27/web-server-zombies.html" />
-      <id>http://blog.dewhurstsecurity.com/2010/06/27/web-server-zombies</id>
+      <link href="https://blog.dewhurstsecurity.com/2010/06/27/web-server-zombies.html" />
+      <id>https://blog.dewhurstsecurity.com/2010/06/27/web-server-zombies</id>
 	  
 	  <content type="html">Every now and then I like to visit black-hat community forums for a number of legitimate reasons. I like to see what the other side are up to, what they are buying/selling, at what price, who they are targeting, the skill level of the attackers, what exploitation techniques they use, etc. Visiting these underground community forums passively can be a great learning experience.
 
@@ -1257,8 +1266,8 @@ While browsing a particular black-hat community forum I came across a post by a 
   
     <entry>
       <title>Weponising Web bugs</title>
-      <link href="http://blog.dewhurstsecurity.com/2010/05/31/weponising-web-bugs.html" />
-      <id>http://blog.dewhurstsecurity.com/2010/05/31/weponising-web-bugs</id>
+      <link href="https://blog.dewhurstsecurity.com/2010/05/31/weponising-web-bugs.html" />
+      <id>https://blog.dewhurstsecurity.com/2010/05/31/weponising-web-bugs</id>
 	  
 	  <content type="html">Back in March 2009 I wrote a blog post about using web bugs in information gathering, found &lt;a href=&quot;http://www.ethicalhack3r.co.uk/security/using-a-web-bug-for-information-gathering/&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;. For those unfamiliar with web bugs;
 
@@ -1273,8 +1282,8 @@ At the time I thought I had stumbled across something unique and that no one had
   
     <entry>
       <title>DevBUG - Keeping track so you don't have to</title>
-      <link href="http://blog.dewhurstsecurity.com/2010/05/21/devbug-keeping-track-so-you-dont-have-to.html" />
-      <id>http://blog.dewhurstsecurity.com/2010/05/21/devbug-keeping-track-so-you-dont-have-to</id>
+      <link href="https://blog.dewhurstsecurity.com/2010/05/21/devbug-keeping-track-so-you-dont-have-to.html" />
+      <id>https://blog.dewhurstsecurity.com/2010/05/21/devbug-keeping-track-so-you-dont-have-to</id>
 	  
 	  <content type="html">DevBUG is an idea that came to me while conducting a Vulnerability Assessment for University a few months back. We did a service scan on a web server and found that way too many ports and services were running! But that wasn't the problem, well, not for us anyway. The problem was, is that we had 20 different software services and versions to google and write about.
 
@@ -1288,8 +1297,8 @@ So in comes DevBUG. DevBUG is a web application which will be free for any one t
   
     <entry>
       <title>UK Security Clearance 101</title>
-      <link href="http://blog.dewhurstsecurity.com/2010/05/16/uk-security-clearance-101.html" />
-      <id>http://blog.dewhurstsecurity.com/2010/05/16/uk-security-clearance-101</id>
+      <link href="https://blog.dewhurstsecurity.com/2010/05/16/uk-security-clearance-101.html" />
+      <id>https://blog.dewhurstsecurity.com/2010/05/16/uk-security-clearance-101</id>
 	  
 	  <content type="html">In the Information Security industry it is said that if you have security clearance you can earn significantly more income and work on exiting secret projects for government agencies. So what is security clearance and how do I get it?
 
@@ -1315,8 +1324,8 @@ Reference: &lt;a href=&quot;http://www.securityclearedjobs.com/HowToBeSecurityCl
   
     <entry>
       <title>Month of PHP Security</title>
-      <link href="http://blog.dewhurstsecurity.com/2010/04/28/month-of-php-security.html" />
-      <id>http://blog.dewhurstsecurity.com/2010/04/28/month-of-php-security</id>
+      <link href="https://blog.dewhurstsecurity.com/2010/04/28/month-of-php-security.html" />
+      <id>https://blog.dewhurstsecurity.com/2010/04/28/month-of-php-security</id>
 	  
 	  <content type="html">In 2007 the &lt;a href=&quot;http://www.hardened-php.net/&quot;&gt;Hardened-PHP Project&lt;/a&gt; setup by three German Security Researchers organised the Month of PHP Bugs (MOPB). The 'Month of Bugs' concept was started by non other than HD Moore back in 2006 with his Month of Browser Bugs (MoBB) which found security holes within most of the popular browsers. Since then there have been many 'Month's of Bugs' including &lt;a href=&quot;http://projects.info-pull.com/mokb/&quot;&gt;Month of Kernel Bugs (MoKB)&lt;/a&gt;, &lt;a href=&quot;http://projects.info-pull.com/moab/&quot;&gt;Month of Apple Bugs&lt;/a&gt;, &lt;a href=&quot;http://twitpwn.com/&quot;&gt;Month of Twitter Bugs&lt;/a&gt; and the &lt;a href=&quot;http://theharmonyguy.com/2009/09/15/the-month-of-facebook-bugs-halfway-report/&quot;&gt;Month of Facebook Bugs&lt;/a&gt;.
 
@@ -1329,8 +1338,8 @@ Reference: &lt;a href=&quot;http://www.securityclearedjobs.com/HowToBeSecurityCl
   
     <entry>
       <title>Skipfish - Automated web security scanner</title>
-      <link href="http://blog.dewhurstsecurity.com/2010/03/21/skipfish-automated-web-security-scanner.html" />
-      <id>http://blog.dewhurstsecurity.com/2010/03/21/skipfish-automated-web-security-scanner</id>
+      <link href="https://blog.dewhurstsecurity.com/2010/03/21/skipfish-automated-web-security-scanner.html" />
+      <id>https://blog.dewhurstsecurity.com/2010/03/21/skipfish-automated-web-security-scanner</id>
 	  
 	  <content type="html">A couple of days ago (March 19th) Michal Zalewski famous for tools such as p0f and his excellent book 'Silence on the wire' announced the release of an open source automated web security scanner called Skipfish from the &lt;a href=&quot;http://googleonlinesecurity.blogspot.com/&quot;&gt;Google Online Security Blog&lt;/a&gt;.
 
@@ -1354,8 +1363,8 @@ Reference: &lt;a href=&quot;http://www.securityclearedjobs.com/HowToBeSecurityCl
   
     <entry>
       <title>OWASP Testing Methodology</title>
-      <link href="http://blog.dewhurstsecurity.com/2010/03/08/owasp-testing-methodology.html" />
-      <id>http://blog.dewhurstsecurity.com/2010/03/08/owasp-testing-methodology</id>
+      <link href="https://blog.dewhurstsecurity.com/2010/03/08/owasp-testing-methodology.html" />
+      <id>https://blog.dewhurstsecurity.com/2010/03/08/owasp-testing-methodology</id>
 	  
 	  <content type="html">It is very easy for some one to find an XSS vulnerability within a web application and write a report about it. According to &lt;a href=&quot;http://www.whitehatsec.com/home/assets/WPStatsreport_100107.pdf&quot;&gt;WhiteHat Security&lt;/a&gt; (2007) there is a 73% chance that you will find an XSS vulnerability within a web application. Does finding one of these mean you have assessed the security of the web application? Let's take a web application vulnerability that is 'seen' to be more critical. Again, according to &lt;a href=&quot;http://www.whitehatsec.com/home/assets/WPStatsreport_100107.pdf&quot;&gt;WhiteHat Security&lt;/a&gt; you have a 18% likelihood to find an SQL Injection vulnerability within a web application. So during the web application security assessment you have found an SQL injection vulnerability, the back end DBMS is a version of Microsoft SQL Server which has '&lt;a href=&quot;http://msdn.microsoft.com/en-us/library/ms175046.aspx&quot;&gt;xp_cmdshell&lt;/a&gt;' enabled by default. You manage to get a reverse shell and acquire a copy of the database. Great! By gaining shell access to the server does that mean you have properly assessed the security of the web application? No!
 
@@ -1365,8 +1374,8 @@ Reference: &lt;a href=&quot;http://www.securityclearedjobs.com/HowToBeSecurityCl
   
     <entry>
       <title>WordPress >= 2.9 Failure to Restrict URL Access</title>
-      <link href="http://blog.dewhurstsecurity.com/2010/02/13/wordpress-2-9-failure-to-restrict-url-access.html" />
-      <id>http://blog.dewhurstsecurity.com/2010/02/13/wordpress-2-9-failure-to-restrict-url-access</id>
+      <link href="https://blog.dewhurstsecurity.com/2010/02/13/wordpress-2-9-failure-to-restrict-url-access.html" />
+      <id>https://blog.dewhurstsecurity.com/2010/02/13/wordpress-2-9-failure-to-restrict-url-access</id>
 	  
 	  <content type="html">1. *Advisory Information*
 
@@ -1385,8 +1394,8 @@ Locally Exploitable: Yes
   
     <entry>
       <title>Writing reports - Oh noes!</title>
-      <link href="http://blog.dewhurstsecurity.com/2010/01/30/writing-reports-oh-noes.html" />
-      <id>http://blog.dewhurstsecurity.com/2010/01/30/writing-reports-oh-noes</id>
+      <link href="https://blog.dewhurstsecurity.com/2010/01/30/writing-reports-oh-noes.html" />
+      <id>https://blog.dewhurstsecurity.com/2010/01/30/writing-reports-oh-noes</id>
 	  
 	  <content type="html">Report writing has a bad reputation, every one seems to hate writing them and believe it to be the anticlimax of the assessment process. I haven't been writing reports for very long, the reports that I have written I have enjoyed, no doubt in time the novelty will wear off and I will grow to hate them too. There are however lessons that I have learnt in my short report writing experience which I believe could have made my report writing that little bit easier and less time consuming. Those lessons I am going to share with you and if your just starting out in your report writing duties hopefully these can help you too. Or if your a report writing guru share your tips with me! The reports I have written are mainly web application assessments so I will concentrate on those.
 
@@ -1398,8 +1407,8 @@ Locally Exploitable: Yes
   
     <entry>
       <title>Ethical Hacking / Security University Degrees UK</title>
-      <link href="http://blog.dewhurstsecurity.com/2010/01/25/ethical-hacking-security-university-degrees-uk.html" />
-      <id>http://blog.dewhurstsecurity.com/2010/01/25/ethical-hacking-security-university-degrees-uk</id>
+      <link href="https://blog.dewhurstsecurity.com/2010/01/25/ethical-hacking-security-university-degrees-uk.html" />
+      <id>https://blog.dewhurstsecurity.com/2010/01/25/ethical-hacking-security-university-degrees-uk</id>
 	  
 	  <content type="html">One of the most popular posts on my blog is the &lt;a href=&quot;http://www.ethicalhack3r.co.uk/2009/04/29/guest-post-current-available-uk-degrees/&quot;&gt;Guest post: Current Available UK Degrees&lt;/a&gt; by 1337speak in April last year. I have decided to update the list as to keep the information up to date.
 
@@ -1411,8 +1420,8 @@ You who know me will know that I my self am enrolled on one of these University 
   
     <entry>
       <title>SecurityPodcasts Boxee App</title>
-      <link href="http://blog.dewhurstsecurity.com/2010/01/19/securitypodcasts-boxee-app.html" />
-      <id>http://blog.dewhurstsecurity.com/2010/01/19/securitypodcasts-boxee-app</id>
+      <link href="https://blog.dewhurstsecurity.com/2010/01/19/securitypodcasts-boxee-app.html" />
+      <id>https://blog.dewhurstsecurity.com/2010/01/19/securitypodcasts-boxee-app</id>
 	  
 	  <content type="html">&lt;strong&gt;What is Boxee?&lt;/strong&gt;
 &lt;blockquote&gt;Boxee is the best way to enjoy entertainment from the Internet and computer on your TV&lt;/blockquote&gt;
@@ -1428,8 +1437,8 @@ Boxee allows you to develop 'Apps' which are basically XML files which grab RSS 
   
     <entry>
       <title>Dionaea - Low interaction honeypot</title>
-      <link href="http://blog.dewhurstsecurity.com/2010/01/17/dionaea-low-interaction-honeypot.html" />
-      <id>http://blog.dewhurstsecurity.com/2010/01/17/dionaea-low-interaction-honeypot</id>
+      <link href="https://blog.dewhurstsecurity.com/2010/01/17/dionaea-low-interaction-honeypot.html" />
+      <id>https://blog.dewhurstsecurity.com/2010/01/17/dionaea-low-interaction-honeypot</id>
 	  
 	  <content type="html">After running Glastopf (&lt;a href=&quot;http://www.ethicalhack3r.co.uk/2010/01/10/glastopf-web-application-honeypot/&quot;&gt;Glastopf – Web Application Honeypot&lt;/a&gt;) for a few days and not getting any hits, I was a bit disappointed. I speculate that maybe you need to give web application honeypots more time to propagate across the Internet and get picked up by search engines to receive any significant hits, or even give the honeypot its own domain name. From my earlier post you will notice that I had tried to get Dionaea to run first.
 
@@ -1446,8 +1455,8 @@ Markus the lead developer of Dionaea got in contact after he read my post and sa
   
     <entry>
       <title>Glastopf - Web Application Honeypot</title>
-      <link href="http://blog.dewhurstsecurity.com/2010/01/10/glastopf-web-application-honeypot.html" />
-      <id>http://blog.dewhurstsecurity.com/2010/01/10/glastopf-web-application-honeypot</id>
+      <link href="https://blog.dewhurstsecurity.com/2010/01/10/glastopf-web-application-honeypot.html" />
+      <id>https://blog.dewhurstsecurity.com/2010/01/10/glastopf-web-application-honeypot</id>
 	  
 	  <content type="html">&lt;img src=&quot;http://www.ethicalhack3r.co.uk/wp-content/uploads/2010/01/glastopf.png&quot; alt=&quot;&quot; title=&quot;glastopf&quot; width=&quot;204&quot; height=&quot;83&quot; class=&quot;alignnone size-full wp-image-497&quot; /&gt;
 
@@ -1465,8 +1474,8 @@ I bought an old battered PC over the weekend with the goal of installing a honey
   
     <entry>
       <title>I got ha ha hacked</title>
-      <link href="http://blog.dewhurstsecurity.com/2010/01/02/i-got-ha-ha-hacked.html" />
-      <id>http://blog.dewhurstsecurity.com/2010/01/02/i-got-ha-ha-hacked</id>
+      <link href="https://blog.dewhurstsecurity.com/2010/01/02/i-got-ha-ha-hacked.html" />
+      <id>https://blog.dewhurstsecurity.com/2010/01/02/i-got-ha-ha-hacked</id>
 	  
 	  <content type="html">I had a security breach on the blog over the Christmas period. To cut a long story short two black hats named HcJ and cyb3r-1st compromised another site on the shared hosting server, they decided to deface my blogs for a short period of time while they were at it. After talking to both of them regarding the breach it turns out they are nice guys (a bit misguided), they told me how they breached the server so that I could pass the information on to the hosting provider for them to patch it.
 
@@ -1482,8 +1491,8 @@ I bought an old battered PC over the weekend with the goal of installing a honey
   
     <entry>
       <title>Free software in a Windowed world</title>
-      <link href="http://blog.dewhurstsecurity.com/2010/01/01/free-software-in-a-windowed-world.html" />
-      <id>http://blog.dewhurstsecurity.com/2010/01/01/free-software-in-a-windowed-world</id>
+      <link href="https://blog.dewhurstsecurity.com/2010/01/01/free-software-in-a-windowed-world.html" />
+      <id>https://blog.dewhurstsecurity.com/2010/01/01/free-software-in-a-windowed-world</id>
 	  
 	  <content type="html">&lt;p&gt;I recently upgraded to Windows 7 from Vista. I had planned to migrate fully to Ubuntu 9.10 Karmic however after nearly £100 investment in wireless equipment and none of the hardware working under Ubuntu I bit the bullet. I will now be running Ubuntu and other Linux distributions as Virtual Machines.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;br /&gt;
@@ -1520,8 +1529,8 @@ Skype - &lt;a href=&quot;http://www.skype.com/&quot;&gt;http://www.skype.com/&lt
   
     <entry>
       <title>RandomStorm acquire DVWA</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/12/14/randomstorm-acquire-dvwa.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/12/14/randomstorm-acquire-dvwa</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/12/14/randomstorm-acquire-dvwa.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/12/14/randomstorm-acquire-dvwa</id>
 	  
 	  <content type="html">&lt;a href=&quot;http://www.randomstorm.com/&quot;&gt;RandomStorm&lt;/a&gt; have acquired Damn Vulnerable Web App (DVWA) :)
 
@@ -1544,8 +1553,8 @@ What do RandomStorm do?
   
     <entry>
       <title>Open Source Web Application Scanner Poll Results</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/12/07/open-source-web-application-scanner-poll-results.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/12/07/open-source-web-application-scanner-poll-results</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/12/07/open-source-web-application-scanner-poll-results.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/12/07/open-source-web-application-scanner-poll-results</id>
 	  
 	  <content type="html">I started a poll last week on the 1st of December tittled 'Open Source Web Application Vulnerability Scanners'. The aim of this poll was to gain feedback from as many people in the security community as possible to find out which was their preferred open source web application vulnerability scanner, what they preferred about it and what they would improve about their favorite scanner. The poll has run for almost 7 days. The poll link was posted on Twitter (via my Twitter account), on this blog and on &lt;a href=&quot;http://www.ethicalhacker.net/&quot; target=&quot;_blank&quot;&gt;www.ethicalhacker.net&lt;/a&gt;.
 
@@ -1563,8 +1572,8 @@ The total number of submissions was 32 however there were some anomalies in the 
   
     <entry>
       <title>Open Source Web Application Scanner Poll</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/12/02/open-source-web-application-scanner-poll.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/12/02/open-source-web-application-scanner-poll</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/12/02/open-source-web-application-scanner-poll.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/12/02/open-source-web-application-scanner-poll</id>
 	  
 	  <content type="html">&lt;p&gt;I am trying to find out from the community which open source web application scanners they use and why. Please take the poll, once, and answer honestly. Thank you! ;)&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;br /&gt;
@@ -1576,8 +1585,8 @@ The total number of submissions was 32 however there were some anomalies in the 
   
     <entry>
       <title>rfc in your pocket</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/11/22/rfc-in-your-pocket.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/11/22/rfc-in-your-pocket</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/11/22/rfc-in-your-pocket.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/11/22/rfc-in-your-pocket</id>
 	  
 	  <content type="html">I wanted to start reading the &lt;a href=&quot;http://www.ietf.org/rfc/rfc2616.txt&quot; target=&quot;_blank&quot;&gt;RFC 2616 HTTP/1.1&lt;/a&gt;, because who knows more about how HTTP works than the inventors right?! The only problem was, is that I hate reading large documents from screens, I lose concentration after very little time and end up on Twitter or some other social networking site.
 
@@ -1600,8 +1609,8 @@ So I started looking for printed RFCs, someone must have put these in a book?! W
   
     <entry>
       <title>IE8 XSS Filter bypasses</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/11/20/ie8-xss-filter-bypass.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/11/20/ie8-xss-filter-bypass</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/11/20/ie8-xss-filter-bypass.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/11/20/ie8-xss-filter-bypass</id>
 	  
 	  <content type="html">When Microsoft launched their new Internet Explorer (IE) 8 browser in March of this year, it boasted a new security feature which filtered malicious scripting code to prevent reflected type 1 XSS attacks known as the 'XSS Filter'.
 
@@ -1619,8 +1628,8 @@ Cesar Cerrudo, while IE8 was still in BETA found a way to bypass the filter by u
   
     <entry>
       <title>1 year on</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/11/12/1-year-on.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/11/12/1-year-on</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/11/12/1-year-on.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/11/12/1-year-on</id>
 	  
 	  <content type="html">&lt;p&gt;Today is exactly one year on after posting my first &lt;a title=&quot;first post&quot; href=&quot;http://www.ethicalhack3r.co.uk/2008/11/12/project-camelot-interviews-gary-mckinnon/&quot; target=&quot;_blank&quot;&gt;post&lt;/a&gt; on the blog. I had a premature celebration (couldn't hold the excitement) by changing the design as you have all probably noticed. I am still working on he re-design so there may still be some glitches here and there, bear with me.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -1641,8 +1650,8 @@ Cesar Cerrudo, while IE8 was still in BETA found a way to bypass the filter by u
   
     <entry>
       <title>Securing your web applications</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/11/08/securing-your-web-applications.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/11/08/securing-your-web-applications</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/11/08/securing-your-web-applications.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/11/08/securing-your-web-applications</id>
 	  
 	  <content type="html">The World Wide Web and the applications that run on it have come a long way since the invention of HTML by Tim Berners-Lee (British man I might add) in the early 1990’s. Back then the World Wide Web was a static web of text, images and hyperlinks. Nowadays we have the privilege (sometimes not) of having whole communities which solely exist in a dynamically evolving cyberspace with wikis, blogs, social networking, video sharing and a lot more. “Web 2.0” would not exist without the complex web applications that run on the millions of web servers across the globe.
 
@@ -1657,8 +1666,8 @@ Cesar Cerrudo, while IE8 was still in BETA found a way to bypass the filter by u
   
     <entry>
       <title>[Interview] Chris John Riley - 'The Änal Security Guy'</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/10/20/interview-chris-john-riley-the-anal-security-guy.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/10/20/interview-chris-john-riley-the-anal-security-guy</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/10/20/interview-chris-john-riley-the-anal-security-guy.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/10/20/interview-chris-john-riley-the-anal-security-guy</id>
 	  
 	  <content type="html">For our second ever interviewee we have Chris John Riley the 'Änal Security Guy'. Chris was born in the UK and is now living in Austria. He has been in the IT industry for over 13 years, he now works as a IT Security Analyst doing penetration testing internally and for external clients.
 
@@ -1678,8 +1687,8 @@ As you can imagine this didn't sit too well, but there wasn't much I could do at
   
     <entry>
       <title>[BONSAI] XSS and SQL Injection in Achievo <= 1.3.4</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/10/17/bonsai-xss-and-sql-injection-in-achievo.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/10/17/bonsai-xss-and-sql-injection-in-achievo</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/10/17/bonsai-xss-and-sql-injection-in-achievo.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/10/17/bonsai-xss-and-sql-injection-in-achievo</id>
 	  
 	  <content type="html">Today Andres Riancho owner of &lt;a title=&quot;BONSAI&quot; href=&quot;http://www.bonsai-sec.com/&quot; target=&quot;_blank&quot;&gt;Bonsai Information Security&lt;/a&gt; (Argentina) and lead developer of &lt;a title=&quot;W3AF&quot; href=&quot;http://w3af.sourceforge.net/&quot; target=&quot;_blank&quot;&gt;w3af&lt;/a&gt; has released a couple of advisories on vulnerabilities in &lt;a title=&quot;Achievo&quot; href=&quot;http://www.achievo.org/&quot; target=&quot;_blank&quot;&gt;Achievo&lt;/a&gt; &amp;lt;= 1.3.4 which we found a few months ago after our vulnerability research into common web applications.
 
@@ -1693,8 +1702,8 @@ Achievo is a flexible web-based resource management tool for business environmen
   
     <entry>
       <title>Netsparker - The next gen web app scanner</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/10/11/netsparker-the-next-gen-web-app-scanner.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/10/11/netsparker-the-next-gen-web-app-scanner</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/10/11/netsparker-the-next-gen-web-app-scanner.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/10/11/netsparker-the-next-gen-web-app-scanner</id>
 	  
 	  <content type="html">&lt;img class=&quot;aligncenter size-full wp-image-328&quot; title=&quot;netsparker-logo-splash&quot; src=&quot;http://www.ethicalhack3r.co.uk/wp-content/uploads/2009/10/netsparker-logo-splash.png&quot; alt=&quot;netsparker-logo-splash&quot; width=&quot;334&quot; height=&quot;90&quot; /&gt;
 
@@ -1716,8 +1725,8 @@ I tested Netsparker v0.9.9.9935 (FINAL BETA) against DVWA v1.0.6. Setting up a n
   
     <entry>
       <title>[Interview] Rob Loos - 'Students in Security'</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/10/06/interview-rob-loos-students-in-security.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/10/06/interview-rob-loos-students-in-security</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/10/06/interview-rob-loos-students-in-security.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/10/06/interview-rob-loos-students-in-security</id>
 	  
 	  <content type="html">We have decided to start interviewing people in infosec to talk about various security topics. Our first ever interviewee is Rob Loos!
 
@@ -1734,8 +1743,8 @@ I've always had an interest in computers, playing games, writing a few small pro
   
     <entry>
       <title>Defcon too far? Blackhat too expensive? No problem!</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/09/12/defcon-too-far-blackhat-too-expensive-no-problem.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/09/12/defcon-too-far-blackhat-too-expensive-no-problem</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/09/12/defcon-too-far-blackhat-too-expensive-no-problem.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/09/12/defcon-too-far-blackhat-too-expensive-no-problem</id>
 	  
 	  <content type="html">&lt;p&gt;Have no fear SecurityTubeCon is here! (well... soon!)&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -1760,8 +1769,8 @@ I've always had an interest in computers, playing games, writing a few small pro
   
     <entry>
       <title>DVWA has a new home</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/09/01/dvwa-has-a-new-home.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/09/01/dvwa-has-a-new-home</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/09/01/dvwa-has-a-new-home.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/09/01/dvwa-has-a-new-home</id>
 	  
 	  <content type="html">&lt;p&gt;Damn Vulnerable Web App (DVWA) now has a new website dedicated to the online community. The website is the new portal for all things DVWA, from it we plan to expand our online community and take DVWA that one step further.&lt;br /&gt;
 &lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -1777,8 +1786,8 @@ For the latest news on DVWA, forums, blog posts, code submissions, feedback and 
   
     <entry>
       <title>DVWA v1.0.5 coming soon...</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/08/23/dvwa-v1-0-5-coming-soon.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/08/23/dvwa-v1-0-5-coming-soon</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/08/23/dvwa-v1-0-5-coming-soon.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/08/23/dvwa-v1-0-5-coming-soon</id>
 	  
 	  <content type="html">DVWA v1.0.5 will be released in the near future sporting many changes including more vulnerabilities and features.
 
@@ -1818,8 +1827,8 @@ PHPIDS implementation.
   
     <entry>
       <title>[BONSAI] SQL Injection in CS-Cart <= 2.0.5</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/08/05/bonsai-sql-injection-in-cs-cart.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/08/05/bonsai-sql-injection-in-cs-cart</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/08/05/bonsai-sql-injection-in-cs-cart.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/08/05/bonsai-sql-injection-in-cs-cart</id>
 	  
 	  <content type="html">&lt;p&gt;Here is one of the vulnerabilities which I found during my research for &lt;a title=&quot;Bonsai Security&quot; href=&quot;http://www.bonsai-sec.com&quot; target=&quot;_blank&quot;&gt;Bonsai Security&lt;/a&gt; a few weeks ago. The research consisted of vulnerability assessing commercial and open source ecommerce web applications over a 2 week period.&lt;/p&gt;
 &lt;p&gt;During the time of my research I learnt a great deal from Andres Riancho (&lt;a title=&quot;w3af&quot; href=&quot;http://w3af.sourceforge.net/&quot; target=&quot;_blank&quot;&gt;w3af&lt;/a&gt;/bonsai-sec owner) and from the vulnerability assessments them selves. So what did I learn? I learnt that patience is definitely a virtue, javascript is a pain in the ass, ecommerce web application developers need to invest more time on security and a lot more as regards to perfecting my assessment techniques.&lt;/p&gt;
@@ -1834,8 +1843,8 @@ PHPIDS implementation.
   
     <entry>
       <title>Pentest Labs: Web Application Edition (securityaegis)</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/07/28/pentest-labs-web-application-edition-securityaegis.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/07/28/pentest-labs-web-application-edition-securityaegis</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/07/28/pentest-labs-web-application-edition-securityaegis.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/07/28/pentest-labs-web-application-edition-securityaegis</id>
 	  
 	  <content type="html">&lt;p&gt;Ever wanted to set up a complete web application penetration testing lab with all the best tools available? Here is an awesome video by &lt;a href=&quot;http://www.securityaegis.com&quot;&gt;www.securityaegis.com&lt;/a&gt; to show you how to do it.&lt;br /&gt;
 &lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -1852,8 +1861,8 @@ For a full write up on how to do this or for more information check out their or
   
     <entry>
       <title>dvwa video presentation at SuperMondays</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/07/03/dvwa-video-presentation-at-supermondays.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/07/03/dvwa-video-presentation-at-supermondays</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/07/03/dvwa-video-presentation-at-supermondays.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/07/03/dvwa-video-presentation-at-supermondays</id>
 	  
 	  <content type="html">&lt;p&gt;Here is the video from my presentation on dvwa at the &lt;a title=&quot;supermondays&quot; href=&quot;http://www.supermondays.org/&quot; target=&quot;_blank&quot;&gt;SuperMondays&lt;/a&gt; event in Newcastle Upon Tyne.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -1868,8 +1877,8 @@ For a full write up on how to do this or for more information check out their or
   
     <entry>
       <title>dvwa v1.0.4 released</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/06/29/dvwa-v1-0-4-released.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/06/29/dvwa-v1-0-4-released</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/06/29/dvwa-v1-0-4-released.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/06/29/dvwa-v1-0-4-released</id>
 	  
 	  <content type="html">&lt;p&gt;After a month of coding Damn Vulnerable Web App (dvwa) v1.0.4 is ready for download.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -1904,8 +1913,8 @@ Made SQL injection possible in sqli_med.php. Thanks to Teodor Lupan. 03/06/2009&
   
     <entry>
       <title>w3af</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/06/08/w3af.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/06/08/w3af</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/06/08/w3af.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/06/08/w3af</id>
 	  
 	  <content type="html">&lt;p&gt;Ive just finished coding a wordpress version fingerprinting plugin for w3af so I thought id let you all know what w3af is and how you can contribute too.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -1932,8 +1941,8 @@ Any serious security professional should have w3af in their tool kit, w3af can d
   
     <entry>
       <title>DVWA NEEDS YOU!</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/05/30/dvwa-needs-you.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/05/30/dvwa-needs-you</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/05/30/dvwa-needs-you.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/05/30/dvwa-needs-you</id>
 	  
 	  <content type="html">&lt;p&gt;That's right, &lt;strong&gt;YOU!&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -1969,8 +1978,8 @@ Any serious security professional should have w3af in their tool kit, w3af can d
   
     <entry>
       <title>Damn Vulnerable Web App installation video</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/05/25/damn-vulnerable-web-app-installation-video.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/05/25/damn-vulnerable-web-app-installation-video</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/05/25/damn-vulnerable-web-app-installation-video.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/05/25/damn-vulnerable-web-app-installation-video</id>
 	  
 	  <content type="html">&lt;p&gt;I decided to make a video on installing and running dvwa, this is my first video so if I sound nervous its because I am.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -1988,8 +1997,8 @@ Any serious security professional should have w3af in their tool kit, w3af can d
   
     <entry>
       <title>Damn Vulnerable Web App v.1</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/05/20/damn-vulnerable-web-app-v1.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/05/20/damn-vulnerable-web-app-v1</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/05/20/damn-vulnerable-web-app-v1.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/05/20/damn-vulnerable-web-app-v1</id>
 	  
 	  <content type="html">&lt;p&gt;Damn Vulnerable Web App v.1 has been released!&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -2029,8 +2038,8 @@ Any serious security professional should have w3af in their tool kit, w3af can d
   
     <entry>
       <title>Guest post: Current Available UK Degrees</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/04/29/guest-post-current-available-uk-degrees.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/04/29/guest-post-current-available-uk-degrees</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/04/29/guest-post-current-available-uk-degrees.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/04/29/guest-post-current-available-uk-degrees</id>
 	  
 	  <content type="html">&lt;p&gt;Within the UK there is, that I have been able to find only three universities offering a variation of Ethical Hacking Degrees;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -2056,8 +2065,8 @@ Regardless of the attention that the subject receives there is still a great dem
   
     <entry>
       <title>ScreenStamp!</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/04/03/screenstamp.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/04/03/screenstamp</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/04/03/screenstamp.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/04/03/screenstamp</id>
 	  
 	  <content type="html">&lt;p&gt;We are glad to finally be able to let you all know that ScreenStamp! is nearly ready for release and that we are looking for BETA testers!&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -2095,8 +2104,8 @@ Regardless of the attention that the subject receives there is still a great dem
   
     <entry>
       <title>Blog updates</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/03/30/blog-updates.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/03/30/blog-updates</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/03/30/blog-updates.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/03/30/blog-updates</id>
 	  
 	  <content type="html">&lt;p&gt;Just to let everyone know that we are now running the latest version of wordpress, finally! If you haven't noticed already there's a 'Security Jobs' RSS feed which grabs RSS feeds off a number of job sites, the link can be found in the sidebar above the google ads.&lt;br /&gt;
 &lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -2112,8 +2121,8 @@ Some exiting news...&lt;/p&gt;
   
     <entry>
       <title>Using a web bug for information gathering</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/03/15/using-a-web-bug-for-information-gathering.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/03/15/using-a-web-bug-for-information-gathering</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/03/15/using-a-web-bug-for-information-gathering.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/03/15/using-a-web-bug-for-information-gathering</id>
 	  
 	  <content type="html">Abstract:
 Any one can post an image anywhere that allows the posting of remote images, grab the http header information of any one who views the image and save it to a log file on a remote server. This has been done for a while by the advertisement industry to track users activities. It can also be used by mail clients to check that an email has been read by the recipient. It is known as a 'web bug'.</content>
@@ -2122,8 +2131,8 @@ Any one can post an image anywhere that allows the posting of remote images, gra
   
     <entry>
       <title>General update</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/03/13/general-update.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/03/13/general-update</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/03/13/general-update.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/03/13/general-update</id>
 	  
 	  <content type="html">&lt;p&gt;Just to let everyone know that I'm still alive. Haven't posted in nearly a month! Been busy with university and also had a couple of jobs on the side.&lt;br /&gt;
 &lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -2142,8 +2151,8 @@ Mean while check out the video: &lt;a href=&quot;http://news.bbc.co.uk/1/hi/prog
   
     <entry>
       <title>Webserverwatcher.py</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/02/15/webserverwatcherpy.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/02/15/webserverwatcherpy</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/02/15/webserverwatcherpy.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/02/15/webserverwatcherpy</id>
 	  
 	  <content type="html">&lt;p&gt;During our last information gathering and vulnerability assessment project our team realised that the IP address and web server software had changed from when we initially started out. Some time during the project the IT department had changed servers, which meant that some of our data from before the change was now obsolete.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -2165,8 +2174,8 @@ Mean while check out the video: &lt;a href=&quot;http://news.bbc.co.uk/1/hi/prog
   
     <entry>
       <title>BackTrack 4 Beta Public Released </title>
-      <link href="http://blog.dewhurstsecurity.com/2009/02/11/backtrack-4-beta-public-released.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/02/11/backtrack-4-beta-public-released</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/02/11/backtrack-4-beta-public-released.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/02/11/backtrack-4-beta-public-released</id>
 	  
 	  <content type="html">&lt;blockquote&gt;Weve gone live with the beta, and the downloads are going crazy. All our mirrors are at 90 mbit, more or less.&amp;lt;/p&amp;gt;
 &lt;p&gt;You can get the iso here md5sum and sha512sum&lt;/p&gt;
@@ -2185,8 +2194,8 @@ http://www.remote-exploit.org/cgi-bin/fileget?version=bt4-beta-vm&lt;/p&gt;
   
     <entry>
       <title>My new Acer Aspire One</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/02/01/my-new-acer-aspire-one.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/02/01/my-new-acer-aspire-one</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/02/01/my-new-acer-aspire-one.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/02/01/my-new-acer-aspire-one</id>
 	  
 	  <content type="html">&lt;p&gt;Just bought an Acer Aspire One! It cost me £150 from ASDA (instore only), here are the specs:&lt;/p&gt;
 &lt;p&gt;OS: Linpus Lite (Linux)&lt;/p&gt;
@@ -2209,8 +2218,8 @@ http://www.remote-exploit.org/cgi-bin/fileget?version=bt4-beta-vm&lt;/p&gt;
   
     <entry>
       <title>Hacking DECT</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/01/23/hacking-dect.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/01/23/hacking-dect</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/01/23/hacking-dect.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/01/23/hacking-dect</id>
 	  
 	  <content type="html">&lt;p&gt;Quite an old story dating back to December 2008, some how I must have missed it. DECT (Digital Enhanced Cordless Telecommunications) is a standard used for cordless/wireless telephones widely used in homes and businesses across the world. (UK frequency: 1880 MHz–1900 MHz)&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -2233,8 +2242,8 @@ http://www.remote-exploit.org/cgi-bin/fileget?version=bt4-beta-vm&lt;/p&gt;
   
     <entry>
       <title>Cyber warfare on Hamas</title>
-      <link href="http://blog.dewhurstsecurity.com/2009/01/06/cyber-warfare-on-hamas.html" />
-      <id>http://blog.dewhurstsecurity.com/2009/01/06/cyber-warfare-on-hamas</id>
+      <link href="https://blog.dewhurstsecurity.com/2009/01/06/cyber-warfare-on-hamas.html" />
+      <id>https://blog.dewhurstsecurity.com/2009/01/06/cyber-warfare-on-hamas</id>
 	  
 	  <content type="html">&lt;p&gt;The war between Israel and Hamas has spilled out onto the Internet. This is no surprise as cyber warfare has been going on for years. The Chinese launched the 'Code Red' worm when an American spy plane collided with one of their fighter jets in 2001 infecting 359,000 hosts in a bid to carry out DDoS attacks on high profile American computers including the white house. Georgia's government websites were the victim of Russian hackers back in August 2008.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -2261,8 +2270,8 @@ We say NO MORE!&lt;/p&gt;&lt;/blockquote&gt;
   
     <entry>
       <title>Damn Vulnerable Web App BETA is here!</title>
-      <link href="http://blog.dewhurstsecurity.com/2008/12/17/damn-vulnerable-web-app-beta-is-here.html" />
-      <id>http://blog.dewhurstsecurity.com/2008/12/17/damn-vulnerable-web-app-beta-is-here</id>
+      <link href="https://blog.dewhurstsecurity.com/2008/12/17/damn-vulnerable-web-app-beta-is-here.html" />
+      <id>https://blog.dewhurstsecurity.com/2008/12/17/damn-vulnerable-web-app-beta-is-here</id>
 	  
 	  <content type="html">&lt;p&gt;Damn Vulnerable Web App (DVWA) is a web application that is damn vulnerable. Its main goals are to be light weight, easy to use and full of vulnerabilities to exploit. It has been developed for the use of information security professionals and students to test out their skillz and/or toolz in a legal environment.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -2291,8 +2300,8 @@ We say NO MORE!&lt;/p&gt;&lt;/blockquote&gt;
   
     <entry>
       <title>Gary McKinnon's final day in court</title>
-      <link href="http://blog.dewhurstsecurity.com/2008/12/03/gary-mckinnons-final-day-in-court.html" />
-      <id>http://blog.dewhurstsecurity.com/2008/12/03/gary-mckinnons-final-day-in-court</id>
+      <link href="https://blog.dewhurstsecurity.com/2008/12/03/gary-mckinnons-final-day-in-court.html" />
+      <id>https://blog.dewhurstsecurity.com/2008/12/03/gary-mckinnons-final-day-in-court</id>
 	  
 	  <content type="html">&lt;p&gt;Gary McKinnon's final court date has been pushed back to the 20th January 2009 (the same day Obama takes office).&lt;br /&gt;
 &lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -2325,8 +2334,8 @@ We say NO MORE!&lt;/p&gt;&lt;/blockquote&gt;
   
     <entry>
       <title>Iran executes IT expert who spied for Israel</title>
-      <link href="http://blog.dewhurstsecurity.com/2008/12/01/iran-executes-it-expert-who-spied-for-israel.html" />
-      <id>http://blog.dewhurstsecurity.com/2008/12/01/iran-executes-it-expert-who-spied-for-israel</id>
+      <link href="https://blog.dewhurstsecurity.com/2008/12/01/iran-executes-it-expert-who-spied-for-israel.html" />
+      <id>https://blog.dewhurstsecurity.com/2008/12/01/iran-executes-it-expert-who-spied-for-israel</id>
 	  
 	  <content type="html">&lt;blockquote&gt;A COMPUTER expert has been executed in Iran after he confessed to working for Mossad, the Israeli intelligence service. This provides a rare insight into the intense espionage activity inside the Islamic republic.&amp;lt;/p&amp;gt;&lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -2349,8 +2358,8 @@ You would have thought that Iran would have been more careful as to who they emp
   
     <entry>
       <title>DEFCON London - Christmas meeting</title>
-      <link href="http://blog.dewhurstsecurity.com/2008/11/29/defcon-london-christmas-meeting.html" />
-      <id>http://blog.dewhurstsecurity.com/2008/11/29/defcon-london-christmas-meeting</id>
+      <link href="https://blog.dewhurstsecurity.com/2008/11/29/defcon-london-christmas-meeting.html" />
+      <id>https://blog.dewhurstsecurity.com/2008/11/29/defcon-london-christmas-meeting</id>
 	  
 	  <content type="html">&lt;p&gt;DEFCON London - Christmas meeting - Tuesday 2nd December 2008&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -2379,8 +2388,8 @@ Its a shame that Christmas has zapped all my cash. :-(&lt;/p&gt;
   
     <entry>
       <title>Metaspoit's meterpreter</title>
-      <link href="http://blog.dewhurstsecurity.com/2008/11/27/metaspoits-meterpreter.html" />
-      <id>http://blog.dewhurstsecurity.com/2008/11/27/metaspoits-meterpreter</id>
+      <link href="https://blog.dewhurstsecurity.com/2008/11/27/metaspoits-meterpreter.html" />
+      <id>https://blog.dewhurstsecurity.com/2008/11/27/metaspoits-meterpreter</id>
 	  
 	  <content type="html">&lt;p&gt;Meterpreter is a Metasploit payload designed for post-exploitation tasks.&lt;br /&gt;
 &lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -2402,8 +2411,8 @@ Its a shame that Christmas has zapped all my cash. :-(&lt;/p&gt;
   
     <entry>
       <title>Teaching Hacking at College</title>
-      <link href="http://blog.dewhurstsecurity.com/2008/11/23/teaching-hacking-at-college.html" />
-      <id>http://blog.dewhurstsecurity.com/2008/11/23/teaching-hacking-at-college</id>
+      <link href="https://blog.dewhurstsecurity.com/2008/11/23/teaching-hacking-at-college.html" />
+      <id>https://blog.dewhurstsecurity.com/2008/11/23/teaching-hacking-at-college</id>
 	  
 	  <content type="html">&lt;p&gt;While looking through some old DEFCON material I came across Sam Bowne's video presentation on teaching hacking at college. The presentation was at DEFCON 15 on August 3-5 2007. He speaks about the practicalities of teaching hacking in an academic fashion. Its a must view if your thinking of taking a career path within the security industry and thinking of starting a course in hacking.&lt;/p&gt;
 &lt;p&gt;The video can be downloaded from &lt;a title=&quot;Teaching Hacking at College video&quot; href=&quot;http://media.defcon.org/dc-15/video/Defcon15-Sam_Bowne-Teaching_Hacking_at_College.mp4&quot; target=&quot;_blank&quot;&gt;here.&lt;/a&gt;&lt;/p&gt;
@@ -2415,8 +2424,8 @@ Its a shame that Christmas has zapped all my cash. :-(&lt;/p&gt;
   
     <entry>
       <title>Live Aid style concert planned to support hacker</title>
-      <link href="http://blog.dewhurstsecurity.com/2008/11/22/live-aid-style-concert-planned-to-support-hacker.html" />
-      <id>http://blog.dewhurstsecurity.com/2008/11/22/live-aid-style-concert-planned-to-support-hacker</id>
+      <link href="https://blog.dewhurstsecurity.com/2008/11/22/live-aid-style-concert-planned-to-support-hacker.html" />
+      <id>https://blog.dewhurstsecurity.com/2008/11/22/live-aid-style-concert-planned-to-support-hacker</id>
 	  
 	  <content type="html">&lt;blockquote&gt;Progressive rock legends Marillion are set to perform at a benefit concert for hacker Gary McKinnon.&amp;lt;/p&amp;gt;
 &lt;p&gt;A concert is being organised to support the hacker, who the US is currently trying to extradite over charges that he caused $700,000 worth of damage when he allegedly hacked into US security systems at NASA and the Pentagon.&lt;/p&gt;&lt;/blockquote&gt;
@@ -2431,8 +2440,8 @@ Its a shame that Christmas has zapped all my cash. :-(&lt;/p&gt;
   
     <entry>
       <title>Steve Wozniak loves iPhone hacks!</title>
-      <link href="http://blog.dewhurstsecurity.com/2008/11/21/steve-wozniak-loves-hackers.html" />
-      <id>http://blog.dewhurstsecurity.com/2008/11/21/steve-wozniak-loves-hackers</id>
+      <link href="https://blog.dewhurstsecurity.com/2008/11/21/steve-wozniak-loves-hackers.html" />
+      <id>https://blog.dewhurstsecurity.com/2008/11/21/steve-wozniak-loves-hackers</id>
 	  
 	  <content type="html">&lt;p&gt;The co founder of Apple Inc is seen in an interview with BBC Click's Spencer Kelly admitting he loves hackers. Steve Wozniak is responsible for designing and creating the Apple I and Apple II. In the video clip 'The Woz' chats about the start of Apple Inc and how he set out to change the world of computing. He says he loves iPhone hacks and the fact you can unlock them.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;http://www.ethicalhack3r.co.uk/wp-content/uploads/2008/11/apple_1.jpg&quot;&gt;&lt;img class=&quot;alignleft size-thumbnail wp-image-78&quot; title=&quot;Apple 1&quot; src=&quot;http://www.ethicalhack3r.co.uk/wp-content/uploads/2008/11/apple_1-150x150.jpg&quot; alt=&quot;&quot; width=&quot;150&quot; height=&quot;150&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
@@ -2446,8 +2455,8 @@ To see the online BBC Click video &lt;a title=&quot;BBC Click Steve Wozniak&quot
   
     <entry>
       <title>Metasploit Framework 3.2 Released</title>
-      <link href="http://blog.dewhurstsecurity.com/2008/11/20/metasploit-framework-32-released.html" />
-      <id>http://blog.dewhurstsecurity.com/2008/11/20/metasploit-framework-32-released</id>
+      <link href="https://blog.dewhurstsecurity.com/2008/11/20/metasploit-framework-32-released.html" />
+      <id>https://blog.dewhurstsecurity.com/2008/11/20/metasploit-framework-32-released</id>
 	  
 	  <content type="html">&lt;p&gt;The new Metasploit Framework was released on the 19th November (yesterday). It has a massive change log with lots of tweaks and add ons. I will try and list the interesting ones here.&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;Version 3.2 includes exploit modules for recent Microsoft flaws, such&lt;br /&gt;
@@ -2484,8 +2493,8 @@ Marcell 'SkyOut' Dietl (Helith).&lt;/p&gt;&lt;/blockquote&gt;
   
     <entry>
       <title>Windows 2000 & Fast|Track</title>
-      <link href="http://blog.dewhurstsecurity.com/2008/11/17/windows-2000-fast-track.html" />
-      <id>http://blog.dewhurstsecurity.com/2008/11/17/windows-2000-fast-track</id>
+      <link href="https://blog.dewhurstsecurity.com/2008/11/17/windows-2000-fast-track.html" />
+      <id>https://blog.dewhurstsecurity.com/2008/11/17/windows-2000-fast-track</id>
 	  
 	  <content type="html">A couple of weeks ago I was going to test Fast|Track against a Windows 98 machine however I couldn't get my wireless card to work on it and I couldn't be arsed moving the PC out of the spare room. I finally got Windows 2000 with no patches or updates up and running. I installed Windows 2000 as according to many its very vulnerable.
 
@@ -2497,8 +2506,8 @@ After Fast|Track had finished scanning and exploiting It gave me 4 active shell 
   
     <entry>
       <title>Hacking Challenge: Linux Local Kernel Exploit ($5,000)</title>
-      <link href="http://blog.dewhurstsecurity.com/2008/11/14/hacking-challenge-linux-local-kernel-exploit-5000.html" />
-      <id>http://blog.dewhurstsecurity.com/2008/11/14/hacking-challenge-linux-local-kernel-exploit-5000</id>
+      <link href="https://blog.dewhurstsecurity.com/2008/11/14/hacking-challenge-linux-local-kernel-exploit-5000.html" />
+      <id>https://blog.dewhurstsecurity.com/2008/11/14/hacking-challenge-linux-local-kernel-exploit-5000</id>
 	  
 	  <content type="html">&lt;p&gt;&lt;strong&gt;Digital Armaments October-November Hacking Challenge: 5,000$ Prize - Linux Local Kernel Vulnerabilities and Exploit&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;I. Details&lt;/p&gt;
@@ -2513,8 +2522,8 @@ The challenge starts on October 1. For the October-November Challenge, Digital A
   
     <entry>
       <title>nUbuntu - for the security aware</title>
-      <link href="http://blog.dewhurstsecurity.com/2008/11/13/nubuntu-for-the-security-aware.html" />
-      <id>http://blog.dewhurstsecurity.com/2008/11/13/nubuntu-for-the-security-aware</id>
+      <link href="https://blog.dewhurstsecurity.com/2008/11/13/nubuntu-for-the-security-aware.html" />
+      <id>https://blog.dewhurstsecurity.com/2008/11/13/nubuntu-for-the-security-aware</id>
 	  
 	  <content type="html">&lt;p&gt;&lt;strong&gt;What is it?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;nUbuntu is an Ubuntu live CD with all the desktop packages removed, like gnome, evolution, open office and most other packages which come installed in Ubuntu by default. It comes with many security packages pre installed and ready to use. It could be compared to other security live Cd's like BackTrack or Auditor.&lt;/p&gt;
@@ -2535,8 +2544,8 @@ The challenge starts on October 1. For the October-November Challenge, Digital A
   
     <entry>
       <title>ATM's running Windows 95</title>
-      <link href="http://blog.dewhurstsecurity.com/2008/11/12/atms-running-windows-95.html" />
-      <id>http://blog.dewhurstsecurity.com/2008/11/12/atms-running-windows-95</id>
+      <link href="https://blog.dewhurstsecurity.com/2008/11/12/atms-running-windows-95.html" />
+      <id>https://blog.dewhurstsecurity.com/2008/11/12/atms-running-windows-95</id>
 	  
 	  <content type="html">&lt;p&gt;I was on my way to work some time last year when I saw an ATM with a DOS prompt on the screen. So I went over to have a look and took some pics on my mobile phone. The pictures I took revealed that the ATM was running Windows 95. Yes, you read right, Windows 95!!!&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;http://www.ethicalhack3r.co.uk/wp-content/uploads/2008/11/dsc00098.jpg&quot;&gt;&lt;img class=&quot;alignnone size-medium wp-image-24&quot; title=&quot;dsc00098&quot; src=&quot;http://www.ethicalhack3r.co.uk/wp-content/uploads/2008/11/dsc00098-300x225.jpg&quot; alt=&quot;&quot; width=&quot;300&quot; height=&quot;225&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
@@ -2554,8 +2563,8 @@ The challenge starts on October 1. For the October-November Challenge, Digital A
   
     <entry>
       <title>Project Camelot interviews Gary McKinnon</title>
-      <link href="http://blog.dewhurstsecurity.com/2008/11/12/project-camelot-interviews-gary-mckinnon.html" />
-      <id>http://blog.dewhurstsecurity.com/2008/11/12/project-camelot-interviews-gary-mckinnon</id>
+      <link href="https://blog.dewhurstsecurity.com/2008/11/12/project-camelot-interviews-gary-mckinnon.html" />
+      <id>https://blog.dewhurstsecurity.com/2008/11/12/project-camelot-interviews-gary-mckinnon</id>
 	  
 	  <content type="html">&lt;p&gt;Quite an old video, &lt;span id=&quot;duration-and-date&quot;&gt;&lt;span class=&quot;date&quot;&gt;Nov 9, 2007&lt;/span&gt;&lt;/span&gt;. Its interesting to hear Gary's defence straight from the horses mouth. At first when I heard his defence, I thought 'Yea, right! Hes just saying that to try and get a lesser sentence'. After seeing this video he has convinced me that he really was looking for evidence of extraterrestrials and renewable energy. He says that he saw an image of a UFO on one of the NASA machines he hacked and that it was no fake. He used a windows blank administrator password scanner, using remote desktop on a 56k modem. The only remote desktop hacking tools for windows which I'm aware of are TSGrinder and TSCrack, so he must have used one of those.&lt;/p&gt;
 &lt;p&gt;If your unfamiliar with his case, take a look at &lt;a title=&quot;Free Gary&quot; href=&quot;http://www.freegary.org.uk&quot; target=&quot;_blank&quot;&gt;http://www.freegary.org.uk&lt;/a&gt;&lt;/p&gt;

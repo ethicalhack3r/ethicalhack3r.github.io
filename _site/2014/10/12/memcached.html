@@ -48,7 +48,7 @@
 
     <article class="post">
         <header class="post-header">
-            <a id="blog-logo" href="http://blog.dewhurstsecurity.com">
+            <a id="blog-logo" href="https://blog.dewhurstsecurity.com">
                 
                     <span class="blog-title">Dewhurst Security Blog</span>
                 
@@ -110,7 +110,7 @@
 
 <p>Here is some example output when the <code class="highlighter-rouge">stats</code> command is executed on a remote Memcached server:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[*] pid: 1020
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[*] pid: 1020
 [*] uptime: 14903707
 [*] time: 1413105644
 [*] version: 1.4.4
@@ -147,8 +147,7 @@
 [*] curr_items: 1541
 [*] total_items: 38617
 [*] evictions: 0
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>I’ve seen this data fluctuate in terms of content, sometimes you get more stat information and others less. There’s some interesting data here but nothing to help get any key names.</p>
 
@@ -160,9 +159,8 @@
 
 <p>The full command would look something like this:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>stats cachedump 3 100
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>stats cachedump 3 100
+</code></pre></div></div>
 
 <p>Where <code class="highlighter-rouge">3</code> is the slab id and <code class="highlighter-rouge">100</code> is the maximum number of keys to return. Slabs are a way Memcached handles its internal memory rather than storing the key/values individually.</p>
 
@@ -172,13 +170,12 @@
 
 <p>The output of this command looks like this (borrowed from the previous <a href="http://www.darkcoding.net/software/memcached-list-all-keys/">blog post</a>):</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>STAT items:3:number 1
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>STAT items:3:number 1
 STAT items:3:age 498
 STAT items:22:number 1
 STAT items:22:age 498
 END
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>The number after <code class="highlighter-rouge">items:</code> is a slab id, we can easily extract the slab ids with the following regex <code class="highlighter-rouge">^items:(\d*):</code>.</p>
 
@@ -235,15 +232,15 @@ END
 
             <section class="share">
                 <h4>Share this post</h4>
-                <a class="icon-twitter" href="http://twitter.com/share?text=Memcached&amp;url=http://blog.dewhurstsecurity.com/2014/10/12/memcached.html"
+                <a class="icon-twitter" href="http://twitter.com/share?text=Memcached&amp;url=https://blog.dewhurstsecurity.com/2014/10/12/memcached.html"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <span class="hidden">Twitter</span>
                 </a>
-                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.dewhurstsecurity.com/2014/10/12/memcached.html"
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.dewhurstsecurity.com/2014/10/12/memcached.html"
                     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                     <span class="hidden">Facebook</span>
                 </a>
-                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://blog.dewhurstsecurity.com/2014/10/12/memcached.html"
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=https://blog.dewhurstsecurity.com/2014/10/12/memcached.html"
                    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                     <span class="hidden">Google+</span>
                 </a>

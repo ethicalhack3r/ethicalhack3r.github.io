@@ -48,7 +48,7 @@
 
     <article class="post">
         <header class="post-header">
-            <a id="blog-logo" href="http://blog.dewhurstsecurity.com">
+            <a id="blog-logo" href="https://blog.dewhurstsecurity.com">
                 
                     <span class="blog-title">Dewhurst Security Blog</span>
                 
@@ -81,21 +81,21 @@
 <p>Change:</p>
 <p>
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php">return new WP_Error('invalid_username', sprintf(__('ERROR: Invalid username. <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"%s"</span> <span class="na">title=</span><span class="s">"Password Lost and Found"</span><span class="nt">&gt;</span>Lost your password<span class="nt">&lt; /a&gt;</span>?'), site_url('wp-login.php?action=lostpassword', 'login')));<span class="nt">&lt;/a&gt;</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="k">return</span> <span class="k">new</span> <span class="nx">WP_Error</span><span class="p">(</span><span class="s1">'invalid_username'</span><span class="p">,</span> <span class="nb">sprintf</span><span class="p">(</span><span class="nx">__</span><span class="p">(</span><span class="s1">'ERROR: Invalid username. &lt;a href="%s" title="Password Lost and Found"&gt;Lost your password&lt; /a&gt;?'</span><span class="p">),</span> <span class="nx">site_url</span><span class="p">(</span><span class="s1">'wp-login.php?action=lostpassword'</span><span class="p">,</span> <span class="s1">'login'</span><span class="p">)));</span><span class="o">&lt;/</span><span class="nx">a</span><span class="o">&gt;</span></code></pre></figure>
 
 </p>
 <p>To:</p>
 <p>
-<figure class="highlight"><pre><code class="language-php" data-lang="php">return new WP_Error( 'invalid_username', sprintf( __( 'ERROR: Invalid username and/or password.')));</code></pre></figure>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="k">return</span> <span class="k">new</span> <span class="nx">WP_Error</span><span class="p">(</span> <span class="s1">'invalid_username'</span><span class="p">,</span> <span class="nb">sprintf</span><span class="p">(</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">'ERROR: Invalid username and/or password.'</span><span class="p">)));</span></code></pre></figure>
 </p>
 <p><strong>wp-includes/user.php:111</strong></p>
 <p>Change:</p>
 <p>
-<figure class="highlight"><pre><code class="language-php" data-lang="php">return new WP_Error( 'incorrect_password', sprintf( __( 'ERROR: The password you entered for the username <span class="nt">&lt;strong&gt;</span>%1$s<span class="nt">&lt;/strong&gt;</span> is incorrect.      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"%2$s"</span> <span class="na">title=</span><span class="s">"Password Lost and Found"</span><span class="nt">&gt;</span>Lost your password<span class="nt">&lt;/a&gt;</span>?' )</code></pre></figure>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="k">return</span> <span class="k">new</span> <span class="nx">WP_Error</span><span class="p">(</span> <span class="s1">'incorrect_password'</span><span class="p">,</span> <span class="nb">sprintf</span><span class="p">(</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">'ERROR: The password you entered for the username &lt;strong&gt;%1$s&lt;/strong&gt; is incorrect.      &lt;a href="%2$s" title="Password Lost and Found"&gt;Lost your password&lt;/a&gt;?'</span> <span class="p">)</span></code></pre></figure>
 </p>
 <p>To:</p>
 <p>
-<figure class="highlight"><pre><code class="language-php" data-lang="php">  return new WP_Error( 'incorrect_password', sprintf( __( 'ERROR: Invalid username and/or password.')));
+<figure class="highlight"><pre><code class="language-php" data-lang="php">  <span class="k">return</span> <span class="k">new</span> <span class="nx">WP_Error</span><span class="p">(</span> <span class="s1">'incorrect_password'</span><span class="p">,</span> <span class="nb">sprintf</span><span class="p">(</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">'ERROR: Invalid username and/or password.'</span><span class="p">)));</span>
   </code></pre></figure>
 </p>
 <p>Let's hope WordPress patch this and the one Veronica disclosed sooner rather than later.</p>
@@ -114,15 +114,15 @@
 
             <section class="share">
                 <h4>Share this post</h4>
-                <a class="icon-twitter" href="http://twitter.com/share?text=Patching WordPress Username Disclosure&amp;url=http://blog.dewhurstsecurity.com/2011/06/01/patching-wordpress-username-disclosure.html"
+                <a class="icon-twitter" href="http://twitter.com/share?text=Patching WordPress Username Disclosure&amp;url=https://blog.dewhurstsecurity.com/2011/06/01/patching-wordpress-username-disclosure.html"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <span class="hidden">Twitter</span>
                 </a>
-                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.dewhurstsecurity.com/2011/06/01/patching-wordpress-username-disclosure.html"
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.dewhurstsecurity.com/2011/06/01/patching-wordpress-username-disclosure.html"
                     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                     <span class="hidden">Facebook</span>
                 </a>
-                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://blog.dewhurstsecurity.com/2011/06/01/patching-wordpress-username-disclosure.html"
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=https://blog.dewhurstsecurity.com/2011/06/01/patching-wordpress-username-disclosure.html"
                    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                     <span class="hidden">Google+</span>
                 </a>

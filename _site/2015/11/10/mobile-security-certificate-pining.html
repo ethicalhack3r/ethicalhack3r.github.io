@@ -48,7 +48,7 @@
 
     <article class="post">
         <header class="post-header">
-            <a id="blog-logo" href="http://blog.dewhurstsecurity.com">
+            <a id="blog-logo" href="https://blog.dewhurstsecurity.com">
                 
                     <span class="blog-title">Dewhurst Security Blog</span>
                 
@@ -124,9 +124,8 @@
 
 <p>The <a href="https://github.com/iBotPeaches/Apktool">apktool</a> tool was used to disassemble the APK with the following command:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ apktool d com.facebook.katana.apk -o com.facebook.katana_disassembled
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ apktool d com.facebook.katana.apk -o com.facebook.katana_disassembled
+</code></pre></div></div>
 
 <h3 id="modify-the-certificate-pinning-logic">Modify the Certificate Pinning logic</h3>
 
@@ -142,9 +141,8 @@
 
 <p>Once the changes are made to the methods the APK will need to be reassembled. To do this the following apktool command was run:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ apktool b com.facebook.katana_disassembled/ -o app_modified.apk
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ apktool b com.facebook.katana_disassembled/ -o app_modified.apk
+</code></pre></div></div>
 
 <p>This should create a reassembled APK named ‘app_modified.apk’ with the changes we made.</p>
 
@@ -154,27 +152,23 @@
 
 <p>1.Generate the private key.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
+</code></pre></div></div>
 
 <p>2.Sign the APK using the generated private key.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore app_modified.apk
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore app_modified.apk
+</code></pre></div></div>
 
 <p>If you get the <code class="highlighter-rouge">Please specify alias name</code> use the following command instead:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore app_modified.apk alias_name
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore app_modified.apk alias_name
+</code></pre></div></div>
 
 <p>The modified APK should now be signed for 10,000 days and ready to be installed onto the Android device. To do this, ensure the device has USB debugging enabled then attach the device to the computer’s USB port and run:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ adb install app_modified.apk
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ adb install app_modified.apk
+</code></pre></div></div>
 
 <p>After installing the modified APK it is possible to intercept (Man-in-the-Middle) the HTTPS communications.</p>
 
@@ -199,15 +193,15 @@
 
             <section class="share">
                 <h4>Share this post</h4>
-                <a class="icon-twitter" href="http://twitter.com/share?text=Mobile Security Certificate Pinning&amp;url=http://blog.dewhurstsecurity.com/2015/11/10/mobile-security-certificate-pining.html"
+                <a class="icon-twitter" href="http://twitter.com/share?text=Mobile Security Certificate Pinning&amp;url=https://blog.dewhurstsecurity.com/2015/11/10/mobile-security-certificate-pining.html"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <span class="hidden">Twitter</span>
                 </a>
-                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.dewhurstsecurity.com/2015/11/10/mobile-security-certificate-pining.html"
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.dewhurstsecurity.com/2015/11/10/mobile-security-certificate-pining.html"
                     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                     <span class="hidden">Facebook</span>
                 </a>
-                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://blog.dewhurstsecurity.com/2015/11/10/mobile-security-certificate-pining.html"
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=https://blog.dewhurstsecurity.com/2015/11/10/mobile-security-certificate-pining.html"
                    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                     <span class="hidden">Google+</span>
                 </a>

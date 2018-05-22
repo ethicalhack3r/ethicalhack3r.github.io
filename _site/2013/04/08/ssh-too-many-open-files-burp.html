@@ -48,7 +48,7 @@
 
     <article class="post">
         <header class="post-header">
-            <a id="blog-logo" href="http://blog.dewhurstsecurity.com">
+            <a id="blog-logo" href="https://blog.dewhurstsecurity.com">
                 
                     <span class="blog-title">Dewhurst Security Blog</span>
                 
@@ -78,9 +78,9 @@
 <p>Finally, I came across <a href="http://superuser.com/questions/302754/increase-the-maximum-number-of-open-file-descriptors-in-snow-leopard" target="_blank">this</a> post on superuser.com where the errant.info user suggests to issue the following commands:</p>
 <p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s1">'kern.maxfiles=20480'</span> | sudo tee -a /etc/sysctl.conf
-<span class="nb">echo</span> -e <span class="s1">'limit maxfiles 8192 20480\nlimit maxproc 1000 2000'</span> | sudo tee -a /etc/launchd.conf
-<span class="nb">echo</span> <span class="s1">'ulimit -n 4096'</span> | sudo tee -a /etc/profile</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s1">'kern.maxfiles=20480'</span> | <span class="nb">sudo </span>tee <span class="nt">-a</span> /etc/sysctl.conf
+<span class="nb">echo</span> <span class="nt">-e</span> <span class="s1">'limit maxfiles 8192 20480\nlimit maxproc 1000 2000'</span> | <span class="nb">sudo </span>tee <span class="nt">-a</span> /etc/launchd.conf
+<span class="nb">echo</span> <span class="s1">'ulimit -n 4096'</span> | <span class="nb">sudo </span>tee <span class="nt">-a</span> /etc/profile</code></pre></figure>
 </p>
 <p>As far as I can tell, the above seems to set a kernal limit, system limit and also the user's ulimit. After a system restart, the error has now gone!</p>
 <p>The user also adds some additional notes:</p>
@@ -107,15 +107,15 @@ Be cautious when setting any of these values to a very high number when compared
 
             <section class="share">
                 <h4>Share this post</h4>
-                <a class="icon-twitter" href="http://twitter.com/share?text=SSH "accept : too many open files" on OS X when using Burp&amp;url=http://blog.dewhurstsecurity.com/2013/04/08/ssh-too-many-open-files-burp.html"
+                <a class="icon-twitter" href="http://twitter.com/share?text=SSH "accept : too many open files" on OS X when using Burp&amp;url=https://blog.dewhurstsecurity.com/2013/04/08/ssh-too-many-open-files-burp.html"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <span class="hidden">Twitter</span>
                 </a>
-                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.dewhurstsecurity.com/2013/04/08/ssh-too-many-open-files-burp.html"
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.dewhurstsecurity.com/2013/04/08/ssh-too-many-open-files-burp.html"
                     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                     <span class="hidden">Facebook</span>
                 </a>
-                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://blog.dewhurstsecurity.com/2013/04/08/ssh-too-many-open-files-burp.html"
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=https://blog.dewhurstsecurity.com/2013/04/08/ssh-too-many-open-files-burp.html"
                    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                     <span class="hidden">Google+</span>
                 </a>
