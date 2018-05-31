@@ -7,6 +7,6 @@ highlighter: rouge
 paginate: 15
 excerpt_separator: https://github.com/jekyll/jekyll/issues/1401
 
-gems:
+plugins:
   - jekyll-sitemap
   - jekyll-paginate

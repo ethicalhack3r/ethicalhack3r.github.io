@@ -439,6 +439,7 @@ margin on the iframe, cause it breaks stuff. */
 
 .post-title {
     margin:0;
+    margin-bottom: 30px;
 }
 
 .post-title a {
