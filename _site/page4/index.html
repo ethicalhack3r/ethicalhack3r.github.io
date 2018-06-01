@@ -58,6 +58,27 @@
 
     <article class="post">
         <header class="post-header">
+            <span class="post-meta"><time datetime="2012-01-03">03 Jan 2012</time> </span>
+            <h2 class="post-title"><a href="/2012/01/03/wordpress-3-3-cross-site-scripting-xss.html">WordPress 3.3 Cross-Site Scripting (XSS)</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            Yesterday two Indian security researchers, Aditya Modha & Samir Shah, released an <a href="http://oldmanlab.blogspot.com/2012/01/wordpress-33-xss-vulnerability.html" target="_blank">advisory</a> outlining a Cross-Site Scripting (XSS) vulnerability within the latest version (at the time of writing) of WordPress 3.3. Many people started re-tweeting the news (including myself) and <a href="http://thehackernews.com/2012/01/zero-day-reflected-cross-site-scripting.html" target="_blank">blogging</a> about it. The problem came when I tried to reproduce the vulnerability, I couldn't.
+
+I started to think that the vulnerability was a miss-understanding or publicity stunt and was getting annoyed at the many people who were spreading miss-information. I contacted the researchers over <a href="http://www.twitter.com/oldmanlab" target="_blank">Twitter</a> and told them that I was unable to reproduce the vulnerability in any browser or on any WordPress installation including vanilla installs.
+
+The researchers got back in touch with a link to a WordPress installation on which the vulnerability worked. The URL they gave me was an IP address. Within their environment the XSS worked.
+
+At this point I think even the researchers were puzzled. They sent me this code that they believed was the function causing the XSS within wp-includes/functions.php <a href="http://pastebin.com/iBnpN8Zm" target="_blank">http://pastebin.com/iBnpN8Zm</a>.
+
+
+        </section>
+    </article>
+
+    
+
+    <article class="post">
+        <header class="post-header">
             <span class="post-meta"><time datetime="2011-12-11">11 Dec 2011</time> </span>
             <h2 class="post-title"><a href="/2011/12/11/wordpress-plugin-disqus-comment-system-xss.html">WordPress Plugin Disqus Comment System XSS</a></h2>
 
@@ -394,25 +415,6 @@ Other miscellaneous checks
 It is nothing revolutionary or difficult to code, but it may come in handy one day on a pentest or web application assessment, mainly to automate the process.
 
 Currently you can use the tool in 3 different ways.
-
-
-        </section>
-    </article>
-
-    
-
-    <article class="post">
-        <header class="post-header">
-            <span class="post-meta"><time datetime="2011-06-01">01 Jun 2011</time> </span>
-            <h2 class="post-title"><a href="/2011/06/01/patching-wordpress-username-disclosure.html">Patching WordPress Username Disclosure</a></h2>
-
-        </header>
-        <section class="post-excerpt">
-            On May 26th Veronica Valero of Talsoft S.R.L. posted a security advisory on the <a href="http://seclists.org/fulldisclosure/2011/May/493" target="_blank">Full Disclosure</a> mailing list outlining a username disclosure vulnerability via a <a href="https://www.owasp.org/index.php/Top_10_2010-A4-Insecure_Direct_Object_References" target="_blank">Direct Object Reference</a>. 
-
-This is a problem in itself, however, what was more interesting to me was Zerial's <a href="http://seclists.org/fulldisclosure/2011/May/494" target="_blank">reply</a> to the advisory; 
-
-<blockquote>"Also you can "enumerate" wordpress users using the wp-login.php. Whenyou enter a non-existent user wordpress returns "Invalid username" andwhen you enter a valid user with any random/dummie password, wordpressreturns "Invalid Password". Now you can use brute-force to enumerate allvalid users using, for example, a name&username dictionary."</blockquote>
 
 
         </section>

@@ -8,6 +8,19 @@
     
       
       <item>
+        <title>Security Vulnerability in wpForo Forum WordPress Plugin</title>
+        
+          <description>Version 1.4.11, and below, of the wpForo Forum WordPress Plugin were found to be vulnerable to Reflected Cross-Site Scripting (XSS). The vulnerability was due to the Plugin using the $_SERVER['REQUEST_URI'] PHP variable to create a URL string that was later output within HTML without any output encoding.</description>
+        
+        <pubDate>Fri, 01 Jun 2018 00:00:00 +0200</pubDate>
+        <link>
+        https://blog.dewhurstsecurity.com/2018/06/01/wp-foro-wordpress-plugin-xss-vulnerability.html</link>
+        <guid isPermaLink="true">https://blog.dewhurstsecurity.com/2018/06/01/wp-foro-wordpress-plugin-xss-vulnerability.html</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Security Vulnerability in Loginizer WordPress Plugin</title>
         
           <description>Versions 1.3.8 to 1.3.9 of the Loginizer WordPress Plugin were found to be vulnerable to Stored Cross-Site Scripting (XSS). The vulnerability was due to the Plugin's logging functionality using the $_SERVER['REQUEST_URI'] PHP variable to create a URL string that was logged to the database without any input validation. The URL that was saved to the database was later output within HTML without any output encoding.</description>

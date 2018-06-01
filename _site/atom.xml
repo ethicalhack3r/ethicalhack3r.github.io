@@ -3,11 +3,20 @@
   <title>Dewhurst Security Blog</title>
   <link href="https://blog.dewhurstsecurity.com/atom.xml" rel="self" />
   <link href="https://blog.dewhurstsecurity.com/"/>
-  <updated>2018-05-31T10:53:48+02:00</updated>
+  <updated>2018-06-01T12:05:56+02:00</updated>
   <id>https://blog.dewhurstsecurity.com</id>
   <author>
     <name>Dewhurst Security Blog</name>
   </author>
+  
+    <entry>
+      <title>Security Vulnerability in wpForo Forum WordPress Plugin</title>
+      <link href="https://blog.dewhurstsecurity.com/2018/06/01/wp-foro-wordpress-plugin-xss-vulnerability.html" />
+      <id>https://blog.dewhurstsecurity.com/2018/06/01/wp-foro-wordpress-plugin-xss-vulnerability</id>
+	  
+	  <content type="html">Version 1.4.11, and below, of the wpForo Forum WordPress Plugin were found to be vulnerable to Reflected Cross-Site Scripting (XSS). The vulnerability was due to the Plugin using the $_SERVER['REQUEST_URI'] PHP variable to create a URL string that was later output within HTML without any output encoding.</content>
+	  
+    </entry>
   
     <entry>
       <title>Security Vulnerability in Loginizer WordPress Plugin</title>
