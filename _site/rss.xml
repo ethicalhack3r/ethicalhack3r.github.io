@@ -8,6 +8,21 @@
     
       
       <item>
+        <title>Database Dumps and the Alexa Top 1 Million</title>
+        
+          <description>Out of the 852,301 (85%) of sites that we were able to check, we identified that 736 (0.086%) of them were exposing their database export files publicly with the same name as their domain. This may not seem like a lot, but when you consider the impact of the database contents being exposed to malicious actors, it is a considerable risk to the affected individual sites, and their users.
+The sites affected included 11 worldwide government websites, a lot of porn sites, 2 small banks, 5 educational institutions and a lot of other random websites, such as personal sites, anime sites, etc.
+Out of the 736 affected sites, 290 (39%) of them, were running WordPress.</description>
+        
+        <pubDate>Thu, 07 Jun 2018 00:00:00 +0200</pubDate>
+        <link>
+        https://blog.dewhurstsecurity.com/2018/06/07/database-sql-backup-files-alexa-top-1-million.html</link>
+        <guid isPermaLink="true">https://blog.dewhurstsecurity.com/2018/06/07/database-sql-backup-files-alexa-top-1-million.html</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Security Vulnerability in wpForo Forum WordPress Plugin</title>
         
           <description>Version 1.4.11, and below, of the wpForo Forum WordPress Plugin were found to be vulnerable to Reflected Cross-Site Scripting (XSS). The vulnerability was due to the Plugin using the $_SERVER['REQUEST_URI'] PHP variable to create a URL string that was later output within HTML without any output encoding.</description>

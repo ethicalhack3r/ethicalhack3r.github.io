@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title> Database Dumps and the Alexa Top 1 Million </title>
+    <meta name="description" content="Out of the 852,301 (85%) of sites that we were able to check, we identified that 736 (0.086%) of them were exposing their database export files publicly with...">
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+    <!-- This is for syntax highlight -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
+    <!-- Customisation  -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://dewhurstsecurity.com/img/favicomatic/apple-touch-icon-57x57.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://dewhurstsecurity.com/img/favicomatic/apple-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://dewhurstsecurity.com/img/favicomatic/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://dewhurstsecurity.com/img/favicomatic/apple-touch-icon-144x144.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="https://dewhurstsecurity.com/img/favicomatic/apple-touch-icon-60x60.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://dewhurstsecurity.com/img/favicomatic/img/favicomatic/apple-touch-icon-120x120.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://dewhurstsecurity.com/img/favicomatic/apple-touch-icon-76x76.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://dewhurstsecurity.com/img/favicomatic/apple-touch-icon-152x152.png" />
+	<link rel="icon" type="image/png" href="https://dewhurstsecurity.com/img/favicomatic/favicon-196x196.png" sizes="196x196" />
+	<link rel="icon" type="image/png" href="https://dewhurstsecurity.com/img/favicomatic/favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/png" href="https://dewhurstsecurity.com/img/favicomatic/favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="https://dewhurstsecurity.com/img/favicomatic/favicon-16x16.png" sizes="16x16" />
+	<link rel="icon" type="image/png" href="https://dewhurstsecurity.com/img/favicomatic/favicon-128.png" sizes="128x128" />
+	<meta name="application-name" content="&nbsp;"/>
+	<meta name="msapplication-TileColor" content="#FFFFFF" />
+	<meta name="msapplication-TileImage" content="https://dewhurstsecurity.com/img/favicomatic/mstile-144x144.png" />
+	<meta name="msapplication-square70x70logo" content="https://dewhurstsecurity.com/img/favicomatic/mstile-70x70.png" />
+	<meta name="msapplication-square150x150logo" content="https://dewhurstsecurity.com/img/favicomatic/mstile-150x150.png" />
+	<meta name="msapplication-wide310x150logo" content="https://dewhurstsecurity.com/img/favicomatic/mstile-310x150.png" />
+	<meta name="msapplication-square310x310logo" content="https://dewhurstsecurity.com/img/favicomatic/mstile-310x310.png" />
+
+</head>
+<body class="home-template">
+
+
+    <main class="content" role="main">
+
+    <article class="post">
+        <header class="post-header">
+            <a id="blog-logo" href="https://blog.dewhurstsecurity.com">
+                
+                    <span class="blog-title">Dewhurst Security Blog</span>
+                
+            </a>
+        </header>
+
+        <span class="post-meta">
+        	<time datetime="2018-06-07">07 Jun 2018</time>
+        	
+        		on
+	        	
+	        
+       	</span>
+
+        <h1 class="post-title">Database Dumps and the Alexa Top 1 Million</h1>
+
+        <section class="post-content">
+            <h3 id="introduction">Introduction</h3>
+
+<p>While at WordCamp Irun recently there was a talk on <a href="https://wp-cli.org/">WP-CLI</a>, which is a command line interface for WordPress. One of WP-CLI’s functionalities is to export the database to a file. Fortunately, by default the exported file name is random enough to make it difficult to brute force, if, for example, someone exported the file to a publicly accessible location on their Web server.</p>
+
+<p>However, the WP-CLI export database command does allow users to specify an output file name. And this gave us an idea.</p>
+
+<p>How many people export their database to a publicly accessible location with a predictable file name?</p>
+
+<p>In our experience, developers often name their application’s database with the same name as their domain name. So, for example, if my application’s domain name was <code class="highlighter-rouge">superawesomeapp.com</code>, it is possible that the database for this application is named <code class="highlighter-rouge">superawesomeapp</code>. Which makes it also possible that if the database was exported, the file name may be the same as the database name, <code class="highlighter-rouge">superawesomeapp.sql</code>.</p>
+
+<p>There are also other possible common database export file names, such as <code class="highlighter-rouge">backup.sql</code>, <code class="highlighter-rouge">database.sql</code>, <code class="highlighter-rouge">database.backup</code>, <code class="highlighter-rouge">dump.sql</code>, etc. However, these file names are most likely already searched for by automated web scanning tools. In fact, <a href="https://github.com/sullo/nikto">Nikto</a> already includes most of these file name checks, and more. But it is less likely that automated web scanning tools check for the case we discussed, naming the database export file name the same name as the database, which is likely to be the same name as the domain name.</p>
+
+<p>This could result in very sensitive information being left publicly accessible, even after an application security assessment has been conducted. Databases often contain IP addresses, payment data, personal user information, passwords, usernames, and a lot more. Leaving this data exposed would result in a breach of <a href="https://www.eugdpr.org/">The EU General Data Protection Regulation (GDPR)</a>.</p>
+
+<h3 id="gathering-data">Gathering Data</h3>
+
+<p>With this in mind, we wanted to prove our hypothesis. How many people actually exported their database to a publicly accessible location on their web server, using the same name as their domain name?</p>
+
+<p>We have done research using the <a href="https://www.alexa.com/topsites">Alexa Top 1 Million Global sites</a> list in the past, <a href="https://blog.dewhurstsecurity.com/2013/08/03/zone-transfers-on-the-alexa-top-1-million.html">Zone Transfers on The Alexa Top 1 Million</a> and <a href="https://blog.dewhurstsecurity.com/2013/08/08/zone-transfers-on-the-alexa-top-1-million-part-2.html">Zone Transfers on The Alexa Top 1 Million Part 2</a>, to create better subdomain brute forcing lists.</p>
+
+<p>We decided to use the Alexa Top 1 Million websites list to check how many of them had the exported database <code class="highlighter-rouge">.sql</code> file in their root web server directories.</p>
+
+<h3 id="the-results">The Results</h3>
+
+<p>After spending a couple of days writing and testing a script that was fast enough, and accurate enough, we ran the script against the Alexa Top 1 Million sites list. The script took the website name, extracted the domain, appended <code class="highlighter-rouge">.sql</code>, and then queried the site for the file.</p>
+
+<p>We used the <code class="highlighter-rouge">Range</code> HTTP request header to request only the first 3MB of the file, to search for a string to identify the file was a database output file. None of the files were stored to disk and the server used was destroyed after the research was conducted.</p>
+
+<p>The script took just under 10 hours to complete, 107,922 of the script’s requests timedout due to the site not responding quick enough, and 39,777 of the sites did not respond at all when sending a request. That’s a total of 147,699 sites, about 15%, out of the 1 million sites that we were unable to check.</p>
+
+<p>Out of the 852,301 (85%) of sites that we were able to check, we identified that 736 (0.086%) of them were exposing their database export files publicly with the same name as their domain. This may not seem like a lot, but when you consider the impact of the database contents being exposed to malicious actors, it is a considerable risk to the affected individual sites, and their users.</p>
+
+<p>The sites affected included 11 worldwide government websites, a lot of porn sites, 2 small banks, 5 educational institutions and a lot of other random websites, such as personal sites, anime sites, etc.</p>
+
+<p>Out of the 736 affected sites, 290 (39%) of them, were running WordPress.</p>
+
+<h3 id="disclosure">Disclosure</h3>
+
+<p>For the affected government websites, we contacted the affected countries Computer Emergency Response Team (CERT), who were all very responsive and contacted people within their respective government departments to have the files removed from the web servers.</p>
+
+<p>We attempted to contact some of the affected sites manually, some of which were quite high up in the Alexa rankings, however, we only received a response from one of them, who removed the file from their site.</p>
+
+<p>This leaves the vast majority of the 736 sites still affected.</p>
+
+<h3 id="tools">Tools</h3>
+
+<p>We decided that this issue was serious enough to implement checks for the database output files with the same file name as the domain name, into various tools that we use on a regular basis. This will ensure that every time we conduct a test for one of out clients, we check for this issue. It also means that others will benefit from this check too, if they use the same tools against their own websites, or within penetration tests.</p>
+
+<h4 id="nikto">Nikto</h4>
+
+<p>For the Nikto tool, adding the check was as trivial as adding the <code class="highlighter-rouge">.sql</code> extension to similar already existing checks.</p>
+
+<p><a href="https://github.com/sullo/nikto/pull/542/commits/513c647d7f7490580edc66c22525dcdf36dfeef3">https://github.com/sullo/nikto/pull/542/commits/513c647d7f7490580edc66c22525dcdf36dfeef3</a></p>
+
+<h4 id="wpscan">WPScan</h4>
+
+<p>WPScan version 2 (master branch) now checks for the <code class="highlighter-rouge">superawesomeapp.sql</code> and other <code class="highlighter-rouge">.sql</code> backup files.</p>
+
+<p><a href="https://github.com/wpscanteam/wpscan/commit/0e73774bd9f6d13c8194e44b9b799d3e5dd089ca">https://github.com/wpscanteam/wpscan/commit/0e73774bd9f6d13c8194e44b9b799d3e5dd089ca</a></p>
+
+<h3 id="conclusions">Conclusions</h3>
+
+<p>Do not export database dumps/backups to publicly accessible places on your web server. When you create database exports ensure the file name is long, complex and random, so that it can not be guessed.</p>
+
+        </section>
+
+        
+
+        <footer class="post-footer">
+            <section class="hire-me">
+              <h4><a href="https://dewhurstsecurity.com/" onClick="_gaq.push(['_trackEvent', 'External Link', 'Dewhurst Security Link', 'Hire Us – Words']);">Hire Us</a></h4>
+            </section>
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=Database Dumps and the Alexa Top 1 Million&amp;url=https://blog.dewhurstsecurity.com/2018/06/07/database-sql-backup-files-alexa-top-1-million.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.dewhurstsecurity.com/2018/06/07/database-sql-backup-files-alexa-top-1-million.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=https://blog.dewhurstsecurity.com/2018/06/07/database-sql-backup-files-alexa-top-1-million.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+    </article>
+
+</main>
+
+
+    <footer class="site-footer">
+        <div class="inner">
+            <section class="copyright">All content copyright <a href="https://dewhurstsecurity.com">Dewhurst Security</a> &copy;  &bull; All rights reserved.</section>
+        </div>
+    </footer>
+
+
+    <script type="text/javascript" src="/assets/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3292649-12', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+</body>
+</html>
